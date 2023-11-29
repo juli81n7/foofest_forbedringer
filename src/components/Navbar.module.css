@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.link {
+  font-weight: 700;
+}
+.nav {
+}
+.ul {
+  display: flex;
+  list-style: none;
+  gap: 0.8rem;
+}
+.button {
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  margin-right: 0.5rem;
+}
+.rightside {
+  display: flex;
+}
