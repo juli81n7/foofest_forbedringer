@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Header.module.css";
+import "../styles/Header.css";
 
 function Header() {
   return (
     <header>
-      <h1 className={styles.headline}>FOOFEST</h1>
-      <section className={styles.headersection}>
-        <div className={styles.teasers}>
+      <h1 className="headline">FOOFEST</h1>
+      <section className="headersection">
+        <div className="teasers">
           <p>Get ready for the party of the year.</p>
           <p>All your favorite underground artists that you haven´t heard of yet.</p>
           <p>Grab your crew and get your tickets before they are sold out and prepare yourselves for an experience you won´t soon forget.</p>
           {/* indsæt <Button/> her i stedet?? */}
-          <Link href="/tickets" className={styles.button}>
+          <Link href="/tickets" className="ticketLink">
             GET TICKETS
           </Link>
         </div>

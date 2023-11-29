@@ -1,5 +1,7 @@
-.headline {
+h1 {
   font-size: 284px;
+  margin-block: 0;
+  color: #f5f5f5;
 }
 .headersection {
   display: flex;
@@ -11,7 +13,7 @@
   gap: 1.3rem;
   max-width: 20rem;
 }
-.button {
+.ticketLink {
   align-self: start;
   margin-top: 5rem;
   border: 1px solid white;

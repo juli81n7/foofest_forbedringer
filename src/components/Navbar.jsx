@@ -1,19 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./Navbar.module.css";
+import "../styles/Navbar.css";
 
 function Navbar() {
   return (
-    <div className={styles.navbar}>
-      <Link className={styles.link} href="/">
+    <div className="navbar">
+      <Link className="link" href="/">
         FOOFEST
       </Link>
-      <div className={styles.rightside}>
-        <button className={styles.button} aria-hidden="true">
-          <Image className={styles.moon} src="/theme.svg" width={40} height={20} alt="Picture of the author" />
+      <div className="rightside">
+        <button aria-hidden="true">
+          <Image className="moon" src="/theme.svg" width={40} height={20} alt="Picture of the author" />
         </button>
-        <nav className={styles.nav}>
-          <ul className={styles.ul}>
+        <nav>
+          <ul>
             <li>
               <Link href="/tickets">TICKETS</Link>
             </li>
