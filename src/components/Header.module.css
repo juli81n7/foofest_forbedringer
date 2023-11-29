@@ -1,0 +1,19 @@
+.headline {
+  font-size: 284px;
+}
+.headersection {
+  display: flex;
+  justify-content: space-between;
+}
+.teasers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  max-width: 20rem;
+}
+.button {
+  align-self: start;
+  margin-top: 5rem;
+  border: 1px solid white;
+  padding: 6px 16px;
+}
