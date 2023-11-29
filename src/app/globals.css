@@ -1,6 +1,7 @@
 body {
   min-height: 100dvh;
   background-color: var(--bg-color);
+  color: var(--white);
 }
 
 /* custom properties */
@@ -9,7 +10,8 @@ body {
   --text-color: var(--font-clr, #f5f5f5);
   --border-color: var(--stroke-clr, #151515);
   --white: #fff;
-  --accent-green: #59ff3f;
+  /*   --accent-green: #59ff3f; */
+  --accent-green: #1b8a0a;
   --accent-blue: #5a3fff;
   --accent-red: #ff3f3f;
   --accent-orange: #ffa319;
