@@ -1,10 +1,12 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <main className={styles.main}>
+      <Header />
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
