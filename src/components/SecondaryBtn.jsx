@@ -1,5 +1,5 @@
-import "../styles/secondaryBtn.css";
+import "../styles/SecondaryBtn.css";
 
-export default function SecondaryBtn() {
-  return <button className="secbtn">View more</button>;
+export default function SecondaryBtn({ secbtntext }) {
+  return <button className="secbtn">{secbtntext}</button>;
 }

@@ -1,0 +1,15 @@
+.cardframe {
+  border: solid #fff 1px;
+  width: 20rem;
+  color: white;
+  display: grid;
+  padding: 1rem;
+}
+
+.cardframe :last-child {
+  justify-self: right;
+}
+
+.cardframe h3 {
+  font-size: 3rem;
+}
