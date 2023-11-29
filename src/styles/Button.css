@@ -1,7 +1,13 @@
-button {
+.pributton {
   background-color: transparent;
   border: solid 1px #fff;
   color: #fff;
   padding-block: 0.5rem;
   padding-inline: 1rem;
+  transition: ease 0.2s;
+}
+
+.pributton:hover {
+  background-color: #fff;
+  color: #151515;
 }

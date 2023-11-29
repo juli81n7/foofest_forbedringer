@@ -1,6 +1,6 @@
 import "../styles/Button.css";
 function Button() {
-  return <button>View all</button>;
+  return <button className="pributton">View all</button>;
 }
 
 export default Button;
