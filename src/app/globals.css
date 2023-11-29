@@ -1,4 +1,130 @@
 body {
-  min-height: 100vh;
-  background-color: #151515;
+  min-height: 100dvh;
+  background-color: var(--bg-color);
 }
+
+/* custom properties */
+:root {
+  --bg-color: var(--background-clr, #151515);
+  --text-color: var(--font-clr, #f5f5f5);
+  --border-color: var(--stroke-clr, #151515);
+  --white: #fff;
+  --accent-green: #59ff3f;
+  --accent-blue: #5a3fff;
+  --accent-red: #ff3f3f;
+  --accent-orange: #ffa319;
+  --accent-teal: #2da9dc;
+}
+
+[data-theme="dark"] {
+  --background-clr: #151515;
+  --font-clr: #f5f5f5;
+  --stroke-clr: #fff;
+}
+[data-theme="light"] {
+  --background-clr: #fffcf6;
+  --font-clr: #151515;
+  --stroke-clr: #151515;
+}
+/* Reset herunder */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  line-height: 1.5;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* ------------ ekstra ----------- */
+p {
+  text-wrap: pretty;
+}
+
+/* input {
+  font: inherit;
+  font-size: max(16px, 1em);
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 2px solid hsl(var(--theme-color));
+} */
+
+/* input:is(:focus-visible, :hover) {
+  border-color: hsl(var(--accent-color));
+} */
+
+/* input:is([type="checkbox"], [type="radio"]) {
+  appearance: none;
+  // custom styling
+} */

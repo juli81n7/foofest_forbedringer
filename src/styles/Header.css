@@ -12,10 +12,11 @@ h1 {
   flex-direction: column;
   gap: 1.3rem;
   max-width: 20rem;
+  color: #f5f5f5;
 }
 .ticketLink {
   align-self: start;
   margin-top: 5rem;
-  border: 1px solid white;
+  border: 1px solid #f5f5f5;
   padding: 6px 16px;
 }
