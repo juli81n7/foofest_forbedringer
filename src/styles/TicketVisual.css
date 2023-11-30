@@ -1,0 +1,42 @@
+.card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  max-width: 800px;
+  margin-inline: auto;
+
+  border: 1px solid white;
+
+  & .first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+  & .wave {
+    height: 190px;
+    fill: white;
+  }
+
+  & .info {
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & h4 {
+      text-transform: uppercase;
+    }
+
+    & p {
+      font-weight: 300;
+    }
+
+    & svg {
+      margin-top: 2rem;
+    }
+  }
+}
