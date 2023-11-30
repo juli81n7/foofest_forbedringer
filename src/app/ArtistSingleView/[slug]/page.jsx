@@ -11,7 +11,7 @@ export default function page() {
         <section className="singleartistinfo">
           <h1 className="singleh1">UKENDT KUNSTNER</h1>
           <p>Get ready for the party of the year</p>
-          <p>All your favorite underground artists that you haven't heard of yet jasbdhasvfhvbdjfvdhsbvhdhsv</p>
+          <p>{"All your favorite underground artists that you haven't heard of yet jasbdhasvfhvbdjfvdhsbvhdhsv"}</p>
           <p>mvdsnbcjvhdshvbsdjfvdsjfnvbhsdbjvdsahjvdjsnvdsbkvdsnjvbdsjhvbsjvndbhsd</p>
         </section>
         <section className="singleinfo">
