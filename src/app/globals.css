@@ -133,3 +133,20 @@ p {
   appearance: none;
   // custom styling
 } */
+
+h1,
+h2 {
+  font-weight: 900;
+}
+
+h3 {
+  font-weight: 800;
+}
+
+.pbold {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400;
+}
