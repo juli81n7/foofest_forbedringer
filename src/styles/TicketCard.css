@@ -11,9 +11,10 @@
 }
 
 .cardframe h3 {
-  font-size: 3rem;
+  font-size: 2rem;
+  padding-bottom: 1rem;
 }
 
-.ticketh3 {
-  font-size: 2rem;
+.cardframe p {
+  padding-bottom: 1rem;
 }

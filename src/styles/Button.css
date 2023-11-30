@@ -4,6 +4,8 @@
   color: #fff;
   padding-block: 0.5rem;
   padding-inline: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08rem;
   transition: ease 0.2s;
   text-transform: uppercase;
 }
