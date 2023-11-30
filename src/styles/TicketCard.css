@@ -12,4 +12,9 @@
 
 .cardframe h3 {
   font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.cardframe p {
+  padding-bottom: 1rem;
 }
