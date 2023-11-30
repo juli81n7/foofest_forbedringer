@@ -1,7 +1,10 @@
+@import url("https://use.typekit.net/naq1gyi.css");
+
 body {
   min-height: 100dvh;
   background-color: var(--bg-color);
   color: var(--white);
+  font-family: "alfabet", sans-serif;
 }
 
 /* custom properties */
