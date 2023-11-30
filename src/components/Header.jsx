@@ -15,7 +15,7 @@ function Header() {
           {/* indsæt <Button/> her i stedet?? */}
           <Button href="/tickets" btntext="get tickets"></Button>
         </div>
-        <Image src="/partypeople.png" width={712} height={451} alt="Picture of a nightime concert, full of festive people" />
+        <Image className="hero-img" src="/partypeople.png" width={712} height={451} alt="Picture of a nightime concert, full of festive people" />
       </section>
     </header>
   );
