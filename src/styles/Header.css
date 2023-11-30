@@ -1,5 +1,10 @@
+header {
+  /* grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: inherit; */
+}
 h1 {
-  font-size: 284px;
   font-size: clamp(20px, calc(20.4vw), 300px);
   color: #f5f5f5;
   margin-top: 3.5rem;
@@ -8,6 +13,7 @@ h1 {
   /* line-height: normal; */
 }
 section {
+  grid-column: 1/-1;
   display: grid;
   grid-template-columns: subgrid;
 }
@@ -21,5 +27,6 @@ section {
 }
 
 .hero-img {
-  grid-column: 5/-1;
+  grid-column: 8/-1;
+  object-fit: cover;
 }
