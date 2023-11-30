@@ -1,8 +1,6 @@
 @import url("https://use.typekit.net/naq1gyi.css");
 
 body {
-  padding-inline: 1rem;
-  padding-top: 0.5rem;
   min-height: 100dvh;
   background-color: var(--bg-color);
   color: var(--white);
@@ -12,6 +10,7 @@ main {
   display: grid;
 }
 main > * {
+  margin-inline: 1rem;
   grid-column: 1/-1;
   display: grid;
   grid-template-columns: var(--web-grid);
