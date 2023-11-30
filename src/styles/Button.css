@@ -5,6 +5,7 @@
   padding-block: 0.5rem;
   padding-inline: 1rem;
   transition: ease 0.2s;
+  text-transform: uppercase;
 }
 
 .pributton:hover {
