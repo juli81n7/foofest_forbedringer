@@ -1,16 +1,10 @@
-header {
-  /* grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: subgrid;
-  column-gap: inherit; */
-}
+/* header {
+  } */
 h1 {
   font-size: clamp(20px, calc(20.4vw), 300px);
   color: #f5f5f5;
   margin-top: 3.5rem;
   margin-left: -1vw;
-  /* margin-block: 0; */
-  /* line-height: normal; */
 }
 section {
   grid-column: 1/-1;
@@ -24,6 +18,10 @@ section {
   gap: 1.3rem;
   max-width: 20rem;
   color: #f5f5f5;
+
+  :last-child {
+    align-self: start;
+  }
 }
 
 .hero-img {

@@ -1,7 +1,8 @@
 .navbar {
+  margin-inline: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
 .link {
   font-weight: 700;
@@ -25,7 +26,9 @@ button {
   margin-right: 0.5rem;
   padding: 0;
   height: fit-content;
+  cursor: pointer;
 }
 .rightside {
   display: flex;
+  align-items: center;
 }
