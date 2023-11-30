@@ -15,7 +15,7 @@ function Navbar() {
         <nav>
           <ul>
             <li>
-              <Link href="/tickets">TICKETS</Link>
+              <Link href="/Tickets">TICKETS</Link>
             </li>
             <li>
               <Link href="/program">PROGRAM</Link>
