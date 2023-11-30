@@ -13,7 +13,7 @@ function Header() {
         <p>All your favorite underground artists that you haven´t heard of yet.</p>
         <p>Grab your crew and get your tickets before they are sold out and prepare yourselves for an experience you won´t soon forget.</p>
         {/* indsæt <Button/> her i stedet?? */}
-        <Button href="/tickets" btntext="get tickets"></Button>
+        <Button href="/Tickets" btntext="get tickets"></Button>
       </div>
       <Image className="hero-img" src="/partypeople.png" width={712} height={451} alt="Picture of a nightime concert, full of festive people" />
     </header>

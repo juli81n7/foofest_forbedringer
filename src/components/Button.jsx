@@ -1,6 +1,11 @@
 import "../styles/Button.css";
-function Button({ btntext }) {
-  return <button className="pributton">{btntext}</button>;
+import Link from "next/link";
+function Button({ btntext, href }) {
+  return (
+    <Link href={href} className="pributton">
+      {btntext}
+    </Link>
+  );
 }
 
 export default Button;
