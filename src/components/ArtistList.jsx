@@ -13,12 +13,12 @@ function ArtistList(props) {
         {/*  {props.artists.map((artist, index) => (
         <Artist artistName={artist.name} artistTime={artist.time} key={index} />
       ))} */}
-        <Artist artistName="Kunsternavn" artistTime="11:30"></Artist>
-        <Artist artistName="Kunsternavn" artistTime="11:30"></Artist>
-        <Artist artistName="Kunsternavn" artistTime="11:30"></Artist>
-        <Artist artistName="Kunsternavn" artistTime="11:30"></Artist>
-        <Artist artistName="Kunsternavn" artistTime="11:30"></Artist>
-        <Artist artistName="Kunsternavn" artistTime="11:30"></Artist>
+        <Artist artistName="Kunsternavn" artistDay="Fri" artistTime="11:30"></Artist>
+        <Artist artistName="Kunsternavn" artistDay="Fri" artistTime="11:30"></Artist>
+        <Artist artistName="Kunsternavn" artistDay="Fri" artistTime="11:30"></Artist>
+        <Artist artistName="Kunsternavn" artistDay="Fri" artistTime="11:30"></Artist>
+        <Artist artistName="Kunsternavn" artistDay="Fri" artistTime="11:30"></Artist>
+        <Artist artistName="Kunsternavn" artistDay="Fri" artistTime="11:30"></Artist>
       </div>
     </article>
   );

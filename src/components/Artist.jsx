@@ -7,7 +7,8 @@ function Artist(props) {
     <div className="artist-container">
       <div className="artist">
         <h3>{props.artistName}</h3>
-        <p>{props.artistTime}</p>
+        <h5>{props.artistDay}</h5>
+        <h5>{props.artistTime}</h5>
       </div>
       <SecondaryBtn secbtntext="View more"></SecondaryBtn>
     </div>
