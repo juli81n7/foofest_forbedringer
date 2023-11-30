@@ -67,43 +67,7 @@ export default function Tickets() {
 </div>
 </section>
 
-<section className="PackagesSections">
-<div>
-    <h2>Packages</h2>
-    <p>dksjflsdkjflkdsjflksdjflkjsdlkdsfksdf
-    dksjflsdkjflkdsjflksdjflkjsdlkdsfksdf
-    dksjflsdkjflkdsjflksdjflkjsdlkdsfksdf
-    dksjflsdkjflkdsjflksdjflkjsdlkdsfksdf
-    dksjflsdkjflkdsjflksdjflkjsdlkdsfksdf
-    </p>
-</div>
-<div className="packages">
 
-<div className="package">
-<h3>Tent and ticket <br />for one</h3>
-<p>sdjnkfsdfkjsdhfgkjhsdkgjhdfjkfgsddskufhsdkjfhkjsdhfsd</p>
-<Button btntext="Buy now"/>
-</div>
-<div className="package">
-<h3>Tent and ticket <br />for one</h3>
-<p>sdjnkfsdfkjsdhfgkjhsdkgjhdfjkfgsddskufhsdkjfhkjsdhfsd</p>
-<Button btntext="Buy now"/>
-</div>
-<div className="package">
-<h3>Tent and ticket <br />for one</h3>
-<p>sdjnkfsdfkjsdhfgkjhsdkgjhdfjkfgsddskufhsdkjfhkjsdhfsd</p>
-<Button btntext="Buy now"/>
-</div>
-<div className="package">
-<h3>Tent and ticket <br />for one</h3>
-<p>sdjnkfsdfkjsdhfgkjhsdkgjhdfjkfgsddskufhsdkjfhkjsdhfsd</p>
-<Button btntext="Buy now"/>
-</div>
-
-
-</div>
-
-</section>
 
     </main>
   );

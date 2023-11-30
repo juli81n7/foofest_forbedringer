@@ -1,6 +1,4 @@
 .landing {
-  grid-column: 4/4;
-  display: block;
   margin-bottom: 5rem;
 }
 .btn_container {
@@ -28,7 +26,6 @@ h1 {
       overflow: hidden;
       background-color: white;
       height: 300px;
-      width: 100%;
 
       & h4 {
         color: black;
@@ -66,13 +63,12 @@ h1 {
 
   & .packages {
     display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    grid-template-rows: 1fr 1px 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 
     & .package {
       padding: 1rem;
       background-color: red;
-      max-width: 400px;
     }
   }
 }
