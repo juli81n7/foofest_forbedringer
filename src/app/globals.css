@@ -2,6 +2,7 @@
 
 body {
   padding-inline: 1rem;
+  padding-top: 0.5rem;
   min-height: 100dvh;
   background-color: var(--bg-color);
   color: var(--white);

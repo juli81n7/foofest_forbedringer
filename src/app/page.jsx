@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <main>
       <Header />
-
-      <ArtistList></ArtistList>
-      <ArtistList></ArtistList>
+      <ArtistList stageName="Midgård"></ArtistList>
+      <ArtistList stageName="Vanaheim"></ArtistList>
+      <ArtistList stageName="Jotunheim"></ArtistList>
     </main>
   );
 }
