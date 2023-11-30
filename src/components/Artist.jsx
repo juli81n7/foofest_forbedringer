@@ -1,5 +1,6 @@
 import "../styles/Artist.css";
 import Button from "./Button";
+import SecondaryBtn from "./SecondaryBtn";
 
 function Artist(props) {
   return (
@@ -8,7 +9,7 @@ function Artist(props) {
         <h3>{props.artistName}</h3>
         <p>{props.artistTime}</p>
       </div>
-      <Button btntext="View more"></Button>
+      <SecondaryBtn secbtntext="View more"></SecondaryBtn>
     </div>
   );
 }
