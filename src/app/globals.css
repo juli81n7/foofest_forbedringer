@@ -1,10 +1,17 @@
 @import url("https://use.typekit.net/naq1gyi.css");
 
 body {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  padding-inline: 1rem;
   min-height: 100dvh;
   background-color: var(--bg-color);
   color: var(--white);
   font-family: "alfabet", sans-serif;
+}
+body > * {
+  grid-column: 1/-1;
 }
 
 /* custom properties */
