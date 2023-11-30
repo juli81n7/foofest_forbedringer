@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import "../styles/Header.css";
+import Button from "./Button";
 
 function Header() {
   return (
@@ -12,9 +13,7 @@ function Header() {
           <p>All your favorite underground artists that you haven´t heard of yet.</p>
           <p>Grab your crew and get your tickets before they are sold out and prepare yourselves for an experience you won´t soon forget.</p>
           {/* indsæt <Button/> her i stedet?? */}
-          <Link href="/tickets" className="ticketLink">
-            GET TICKETS
-          </Link>
+          <Button href="/tickets" btntext="get tickets"></Button>
         </div>
         <Image src="/partypeople.png" width={712} height={451} alt="Picture of a nightime concert, full of festive people" />
       </section>

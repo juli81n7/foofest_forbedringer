@@ -1,5 +1,5 @@
 import "../styles/Artist.css";
-import Button from "./Button";
+
 import SecondaryBtn from "./SecondaryBtn";
 
 function Artist(props) {
