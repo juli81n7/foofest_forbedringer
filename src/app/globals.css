@@ -1,16 +1,26 @@
 @import url("https://use.typekit.net/naq1gyi.css");
 
 body {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
   padding-inline: 1rem;
   min-height: 100dvh;
   background-color: var(--bg-color);
   color: var(--white);
   font-family: "alfabet", sans-serif;
 }
-body > * {
+main {
+  display: grid;
+}
+main > * {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--web-grid);
+  gap: 1rem;
+
+  @media (width < 380px) {
+    grid-template-columns: var(--mobile-grid);
+  }
+}
+main > * > * {
   grid-column: 1/-1;
 }
 
@@ -26,6 +36,11 @@ body > * {
   --accent-red: #ff3f3f;
   --accent-orange: #ffa319;
   --accent-teal: #2da9dc;
+
+  /* grids */
+  --web-grid: repeat(12, 1fr);
+  --tablet-grid: ;
+  --mobile-grid: repeat(4, 1fr);
 }
 
 [data-theme="dark"] {
