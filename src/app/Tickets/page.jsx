@@ -13,6 +13,9 @@ export default function Tickets() {
     <main>
 <section className="landing">
 <h1>Get your tickets</h1>
+
+
+
 <TicketVisual/>
 <Button btntext="Buy now"/>
 </section>

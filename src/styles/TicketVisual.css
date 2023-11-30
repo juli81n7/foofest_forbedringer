@@ -1,9 +1,13 @@
+.ticketHolder {
+  width: 800px;
+  margin-inline: auto;
+  height: 300px;
+}
+
 .card {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  max-width: 800px;
-  margin-inline: auto;
-
+  height: 300px;
   border: 1px solid white;
 
   & .first {
@@ -12,9 +16,14 @@
     justify-content: center;
     padding-bottom: 1rem;
     padding-top: 1rem;
+
+    & h2 {
+      font-size: 5rem;
+      text-align: center;
+    }
   }
   & .wave {
-    height: 190px;
+    height: 180px;
     fill: white;
   }
 
