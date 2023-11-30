@@ -25,7 +25,9 @@ button {
   margin-right: 0.5rem;
   padding: 0;
   height: fit-content;
+  cursor: pointer;
 }
 .rightside {
   display: flex;
+  align-items: center;
 }

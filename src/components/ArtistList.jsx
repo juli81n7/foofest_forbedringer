@@ -5,7 +5,7 @@ function ArtistList(props) {
   return (
     <article className="artist-list">
       <div className="stage-details">
-        <h2 className="artisth2">{props.stageName} Stage name</h2>
+        <h2 className="artisth2">{props.stageName}</h2>
         <p>{props.stageName} Stage name is the coolest stage in all of FooFest. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, aut.</p>
         <p>Lorem ipsum dolor sit amet.</p>
       </div>
