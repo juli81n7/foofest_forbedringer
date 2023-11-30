@@ -1,6 +1,6 @@
 .cardframe {
   border: solid #fff 1px;
-  width: 20rem;
+  width: 25rem;
   color: white;
   display: grid;
   padding: 1rem;
@@ -12,4 +12,8 @@
 
 .cardframe h3 {
   font-size: 3rem;
+}
+
+.ticketh3 {
+  font-size: 2rem;
 }
