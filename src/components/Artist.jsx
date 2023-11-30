@@ -10,7 +10,7 @@ function Artist(props) {
         <h5>{props.artistDay}</h5>
         <h5>{props.artistTime}</h5>
       </div>
-      <SecondaryBtn secbtntext="View more"></SecondaryBtn>
+      <SecondaryBtn href="/ArtistSingleView/page" secbtntext="View more"></SecondaryBtn>
     </div>
   );
 }
