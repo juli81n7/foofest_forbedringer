@@ -1,12 +1,78 @@
 .landing {
   grid-column: 4/4;
   display: block;
+  margin-bottom: 5rem;
 }
 .btn_container {
-  margin-inline: auto;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
+  margin-bottom: 2rem;
   text-align: center;
   font-size: 5rem;
+}
+
+.areaSection {
+  & .areas {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 1rem;
+
+    & .areacard {
+      display: grid;
+      grid-template-rows: 4fr 1fr;
+      overflow: hidden;
+      background-color: white;
+      height: 300px;
+      width: 100%;
+
+      & h4 {
+        color: black;
+        height: 100%;
+        width: 100%;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        text-transform: uppercase;
+      }
+      & .img_container {
+        grid-row: 1;
+        overflow: hidden;
+        border: 1px solid black;
+        border-bottom: none;
+
+        & img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.PackagesSections {
+  min-height: 800px;
+  margin-top: 4rem;
+  display: grid;
+  display: flex;
+  gap: 10rem;
+  & p {
+    max-width: 50ch;
+  }
+
+  & .packages {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    grid-template-rows: 1fr 1px 1fr;
+
+    & .package {
+      padding: 1rem;
+      background-color: red;
+      max-width: 400px;
+    }
+  }
 }

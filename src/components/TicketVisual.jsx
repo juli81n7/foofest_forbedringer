@@ -7,8 +7,6 @@ export default function TicketVisual() {
 <div className="ticketHolder">
 
     <Tilt
-    
-    
     perspective={10000}
     glareEnable={true}
     glareMaxOpacity={0.20}
