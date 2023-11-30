@@ -2,10 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: solid 1px #fff;
 }
 
 .artist {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.artisth2 {
+  font-size: 3rem;
+  color: #59ff3f;
+  padding-top: 1rem;
 }
