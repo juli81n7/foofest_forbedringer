@@ -10,10 +10,8 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <Button btntext="View all"></Button>
-      <SecondaryBtn secbtntext="View more"></SecondaryBtn>
-      <TicketCard></TicketCard>
-      <ArtistCard></ArtistCard>
+
+      <ArtistList></ArtistList>
       <ArtistList></ArtistList>
     </main>
   );
