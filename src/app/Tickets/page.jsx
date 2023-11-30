@@ -17,7 +17,7 @@ export default function Tickets() {
 
 
 <TicketVisual/>
-<Button btntext="Buy now"/>
+
 </section>
 
 

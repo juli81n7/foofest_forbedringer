@@ -1,7 +1,9 @@
 .landing {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
+  grid-column: 4/4;
+  display: block;
+}
+.btn_container {
+  margin-inline: auto;
 }
 
 h1 {

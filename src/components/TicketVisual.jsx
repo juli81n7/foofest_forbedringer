@@ -8,14 +8,13 @@ export default function TicketVisual() {
 
     <Tilt
     
-    className="track-on-window"
-    perspective={5000}
+    
+    perspective={10000}
     glareEnable={true}
     glareMaxOpacity={0.20}
     glareColor="#C0C0C0"
     glarePosition="all"
 
-    trackOnWindow={true}
   >
 
 <section className="card">
