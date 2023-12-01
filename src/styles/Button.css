@@ -1,7 +1,7 @@
 .pributton {
   background-color: transparent;
-  border: solid 1px #fff;
-  color: #fff;
+  border: solid 1px var(--white);
+  color: var(--white);
   padding-block: 0.5rem;
   padding-inline: 1rem;
   font-weight: 800;
@@ -12,6 +12,6 @@
 }
 
 .pributton:hover {
-  background-color: #fff;
-  color: #151515;
+  background-color: var(--white);
+  color: var(--bg-color);
 }

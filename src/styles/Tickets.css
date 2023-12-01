@@ -24,14 +24,14 @@ h1 {
       display: grid;
       grid-template-rows: 4fr 1fr;
       overflow: hidden;
-      background-color: white;
+      background-color: var(--white);
       height: 300px;
 
       & h4 {
-        color: black;
+        color: var(--bg-color);
         height: 100%;
         width: 100%;
-        border: 1px solid black;
+        border: 1px solid var(--bg-color);
         display: flex;
         align-items: center;
         padding-left: 1rem;
@@ -40,7 +40,7 @@ h1 {
       & .img_container {
         grid-row: 1;
         overflow: hidden;
-        border: 1px solid black;
+        border: 1px solid var(--bg-color);
         border-bottom: none;
 
         & img {
@@ -68,7 +68,7 @@ h1 {
 
     & .package {
       padding: 1rem;
-      background-color: red;
+      background-color: var(--accent-red);
     }
   }
 }

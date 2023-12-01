@@ -1,5 +1,5 @@
 .singlebg {
-  background-color: #e68f0c;
+  background-color: var(--accent-orange);
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 1rem;
@@ -35,7 +35,7 @@
   top: 0;
   right: -25%;
   width: 50%;
-  fill: #e68f0c;
+  fill: var(--accent-orange);
   transform: rotate(20.05deg);
 }
 #Layer_3 {
@@ -43,7 +43,7 @@
   top: 0;
   left: -25%;
   width: 50%;
-  fill: #e68f0c;
+  fill: var(--accent-orange);
   transform: rotate(137.12deg);
 }
 

@@ -14,6 +14,6 @@
 
 .artisth2 {
   font-size: 3rem;
-  color: #59ff3f;
+  color: var(--accent-green);
   padding-top: 1rem;
 }
