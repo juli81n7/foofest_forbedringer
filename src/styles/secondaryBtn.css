@@ -1,7 +1,7 @@
 .secbtn {
   background-color: transparent;
   border: none;
-  color: #fff;
+  color: var(--white);
   font-weight: 300;
   text-transform: none;
 }

@@ -18,10 +18,10 @@ function Navbar() {
               <Link href="/Tickets">TICKETS</Link>
             </li>
             <li>
-              <Link href="/program">PROGRAM</Link>
+              <Link href="/Program">PROGRAM</Link>
             </li>
             <li>
-              <Link href="/profile">PROFILE</Link>
+              <Link href="/Profile">PROFILE</Link>
             </li>
           </ul>
         </nav>

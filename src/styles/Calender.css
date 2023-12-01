@@ -1,0 +1,97 @@
+section {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-template-rows: auto auto;
+  min-height: 100px;
+  gap: 0;
+}
+
+.scenes {
+  grid-column: 1;
+  grid-row: 2;
+
+  & .scene {
+    display: flex;
+    align-items: end;
+    padding: 0.5rem;
+    color: var(--bg-color);
+    & h4 {
+      font-weight: 400;
+    }
+    height: 100px;
+
+    &:nth-child(1) {
+      background-color: var(--accent-green);
+    }
+    &:nth-child(2) {
+      background-color: var(--accent-orange);
+    }
+    &:nth-child(3) {
+      background-color: var(--accent-red);
+    }
+    &:nth-child(4) {
+      background-color: var(--accent-blue);
+    }
+  }
+}
+
+.calender {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  display: contents;
+
+  & .timeslots {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  & .calenderarea {
+    overflow-x: scroll;
+
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(12, 100px);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  & .calenderbar {
+    grid-column: 1/-1;
+    border-bottom: 1px solid white;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    z-index: 1;
+
+    & .calenderhour {
+      min-width: 100px;
+      border-right: 1px solid white;
+
+      z-index: 1;
+    }
+  }
+}
+.event {
+  grid-column: 2/4;
+
+  background-color: rgb(255, 254, 254);
+  z-index: 2;
+  opacity: 100%;
+  display: flex;
+  align-items: end;
+  & .img_container {
+    max-width: 100px;
+    min-width: 100px;
+    height: 100%;
+    background-color: var(--accent-orange);
+  }
+
+  & h4 {
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    color: black;
+    text-transform: uppercase;
+  }
+}
