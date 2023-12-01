@@ -1,5 +1,23 @@
+.recommended-container {
+  margin: 1rem;
+}
+
 .recommended {
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(2, auto);
   gap: 1rem;
+}
+
+.recommended-heading {
+  margin-block: 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .recommended {
+    grid-template-columns: repeat(5, auto);
+  }
+
+  .recommended-heading {
+    margin-block: 3rem;
+  }
 }

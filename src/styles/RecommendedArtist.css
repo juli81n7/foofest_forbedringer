@@ -1,4 +1,15 @@
-.recommended-artist-container {
-  display: grid;
-  grid-template-rows: 4fr 1fr;
+@media only screen and (min-width: 600px) {
+  .recommended-artist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+  }
+
+  Image {
+    object-fit: cover;
+    width: 100%;
+  }
 }

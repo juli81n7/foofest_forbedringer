@@ -1,10 +1,10 @@
 import "../styles/RecommendedList.css";
-import RecommendedArtist from "./RecommendedArtist";
 
-function Recommended() {
+function Recommended(props) {
   return (
-    <section className="recommended">
-      <RecommendedArtist></RecommendedArtist>
+    <section className="recommended-container">
+      <h2 className="recommended-heading">{props.heading}</h2>
+      <div className="recommended">{props.children}</div>
     </section>
   );
 }

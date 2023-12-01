@@ -3,6 +3,9 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import "../../../styles/SingleView.css";
 import SecondaryBtn from "@/components/SecondaryBtn";
+import RecommendedList from "@/components/RecommendedList";
+import RecommendedArtist from "@/components/RecommendedArtist";
+
 export default function page() {
   return (
     <div>
@@ -504,6 +507,40 @@ export default function page() {
           </section>
         </section>
       </section>
+      <RecommendedList heading="View more alternative rock">
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+      </RecommendedList>
+      <RecommendedList heading="What else plays friday?">
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+        <RecommendedArtist artistName="Ukendt Kunstner" artistTime="19:30"></RecommendedArtist>
+      </RecommendedList>
     </div>
   );
 }
