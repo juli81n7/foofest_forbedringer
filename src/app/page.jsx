@@ -1,5 +1,4 @@
 import Content from "@/components/Content";
-// fetch data og send det med til content
 
 export default async function Home() {
   const res = await fetch("http://localhost:8080/schedule", {
@@ -17,9 +16,14 @@ export default async function Home() {
   });
   const spots = await res3.json();
 
+  const res4 = await fetch("http://localhost:8080/events", {
+    headers: {},
+  });
+  const events = await res4.json();
+
   return (
     <>
-      <Content schedule={schedule} bands={bands} spots={spots} />
+      <Content schedule={schedule} bands={bands} spots={spots} events={events} />
     </>
   );
 }
