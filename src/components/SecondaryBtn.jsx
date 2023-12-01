@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "../styles/SecondaryBtn.css";
+import "../styles/secondaryBtn.css";
 
 export default function SecondaryBtn({ secbtntext, href }) {
   return <button className="secbtn">{secbtntext}</button>;
