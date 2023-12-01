@@ -51,7 +51,7 @@ section {
 
     grid-row: 2;
     display: grid;
-    grid-template-columns: repeat(12, 100px);
+    grid-template-columns: repeat(24, 100px);
     grid-template-rows: repeat(4, 1fr);
   }
 
@@ -60,7 +60,7 @@ section {
     border-bottom: 1px solid white;
 
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(24, 1fr);
     grid-template-rows: 1fr;
     z-index: 1;
 
@@ -73,7 +73,7 @@ section {
   }
 }
 .event {
-  grid-column: 2/4;
+  grid-column: 2/5;
 
   background-color: rgb(255, 254, 254);
   z-index: 2;

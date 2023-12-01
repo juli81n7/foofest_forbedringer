@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import ArtistList from "@/components/ArtistList";
 
 function Content({ schedule, bands, spots }) {
-  console.log(schedule);
+  console.log("DET HER ER SCHEDULE",schedule);
   console.log(bands);
 
   async function putReq(chosenArea, chosenAmount) {
