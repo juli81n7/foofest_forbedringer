@@ -1,0 +1,5 @@
+.recommended {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 1rem;
+}

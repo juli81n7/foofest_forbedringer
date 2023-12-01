@@ -1,0 +1,4 @@
+.recommended-artist-container {
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+}
