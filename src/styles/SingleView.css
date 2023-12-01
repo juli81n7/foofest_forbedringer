@@ -17,9 +17,43 @@
   grid-column: 3;
   text-align: right;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .singleartistinfo p {
-  width: 40ch;
-  margin-bottom: 2rem;
+  width: 36ch;
+  margin-bottom: 1rem;
+  grid-column: 1;
+}
+.imagecontainer {
+  position: relative;
+  overflow: hidden;
+}
+
+#Layer_2 {
+  position: absolute;
+  top: 0;
+  right: -25%;
+  width: 50%;
+  fill: #e68f0c;
+  transform: rotate(20.05deg);
+}
+#Layer_3 {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 50%;
+  fill: #e68f0c;
+  transform: rotate(137.12deg);
+}
+
+.singlebtn {
+  align-self: end;
+  margin-bottom: 1rem;
+}
+.singlegroup {
+  align-self: center;
+  & h4 {
+    margin-bottom: 0.5rem;
+  }
 }
