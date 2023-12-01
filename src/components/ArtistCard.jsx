@@ -17,7 +17,7 @@ function ArtistCard(props) {
               <p>{props.artistTime} 11:30</p>
             </div>
           </div>
-          <p>{props.artistName} were destined to create bangers since before they were born.</p>
+          <p>{props.artistName} were absolutely destined to create bangers since before they were born.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur tenetur placeat nam, libero quam voluptatum eum, ad quod explicabo deserunt beatae veritatis voluptate iste excepturi tempore ut, asperiores laboriosam reprehenderit.</p>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, nemo. So make sure you experience {props.artistName}!</p>
         </div>
