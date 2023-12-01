@@ -1,10 +1,9 @@
 "use client";
-import Header from "@/components/Header";
-import ArtistList from "@/components/ArtistList";
 
-function Content({ schedule, bands, spots }) {
+function Content({ schedule, bands, spots, children }) {
   console.log(schedule);
   console.log(bands);
+  console.log(spots);
 
   async function putReq(chosenArea, chosenAmount) {
     let headersList = {
@@ -52,14 +51,7 @@ function Content({ schedule, bands, spots }) {
   }
   //   fulfillReservation("18h4h4a5slpmiyl9g");
 
-  return (
-    <main>
-      <Header />
-      <ArtistList stageName="Midgård"></ArtistList>
-      <ArtistList stageName="Vanaheim"></ArtistList>
-      <ArtistList stageName="Jotunheim"></ArtistList>
-    </main>
-  );
+  return <main>{children}</main>;
 }
 
 export default Content;
