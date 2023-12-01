@@ -1,4 +1,5 @@
 import "../styles/RecommendedArtist.css";
+import Image from "next/image";
 
 function RecommendedArtist(props) {
   return (
