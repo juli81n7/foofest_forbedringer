@@ -1,3 +1,5 @@
+"use client"
+
 import Button from "@/components/Button";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
@@ -12,7 +14,17 @@ import Calender from "@/components/Calender"
 import Image from "next/image";
 import "../../styles/Program.css";
 
+
+
+
+
 export default function Program() {
+
+
+
+
+
+
   return (
     <main>
     <h1>Program

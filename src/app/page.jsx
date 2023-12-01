@@ -1,6 +1,7 @@
 import Content from "@/components/Content";
 import Header from "@/components/Header";
 import ArtistList from "@/components/ArtistList";
+import { schedule, bands, spots, events } from "./data";
 
 // glitch server end-point: "https://flash-metal-egg.glitch.me/ENDPOINT"
 export default async function Home() {
