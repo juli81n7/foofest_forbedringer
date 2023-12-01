@@ -20,7 +20,10 @@ function Calender() {
    
    <div className="calenderarea">
    <div className="calenderbar">
-   <div className="event"></div>
+   <div className="event">
+   <div className="img_container"></div>
+   <h4>Ukendt kunstner</h4>
+   </div>
    <div className="calenderhour"></div>
    <div className="calenderhour"></div>
    <div className="calenderhour"></div>

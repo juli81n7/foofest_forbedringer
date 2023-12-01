@@ -58,7 +58,7 @@ section {
   & .calenderbar {
     grid-column: 1/-1;
     border-bottom: 1px solid white;
-    opacity: 30%;
+
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
@@ -67,15 +67,31 @@ section {
     & .calenderhour {
       min-width: 100px;
       border-right: 1px solid white;
-      opacity: 30%;
+
       z-index: 1;
     }
   }
 }
 .event {
-  grid-column: 2/9;
+  grid-column: 2/4;
 
   background-color: rgb(255, 254, 254);
   z-index: 2;
   opacity: 100%;
+  display: flex;
+  align-items: end;
+  & .img_container {
+    max-width: 100px;
+    min-width: 100px;
+    height: 100%;
+    background-color: var(--accent-orange);
+  }
+
+  & h4 {
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    color: black;
+    text-transform: uppercase;
+  }
 }
