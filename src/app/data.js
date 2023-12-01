@@ -1,3 +1,4 @@
+// glitch server end-point: "https://flash-metal-egg.glitch.me/ENDPOINT"
 const res = await fetch("http://localhost:8080/schedule", {
   headers: {},
 });

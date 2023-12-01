@@ -3,15 +3,14 @@ import Header from "@/components/Header";
 import ArtistList from "@/components/ArtistList";
 import { schedule, bands, spots, events } from "./data";
 
-// glitch server end-point: "https://flash-metal-egg.glitch.me/ENDPOINT"
 export default async function Home() {
   return (
     <>
-      <Content schedule={schedule} bands={bands} spots={spots} events={events}>
+      <Content schedule={schedule} spots={spots} events={events}>
         <Header />
-        <ArtistList stageName="Midgård"></ArtistList>
-        <ArtistList stageName="Vanaheim"></ArtistList>
-        <ArtistList stageName="Jotunheim"></ArtistList>
+        <ArtistList bands={bands} stageName="Midgård"></ArtistList>
+        <ArtistList bands={bands} stageName="Vanaheim"></ArtistList>
+        <ArtistList bands={bands} stageName="Jotunheim"></ArtistList>
       </Content>
     </>
   );
