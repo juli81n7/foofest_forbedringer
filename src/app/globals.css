@@ -28,7 +28,7 @@ main > * > * {
 :root {
   --bg-color: var(--background-clr, #151515);
   --text-color: var(--font-clr, #f5f5f5);
-  --border-color: var(--stroke-clr, #151515);
+  --border-color: var(--stroke-clr, #f5f5f5);
   --white: #fff;
   /*   --accent-green: #59ff3f; */
   --accent-green: #59ff3f;
