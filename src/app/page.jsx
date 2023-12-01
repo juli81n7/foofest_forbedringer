@@ -1,18 +1,25 @@
-import Button from "@/components/Button";
-import Header from "@/components/Header";
+import Content from "@/components/Content";
+// fetch data og send det med til content
 
-import SecondaryBtn from "@/components/SecondaryBtn";
-import TicketCard from "@/components/TicketCard";
-import ArtistCard from "@/components/ArtistCard";
-import ArtistList from "@/components/ArtistList";
+export default async function Home() {
+  const res = await fetch("http://localhost:8080/schedule", {
+    headers: {},
+  });
+  const schedule = await res.json();
 
-export default function Home() {
+  const res2 = await fetch("http://localhost:8080/bands", {
+    headers: {},
+  });
+  const bands = await res2.json();
+
+  const res3 = await fetch("http://localhost:8080/available-spots", {
+    headers: {},
+  });
+  const spots = await res3.json();
+
   return (
-    <main>
-      <Header />
-      <ArtistList stageName="Midgård"></ArtistList>
-      <ArtistList stageName="Vanaheim"></ArtistList>
-      <ArtistList stageName="Jotunheim"></ArtistList>
-    </main>
+    <>
+      <Content schedule={schedule} bands={bands} spots={spots} />
+    </>
   );
 }
