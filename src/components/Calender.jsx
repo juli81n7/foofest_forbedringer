@@ -23,10 +23,15 @@ console.log("dette er dataen til jotunheim om", BtnName, ":", props.schedule.Jot
 
 let Jotunheim = props.schedule.Jotunheim;
 
+let jotenheimDay= Jotunheim[day];
+
+
 let Midgard = props.schedule.Midgard;
 
-const Vanaheim = props.schedule.Vanaheim;
+let midgardDay= Midgard[day];
 
+const Vanaheim = props.schedule.Vanaheim;
+let vanaheimDay= Vanaheim[day];
 
     return (
         <main>
@@ -118,7 +123,7 @@ const Vanaheim = props.schedule.Vanaheim;
             
             
             {
-                Jotunheim.mon.map((thing) => (
+                jotenheimDay.map((thing) => (
                     thing.act !== "break" ? (
                       <CalenderEvent
                         img2={props.bands.find(band => band.name === thing.act).logo}
@@ -160,7 +165,7 @@ const Vanaheim = props.schedule.Vanaheim;
             <div className="calenderhour"></div>
             <div className="calenderhour"></div>
             {
-                Midgard.mon.map((thing) => (
+                midgardDay.map((thing) => (
                     thing.act !== "break" ? (
                       <CalenderEvent
 
@@ -203,7 +208,7 @@ const Vanaheim = props.schedule.Vanaheim;
             <div className="calenderhour"></div>
             <div className="calenderhour"></div>
             {
-                Vanaheim.mon.map((thing) => (
+                vanaheimDay.map((thing) => (
                     thing.act !== "break" ? (
                       <CalenderEvent
 

@@ -54,7 +54,7 @@
     overflow-x: scroll;
     grid-row: 1/-1;
     display: grid;
-    grid-template-columns: repeat(24, 100px);
+    grid-template-columns: repeat(24, 200px);
     grid-template-rows: repeat(4, 1fr);
   }
 
@@ -63,12 +63,12 @@
     border-bottom: 1px solid white;
 
     display: grid;
-    grid-template-columns: repeat(24, 100px);
+    grid-template-columns: repeat(24, 200px);
     grid-template-rows: 1fr;
     z-index: 1;
 
     & .calenderhour {
-      width: 100px;
+      width: 200px;
       height: 100%;
       border-right: 1px solid white;
       grid-row: 1;
