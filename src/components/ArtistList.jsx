@@ -20,7 +20,7 @@ function ArtistList(props) {
       </div>
       <div className="artist-details">
         {props.schedule[stage][weekday].map((artist, index) => (
-          <Artist bands={props.bands} artistName={artist.act} artistTime={artist.start + "-" + artist.end} key={index} slug={props.bands.find((band) => band.name === artist.act)} />
+          <Artist bands={props.bands} artistName={artist.act} artistTime={artist.start + "-" + artist.end} key={index} />
         ))}
       </div>
     </article>
