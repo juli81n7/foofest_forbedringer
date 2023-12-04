@@ -23,20 +23,7 @@ export default function Program() {
 
     <Content schedule={schedule} spots={spots} events={events}>
 
-<main>
-      <h1 className="programh1">Program</h1>
-      <div className="filters">
-        <FilterBtn btntext="Monday" />
-        <FilterBtn btntext="Tuesday" />
-        <FilterBtn btntext="Wednsday" />
-        <FilterBtn btntext="Thursday" />
-        <FilterBtn btntext="Friday" />
-        <FilterBtn btntext="Saturday" />
-        <FilterBtn btntext="Sunday" />
-      </div>
-
-      <Calender schedule={schedule} bands={bands} />
-    </main>
+    <Calender schedule={schedule} bands={bands} />
 
 </Content>
 

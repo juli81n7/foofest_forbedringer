@@ -1,19 +1,49 @@
 "use client"
 
-
+import React, { useState } from "react";
 import "../styles/Calender.css";
 import CalenderEvent from "./CalenderEvent";
+import FilterBtn from "@/components/FilterBtn";
+
+
 function Calender(props) {
+    const [day, setDay] = useState("mon");
+    const [BtnName, setBtnName] = useState("Monday");
+
+
+    function DaySetter(newDay) {
+        setDay(newDay);
+        console.log("Nu er dagen:", newDay)
+      }
   
   console.log("DATAAAAA", props.schedule)
+  let myDay = day;
   
-const Jotunheim = props.schedule.Jotunheim;
-const Midgard = props.schedule.Midgard;
+console.log("dette er dataen til jotunheim om", BtnName, ":", props.schedule.Jotunheim.mon )
+
+let Jotunheim = props.schedule.Jotunheim;
+
+let Midgard = props.schedule.Midgard;
+
 const Vanaheim = props.schedule.Vanaheim;
 
 
     return (
-    <section className="calendar-container">
+        <main>
+      <h1 className="programh1">Program</h1>
+      <div className="filters">
+        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Monday" />
+        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Tuesday" />
+        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Wednsday" />
+        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Thursday" />
+        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Friday" />
+        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Saturday" />
+        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Sunday" />
+      </div>
+
+      
+
+      <section className="calendar-container">
       <div className="scenes">
         <div className="scene">
           <h4>JOTUNHEIM</h4>
@@ -85,12 +115,14 @@ const Vanaheim = props.schedule.Vanaheim;
             <div className="calenderhour"></div>
             <div className="calenderhour"></div>
             <div className="calenderhour"></div>
+            
+            
             {
                 Jotunheim.mon.map((thing) => (
                     thing.act !== "break" ? (
                       <CalenderEvent
-
                         img2={props.bands.find(band => band.name === thing.act).logo}
+                        link={props.bands.find(band => band.name === thing.act).slug}
                         name={thing.act}
                         start={thing.start}
                         end={thing.end}
@@ -133,6 +165,7 @@ const Vanaheim = props.schedule.Vanaheim;
                       <CalenderEvent
 
                         img2={props.bands.find(band => band.name === thing.act).logo}
+                        link={props.bands.find(band => band.name === thing.act).slug}
                         name={thing.act}
                         start={thing.start}
                         end={thing.end}
@@ -175,6 +208,7 @@ const Vanaheim = props.schedule.Vanaheim;
                       <CalenderEvent
 
                         img2={props.bands.find(band => band.name === thing.act).logo}
+                        link={props.bands.find(band => band.name === thing.act).slug}
                         name={thing.act}
                         start={thing.start}
                         end={thing.end}
@@ -190,6 +224,9 @@ const Vanaheim = props.schedule.Vanaheim;
         </div>
       </div>
     </section>
+    </main>
+
+    
   );
 }
 
