@@ -60,6 +60,10 @@ main > * > * {
 *::after {
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+  color: var(--white);
+}
 
 /* Prevent font size inflation */
 html {
@@ -135,6 +139,9 @@ textarea:not([rows]) {
 }
 
 /* ------------ ekstra ----------- */
+p {
+  text-wrap: pretty;
+}
 
 /* input {
   font: inherit;
@@ -176,14 +183,4 @@ h5 {
 
 p {
   font-weight: 400;
-  text-wrap: pretty;
-}
-
-a {
-  text-decoration: none;
-  color: var(--text-color);
-}
-
-button:hover {
-  cursor: pointer;
 }

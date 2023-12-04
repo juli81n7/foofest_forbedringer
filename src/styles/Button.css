@@ -9,6 +9,7 @@
   transition: ease 0.2s;
   text-transform: uppercase;
   font-size: 1.25rem;
+  width: fit-content;
 }
 
 .pributton:hover {
