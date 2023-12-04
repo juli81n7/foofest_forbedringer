@@ -1,11 +1,14 @@
-import "../../styles/TicketFlow.css";
+import TicketFormInfo from "@/components/TicketFormInfo";
+import "@/styles/TicketFlow.css";
+
+import ParticipantInfo from "@/components/ParticipantInfo";
 
 function page() {
   return (
     <main className="main-flow">
       <section className="sec">
-        <div className="ticket-area"></div>
-        <div className="flow-area"></div>
+        <div className="leftside"></div>
+        <div className="right"></div>
       </section>
     </main>
   );
