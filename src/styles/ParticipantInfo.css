@@ -1,0 +1,38 @@
+.inputlayout {
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+}
+
+.inputlayout input {
+  background-color: transparent;
+  border: solid 1px var(--white);
+  color: var(--white);
+  height: 2rem;
+}
+
+.inputlayout label {
+  text-transform: uppercase;
+}
+
+.formgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.formline {
+  border-bottom: solid 1px var(--white);
+}
+
+.formline h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-block: 2rem;
+}
+
+.formbtn {
+  justify-self: end;
+  align-self: end;
+}

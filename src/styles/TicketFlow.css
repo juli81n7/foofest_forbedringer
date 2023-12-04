@@ -6,7 +6,9 @@
 .leftside {
   grid-column: 1/2;
   border-right: 1px solid var(--white);
+  padding: 2rem;
 }
 .right {
   grid-column: 2/-1;
+  padding: 2rem;
 }
