@@ -4,8 +4,8 @@ function page() {
   return (
     <main className="main-flow">
       <section className="sec">
-        <div className="leftside">venstre</div>
-        <div className="right">højre</div>
+        <div className="ticket-area"></div>
+        <div className="flow-area"></div>
       </section>
     </main>
   );
