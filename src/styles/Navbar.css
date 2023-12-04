@@ -4,8 +4,11 @@
   display: flex;
   justify-content: space-between;
 }
+
 .link {
   font-weight: 700;
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 .nav-ul {

@@ -15,13 +15,19 @@ function Navbar() {
         <nav>
           <ul className="nav-ul">
             <li>
-              <Link href="/Tickets">TICKETS</Link>
+              <Link className="link" href="/Tickets">
+                TICKETS
+              </Link>
             </li>
             <li>
-              <Link href="/Program">PROGRAM</Link>
+              <Link className="link" href="/Program">
+                PROGRAM
+              </Link>
             </li>
             <li>
-              <Link href="/Profile">PROFILE</Link>
+              <Link className="link" href="/Profile">
+                PROFILE
+              </Link>
             </li>
           </ul>
         </nav>
