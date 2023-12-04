@@ -8,9 +8,9 @@ export default async function Home() {
     <>
       <Content schedule={schedule} spots={spots} events={events}>
         <Header />
-        <ArtistList bands={bands} stageName="Midgård"></ArtistList>
-        <ArtistList bands={bands} stageName="Vanaheim"></ArtistList>
-        <ArtistList bands={bands} stageName="Jotunheim"></ArtistList>
+        <ArtistList bands={bands} schedule={schedule} stageName="Midgard"></ArtistList>
+        <ArtistList bands={bands} schedule={schedule} stageName="Vanaheim"></ArtistList>
+        <ArtistList bands={bands} schedule={schedule} stageName="Jotunheim"></ArtistList>
       </Content>
     </>
   );
