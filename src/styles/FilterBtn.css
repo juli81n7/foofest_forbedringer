@@ -1,4 +1,4 @@
-button {
+.filter-button {
   background-color: transparent;
   border: none;
   color: #fff;
@@ -8,6 +8,6 @@ button {
   opacity: 30%;
 }
 
-button.active {
+.filter-button.active {
   opacity: 100%;
 }

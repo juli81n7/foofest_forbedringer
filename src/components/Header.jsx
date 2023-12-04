@@ -6,7 +6,7 @@ import Button from "./Button";
 function Header() {
   return (
     <header>
-      <h1 className="headline">FOOFEST</h1>
+      <h1 className="headline headerh1">FOOFEST</h1>
 
       <div className="teasers">
         <p>Get ready for the party of the year.</p>

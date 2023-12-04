@@ -9,11 +9,11 @@ function Navbar() {
         FOOFEST
       </Link>
       <div className="rightside">
-        <button aria-hidden="true">
+        <button className="moon-btn" aria-hidden="true">
           <Image className="moon" src="/theme.svg" width={40} height={20} alt="Picture of the author" />
         </button>
         <nav>
-          <ul>
+          <ul className="nav-ul">
             <li>
               <Link href="/Tickets">TICKETS</Link>
             </li>

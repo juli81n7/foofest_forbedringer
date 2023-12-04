@@ -14,7 +14,7 @@ export default function Tickets() {
   return (
     <main>
       <section className="landing">
-        <h1>Get your tickets</h1>
+        <h1 className="ticketh1">Get your tickets</h1>
 
         <TicketVisual />
         <div className="btn_container">

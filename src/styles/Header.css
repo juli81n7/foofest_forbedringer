@@ -1,16 +1,12 @@
 /* header {
   } */
-h1 {
+.headerh1 {
   font-size: clamp(20px, calc(20.4vw), 300px);
   color: var(--text-color);
   margin-top: 3.5rem;
   margin-left: -1vw;
 }
-section {
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: subgrid;
-}
+
 .teasers {
   grid-column: 1/4;
   display: flex;

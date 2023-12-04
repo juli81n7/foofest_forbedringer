@@ -7,9 +7,4 @@
     color: black;
     padding: 0.5rem;
   }
-
-  Image {
-    object-fit: cover;
-    width: 100%;
-  }
 }

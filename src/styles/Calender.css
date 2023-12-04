@@ -1,4 +1,4 @@
-section {
+.calendar-container {
   margin-top: 0.5rem;
   display: grid;
   grid-template-columns: 150px auto;
