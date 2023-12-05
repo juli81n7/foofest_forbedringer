@@ -176,7 +176,7 @@
   z-index: 2;
   opacity: 100%;
   display: grid;
-  grid-template-columns: 100px auto;
+  grid-template-columns: 150px auto;
   box-sizing: border-box;
   align-items: end;
   grid-row: 1;
@@ -263,8 +263,8 @@
   }
 
   & .img_container {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     background-color: var(--accent-orange);
 
