@@ -12,6 +12,8 @@ function CalenderDay(props) {
   return (
 <>
  <div id={props.day} className="calenderarea">
+ 
+
  <div className="calenderbar">
 <div className="calender_time"><p>1:00</p></div>
 <div className="calender_time"><p>2:00</p></div>

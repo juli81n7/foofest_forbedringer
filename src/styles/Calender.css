@@ -49,6 +49,7 @@
   }
 
   & .calenderarea {
+    position: relative;
     grid-row: 1/-1;
     display: grid;
     grid-template-columns: repeat(24, 200px);
@@ -307,4 +308,12 @@
   overflow-x: scroll;
   display: flex;
   scroll-behavior: smooth;
+}
+
+.now {
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  color: var(--accent-orange);
+  z-index: 999999;
 }

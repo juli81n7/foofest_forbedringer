@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import "../styles/Calender.css";
 import CalenderEvent from "./CalenderEvent";
 import FilterBtn from "@/components/FilterBtn";
@@ -8,9 +8,17 @@ import CalenderDay from "./CalenderDay";
 
 
 
+const dateToday = new Date();
+const weekdayToday = dateToday.getDay();
+const weekdayst = ["Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday"];
+const weekdayss = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+const weekdayText = weekdayst[weekdayToday];
+const weekdaystate = weekdayss[weekdayToday];
+console.log("MIN DAYYYY", weekdayText)
+
 function Calender(props) {
-    const [day, setDay] = useState("mon");
-    const [BtnName, setBtnName] = useState("Monday");
+    const [day, setDay] = useState(weekdaystate);
+    const [BtnName, setBtnName] = useState(weekdayText);
 
 
     function DaySetter(newDay) {
@@ -67,7 +75,7 @@ let vanaheimDay= Vanaheim[day];
       <div className="calender">
       <div className="day">
       
-      
+      <div className="now"></div>
       
       <CalenderDay day="mon" bands={props.bands} Jotunheim={Jotunheim.mon} Vanaheim={Vanaheim.mon} Midgard={Midgard.mon}/>
       <CalenderDay day="tue" bands={props.bands} Jotunheim={Jotunheim.tue} Vanaheim={Vanaheim.tue} Midgard={Midgard.tue}/>
