@@ -1,5 +1,15 @@
 .camp-area {
   aspect-ratio: 1;
-  height: 10rem;
+  height: 9rem;
   border: 1px solid var(--white);
+  display: grid;
+  align-content: end;
+  position: relative;
+}
+.area-status {
+  background: var(--accent-orange);
+  padding: 3px 4px 0px;
+  font-size: 12px;
+  position: absolute;
+  top: 20%;
 }

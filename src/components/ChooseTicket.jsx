@@ -3,7 +3,7 @@ import "../styles/ChooseTicket.css";
 
 function ChooseTicket() {
   return (
-    <div>
+    <div className="choose-wrapper">
       <h2>CHOOSE YOUR TICKETS</h2>
       <div className="counter-line">
         <h3>ALL WEEK TICKET</h3>
