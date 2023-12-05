@@ -7,12 +7,24 @@ import FilterBtn from "@/components/FilterBtn";
 
 
 function CalenderDay(props) {
+
   
-  
+
+
+
   return (
 <>
  <div id={props.day} className="calenderarea">
- 
+
+ {props.day === props.currentDay ? (
+  
+    <div  className="now_container" style={{left: `${props.percentageOfDay}%`}}       >
+      <p id="now">Now</p>
+      <div className="now_line"></div>
+  
+  </div>
+  
+) : null}
 
  <div className="calenderbar">
 <div className="calender_time"><p>1:00</p></div>
