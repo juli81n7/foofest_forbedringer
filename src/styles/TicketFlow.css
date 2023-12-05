@@ -1,14 +1,58 @@
 .sec {
   /* min-height: 100vh; */
   display: grid;
-  grid-template-columns: 1.8fr 3fr;
+  grid-template-columns: 2fr 3fr;
   gap: 0;
 }
+
+/* leftside */
 .ticket-area {
   grid-column: 1/2;
   border-right: 1px solid var(--white);
-  padding: 2rem;
+  /* padding: 2rem; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
 }
+.ticket-stack {
+  min-height: 50%;
+  position: relative;
+  & > * {
+    position: absolute;
+  }
+  :first-child {
+    top: 0;
+    left: 0;
+  }
+  :nth-child(2) {
+    top: 20px;
+    left: 10px;
+  }
+  :nth-child(3) {
+    top: 40px;
+    left: 20px;
+  }
+}
+.tent-stack {
+  position: relative;
+  & > * {
+    position: absolute;
+  }
+  :first-child {
+    top: 0;
+    left: 0;
+  }
+  :nth-child(2) {
+    top: 20px;
+    left: 30px;
+  }
+  :nth-child(3) {
+    top: 40px;
+    left: 60px;
+  }
+}
+
+/* rightside */
 .flow-area {
   grid-column: 2/-1;
   padding: 2rem;
