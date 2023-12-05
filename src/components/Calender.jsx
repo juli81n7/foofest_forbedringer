@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import "../styles/Calender.css";
 import CalenderEvent from "./CalenderEvent";
 import FilterBtn from "@/components/FilterBtn";
+import CalenderDay from "./CalenderDay";
+
 
 
 function Calender(props) {
@@ -37,13 +39,13 @@ let vanaheimDay= Vanaheim[day];
         <main>
       <h1 className="programh1">Program</h1>
       <div className="filters">
-        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Monday" />
-        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Tuesday" />
-        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Wednsday" />
-        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Thursday" />
-        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Friday" />
-        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Saturday" />
-        <FilterBtn setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Sunday" />
+        <FilterBtn link="#mon" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Monday" />
+        <FilterBtn link="#tue" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Tuesday" />
+        <FilterBtn link="#wed" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Wednsday" />
+        <FilterBtn link="#thu" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Thursday" />
+        <FilterBtn link="#fri" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Friday" />
+        <FilterBtn link="#sat" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Saturday" />
+        <FilterBtn link="#sun" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Sunday" />
       </div>
 
       
@@ -61,172 +63,28 @@ let vanaheimDay= Vanaheim[day];
         </div>
         
       </div>
+      
       <div className="calender">
-        <div className="calenderarea">
-        <div className="calenderbar">
-   <div className="calender_time"><p>1:00</p></div>
-   <div className="calender_time"><p>2:00</p></div>
-   <div className="calender_time"><p>3:00</p></div>
-   <div className="calender_time"><p>4:00</p></div>
-   <div className="calender_time"><p>5:00</p></div>
-   <div className="calender_time"><p>6:00</p></div>
-   <div className="calender_time"><p>7:00</p></div>
-   <div className="calender_time"><p>8:00</p></div>
-   <div className="calender_time"><p>9:00</p></div>
-   <div className="calender_time"><p>10:00</p></div>
-   <div className="calender_time"><p>11:00</p></div>
-   <div className="calender_time"><p>12:00</p></div>
-   <div className="calender_time"><p>13:00</p></div>
-   <div className="calender_time"><p>14:00</p></div>
-   <div className="calender_time"><p>15:00</p></div>
-   <div className="calender_time"><p>16:00</p></div>
-   <div className="calender_time"><p>17:00</p></div>
-   <div className="calender_time"><p>18:00</p></div>
-   <div className="calender_time"><p>19:00</p></div>
-   <div className="calender_time"><p>20:00</p></div>
-   <div className="calender_time"><p>21:00</p></div>
-   <div className="calender_time"><p>22:00</p></div>
-   <div className="calender_time"><p>23:00</p></div>
-   <div className="calender_time"><p>24:00</p></div>
+      <div className="day">
+      
+      
+      
+      <CalenderDay day="mon" bands={props.bands} Jotunheim={Jotunheim.mon} Vanaheim={Vanaheim.mon} Midgard={Midgard.mon}/>
+      <CalenderDay day="tue" bands={props.bands} Jotunheim={Jotunheim.tue} Vanaheim={Vanaheim.tue} Midgard={Midgard.tue}/>
+      <CalenderDay day="wed" bands={props.bands} Jotunheim={Jotunheim.wed} Vanaheim={Vanaheim.wed} Midgard={Midgard.wed}/>
+      <CalenderDay day="thu" bands={props.bands} Jotunheim={Jotunheim.thu} Vanaheim={Vanaheim.thu} Midgard={Midgard.thu}/>
+      <CalenderDay day="fri" bands={props.bands} Jotunheim={Jotunheim.fri} Vanaheim={Vanaheim.fri} Midgard={Midgard.fri}/>
+      <CalenderDay day="sat" bands={props.bands} Jotunheim={Jotunheim.sat} Vanaheim={Vanaheim.sat} Midgard={Midgard.sat}/>
+      <CalenderDay day="sun" bands={props.bands} Jotunheim={Jotunheim.sun} Vanaheim={Vanaheim.sun} Midgard={Midgard.sun}/>
+  
+
+      
 
 
-   
-       
-    
+
       </div>
-          <div className="calenderbar">
-
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            
-            
-            {
-                jotenheimDay.map((thing) => (
-                    thing.act !== "break" ? (
-                      <CalenderEvent
-                        img2={props.bands.find(band => band.name === thing.act).logo}
-                        link={props.bands.find(band => band.name === thing.act).slug}
-                        name={thing.act}
-                        start={thing.start}
-                        end={thing.end}
-
-                      />
-                    ) : null
-                  ))
-                  
-            
-            }
-          </div>
-          <div className="calenderbar">
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            {
-                midgardDay.map((thing) => (
-                    thing.act !== "break" ? (
-                      <CalenderEvent
-
-                        img2={props.bands.find(band => band.name === thing.act).logo}
-                        link={props.bands.find(band => band.name === thing.act).slug}
-                        name={thing.act}
-                        start={thing.start}
-                        end={thing.end}
-
-                      />
-                    ) : null
-                  ))
-                  
-            
-            }
-          </div>
-          <div className="calenderbar">
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            <div className="calenderhour"></div>
-            {
-                vanaheimDay.map((thing) => (
-                    thing.act !== "break" ? (
-                      <CalenderEvent
-
-                        img2={props.bands.find(band => band.name === thing.act).logo}
-                        link={props.bands.find(band => band.name === thing.act).slug}
-                        name={thing.act}
-                        start={thing.start}
-                        end={thing.end}
-
-                      />
-                    ) : null
-                  ))
-                  
-            
-            }
-          </div>
-         
-        </div>
+      
+      
       </div>
     </section>
     </main>

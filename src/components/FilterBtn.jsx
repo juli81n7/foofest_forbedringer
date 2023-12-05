@@ -2,7 +2,7 @@
 
 import "../styles/FilterBtn.css";
 import Link from "next/link";
-function Button({ btntext, DaySetter, Day, BtnName, setBtnName }) {
+function Button({ btntext, DaySetter, Day, BtnName, setBtnName, link }) {
 
 function changeState(){
     
@@ -19,7 +19,7 @@ function changeState(){
 
 }
 
-  return <button onClick={
+  return <Link href={link} onClick={
 ()=>{
     changeState()
 }
@@ -29,7 +29,7 @@ function changeState(){
   
   className={`filter-button ${BtnName===btntext ? "active" : null }`}
   
-  >{btntext}</button>;
+  >{btntext}</Link>;
 }
 
 export default Button;
