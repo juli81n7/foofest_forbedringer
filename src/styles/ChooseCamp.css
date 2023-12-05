@@ -1,4 +1,9 @@
 .camp-box {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+}
+.choose-camp-wrapper h2 {
+  font-size: 40px;
+  margin-bottom: 0.5rem;
 }

@@ -1,7 +1,8 @@
 .sec {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1.8fr 3fr;
+  gap: 0;
 }
 .ticket-area {
   grid-column: 1/2;
@@ -11,4 +12,34 @@
 .flow-area {
   grid-column: 2/-1;
   padding: 2rem;
+  display: grid;
+  place-content: center;
+  row-gap: 1.5rem;
+}
+.counter-line :is(h3, p, button) {
+  font-size: 24px;
+  font-weight: 400;
+}
+.counter-line button {
+  color: var(--white);
+  background: none;
+  border: none;
+}
+.counter-line {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: end; */
+}
+.counter {
+  display: flex;
+  gap: 1rem;
+  /* align-items: end; */
+}
+.choose-wrapper {
+  display: grid;
+  gap: 0.5rem;
+}
+.choose-wrapper h2 {
+  font-size: 40px;
+  margin-bottom: 0.5rem;
 }

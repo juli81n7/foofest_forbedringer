@@ -1,9 +1,9 @@
-import "../styles/ChooseTent.css";
 import CountButton from "./CountButton";
+import "../styles/ChooseTent.css";
 
 function ChooseTent() {
   return (
-    <div>
+    <div className="choose-wrapper">
       <h2>CHOOSE YOUR TENTS</h2>
       <div className="counter-line">
         <h3>1 PERS TENT</h3>
