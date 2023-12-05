@@ -5,6 +5,15 @@ import "../../../styles/SingleView.css";
 import SecondaryBtn from "@/components/SecondaryBtn";
 import RecommendedList from "@/components/RecommendedList";
 import RecommendedArtist from "@/components/RecommendedArtist";
+import { schedule, bands, spots, events } from "../../data";
+
+export async function generateStaticParams() {
+  const paths = bands.map((band) => {
+    return { slug: band.slug };
+  });
+
+  return paths;
+}
 
 export default function page() {
   return (
