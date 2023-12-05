@@ -1,0 +1,7 @@
+.counter {
+  display: flex;
+}
+.counter-line {
+  display: flex;
+  justify-content: space-between;
+}

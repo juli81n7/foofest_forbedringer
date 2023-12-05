@@ -1,0 +1,5 @@
+.camp-area {
+  aspect-ratio: 1;
+  height: 10rem;
+  border: 1px solid var(--white);
+}
