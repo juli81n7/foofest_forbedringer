@@ -46,10 +46,11 @@ main > * > * {
 [data-theme="dark"] {
   --background-clr: #151515;
   --font-clr: #f5f5f5;
-  --stroke-clr: #fff;
+  --stroke-clr: #f5f5f5;
 }
+
 [data-theme="light"] {
-  --background-clr: #fffcf6;
+  --background-clr: #f5f5f5;
   --font-clr: #151515;
   --stroke-clr: #151515;
 }
