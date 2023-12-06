@@ -15,7 +15,9 @@ export async function generateStaticParams() {
   return paths;
 }
 
-export default function page() {
+export default function page({ params }) {
+  const { slug } = params;
+  const selectedBand = bands.find((band) => band.slug === slug);
   return (
     <div>
       <div className="imagecontainer">
@@ -493,10 +495,10 @@ export default function page() {
       </div>
       <section className="singlebg">
         <section className="singleartistinfo">
-          <h1 className="singleh1">UKENDT KUNSTNER</h1>
+          <h1 className="singleh1">{selectedBand.name}</h1>
           <p>Get ready for the party of the year</p>
           <p>{"All your favorite underground artists that you havn’t heard of yet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem eligendi alias labore asperiores, reprehenderit ut quibusdam quam deserunt eaque exercitationem numquam sit pariatur impedit temporibus commodi deleniti non aliquid et?"}</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem eligendi alias labore asperiores, reprehenderit ut quibusdam quam deserunt eaque exercitationem numquam sit pariatur impedit temporibus commodi deleniti non aliquid et? Deleniti quae esse rerum placeat ipsam vitae? Pariatur veritatis similique soluta? Reiciendis, provident ducimus iure nobis ea harum, eos nesciunt ullam modi ratione voluptate quisquam recusandae corrupti sunt, eum labore.</p>
+          <p>{selectedBand.bio}</p>
         </section>
         <section className="singleinfo">
           <section className="singleplaying">
@@ -506,10 +508,9 @@ export default function page() {
           </section>
           <section className="singlegroup">
             <h4>Group members</h4>
-            <p>Hans Philip</p>
-            <p>Jens Ole McCoy</p>
-            <p>Hans Philip</p>
-            <p>Jens Ole McCoy</p>
+            {selectedBand.members.map((mem) => (
+              <p key={selectedBand.slug}>hej{mem.members}</p>
+            ))}
           </section>
           <section className="singlebtn">
             <Button href="/" btntext="Save to your program"></Button>
