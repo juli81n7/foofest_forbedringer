@@ -6,7 +6,7 @@ body {
   color: var(--white);
   font-family: "alfabet", sans-serif;
 }
-main {
+/* main {
   display: grid;
 }
 main > * {
@@ -22,7 +22,7 @@ main > * {
 }
 main > * > * {
   grid-column: 1/-1;
-}
+} */
 
 /* custom properties */
 :root {
@@ -37,10 +37,10 @@ main > * > * {
   --accent-orange: #e68f0c;
   --accent-teal: #2da9dc;
 
-  /* grids */
+  /* grids
   --web-grid: repeat(12, 1fr);
   --tablet-grid: ;
-  --mobile-grid: repeat(4, 1fr);
+  --mobile-grid: repeat(4, 1fr); */
 }
 
 [data-theme="dark"] {
