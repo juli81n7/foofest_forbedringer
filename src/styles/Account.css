@@ -84,3 +84,20 @@
   background-color: var(--bg-color);
   width: 100%;
 }
+
+#Layer_2 {
+  position: absolute;
+  top: 0;
+  right: -25%;
+  width: 50%;
+  fill: var(--accent-orange);
+  transform: rotate(20.05deg);
+}
+#Layer_3 {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 50%;
+  fill: var(--accent-orange);
+  transform: rotate(137.12deg);
+}
