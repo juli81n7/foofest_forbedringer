@@ -8,6 +8,7 @@ import ParticipantInfo from "@/components/ParticipantInfo";
 import ChooseCamp from "@/components/ChooseCamp";
 import CheckoutOptions from "@/components/CheckoutOptions";
 import NoTiltTicket from "@/components/NoTiltTicket";
+import Participants from "@/components/Participants";
 
 function page() {
   return (
@@ -39,6 +40,14 @@ function page() {
           <ChooseTent />
           <ChooseCamp />
           <CheckoutOptions />
+        </div>
+      </section>
+      <section className="sec">
+        <div className="ticket-area">
+          <TicketFormInfo></TicketFormInfo>
+        </div>
+        <div className="flow-area">
+          <Participants></Participants>
         </div>
       </section>
     </main>
