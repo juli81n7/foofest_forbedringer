@@ -25,7 +25,7 @@ if(myImage.startsWith("https")){
 }
 else{
     myImage = "http://localhost:8080/logos/"+ myImage
-    console.log(myImage)
+
 }
 
 
