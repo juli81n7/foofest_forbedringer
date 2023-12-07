@@ -11,7 +11,7 @@ import SecondaryBtn from "./SecondaryBtn";
 
 function ImageContainer(props) {
   
-console.log(props.schedule)
+
 const mySchedule = props.schedule ;
 
 let myImage = props.selectedBand.logo;
