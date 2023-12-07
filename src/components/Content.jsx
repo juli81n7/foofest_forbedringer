@@ -1,9 +1,7 @@
 "use client";
 
 function Content({ schedule, bands, spots, children }) {
-  console.log(schedule);
-  console.log(bands);
-  console.log(spots);
+
 
   async function putReq(chosenArea, chosenAmount) {
     let headersList = {

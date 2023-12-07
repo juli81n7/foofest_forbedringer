@@ -1,5 +1,16 @@
+.jotunheim {
+  --accent-color: var(--accent-orange);
+}
+.midgard {
+  --accent-color: var(--accent-teal);
+}
+.vanaheim {
+  --accent-color: var(--accent-blue);
+}
+
 .singlebg {
-  background-color: var(--accent-orange);
+  background-color: var(--accent-color);
+
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 1rem;
@@ -35,7 +46,7 @@
   top: 0;
   right: -25%;
   width: 50%;
-  fill: var(--accent-orange);
+  fill: var(--accent-color);
   transform: rotate(20.05deg);
 }
 #Layer_3 {
@@ -43,7 +54,7 @@
   top: 0;
   left: -25%;
   width: 50%;
-  fill: var(--accent-orange);
+  fill: var(--accent-color);
   transform: rotate(137.12deg);
 }
 
