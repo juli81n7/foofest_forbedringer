@@ -4,6 +4,7 @@ export default function TicketFormInfo() {
   return (
     <div>
       <div className="ticketinfo">
+        <h2 className="ticketformh2">Your tickets</h2>
         <div>
           <div className="ticketamount">
             <p>3</p>

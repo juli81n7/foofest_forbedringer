@@ -1,35 +1,20 @@
-import "@/styles/ParticipantInfo.css";
-import Button from "./Button";
+"use client";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+export default function ParticipantInfo() {
+  const [submitData, setSubmitData] = useState([]); // Brug array-destrukturering
+  const { register, handleSubmit } = useForm();
 
-export default function ParticipantForm() {
-  return (
-    <div className="formline">
-      <h3>Participant 1</h3>
-      <div className="formgrid">
-        <div className="inputlayout">
-          <label htmlFor="fullname">Full name</label>
-          <input type="text" id="fullname" />
-        </div>
-        <div className="inputlayout">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" />
-        </div>
-        <div className="inputlayout">
-          <label htmlFor="phone">phone number</label>
-          <input type="tel" id="phone" />
-        </div>
-        <div className="inputlayout">
-          <label htmlFor="birth">Date of birth</label>
-          <input type="date" id="birth" />
-        </div>
-        <div className="inputlayout">
-          <label htmlFor="address">Address</label>
-          <input type="text" id="address" />
-        </div>
-        <div className="formbtn">
-          <Button href={"/"} btntext={"Next"}></Button>
-        </div>
-      </div>
-    </div>
-  );
+  const validateDate = (value) => {
+    const selected = new Date(value).getFullYear();
+    const now = new Date().getFullYear();
+    return now - selected >= 18;
+  };
+
+  const onSubmit = (data) => {
+    console.log(data);
+    setSubmitData((prevData) => [...prevData, data]);
+    console.log("her er data i state", submitData);
+  };
+  return <div></div>;
 }
