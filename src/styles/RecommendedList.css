@@ -3,8 +3,10 @@
 }
 
 .recommended {
+  min-height: 200px;
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
   gap: 1rem;
 }
 
@@ -12,12 +14,23 @@
   margin-block: 2rem;
 }
 
-@media only screen and (min-width: 600px) {
-  .recommended {
-    grid-template-columns: repeat(5, auto);
-  }
+.recommended-artist-container {
+  height: 100%;
+  background-color: white;
+  display: grid;
+  grid-template-rows: 1fr 50px;
 
-  .recommended-heading {
-    margin-block: 3rem;
+  & img {
+    height: 100%;
+    object-fit: cover;
   }
+}
+
+.recommended-artist {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 0.5rem;
 }
