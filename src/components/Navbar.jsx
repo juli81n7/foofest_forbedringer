@@ -25,8 +25,8 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link className="link" href="/Profile">
-                PROFILE
+              <Link className="link" href="/Account">
+                MY ACCOUNT
               </Link>
             </li>
           </ul>

@@ -1,0 +1,86 @@
+.account-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.svg {
+  z-index: -1;
+}
+
+.login-container {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  grid-column: 2;
+  max-width: 400px;
+}
+
+.login-container form input {
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  width: 100%;
+}
+
+.create-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.create-account div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.logged-in {
+}
+
+.primary-button {
+  background-color: var(--accent-orange);
+  border: none;
+  color: var(--white);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08rem;
+  transition: ease 0.2s;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+
+.or-create * {
+  color: white;
+}
+
+.or-create {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.create-button {
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  text-decoration: underline;
+  color: var(--accent-orange);
+}
+
+.account-details {
+  height: 100dvh;
+  grid-column: 2;
+  overflow: scroll;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  width: 100%;
+}
