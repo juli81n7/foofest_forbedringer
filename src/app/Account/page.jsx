@@ -23,7 +23,7 @@ function Account() {
 
   return (
     <main className="account-container">
-      <svg className="svg" id="Layer_3" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
+      <svg className="svg" id="Layer_left" data-name="Layer_left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
         <g id="Layer_1-2" data-name="Layer 1">
           <g>
             <g>
@@ -165,7 +165,8 @@ function Account() {
           </article>
         )}
       </section>
-      <svg className="svg" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
+
+      <svg className="svg" id="Layer_right" data-name="Layer_right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
         <g id="Layer_1-2" data-name="Layer 1">
           <g>
             <g>
