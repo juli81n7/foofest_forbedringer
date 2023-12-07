@@ -82,7 +82,26 @@
     place-content: center;
   }
 }
+.choose-wrapper::after {
+  position: absolute;
+  content: "";
+  color: var(--accent-red);
+  font-weight: 300;
+  font-size: 14px;
+  right: -10px;
+  bottom: -20px;
+  display: none;
+}
+.choose-wrapper.tick.showError::after {
+  content: "Remove a tentspot first!";
+  display: block;
+}
+.choose-wrapper.ten.showError::after {
+  content: "Add more tickets!";
+  display: block;
+}
 .choose-wrapper {
+  position: relative;
   display: grid;
   gap: 0.5rem;
 }

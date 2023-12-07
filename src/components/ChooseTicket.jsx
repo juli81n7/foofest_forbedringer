@@ -1,8 +1,8 @@
 "use client";
 
-function ChooseTicket({ updateTickets, tickets }) {
+function ChooseTicket({ updateTickets, tickets, showError }) {
   return (
-    <div className="choose-wrapper">
+    <div className={`choose-wrapper tick ${showError ? "showError" : ""}`}>
       <h2>CHOOSE YOUR TICKETS</h2>
       <div className="counter-line">
         <h3>ALL WEEK TICKET</h3>

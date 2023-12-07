@@ -17,25 +17,34 @@ function TicketContent() {
   const [threePers, setThreePers] = useState(0);
   const [totalTents, setTotalTents] = useState(tickets);
   //   const [tentSpots, setTentSpots] = useState(8);
+  const [showError, setShowError] = useState(false);
+  const [showErrorTent, setShowErrorTent] = useState(false);
   const totalTentSpot = onePers + twoPers * 2 + threePers * 3;
 
   function updateTickets(action) {
     setTickets((old) => {
       if (action === "add") {
+        setShowError(false);
+        setShowErrorTent(false);
         return old + 1;
+      } else if (totalTentSpot >= tickets) {
+        setShowError(true);
+        return old;
       } else {
+        setShowError(false);
         return Math.max(totalTentSpot, old - 1);
       }
     });
   }
   function updateOneTent(action) {
-    // console.log(totalTentSpot);
     setOnePers((old) => {
       if (action === "remove") {
+        setShowError(false);
         return Math.max(0, old - 1);
       } else if (action === "add" && tickets > totalTentSpot) {
         return old + 1;
       } else {
+        setShowErrorTent(true);
         return old;
       }
     });
@@ -44,10 +53,12 @@ function TicketContent() {
   function updateTwoTent(action) {
     setTwoPers((old) => {
       if (action === "remove") {
+        setShowError(false);
         return Math.max(0, old - 1);
       } else if (action === "add" && tickets > totalTentSpot + 1) {
         return old + 1;
       } else {
+        setShowErrorTent(true);
         return old;
       }
     });
@@ -55,10 +66,12 @@ function TicketContent() {
   function updateThreeTent(action) {
     setThreePers((old) => {
       if (action === "remove") {
+        setShowError(false);
         return Math.max(0, old - 1);
       } else if (action === "add" && tickets > totalTentSpot + 2) {
         return old + 1;
       } else {
+        setShowErrorTent(true);
         return old;
       }
     });
@@ -88,8 +101,8 @@ function TicketContent() {
           </div>
         </div>
         <div className="flow-area">
-          <ChooseTicket tickets={tickets} updateTickets={updateTickets} />
-          <ChooseTent onePers={onePers} updateOneTent={updateOneTent} twoPers={twoPers} updateTwoTent={updateTwoTent} threePers={threePers} updateThreeTent={updateThreeTent} />
+          <ChooseTicket tickets={tickets} updateTickets={updateTickets} showError={showError} />
+          <ChooseTent onePers={onePers} updateOneTent={updateOneTent} twoPers={twoPers} updateTwoTent={updateTwoTent} threePers={threePers} updateThreeTent={updateThreeTent} showErrorTent={showErrorTent} />
           <ChooseCamp />
           <CheckoutOptions />
         </div>

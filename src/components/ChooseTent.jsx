@@ -1,6 +1,6 @@
-function ChooseTent({ onePers, updateOneTent, twoPers, updateTwoTent, threePers, updateThreeTent }) {
+function ChooseTent({ onePers, updateOneTent, twoPers, updateTwoTent, threePers, updateThreeTent, showErrorTent }) {
   return (
-    <div className="choose-wrapper">
+    <div className={`choose-wrapper ten ${showErrorTent ? "showError" : ""}`}>
       <h2>CHOOSE YOUR TENTS</h2>
       <div className="counter-line">
         <h3>1 PERS TENT</h3>
