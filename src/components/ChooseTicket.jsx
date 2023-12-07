@@ -1,16 +1,15 @@
-import CountButton from "./CountButton";
-import "../styles/ChooseTicket.css";
+"use client";
 
-function ChooseTicket() {
+function ChooseTicket({ updateTickets, tickets }) {
   return (
     <div className="choose-wrapper">
       <h2>CHOOSE YOUR TICKETS</h2>
       <div className="counter-line">
         <h3>ALL WEEK TICKET</h3>
         <div className="counter">
-          <CountButton btntext="-" />
-          <p>0</p>
-          <CountButton btntext="+" />
+          <button onClick={() => updateTickets("remove")}>-</button>
+          <p>{tickets}</p>
+          <button onClick={() => updateTickets("add")}>+</button>
         </div>
       </div>
     </div>

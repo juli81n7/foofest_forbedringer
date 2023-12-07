@@ -72,12 +72,15 @@
 .counter-line {
   display: flex;
   justify-content: space-between;
-  /* align-items: end; */
 }
 .counter {
   display: flex;
   gap: 1rem;
-  /* align-items: end; */
+  & p {
+    min-width: 26px;
+    display: grid;
+    place-content: center;
+  }
 }
 .choose-wrapper {
   display: grid;
