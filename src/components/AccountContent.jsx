@@ -223,14 +223,14 @@ function Account({ loginInfo }) {
 
         {!showCreateLogin && !showLogin && (
           <article className="logged-in">
-            <h2>Hej {loginInfo[0].firstName}!</h2>
+            <h2>Hej {firstName}!</h2>
             <p>
-              {loginInfo[0].firstName} {loginInfo[0].lastName}
+              {firstName} {lastName}
             </p>
-            <p>{loginInfo[0].email}</p>
-            <p>{loginInfo[0].phone}</p>
+            <p>{email}</p>
+            <p>{phone}</p>
             <p>
-              {loginInfo[0].address}, {loginInfo[0].zip}
+              {address}, {zip}
             </p>
             <button onClick={toggleLogin}>Log ud</button>
           </article>
