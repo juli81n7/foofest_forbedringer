@@ -1,15 +1,32 @@
 .camp-area {
-  aspect-ratio: 1;
+  aspect-ratio: 3/4;
   height: 9rem;
   border: 1px solid var(--white);
   display: grid;
   align-content: end;
   position: relative;
 }
-.area-status {
+.area-few {
   background: var(--accent-orange);
   padding: 3px 4px 0px;
   font-size: 12px;
   position: absolute;
   top: 20%;
+}
+.area-out {
+  background: var(--accent-red);
+  padding: 3px 4px 0px;
+  font-size: 12px;
+  position: absolute;
+  top: 20%;
+}
+.area-too-small {
+  background: var(--accent-pink, hotpink);
+  padding: 3px 4px 0px;
+  font-size: 12px;
+  position: absolute;
+  top: 35%;
+}
+.camp-area:has(.area-out) {
+  opacity: 50%;
 }

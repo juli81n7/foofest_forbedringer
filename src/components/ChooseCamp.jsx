@@ -1,14 +1,31 @@
 import "../styles/ChooseCamp.css";
 import CampArea from "./CampArea";
-function ChooseCamp() {
+import React, { useEffect, useState } from "react";
+
+// const { spots } = lazy(() => import("@/app/data"));
+
+function ChooseCamp({ tickets }) {
+  const [spots, setSpots] = useState([]);
+
+  useEffect(() => {
+    async function getSpots() {
+      const res3 = await fetch(process.env.NEXT_PUBLIC_HOST + "/available-spots", {
+        headers: {},
+      });
+      const spots = await res3.json();
+      setSpots(spots);
+    }
+    getSpots();
+  }, []);
+
+  console.log(spots);
   return (
     <div className="choose-wrapper">
       <h2>CHOOSE YOUR AREA</h2>
       <div className="camp-box">
-        <CampArea status="Few left" areaName="SVARTHEIM" />
-        <CampArea status="Sold out" areaName="NILFHEIM" />
-        <CampArea areaName="MUSPELHEIM" />
-        <CampArea areaName="ALFHEIM" />
+        {spots.map((spot, index) => (
+          <CampArea tickets={tickets} status={spot.available} areaName={spot.area} key={index} />
+        ))}
       </div>
     </div>
   );
