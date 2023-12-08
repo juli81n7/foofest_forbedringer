@@ -1,9 +1,7 @@
 "use client";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-export default function ParticipantInfo() {
-  const [submitData, setSubmitData] = useState([]); // Brug array-destrukturering
-  const { register, handleSubmit } = useForm();
+import "@/styles/ParticipantInfo.css";
+export default function ParticipantInfo({ register, prefix }) {
+  // Brug array-destrukturering
 
   const validateDate = (value) => {
     const selected = new Date(value).getFullYear();
@@ -16,5 +14,45 @@ export default function ParticipantInfo() {
     setSubmitData((prevData) => [...prevData, data]);
     console.log("her er data i state", submitData);
   };
-  return <div></div>;
+  return (
+    <div className="formcontainer">
+      <div className="formline">
+        <div className="formgrid">
+          <div className="inputlayout">
+            <label htmlFor="firstName">First name</label>
+            <input {...register(`${prefix}-firstName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="firstname" />
+          </div>
+          <div className="inputlayout">
+            <label htmlFor="lastname">Last name</label>
+            <input {...register(`${prefix}-lastName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="lastname" />
+          </div>
+          <div className="inputlayout">
+            <label htmlFor="email">Email</label>
+            <input {...register(`${prefix}-email`, { required: true, pattern: /\S+@\S+\.\S+/ })} type="email" id="email" />
+          </div>
+          <div className="inputlayout">
+            <label htmlFor="phone">phone number</label>
+            <input {...register(`${prefix}-phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} type="tel" id="phone" />
+          </div>
+          <div className="inputlayout">
+            <label htmlFor="birth">Date of birth</label>
+            <input
+              {...register(`${prefix}-dob`, {
+                required: true,
+                validate: validateDate,
+              })}
+              type="date"
+              min="1899-01-01"
+              max="2100-12-12"
+              id="birth"
+            />
+          </div>
+          <div className="inputlayout">
+            <label htmlFor="address">Address</label>
+            <input {...register(`${prefix}-address`, { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="address" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

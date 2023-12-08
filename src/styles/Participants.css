@@ -1,0 +1,33 @@
+.submitBtn,
+.addBtn {
+  background-color: transparent;
+  color: white;
+  border: solid 1px white;
+  text-transform: uppercase;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  width: fit-content;
+}
+
+.submitBtn {
+  background-color: var(--white);
+  color: var(--bg-color);
+  border: var(--bg-color);
+}
+
+.flow-grid {
+  display: grid;
+}
+
+.btngrid {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.participanth3 {
+  margin-block: 2rem;
+}

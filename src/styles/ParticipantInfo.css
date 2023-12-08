@@ -36,3 +36,11 @@
   justify-self: end;
   align-self: end;
 }
+
+.formcontainer {
+  margin-bottom: 4rem;
+}
+
+.formcontainer input {
+  accent-color: white;
+}
