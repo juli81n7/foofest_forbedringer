@@ -103,7 +103,7 @@ function TicketContent() {
         <div className="flow-area">
           <ChooseTicket tickets={tickets} updateTickets={updateTickets} showError={showError} />
           <ChooseTent onePers={onePers} updateOneTent={updateOneTent} twoPers={twoPers} updateTwoTent={updateTwoTent} threePers={threePers} updateThreeTent={updateThreeTent} showErrorTent={showErrorTent} />
-          <ChooseCamp />
+          <ChooseCamp tickets={tickets} />
           <CheckoutOptions />
         </div>
       </section>
