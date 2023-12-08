@@ -93,11 +93,11 @@
   display: none;
 }
 .choose-wrapper.tick.showError::after {
-  content: "Remove a tentspot first!";
+  content: "Remove a tentspot first";
   display: block;
 }
 .choose-wrapper.ten.showError::after {
-  content: "Add more tickets!";
+  content: "Add more tickets";
   display: block;
 }
 .choose-wrapper {

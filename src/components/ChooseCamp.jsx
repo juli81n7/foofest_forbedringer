@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 // const { spots } = lazy(() => import("@/app/data"));
 
-function ChooseCamp({ tickets }) {
+function ChooseCamp({ totalTentSpots }) {
   const [spots, setSpots] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function ChooseCamp({ tickets }) {
       <h2>CHOOSE YOUR AREA</h2>
       <div className="camp-box">
         {spots.map((spot, index) => (
-          <CampArea tickets={tickets} status={spot.available} areaName={spot.area} key={index} />
+          <CampArea totalTentSpots={totalTentSpots} status={spot.available} areaName={spot.area} key={index} />
         ))}
       </div>
     </div>

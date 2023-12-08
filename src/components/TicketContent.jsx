@@ -19,7 +19,7 @@ function TicketContent() {
   //   const [tentSpots, setTentSpots] = useState(8);
   const [showError, setShowError] = useState(false);
   const [showErrorTent, setShowErrorTent] = useState(false);
-  const totalTentSpot = onePers + twoPers * 2 + threePers * 3;
+  const totalTentSpots = onePers + twoPers * 2 + threePers * 3;
 
   function updateTickets(action) {
     setTickets((old) => {
@@ -27,12 +27,12 @@ function TicketContent() {
         setShowError(false);
         setShowErrorTent(false);
         return old + 1;
-      } else if (totalTentSpot >= tickets) {
+      } else if (totalTentSpots >= tickets) {
         setShowError(true);
         return old;
       } else {
         setShowError(false);
-        return Math.max(totalTentSpot, old - 1);
+        return Math.max(totalTentSpots, old - 1);
       }
     });
   }
@@ -40,8 +40,9 @@ function TicketContent() {
     setOnePers((old) => {
       if (action === "remove") {
         setShowError(false);
+        setShowErrorTent(false);
         return Math.max(0, old - 1);
-      } else if (action === "add" && tickets > totalTentSpot) {
+      } else if (action === "add" && tickets > totalTentSpots) {
         return old + 1;
       } else {
         setShowErrorTent(true);
@@ -54,8 +55,9 @@ function TicketContent() {
     setTwoPers((old) => {
       if (action === "remove") {
         setShowError(false);
+        setShowErrorTent(false);
         return Math.max(0, old - 1);
-      } else if (action === "add" && tickets > totalTentSpot + 1) {
+      } else if (action === "add" && tickets > totalTentSpots + 1) {
         return old + 1;
       } else {
         setShowErrorTent(true);
@@ -67,8 +69,9 @@ function TicketContent() {
     setThreePers((old) => {
       if (action === "remove") {
         setShowError(false);
+        setShowErrorTent(false);
         return Math.max(0, old - 1);
-      } else if (action === "add" && tickets > totalTentSpot + 2) {
+      } else if (action === "add" && tickets > totalTentSpots + 2) {
         return old + 1;
       } else {
         setShowErrorTent(true);
@@ -103,7 +106,7 @@ function TicketContent() {
         <div className="flow-area">
           <ChooseTicket tickets={tickets} updateTickets={updateTickets} showError={showError} />
           <ChooseTent onePers={onePers} updateOneTent={updateOneTent} twoPers={twoPers} updateTwoTent={updateTwoTent} threePers={threePers} updateThreeTent={updateThreeTent} showErrorTent={showErrorTent} />
-          <ChooseCamp tickets={tickets} />
+          <ChooseCamp totalTentSpots={totalTentSpots} />
           <CheckoutOptions />
         </div>
       </section>
