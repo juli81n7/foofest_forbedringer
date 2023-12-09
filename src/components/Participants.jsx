@@ -14,7 +14,13 @@ export default function Participants() {
 
   const onSubmit = (data) => {
     console.log(data);
-    setSubmitData((prevData) => [...prevData, data]);
+    setSubmitData((prevData) => [
+      ...prevData,
+      {
+        participant: prevData.length + 1,
+        data,
+      },
+    ]);
     console.log("her er data i state", submitData);
   };
   return (

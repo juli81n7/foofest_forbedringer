@@ -1,8 +1,17 @@
 "use client";
+import { useState } from "react";
 import "@/styles/ParticipantInfo.css";
-export default function ParticipantInfo({ register, prefix }) {
-  // Brug array-destrukturering
 
+export default function ParticipantInfo({ register, prefix }) {
+  const [data, setData] = useState({});
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   const validateDate = (value) => {
     const selected = new Date(value).getFullYear();
     const now = new Date().getFullYear();
