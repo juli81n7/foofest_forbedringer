@@ -4,19 +4,68 @@ import { useState } from "react";
 import "@/styles/Account.css";
 
 function Account({ loginInfo }) {
-  console.log(loginInfo);
-
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [zip, setZip] = useState("");
+
+  async function PostLogin(props) {
+    let headersList = {
+      Accept: "*/*",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+      "Content-Type": "application/json",
+    };
+
+    let bodyContent = JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      phone: phone,
+      address: address,
+      zip: zip,
+    });
+
+    let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+      method: "POST",
+      body: bodyContent,
+      headers: headersList,
+    });
+
+    let data = await response.json();
+    console.log(data);
+    return data;
+  }
+
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-    console.log(email);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    console.log(password);
+  };
+
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+  };
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const handleZipChange = (event) => {
+    setZip(event.target.value);
   };
 
   const [showCreateLogin, setShowCreateLogin] = useState(false);
@@ -141,43 +190,47 @@ function Account({ loginInfo }) {
           <form className="create-account" onSubmit={toggleCreateLogin}>
             <h2>Create an Account</h2>
             <div>
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" onChange={handleEmailChange} />
-            </div>
-            <div>
               <label htmlFor="first-name">First Name</label>
-              <input type="text" name="first-name" />
+              <input type="text" name="first-name" onChange={handleFirstNameChange} />
             </div>
             <div>
               <label htmlFor="last-name">Last Name</label>
-              <input type="text" name="last-name" />
+              <input type="text" name="last-name" onChange={handleLastNameChange} />
             </div>
             <div>
-              <label htmlFor="DoB">Date of Birth</label>
-              <input type="date" name="DoB" />
+              <label htmlFor="email">Email</label>
+              <input type="text" name="email" onChange={handleEmailChange} />
             </div>
             <div>
               <label htmlFor="password">Password</label>
               <input type="password" name="password" onChange={handlePasswordChange} />
             </div>
             <div>
-              <label htmlFor="confirm-password">Confirm Password</label>
-              <input type="password" name="confirm-password" />
+              <label htmlFor="phone">Phone</label>
+              <input type="text" name="phone" onChange={handlePhoneChange} />
             </div>
-            <input className="primary-button" type="submit" value="Create Account" />
+            <div>
+              <label htmlFor="address">Address</label>
+              <input type="text" name="address" onChange={handleAddressChange} />
+            </div>
+            <div>
+              <label htmlFor="zip">Zip-code</label>
+              <input type="text" name="zip" onChange={handleZipChange} />
+            </div>
+            <input className="primary-button" type="submit" value="Create Account" onClick={PostLogin} />
           </form>
         )}
 
         {!showCreateLogin && !showLogin && (
           <article className="logged-in">
-            <h2>Hej {loginInfo[0].firstName}!</h2>
+            <h2>Hej {firstName}!</h2>
             <p>
-              {loginInfo[0].firstName} {loginInfo[0].lastName}
+              {firstName} {lastName}
             </p>
-            <p>{loginInfo[0].email}</p>
-            <p>{loginInfo[0].phone}</p>
+            <p>{email}</p>
+            <p>{phone}</p>
             <p>
-              {loginInfo[0].address}, {loginInfo[0].zip}
+              {address}, {zip}
             </p>
             <button onClick={toggleLogin}>Log ud</button>
           </article>
