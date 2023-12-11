@@ -25,7 +25,7 @@ const weekdaystate = weekdayss[weekdayToday];
 
 
 function Calender(props) {
-    const [day, setDay] = useState(weekdaystate);
+    const [day, setDay] = useState("weekdaystate");
     const [BtnName, setBtnName] = useState(weekdayText);
     
     const [activeSection, setActiveSection] = useState(null);

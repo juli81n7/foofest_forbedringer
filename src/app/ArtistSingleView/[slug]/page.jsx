@@ -31,7 +31,7 @@ export default function page({ params }) {
   const foundObjects = [];
 const genreBands=  bands.filter((band) => band.genre ===selectedBand.genre)
 
-
+console.log(selectedBand)
 
 
 
@@ -71,7 +71,7 @@ else if(Plaingday === "sat"){
 else if(Plaingday === "sun"){
   foundObjects.writtenDay="Sunday"
 } 
-
+console.log(foundObjects)
     }
  })
  
@@ -218,8 +218,8 @@ else{
             ))}
           </section>
           <section >
-            <h4>genre</h4>
-            <p>{foundObjects.genre}</p>
+            <h4>Genre</h4>
+            <p>{selectedBand.genre}</p>
           </section>
           
         </section>
