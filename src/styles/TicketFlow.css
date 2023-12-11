@@ -63,6 +63,7 @@
 .counter-line :is(h3, p, button) {
   font-size: 24px;
   font-weight: 400;
+  align-self: center;
 }
 .counter-line button {
   color: var(--white);
@@ -93,11 +94,11 @@
   display: none;
 }
 .choose-wrapper.tick.showError::after {
-  content: "Remove a tentspot first!";
+  content: "Remove a tentspot first";
   display: block;
 }
 .choose-wrapper.ten.showError::after {
-  content: "Add more tickets!";
+  content: "Add more tickets";
   display: block;
 }
 .choose-wrapper {

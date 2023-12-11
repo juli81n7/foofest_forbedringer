@@ -1,12 +1,10 @@
 import "../styles/ChooseCamp.css";
 import CampArea from "./CampArea";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // const { spots } = lazy(() => import("@/app/data"));
 
-function ChooseCamp({ tickets }) {
-  const [spots, setSpots] = useState([]);
-
+function ChooseCamp({ totalTentSpots, spots, setSpots }) {
   useEffect(() => {
     async function getSpots() {
       const res3 = await fetch(process.env.NEXT_PUBLIC_HOST + "/available-spots", {
@@ -16,7 +14,7 @@ function ChooseCamp({ tickets }) {
       setSpots(spots);
     }
     getSpots();
-  }, []);
+  }, [setSpots]);
 
   console.log(spots);
   return (
@@ -24,7 +22,7 @@ function ChooseCamp({ tickets }) {
       <h2>CHOOSE YOUR AREA</h2>
       <div className="camp-box">
         {spots.map((spot, index) => (
-          <CampArea tickets={tickets} status={spot.available} areaName={spot.area} key={index} />
+          <CampArea key={index} totalTentSpots={totalTentSpots} status={spot.available} areaName={spot.area} />
         ))}
       </div>
     </div>
