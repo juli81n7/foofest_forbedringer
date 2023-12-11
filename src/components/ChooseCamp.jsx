@@ -16,7 +16,6 @@ function ChooseCamp({ totalTentSpots, spots, setSpots }) {
     getSpots();
   }, [setSpots]);
 
-  console.log(spots);
   return (
     <div className="choose-wrapper">
       <h2>CHOOSE YOUR AREA</h2>

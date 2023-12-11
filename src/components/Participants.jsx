@@ -4,13 +4,8 @@ import { useForm } from "react-hook-form";
 import ParticipantInfo from "./ParticipantInfo";
 import "@/styles/Participants.css";
 export default function Participants({ ticketAmount }) {
-  const [participantCount, setParticipantCount] = useState(ticketAmount);
   const [submitData, setSubmitData] = useState([]);
   const { register, handleSubmit } = useForm();
-
-  const addParticipant = () => {
-    setParticipantCount((prevCount) => prevCount + 1);
-  };
 
   const onSubmit = (data) => {
     console.log(data);

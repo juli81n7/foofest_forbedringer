@@ -11,6 +11,7 @@ export default function ShowTicketContent() {
   const [onePers, setOnePers] = useState(0);
   const [twoPers, setTwoPers] = useState(0);
   const [threePers, setThreePers] = useState(0);
+  const [toggleCheckout, setToggleCheckout] = useState(false);
   const totalTentSpots = onePers + twoPers * 2 + threePers * 3;
 
   function updateTickets(action) {
@@ -28,26 +29,5 @@ export default function ShowTicketContent() {
       }
     });
   }
-  return (
-    <div>
-      <TicketContent
-        spots={spots}
-        setSpots={setSpots}
-        setShowError={setShowError}
-        totalTentSpots={totalTentSpots}
-        updateTickets={updateTickets}
-        tickets={tickets}
-        showError={showError}
-        showErrorTent={showErrorTent}
-        setShowErrorTent={setShowErrorTent}
-        setOnePers={setOnePers}
-        setTwoPers={setTwoPers}
-        setThreePers={setThreePers}
-        onePers={onePers}
-        twoPers={twoPers}
-        threePers={threePers}
-      />
-      <ParticipantComp ticketAmount={tickets} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></ParticipantComp>
-    </div>
-  );
+  return <div>{toggleCheckout === false ? <TicketContent setToggleCheckout={setToggleCheckout} spots={spots} setSpots={setSpots} setShowError={setShowError} totalTentSpots={totalTentSpots} updateTickets={updateTickets} tickets={tickets} showError={showError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers} onePers={onePers} twoPers={twoPers} threePers={threePers} /> : <ParticipantComp ticketAmount={tickets} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></ParticipantComp>}</div>;
 }
