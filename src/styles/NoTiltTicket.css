@@ -1,4 +1,4 @@
-.ticketHolder {
+/* .ticketHolder {
   width: 400px;
   margin-inline: auto;
   height: 150px;
@@ -14,9 +14,6 @@
   .first {
     display: grid;
     justify-items: center;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
     padding-bottom: 0.2rem;
     padding-top: 0.5rem;
 
@@ -54,4 +51,4 @@
       align-self: flex-end;
     }
   }
-}
+} */

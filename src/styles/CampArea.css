@@ -1,17 +1,40 @@
-.camp-area {
+/* Styling til label */
+.radio-label {
+  padding: 0;
+  font-size: 16px;
+  cursor: pointer;
   aspect-ratio: 3/4;
   height: 9rem;
   border: 2px solid var(--white);
   display: grid;
-  /* align-content: end; */
   position: relative;
 }
-.camp-area > * {
+/* Hide default radio button styles */
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  inset: 0;
+}
+
+/* Style the custom radio when checked */
+.radio-label:has(.custom-radio:checked) {
+  /* background-color: #2196f3; */
+  border: 2px solid var(--accent-orange);
+}
+.radio-label:has(.custom-radio[disabled]) {
+  opacity: 30%;
+}
+.radio-label > * {
   grid-area: 1/1/2/2;
 }
 .area-name {
   align-self: end;
 }
+
 .area-few {
   background: var(--accent-orange);
   padding: 3px 4px 0px;
@@ -25,8 +48,6 @@
   background: var(--accent-red);
   padding: 3px 4px 0px;
   font-size: 12px;
-  /* position: absolute; */
-  /* top: 20%; */
   align-self: center;
 }
 .area-too-small {
@@ -36,17 +57,18 @@
   position: absolute;
   top: 35%;
 }
-.camp-area:has(.area-out) {
+/* .radio-label:has(.area-out) {
   opacity: 30%;
 }
-.camp-area:has(.area-too-small) {
+.radio-label:has(.area-too-small) {
   opacity: 30%;
-}
+} */
+
 .spots-left {
   padding: 3px 4px 0px;
   position: absolute;
   top: 0;
   right: 0;
   font-size: 12px;
-  background: #aaa;
+  background: #666;
 }
