@@ -12,35 +12,39 @@
   background-color: var(--accent-color);
 
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr auto;
   grid-template-rows: 1fr auto;
 
   padding: 1rem;
-  min-height: 40rem;
 }
 
 .singleh1 {
-  font-size: 4.5rem;
+  font-size: clamp(2rem, 10.9vw, 6rem);
+  line-height: clamp(2.81rem, 11.34vw, 6rem);
+
   grid-column: 1/3;
   margin-bottom: 2rem;
 }
 
 .singleinfo {
-  display: grid;
-  grid-column: 3;
+  display: flex;
+  flex-direction: column;
   text-align: right;
-  justify-content: space-between;
+  gap: 2rem;
+  align-items: end;
   margin-top: 1rem;
 }
 
 .singleartistinfo p {
-  width: 36ch;
+  width: 50ch;
   margin-bottom: 1rem;
   grid-column: 1;
 }
 .imagecontainer {
   position: relative;
   overflow: hidden;
+  max-height: 500px;
+  display: grid;
 }
 
 #Layer_2 {
@@ -63,9 +67,12 @@
 .singlebtn {
   align-self: end;
   margin-bottom: 1rem;
+  margin-top: 4rem;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: flex-end;
 }
 .singlegroup {
-  align-self: center;
   & h4 {
     margin-bottom: 0.5rem;
   }
@@ -73,4 +80,20 @@
 
 .myslugimage {
   object-fit: cover;
+}
+.credits {
+  position: absolute;
+  font-size: 0.7rem;
+  text-align: right;
+  transform-origin: right;
+  right: 0rem;
+  padding: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 9;
+  max-width: 40ch;
+  background-color: var(--accent-color);
+
+  & span {
+    font-weight: 500;
+  }
 }
