@@ -7,12 +7,15 @@ export default function ShowTicketContent() {
   const [tickets, setTickets] = useState(0);
   const [showError, setShowError] = useState(false);
   const [showErrorTent, setShowErrorTent] = useState(false);
-
+  const [spots, setSpots] = useState([]);
+  const [selectedArea, setSelectedArea] = useState(null);
   const [onePers, setOnePers] = useState(0);
   const [twoPers, setTwoPers] = useState(0);
   const [threePers, setThreePers] = useState(0);
   const totalTentSpots = onePers + twoPers * 2 + threePers * 3;
-
+  const handleAreaSelect = (areaName) => {
+    setSelectedArea(areaName);
+  };
   function updateTickets(action) {
     setTickets((old) => {
       if (action === "add") {
@@ -30,22 +33,8 @@ export default function ShowTicketContent() {
   }
   return (
     <div>
-      <TicketContent
-        setShowError={setShowError}
-        totalTentSpots={totalTentSpots}
-        updateTickets={updateTickets}
-        tickets={tickets}
-        showError={showError}
-        showErrorTent={showErrorTent}
-        setShowErrorTent={setShowErrorTent}
-        setOnePers={setOnePers}
-        setTwoPers={setTwoPers}
-        setThreePers={setThreePers}
-        onePers={onePers}
-        twoPers={twoPers}
-        threePers={threePers}
-      />
-      <ParticipantComp ticketAmount={tickets} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></ParticipantComp>
+      <TicketContent handleAreaSelect={handleAreaSelect} spots={spots} setSpots={setSpots} selectedArea={selectedArea} setSelectedArea={setSelectedArea} setShowError={setShowError} totalTentSpots={totalTentSpots} updateTickets={updateTickets} tickets={tickets} showError={showError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers} onePers={onePers} twoPers={twoPers} threePers={threePers} />
+      <ParticipantComp selectedArea={selectedArea} ticketAmount={tickets} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></ParticipantComp>
     </div>
   );
 }

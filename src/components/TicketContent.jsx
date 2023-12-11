@@ -6,7 +6,7 @@ import CheckoutOptions from "@/components/CheckoutOptions";
 
 import "@/styles/TicketFlow.css";
 
-function TicketContent({ updateTickets, tickets, showError, setShowError, showErrorTent, setShowErrorTent, onePers, twoPers, threePers, setOnePers, setTwoPers, setThreePers, totalTentSpots }) {
+function TicketContent({ handleAreaSelect, updateTickets, tickets, showError, setShowError, showErrorTent, setShowErrorTent, onePers, twoPers, threePers, setOnePers, setTwoPers, setThreePers, totalTentSpots, spots, setSpots, selectedArea, setSelectedArea }) {
   function updateOneTent(action) {
     setOnePers((old) => {
       if (action === "remove") {
@@ -58,7 +58,7 @@ function TicketContent({ updateTickets, tickets, showError, setShowError, showEr
           <ChooseTicket tickets={tickets} updateTickets={updateTickets} showError={showError} />
 
           <ChooseTent onePers={onePers} updateOneTent={updateOneTent} twoPers={twoPers} updateTwoTent={updateTwoTent} threePers={threePers} updateThreeTent={updateThreeTent} showErrorTent={showErrorTent} />
-          <ChooseCamp totalTentSpots={totalTentSpots} />
+          <ChooseCamp handleAreaSelect={handleAreaSelect} totalTentSpots={totalTentSpots} spots={spots} setSpots={setSpots} selectedArea={selectedArea} setSelectedArea={setSelectedArea} />
           <CheckoutOptions />
         </div>
       </section>

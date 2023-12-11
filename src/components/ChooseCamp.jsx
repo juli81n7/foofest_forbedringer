@@ -1,13 +1,10 @@
 import "../styles/ChooseCamp.css";
 import CampArea from "./CampArea";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // const { spots } = lazy(() => import("@/app/data"));
 
-function ChooseCamp({ totalTentSpots }) {
-  const [spots, setSpots] = useState([]);
-  const [selectedArea, setSelectedArea] = useState(null);
-
+function ChooseCamp({ totalTentSpots, spots, setSpots, selectedArea, setSelectedArea, handleAreaSelect }) {
   useEffect(() => {
     async function getSpots() {
       const res3 = await fetch(process.env.NEXT_PUBLIC_HOST + "/available-spots", {
@@ -17,11 +14,7 @@ function ChooseCamp({ totalTentSpots }) {
       setSpots(spots);
     }
     getSpots();
-  }, []);
-
-  const handleAreaSelect = (areaName) => {
-    setSelectedArea(areaName);
-  };
+  }, [setSpots]);
 
   console.log(spots);
   return (

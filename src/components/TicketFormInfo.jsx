@@ -1,6 +1,6 @@
 import "@/styles/TicketFormInfo.css";
 
-export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePers, setOnePers, setTwoPers, setThreePers }) {
+export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePers, selectedArea }) {
   return (
     <div>
       <div className="ticketinfo">
@@ -38,7 +38,7 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
         </div>
         <div className="camparea">
           <p>Camping area</p>
-          <h3>Svartheim</h3>
+          <h3>{selectedArea}</h3>
         </div>
         <div className="totalprice">
           <p>Total price</p>
