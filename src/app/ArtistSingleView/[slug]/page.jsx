@@ -223,7 +223,7 @@ else{
 
       {
         foundObjectsForGenre.map((myband) => (
-<Link href={myband.band.slug}>
+<Link href={myband.band.slug} key={myband.band.slug}>
               <div className="recommended-artist-container" key={myband.band.slug}            >
               <img src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></img>
               <div className="recommended-artist">
@@ -251,7 +251,8 @@ else{
         
       {
         sameDayBands.map((myband) => (
-<Link href={myband.band.slug}>
+<Link href={myband.band.slug} key={myband.band.slug}>
+
               <div className="recommended-artist-container" key={myband.band.slug}            >
               <img src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></img>
               <div className="recommended-artist">
