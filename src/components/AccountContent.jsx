@@ -286,7 +286,7 @@ function Account({ loginInfo, schedule, bands }) {
             </article>
             <article className="your-program">
               <h2>Your tickets</h2>
-              <div className="ticket-grid">
+              <div className="ticket-flex">
                 {user.tickets?.map((ticket) => (
                   <article className="ticket" key={ticket.id}>
                     <div>

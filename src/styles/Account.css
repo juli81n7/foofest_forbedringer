@@ -115,11 +115,12 @@
   width: fit-content;
 }
 
-.ticket-grid {
+.ticket-flex {
   display: flex;
   align-items: center;
   gap: 2rem;
   margin-block: 1rem;
+  flex-wrap: wrap;
 }
 
 .ticket {
