@@ -267,6 +267,16 @@ function Account({ loginInfo, schedule, bands }) {
           <>
             <article className="your-welcome">
               <h2>Welcome {user.firstName}</h2>
+              <div>
+                <p>
+                  {user.firstName} {user.lastName}
+                </p>
+                <p>{user.email}</p>
+                <p>{user.phone}</p>
+                <p>
+                  {user.address}, {user.zip}
+                </p>
+              </div>
               <p>On this page you can see your tickets and your personal program.</p>
               <button onClick={toggleLogin}>Log ud</button>
             </article>
