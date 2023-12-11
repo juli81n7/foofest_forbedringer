@@ -132,6 +132,7 @@ let myobj = {
 
 sameDayBands.push(myobj)
 
+
 }
 
  
@@ -171,10 +172,11 @@ else{
     if(obj.band.logo.startsWith("https")){
       obj.band.logo = obj.band.logo
 
+
     }
     else{
       obj.band.logo = "http://localhost:8080/logos/"+ obj.band.logo
-      console.log(obj.band.logo)
+
     }
     
     
@@ -193,8 +195,10 @@ else{
   return (
     <div className={foundObjects.stage.toLowerCase()}>
       
-      <ImageContainer name={selectedBand.name} schedule={schedule} selectedBand={selectedBand}/>
+      <ImageContainer credits={selectedBand.logoCredits} name={selectedBand.name} schedule={schedule} selectedBand={selectedBand}/>
       <section className="singlebg">
+      
+      
         <section className="singleartistinfo">
           <h1 className="singleh1">{selectedBand.name}</h1>
          
@@ -202,6 +206,7 @@ else{
         </section>
         <section className="singleinfo">
           <section className="singleplaying">
+          
             <h4>Playing {foundObjects.stage}</h4>
             <p>{foundObjects.writtenDay}</p>
             <p>{foundObjects.band.start}-{foundObjects.band.end}</p>
@@ -212,10 +217,15 @@ else{
               <p key={index}>{mem}</p>
             ))}
           </section>
-          <section className="singlebtn">
+          <section >
+            <h4>genre</h4>
+            <p>{foundObjects.genre}</p>
+          </section>
+          
+        </section>
+        <section className="singlebtn">
             <Button href="/" btntext="Save to your program"></Button>
           </section>
-        </section>
       </section>
       <RecommendedList heading={"View more " + selectedBand.genre}>
 

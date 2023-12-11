@@ -36,7 +36,7 @@ else{
     <div className="imagecontainer">
 
  
-
+    {props.credits ? <p className="credits"> <span>Image Credits</span> <br />{props.credits}</p>:null}
 
     <Image className="myslugimage" src={myImage} width={1728} height={632} alt="Picture of the very well known hiphop artist group, unknown artist"></Image>
 
