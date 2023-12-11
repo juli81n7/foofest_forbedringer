@@ -1,14 +1,10 @@
 import Content from "@/components/Content";
 import ParticipantComp from "@/components/ParticipantComp";
 import TicketContent from "@/components/TicketContent";
+import ShowTicketContent from "@/components/ShowTicketContent";
 
 function page() {
-  return (
-    <Content>
-      <TicketContent />
-      <ParticipantComp></ParticipantComp>
-    </Content>
-  );
+  return <ShowTicketContent></ShowTicketContent>;
 }
 
 export default page;
