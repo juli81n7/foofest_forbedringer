@@ -41,6 +41,7 @@ function Calender(props) {
   
       // Set the percentage in the component state
       setPercentageOfDay(percentage);
+
     }, []); 
 
     
@@ -76,7 +77,7 @@ function changeBtnName(newDay){
     setBtnName("Sunday")
   }
 
-  console.log("nu er BTNNAME DSJKHFKHSDKJFHSDKJHFKJSDHFK", BtnName)
+
 }  
 
       const handleScroll = () => {
@@ -137,15 +138,15 @@ useEffect(() => {
 
 let Jotunheim = props.schedule.Jotunheim;
 
-let jotenheimDay= Jotunheim[day];
+
 
 
 let Midgard = props.schedule.Midgard;
 
-let midgardDay= Midgard[day];
+
 
 const Vanaheim = props.schedule.Vanaheim;
-let vanaheimDay= Vanaheim[day];
+
 
 
 

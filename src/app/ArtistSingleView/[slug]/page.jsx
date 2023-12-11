@@ -49,14 +49,29 @@ if(
       foundObjects.band=bandFromSchedule;
       foundObjects.day=day
       foundObjects.stage=stage
-      if(
-  foundObjects.day === "thu"
-)
-  {
-    console.log(foundObjects.day)
-  }
 
-  
+if(Plaingday === "mon"){
+  foundObjects.writtenDay="Monday"
+}
+else if(Plaingday === "tue"){
+  foundObjects.writtenDay="Tuesday"
+}
+else if(Plaingday === "wed"){
+  foundObjects.writtenDay="Wednsday"
+}
+else if(Plaingday === "thu"){
+  foundObjects.writtenDay="Thursday"
+}
+else if(Plaingday === "fri"){
+  foundObjects.writtenDay="Friday"
+} 
+else if(Plaingday === "sat"){
+  foundObjects.writtenDay="Saturday"
+} 
+else if(Plaingday === "sun"){
+  foundObjects.writtenDay="Sunday"
+} 
+
     }
  })
  
@@ -80,6 +95,9 @@ const genreBandsFromSchedulesObject = {
   "bandSchedule":genreBandsFromSchedules,
   "band": band,
   "day":Plaingday
+
+
+
 }
 
       
@@ -163,6 +181,13 @@ else{
       })
     
 
+
+
+     
+        
+      
+
+
   
   
   return (
@@ -178,7 +203,7 @@ else{
         <section className="singleinfo">
           <section className="singleplaying">
             <h4>Playing {foundObjects.stage}</h4>
-            <p>{foundObjects.day}</p>
+            <p>{foundObjects.writtenDay}</p>
             <p>{foundObjects.band.start}-{foundObjects.band.end}</p>
           </section>
           <section className="singlegroup">
@@ -222,7 +247,7 @@ else{
 
 
       </RecommendedList>
-      <RecommendedList heading={"What else plays friday on " + foundObjects.stage} >
+      <RecommendedList heading={"What else plays "+foundObjects.writtenDay} >
         
       {
         sameDayBands.map((myband) => (

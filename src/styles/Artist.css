@@ -4,6 +4,7 @@
   align-items: center;
   border-bottom: solid 1px var(--white);
   padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .artist {

@@ -20,7 +20,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link className="link" href="/Program">
+              <Link className="link" href="/Program#now">
                 PROGRAM
               </Link>
             </li>

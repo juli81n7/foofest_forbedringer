@@ -129,23 +129,28 @@ function CalenderDay(props) {
      <div className="calenderhour"></div>
      <div className="calenderhour"></div>
      <div className="calenderhour"></div>
+    
+    
+    
      {
-         props.Midgard.map((thing) => (
-             thing.act !== "break" ? (
-               <CalenderEvent
+      props.Midgard.map((thing) => (
+          thing.act !== "break" ? (
+            <CalenderEvent
+              img2={props.bands.find(band => band.name === thing.act).logo}
+              slug={props.bands.find(band => band.name === thing.act).slug}
+              key={props.bands.find(band => band.name === thing.act).id}
+              name={thing.act}
+              start={thing.start}
+              end={thing.end}
+              
 
-                 img2={props.bands.find(band => band.name === thing.act).logo}
-                 link={props.bands.find(band => band.name === thing.act).slug}
-                 name={thing.act}
-                 start={thing.start}
-                 end={thing.end}
-
-               />
-             ) : null
-           ))
-           
-     
-     }
+            />
+          ) : null
+        ))
+        
+  
+  }
+    
    </div>
    <div className="calenderbar">
      <div className="calenderhour"></div>
@@ -172,23 +177,26 @@ function CalenderDay(props) {
      <div className="calenderhour"></div>
      <div className="calenderhour"></div>
      <div className="calenderhour"></div>
+    
      {
-         props.Vanaheim.map((thing) => (
-             thing.act !== "break" ? (
-               <CalenderEvent
+      props.Vanaheim.map((thing) => (
+          thing.act !== "break" ? (
+            <CalenderEvent
+              img2={props.bands.find(band => band.name === thing.act).logo}
+              slug={props.bands.find(band => band.name === thing.act).slug}
+              key={props.bands.find(band => band.name === thing.act).id}
+              name={thing.act}
+              start={thing.start}
+              end={thing.end}
+              
 
-                 img2={props.bands.find(band => band.name === thing.act).logo}
-                 link={props.bands.find(band => band.name === thing.act).slug}
-                 name={thing.act}
-                 start={thing.start}
-                 end={thing.end}
+            />
+          ) : null
+        ))
+        
+  
+  }
 
-               />
-             ) : null
-           ))
-           
-     
-     }
    </div>
   
  </div>
