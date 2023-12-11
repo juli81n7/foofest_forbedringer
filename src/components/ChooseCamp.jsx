@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 // const { spots } = lazy(() => import("@/app/data"));
 
-function ChooseCamp({ totalTentSpots, spots, setSpots, selectedArea, setSelectedArea, handleAreaSelect }) {
+function ChooseCamp({ totalTentSpots, spots, setSpots }) {
   useEffect(() => {
     async function getSpots() {
       const res3 = await fetch(process.env.NEXT_PUBLIC_HOST + "/available-spots", {
@@ -22,7 +22,7 @@ function ChooseCamp({ totalTentSpots, spots, setSpots, selectedArea, setSelected
       <h2>CHOOSE YOUR AREA</h2>
       <div className="camp-box">
         {spots.map((spot, index) => (
-          <CampArea key={index} totalTentSpots={totalTentSpots} status={spot.available} areaName={spot.area} onSelect={handleAreaSelect} isSelected={selectedArea === spot.area} />
+          <CampArea key={index} totalTentSpots={totalTentSpots} status={spot.available} areaName={spot.area} />
         ))}
       </div>
     </div>
