@@ -32,7 +32,7 @@ function Account({ loginInfo, schedule, bands }) {
       zip: zip,
     });
 
-    let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+    let response = fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -191,7 +191,7 @@ function Account({ loginInfo, schedule, bands }) {
         {showLogin && (
           <section className="login-container">
             <form
-              className="create-account"
+              className="login-account"
               onSubmit={() => {
                 toggleLogin();
                 login();
@@ -220,7 +220,14 @@ function Account({ loginInfo, schedule, bands }) {
 
         {showCreateLogin && !showLogin && (
           <section className="login-container">
-            <form className="create-account" onSubmit={toggleCreateLogin}>
+            <form
+              className="create-account"
+              onSubmit={() => {
+                PostLogin();
+                login();
+                toggleCreateLogin();
+              }}
+            >
               <h2>Create an Account</h2>
               <div>
                 <label htmlFor="first-name">First Name</label>
@@ -250,7 +257,7 @@ function Account({ loginInfo, schedule, bands }) {
                 <label htmlFor="zip">Zip-code</label>
                 <input type="text" name="zip" required onChange={handleZipChange} />
               </div>
-              <input className="primary-button" type="submit" value="Create Account" onClick={PostLogin} />
+              <input className="primary-button" type="submit" value="Create Account" />
             </form>
             <div className="or-create">
               <p>Already have an account? </p>
