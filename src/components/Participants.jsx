@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ParticipantInfo from "./ParticipantInfo";
 import "@/styles/Participants.css";
-export default function Participants() {
-  const [participantCount, setParticipantCount] = useState(1);
+export default function Participants({ ticketAmount }) {
+  const [participantCount, setParticipantCount] = useState(ticketAmount);
   const [submitData, setSubmitData] = useState([]);
   const { register, handleSubmit } = useForm();
 
@@ -28,7 +28,7 @@ export default function Participants() {
       <div className="right">
         <h2 className="ticketformh2">Info on participants</h2>
 
-        {[...Array(participantCount)].map((_, index) => (
+        {[...Array(ticketAmount)].map((_, index) => (
           <div key={index}>
             <h3 className="participanth3">Participant {index + 1}</h3>
             <form>
@@ -37,9 +37,6 @@ export default function Participants() {
           </div>
         ))}
         <div className="btngrid">
-          <button className="addBtn" onClick={addParticipant}>
-            Add Participant
-          </button>
           <input className="submitBtn" type="submit" onClick={handleSubmit(onSubmit)} />
         </div>
       </div>

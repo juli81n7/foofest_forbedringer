@@ -1,15 +1,15 @@
 import Participants from "./Participants";
 import TicketFormInfo from "./TicketFormInfo";
 
-export default function ParticipantComp() {
+export default function ParticipantComp({ ticketAmount, onePers, twoPers, threePers, setOnePers, setTwoPers, setThreePers }) {
   return (
     <div>
       <section className="sec">
         <div className="ticket-area">
-          <TicketFormInfo></TicketFormInfo>
+          <TicketFormInfo ticketAmount={ticketAmount} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></TicketFormInfo>
         </div>
         <div className="flow-area flow-grid">
-          <Participants></Participants>
+          <Participants ticketAmount={ticketAmount}></Participants>
         </div>
       </section>
     </div>
