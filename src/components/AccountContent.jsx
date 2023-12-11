@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import "@/styles/Account.css";
 
-function Account({ loginInfo }) {
+import "@/styles/Account.css";
+import Calender from "./Calender";
+
+function Account({ loginInfo, schedule, bands }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,6 +13,7 @@ function Account({ loginInfo }) {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [zip, setZip] = useState("");
+  const [user, setUser] = useState({});
 
   async function PostLogin(props) {
     let headersList = {
@@ -81,11 +84,34 @@ function Account({ loginInfo }) {
   };
 
   const toggleLogin = () => {
-    const loginName = setShowLogin((prevShowLogin) => !prevShowLogin);
+    setShowLogin((prevShowLogin) => !prevShowLogin);
   };
+
+  async function login() {
+    const filteredItems = await loginInfo.filter((item) => item.email === email && item.password === password);
+
+    if (filteredItems.length > 0) {
+      // Check if there's a match
+      const userLoggedIn = JSON.stringify(filteredItems[0], null, 2);
+
+      console.log("Helt objekt:" + userLoggedIn);
+
+      // Parse the JSON string back into an object
+      const userObject = JSON.parse(userLoggedIn);
+
+      console.log("Email fra user:" + userObject.email);
+      console.log(userObject.email); // This should work correctly
+
+      await setUser(userObject);
+      console.log("Dette er user state:", userObject);
+    } else {
+      console.log("Invalid credentials or user not found");
+    }
+  }
+
   return (
     <section className="account-container">
-      <svg className="svg" id="Layer_left" data-name="Layer_left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
+      <svg id="Layer_left" data-name="Layer_left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
         <g id="Layer_1-2" data-name="Layer 1">
           <g>
             <g>
@@ -161,18 +187,24 @@ function Account({ loginInfo }) {
           </g>
         </g>
       </svg>
-      <section className="login-container">
+      <section>
         {showLogin && (
-          <>
-            <form className="create-account" onSubmit={toggleLogin}>
+          <section className="login-container">
+            <form
+              className="create-account"
+              onSubmit={() => {
+                toggleLogin();
+                login();
+              }}
+            >
               <h2>Login</h2>
               <div>
                 <label htmlFor="email">Email</label>
-                <input type="text" name="email" />
+                <input type="text" name="email" required onChange={handleEmailChange} />
               </div>
               <div>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" />
+                <input type="password" name="password" required onChange={handlePasswordChange} />
               </div>
               <input className="primary-button" type="submit" value="Login" />
             </form>
@@ -183,61 +215,95 @@ function Account({ loginInfo }) {
                 Create an Account
               </button>
             </div>
-          </>
+          </section>
         )}
 
         {showCreateLogin && !showLogin && (
-          <form className="create-account" onSubmit={toggleCreateLogin}>
-            <h2>Create an Account</h2>
-            <div>
-              <label htmlFor="first-name">First Name</label>
-              <input type="text" name="first-name" onChange={handleFirstNameChange} />
+          <section className="login-container">
+            <form className="create-account" onSubmit={toggleCreateLogin}>
+              <h2>Create an Account</h2>
+              <div>
+                <label htmlFor="first-name">First Name</label>
+                <input type="text" name="first-name" required onChange={handleFirstNameChange} />
+              </div>
+              <div>
+                <label htmlFor="last-name">Last Name</label>
+                <input type="text" name="last-name" required onChange={handleLastNameChange} />
+              </div>
+              <div>
+                <label htmlFor="email">Email</label>
+                <input type="text" name="email" required onChange={handleEmailChange} />
+              </div>
+              <div>
+                <label htmlFor="password">Password</label>
+                <input type="password" name="password" required onChange={handlePasswordChange} />
+              </div>
+              <div>
+                <label htmlFor="phone">Phone</label>
+                <input type="text" name="phone" required onChange={handlePhoneChange} />
+              </div>
+              <div>
+                <label htmlFor="address">Address</label>
+                <input type="text" name="address" required onChange={handleAddressChange} />
+              </div>
+              <div>
+                <label htmlFor="zip">Zip-code</label>
+                <input type="text" name="zip" required onChange={handleZipChange} />
+              </div>
+              <input className="primary-button" type="submit" value="Create Account" onClick={PostLogin} />
+            </form>
+            <div className="or-create">
+              <p>Already have an account? </p>
+              <button className="create-button" onClick={toggleBothLogins}>
+                Login
+              </button>
             </div>
-            <div>
-              <label htmlFor="last-name">Last Name</label>
-              <input type="text" name="last-name" onChange={handleLastNameChange} />
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" onChange={handleEmailChange} />
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" onChange={handlePasswordChange} />
-            </div>
-            <div>
-              <label htmlFor="phone">Phone</label>
-              <input type="text" name="phone" onChange={handlePhoneChange} />
-            </div>
-            <div>
-              <label htmlFor="address">Address</label>
-              <input type="text" name="address" onChange={handleAddressChange} />
-            </div>
-            <div>
-              <label htmlFor="zip">Zip-code</label>
-              <input type="text" name="zip" onChange={handleZipChange} />
-            </div>
-            <input className="primary-button" type="submit" value="Create Account" onClick={PostLogin} />
-          </form>
-        )}
-
-        {!showCreateLogin && !showLogin && (
-          <article className="logged-in">
-            <h2>Hej {firstName}!</h2>
-            <p>
-              {firstName} {lastName}
-            </p>
-            <p>{email}</p>
-            <p>{phone}</p>
-            <p>
-              {address}, {zip}
-            </p>
-            <button onClick={toggleLogin}>Log ud</button>
-          </article>
+          </section>
         )}
       </section>
 
-      <svg className="svg" id="Layer_right" data-name="Layer_right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
+      <section className="logged-in-container">
+        {!showCreateLogin && !showLogin && (
+          <>
+            <article className="your-welcome">
+              <h2>Welcome {user.firstName}</h2>
+              <p>On this page you can see your tickets and your personal program.</p>
+              <button onClick={toggleLogin}>Log ud</button>
+            </article>
+            <article className="your-program">
+              <h2>Your personal program</h2>
+              <Calender schedule={schedule} bands={bands}></Calender>
+            </article>
+            <article className="your-program">
+              <h2>Your tickets</h2>
+              <div className="ticket-grid">
+                {user.tickets?.map((ticket) => (
+                  <article className="ticket" key={ticket.id}>
+                    <div>
+                      <h3>Name</h3>
+                      <p>{ticket.name}</p>
+                    </div>
+                    <div>
+                      <h3>Phone</h3>
+                      <p>{ticket.phone}</p>
+                    </div>
+                    <div>
+                      <h3>Email</h3>
+                      <p>{ticket.email}</p>
+                    </div>
+                    <div>
+                      <h3>Area</h3>
+                      <p>{ticket.area}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </article>
+          </>
+        )}
+      </section>
+
+      <svg id="Layer_right" data-name="Layer_right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
         <g id="Layer_1-2" data-name="Layer 1">
           <g>
             <g>

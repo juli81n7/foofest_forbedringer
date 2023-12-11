@@ -1,11 +1,11 @@
-import { loginInfo } from "../data";
+import { loginInfo, schedule, bands } from "../data";
 import Content from "@/components/Content";
 import AccountContent from "@/components/AccountContent";
 
 function Account() {
   return (
     <Content>
-      <AccountContent loginInfo={loginInfo}></AccountContent>
+      <AccountContent loginInfo={loginInfo} schedule={schedule} bands={bands}></AccountContent>
     </Content>
   );
 }
