@@ -19,13 +19,7 @@ function ChooseCamp({ totalTentSpots, spots, setSpots }) {
       <h2>CHOOSE YOUR AREA</h2>
       <div className="camp-box">
         {spots.map((spot, index) => (
-          <CampArea
-            key={index}
-            totalTentSpots={totalTentSpots}
-            status={spot.available}
-            areaName={spot.area}
-            // onSelectionChange={handleSelectionChange}
-          />
+          <CampArea key={index} totalTentSpots={totalTentSpots} status={spot.available} areaName={spot.area} />
         ))}
       </div>
     </div>
