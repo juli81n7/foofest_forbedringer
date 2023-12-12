@@ -102,6 +102,10 @@
   overflow: hidden;
   max-height: 500px;
   display: grid;
+
+  @media (max-width: 800px) {
+    max-height: 300px;
+  }
 }
 
 #Layer_2 {
@@ -132,8 +136,6 @@
   @media (max-width: 800px) {
     justify-content: flex-start;
   }
-}
-.singlegroup {
 }
 
 .myslugimage {

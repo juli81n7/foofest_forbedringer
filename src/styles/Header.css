@@ -4,7 +4,8 @@
 .header_container {
 }
 .headerh1 {
-  font-size: clamp(20px, calc(21vw), 300px);
+  font-size: clamp(1rem, calc(19vw), 40rem);
+  margin-left: 1rem;
   color: var(--text-color);
   margin-top: 3.5rem;
 }

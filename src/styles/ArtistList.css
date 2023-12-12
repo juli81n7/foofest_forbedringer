@@ -4,6 +4,12 @@
 
   border-top: solid 1px var(--white);
   border-right: solid 1px var(--white);
+  @media (max-width: 800px) {
+    border-right: 0;
+    & .stage-details {
+      border-right: 0;
+    }
+  }
 }
 
 .stage-details {
