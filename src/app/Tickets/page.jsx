@@ -17,7 +17,7 @@ export default function Tickets() {
 
         <TicketVisual />
         <div className="btn_container">
-          <Button href="/TicketFlow.jsx" btntext="Buy now" />
+          <Button href="/TicketFlow" btntext="Buy now" />
         </div>
       </section>
 
