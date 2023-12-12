@@ -4,7 +4,7 @@ import "../styles/ArtistList.css";
 import Artist from "./Artist";
 
 function ArtistList(props) {
-  console.log(props.stageName);
+
   const stage = props.stageName;
   const dateToday = new Date();
   const weekdayToday = dateToday.getDay();

@@ -89,6 +89,9 @@ function CalenderDay(props) {
          props.Jotunheim.map((thing) => (
              thing.act !== "break" ? (
                <CalenderEvent
+               lists={props.lists}
+               handleLocalStorage={props.handleLocalStorage}
+               scene="jotunheim"
                  img2={props.bands.find(band => band.name === thing.act).logo}
                  slug={props.bands.find(band => band.name === thing.act).slug}
                  key={props.bands.find(band => band.name === thing.act).id}
@@ -136,6 +139,9 @@ function CalenderDay(props) {
       props.Midgard.map((thing) => (
           thing.act !== "break" ? (
             <CalenderEvent
+            lists={props.lists}
+            handleLocalStorage={props.handleLocalStorage}
+            scene="midgard"
               img2={props.bands.find(band => band.name === thing.act).logo}
               slug={props.bands.find(band => band.name === thing.act).slug}
               key={props.bands.find(band => band.name === thing.act).id}
@@ -182,6 +188,9 @@ function CalenderDay(props) {
       props.Vanaheim.map((thing) => (
           thing.act !== "break" ? (
             <CalenderEvent
+            lists={props.lists}
+            handleLocalStorage={props.handleLocalStorage}
+            scene="vanaheim"
               img2={props.bands.find(band => band.name === thing.act).logo}
               slug={props.bands.find(band => band.name === thing.act).slug}
               key={props.bands.find(band => band.name === thing.act).id}

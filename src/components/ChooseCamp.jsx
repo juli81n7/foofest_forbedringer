@@ -1,8 +1,6 @@
-import "../styles/ChooseCamp.css";
-import CampArea from "./CampArea";
 import { useEffect, useState } from "react";
-
-// const { spots } = lazy(() => import("@/app/data"));
+import CampArea from "./CampArea";
+import "../styles/ChooseCamp.css";
 
 function ChooseCamp({ totalTentSpots, spots, setSpots }) {
   useEffect(() => {
