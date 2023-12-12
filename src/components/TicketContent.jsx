@@ -59,7 +59,7 @@ function TicketContent({ setToggleCheckout, handleAreaSelect, updateTickets, tic
 
           <ChooseTent onePers={onePers} updateOneTent={updateOneTent} twoPers={twoPers} updateTwoTent={updateTwoTent} threePers={threePers} updateThreeTent={updateThreeTent} showErrorTent={showErrorTent} />
           <ChooseCamp handleAreaSelect={handleAreaSelect} totalTentSpots={totalTentSpots} spots={spots} setSpots={setSpots} selectedArea={selectedArea} setSelectedArea={setSelectedArea} />
-          <CheckoutOptions setToggleCheckout={setToggleCheckout} />
+          <CheckoutOptions setShowError={setShowError} setShowErrorTent={setShowErrorTent} totalTentSpots={totalTentSpots} setToggleCheckout={setToggleCheckout} />
         </div>
       </section>
     </main>
