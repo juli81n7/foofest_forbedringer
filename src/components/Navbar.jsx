@@ -6,16 +6,21 @@ import "../styles/Navbar.css";
 
 function Navbar() {
 const [active, setactive]=useState(false);
+const [lightMode, setLightMode]=useState(false);
 
 
 function handleBurgerClick(){
   setactive(old=>!old)
+}
+function handleDarkMode(){
+  setLightMode(old=>!old)
 }
 
   return (
 
 <>
 <div className="nav_container">
+
     <nav className="navbar">
 
     <Link className="nav-branding" href="/">
@@ -103,30 +108,37 @@ function handleBurgerClick(){
       <h1>menu</h1>
 
       <li className="nav-item">
-      <Link className="nav-link" href="/Tickets">
+      <Link className="nav-link" href="/Tickets"  onClick={handleBurgerClick}>
           TICKETS
         </Link>
         
       </li>
       <li className="nav-item">
-      <Link className="nav-link" href="/Program#now">
+      <Link className="nav-link" href="/Program#now"  onClick={handleBurgerClick}>
       PROGRAM
     </Link>
         
       </li>
       <li className="nav-item">
-      <Link className="nav-link" href="/Account">
+      <Link className="nav-link" href="/Account"  onClick={handleBurgerClick}>
           MY ACCOUNT
         </Link>
 
       </li>
     </ul>
-
-    <div className={"hamburger " + (active ? 'active' : '')} onClick={handleBurgerClick}>
-      <span className="bar1"></span>
-      <span className="bar2"></span>
-      <span className="bar3"></span>
-    </div>
+<div className="toggler">
+<svg onClick={handleDarkMode} className={(lightMode ? 'active' : '')} data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.73 89.72">
+  <g  data-name="Layer 1">
+    <path class="cls-1" d="M89.73,44.86c0,20.62-13.9,37.98-32.85,43.23-18.95-5.25-32.85-22.61-32.85-43.23S37.93,6.88,56.88,1.63c18.95,5.25,32.85,22.61,32.85,43.23Z"/>
+    <path class="cls-1" d="M56.88,88.09c-3.82,1.06-7.86,1.63-12.02,1.63C20.09,89.72,0,69.64,0,44.86S20.09,0,44.86,0c4.16,0,8.2.57,12.02,1.63C37.93,6.88,24.03,24.24,24.03,44.86s13.9,37.98,32.85,43.23Z"/>
+  </g>
+</svg>
+<div className={"hamburger " + (active ? 'active' : '')} onClick={handleBurgerClick}>
+  <span className="bar1"></span>
+  <span className="bar2"></span>
+  <span className="bar3"></span>
+</div>
+</div>
   </nav>
   </div>
 <div className={"blur " + (active ? 'active' : '')}></div>
