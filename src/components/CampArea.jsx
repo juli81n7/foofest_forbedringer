@@ -17,11 +17,11 @@ function CampArea({ areaName, status, totalTentSpots, onSelectionChange }) {
     }
   }, [totalTentSpots, status]);
 
-  const handleSelectionChange = () => {
-    if (!isDisabled) {
-      onSelectionChange(areaName);
-    }
-  };
+  // const handleSelectionChange = () => {
+  //   if (!isDisabled) {
+  //     onSelectionChange(areaName);
+  //   }
+  // };
 
   return (
     <label htmlFor={areaName} className="radio-label">
@@ -32,7 +32,7 @@ function CampArea({ areaName, status, totalTentSpots, onSelectionChange }) {
         className="custom-radio"
         disabled={isDisabled}
         // checked={isChecked}
-        onChange={handleSelectionChange}
+        // onChange={handleSelectionChange}
       />
       <p className="spots-left">{status} tent spots</p>
       {totalTentSpots > status && <p className="area-too-small">Not enough spots</p>}
