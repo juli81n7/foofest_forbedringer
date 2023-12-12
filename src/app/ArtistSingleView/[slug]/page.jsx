@@ -13,6 +13,7 @@ import { schedule, bands, spots, events } from "../../data";
 
 import ImageContainer from "@/components/ImageContainer";
 import Link from "next/link";
+import LikeBtn from "@/components/LikeBTN";
 
 export async function generateStaticParams() {
   const paths = bands.map((band) => {
@@ -27,11 +28,10 @@ export async function generateStaticParams() {
 export default function page({ params }) {
   const { slug } = params;
   const selectedBand = bands.find((band) => band.slug === slug);
-
   const foundObjects = [];
 const genreBands=  bands.filter((band) => band.genre ===selectedBand.genre)
 
-console.log(selectedBand)
+
 
 
 
@@ -71,7 +71,7 @@ else if(Plaingday === "sat"){
 else if(Plaingday === "sun"){
   foundObjects.writtenDay="Sunday"
 } 
-console.log(foundObjects)
+
     }
  })
  
@@ -157,7 +157,7 @@ if(obj.band.logo.startsWith("https")){
 }
 else{
   obj.band.logo = "http://localhost:8080/logos/"+ obj.band.logo
-  console.log(obj.band.logo)
+
 }
 
 
@@ -194,13 +194,21 @@ else{
   
   return (
     <div className={foundObjects.stage.toLowerCase()}>
-      
+    <div className="likeBtnContainer">
+
+    <LikeBtn name={selectedBand.name} ></LikeBtn>
+    </div>
       <ImageContainer credits={selectedBand.logoCredits} name={selectedBand.name} schedule={schedule} selectedBand={selectedBand}/>
+      
       <section className="singlebg">
       
       
         <section className="singleartistinfo">
-          <h1 className="singleh1">{selectedBand.name}</h1>
+        <div className="headline">
+        <h1 className="singleh1">{selectedBand.name}</h1>
+        
+        </div>
+        
          
           <p>{selectedBand.bio}</p>
         </section>
@@ -223,9 +231,9 @@ else{
           </section>
           
         </section>
-        <section className="singlebtn">
-            <Button href="/" btntext="Save to your program"></Button>
-          </section>
+
+       
+
       </section>
       <RecommendedList heading={"View more " + selectedBand.genre}>
 
@@ -233,15 +241,25 @@ else{
 
       {
         foundObjectsForGenre.map((myband) => (
-<Link href={myband.band.slug} key={myband.band.slug}>
+          <div key={myband.band.slug}>
+
               <div className="recommended-artist-container" key={myband.band.slug}            >
+              <div className="likeBtnContainer">
+              <LikeBtn name={myband.band.name} color="orange"/>
+              </div>
+              <Link href={myband.band.slug} >
               <img src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></img>
+              </Link>
+              <Link href={myband.band.slug} >
               <div className="recommended-artist">
                 <h3>{myband.band.name}</h3>
                 <p>{myband.bandSchedule.start}</p>
+                
               </div>
+              </Link>
             </div>
-</Link>
+            </div>
+
 
             
              
@@ -261,17 +279,24 @@ else{
         
       {
         sameDayBands.map((myband) => (
-<Link href={myband.band.slug} key={myband.band.slug}>
+<div key={myband.band.slug}>
 
               <div className="recommended-artist-container" key={myband.band.slug}            >
+              <div className="likeBtnContainer">
+              <LikeBtn name={myband.band.name} color="orange"/>
+              </div>
+              <Link href={myband.band.slug} >
               <img src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></img>
+              </Link>
+              <Link href={myband.band.slug} >
               <div className="recommended-artist">
                 <h3>{myband.band.name}</h3>
                 <p>{myband.schedule.start}</p>
+                
               </div>
+              </Link>
             </div>
-
-</Link>
+            </div>
             
              
             

@@ -1,5 +1,6 @@
 import "../styles/RecommendedArtist.css";
 import Image from "next/image";
+import LikeBtn from "./LikeBtn";
 // schedule={schedule} bands={bands} artistName={band.name} img={band.logo}
 function RecommendedArtist(props) {
 
@@ -34,6 +35,8 @@ function RecommendedArtist(props) {
 
   return (
     <div className="recommended-artist-container">
+    <div className="likebtnContainer">
+    </div>
       <img src={"/ukendt.jpg"} alt="Picture of the very well known hiphop artist group, unknown artist"></img>
       <div className="recommended-artist">
         <h3>Hej</h3>
