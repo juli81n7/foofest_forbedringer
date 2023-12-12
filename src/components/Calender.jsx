@@ -147,7 +147,48 @@ let Midgard = props.schedule.Midgard;
 
 const Vanaheim = props.schedule.Vanaheim;
 
+let lists = [];
+if (localStorage.getItem("liked") !== null) {
+lists=localStorage.getItem("liked");
 
+}
+function handleLocalStorage(name){
+
+console.log(name)
+
+  if (localStorage.getItem("liked") !== null) {
+    
+    console.log("Liked findes i local storage");
+    
+    lists=JSON.parse(localStorage.getItem("liked"))
+
+    if(lists.find((band) => band.eventName === name)){
+    console.log("DEN FINDES");
+    const objWithNameIndex = lists.findIndex((obj) => obj.eventName === name);
+    lists.splice(objWithNameIndex, 1);
+    localStorage.setItem("liked", JSON.stringify(lists));
+    }
+
+    else{
+      lists.push({ eventName: name });
+      let lS = JSON.stringify(lists);
+      localStorage.setItem("liked", lS);
+    }
+    
+
+
+    
+  } else {
+    console.log("Liked findes IKKE i local storage");
+    lists.push({ eventName: name });
+    let lS = JSON.stringify(lists);
+    localStorage.setItem("liked", lS);
+    
+
+    
+  }
+
+}
 
 
 
@@ -194,7 +235,7 @@ const Vanaheim = props.schedule.Vanaheim;
 
 
 
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="mon" bands={props.bands} Jotunheim={Jotunheim.mon} Vanaheim={Vanaheim.mon} Midgard={Midgard.mon}/>
+      <CalenderDay lists={lists}  handleLocalStorage={handleLocalStorage} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="mon" bands={props.bands} Jotunheim={Jotunheim.mon} Vanaheim={Vanaheim.mon} Midgard={Midgard.mon}/>
       <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="tue" bands={props.bands} Jotunheim={Jotunheim.tue} Vanaheim={Vanaheim.tue} Midgard={Midgard.tue}/>
       <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="wed" bands={props.bands} Jotunheim={Jotunheim.wed} Vanaheim={Vanaheim.wed} Midgard={Midgard.wed}/>
       <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="thu" bands={props.bands} Jotunheim={Jotunheim.thu} Vanaheim={Vanaheim.thu} Midgard={Midgard.thu}/>

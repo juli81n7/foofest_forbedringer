@@ -6,7 +6,6 @@ import TicketCard from "@/components/TicketCard";
 import ArtistCard from "@/components/ArtistCard";
 import ArtistList from "@/components/ArtistList";
 import TicketVisual from "@/components/TicketVisual";
-
 import Image from "next/image";
 import "../../styles/Tickets.css";
 
@@ -18,7 +17,7 @@ export default function Tickets() {
 
         <TicketVisual />
         <div className="btn_container">
-          <Button href="TicketFlow.jsx" btntext="Buy now" />
+          <Button href="/TicketFlow" btntext="Buy now" />
         </div>
       </section>
 
