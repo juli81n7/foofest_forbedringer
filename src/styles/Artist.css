@@ -1,10 +1,17 @@
+.item {
+  display: flex;
+  width: 100%;
+  border-bottom: solid 1px var(--white);
+  padding-right: 1rem;
+  padding-left: 1rem;
+  align-items: center;
+}
+
 .artist-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 1px var(--white);
-  padding-right: 1rem;
-  padding-left: 1rem;
+  width: 100%;
 }
 
 .artist {
@@ -17,4 +24,9 @@
   font-size: 3rem;
   color: var(--accent-green);
   padding-top: 1rem;
+}
+
+.myLikeBtnContainer {
+  width: 40px;
+  height: 40px;
 }

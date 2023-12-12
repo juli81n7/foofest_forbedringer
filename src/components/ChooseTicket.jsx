@@ -8,8 +8,12 @@ function ChooseTicket({ updateTickets, tickets, showError }) {
   function reduceTickets() {
     dispatch((old) => {
       const copy = { ...old };
-      copy.tickets -= 1;
-      return copy;
+      if (copy.tickets === 0) {
+        return copy;
+      } else {
+        copy.tickets -= 1;
+        return copy;
+      }
     });
   }
   function increaseTickets() {

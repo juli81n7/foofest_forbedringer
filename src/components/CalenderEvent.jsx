@@ -32,7 +32,7 @@ if(myImage.startsWith("https")){
 }
 else{
   myImage = "http://localhost:8080/logos/"+myImage
-  console.log(myImage)
+
 }
 
 
@@ -49,12 +49,12 @@ function handleLike(e){
   if (localStorage.getItem("liked")) {
     
     
-    console.log("Liked findes i local storage");
+
     lists=JSON.parse(localStorage.getItem("liked"))
 
 
     if(lists.find((obj) => obj.eventName === props.name)){
-      console.log("EVENTET FINDES FINDES");
+
       const objWithNameIndex = lists.findIndex((obj) => obj.eventName === props.name);
       lists.splice(objWithNameIndex, 1);
       localStorage.setItem("liked", JSON.stringify(lists));
@@ -68,7 +68,7 @@ function handleLike(e){
       
     
   } else {
-    console.log("Liked findes IKKE i local storage");
+
 
     lists.push({ eventName: props.name });
     let lS = JSON.stringify(lists);

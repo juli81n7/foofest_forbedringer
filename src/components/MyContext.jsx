@@ -7,7 +7,7 @@ export const StateContext = createContext();
 export const NumberProvider = ({ children }) => {
   const [myValue, setMyValue] = useState({
     tickets: 0,
-    tenst: {
+    tents: {
       one: 0,
       two: 0,
       three: 0,

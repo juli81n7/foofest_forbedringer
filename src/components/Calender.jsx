@@ -48,7 +48,7 @@ function Calender(props) {
    
     function DaySetter(newDay) {
         setDay(newDay);
-        console.log("Nu er dagen:", newDay)
+
 
         changeBtnName(newDay)
 
@@ -154,16 +154,16 @@ lists=localStorage.getItem("liked");
 }
 function handleLocalStorage(name){
 
-console.log(name)
+
 
   if (localStorage.getItem("liked") !== null) {
     
-    console.log("Liked findes i local storage");
+
     
     lists=JSON.parse(localStorage.getItem("liked"))
 
     if(lists.find((band) => band.eventName === name)){
-    console.log("DEN FINDES");
+
     const objWithNameIndex = lists.findIndex((obj) => obj.eventName === name);
     lists.splice(objWithNameIndex, 1);
     localStorage.setItem("liked", JSON.stringify(lists));
@@ -179,7 +179,7 @@ console.log(name)
 
     
   } else {
-    console.log("Liked findes IKKE i local storage");
+    
     lists.push({ eventName: name });
     let lS = JSON.stringify(lists);
     localStorage.setItem("liked", lS);
