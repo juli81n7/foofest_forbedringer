@@ -37,6 +37,11 @@
   flex-direction: column;
   gap: 0.25rem;
 }
+
+.user-status {
+  color: var(--accent-red);
+}
+
 .primary-button {
   background-color: var(--accent-orange);
   border: none;
@@ -116,12 +121,18 @@
   width: fit-content;
 }
 
+.program-flex,
 .ticket-flex {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 2rem;
   margin-block: 1rem;
+  padding: 2rem;
   flex-wrap: wrap;
+  width: 100%;
+  background-color: #232222;
+  min-height: 300px;
 }
 
 .ticket {
@@ -130,4 +141,14 @@
   gap: 1rem;
   background-color: var(--accent-orange);
   padding: 1rem;
+}
+
+.no-tickets {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

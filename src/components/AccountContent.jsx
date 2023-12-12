@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "@/styles/Account.css";
 import Calender from "./Calender";
 
-function Account({ loginInfo, schedule, bands }) {
+function Account({ schedule, bands }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,13 +13,37 @@ function Account({ loginInfo, schedule, bands }) {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [zip, setZip] = useState("");
+  const [allUsers, setAllUsers] = useState([]);
   const [user, setUser] = useState({});
+  const [userStatus, setUserStatus] = useState("");
 
-  async function PostLogin(props) {
+  useEffect(() => {
+    async function fetchAllUsers() {
+      let headersList = {
+        Accept: "*/*",
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+        Prefer: "return=representation",
+      };
+
+      let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+        method: "GET",
+        headers: headersList,
+      });
+
+      const allUsersInfo = await response.json();
+      setAllUsers(allUsersInfo);
+      return allUsersInfo;
+    }
+
+    fetchAllUsers();
+  }, [user]);
+
+  async function PostLogin() {
     let headersList = {
       Accept: "*/*",
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
       "Content-Type": "application/json",
+      Prefer: "return=representation",
     };
 
     let bodyContent = JSON.stringify({
@@ -32,15 +56,22 @@ function Account({ loginInfo, schedule, bands }) {
       zip: zip,
     });
 
-    let response = fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+    let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
       method: "POST",
       body: bodyContent,
       headers: headersList,
     });
 
     let data = await response.json();
-    console.log(data);
-    return data;
+
+    if (data.code === "23505") {
+      console.log("Email already taken.");
+      setUserStatus("Email already taken.");
+    } else {
+      toggleCreateLogin();
+      setUser(data[0]);
+      return data;
+    }
   }
 
   const handleFirstNameChange = (event) => {
@@ -77,35 +108,44 @@ function Account({ loginInfo, schedule, bands }) {
   const toggleBothLogins = () => {
     setShowCreateLogin((prevShowCreateLogin) => !prevShowCreateLogin);
     setShowLogin((prevShowLogin) => !prevShowLogin);
+    setUserStatus("");
   };
 
   const toggleCreateLogin = () => {
     setShowCreateLogin((prevShowCreateLogin) => !prevShowCreateLogin);
+    setUserStatus("");
   };
 
   const toggleLogin = () => {
     setShowLogin((prevShowLogin) => !prevShowLogin);
+    setUserStatus("");
   };
 
-  async function login() {
-    const filteredItems = await loginInfo.filter((item) => item.email === email && item.password === password);
-
-    if (filteredItems.length > 0) {
-      // Check if there's a match
+  async function login(e) {
+    const filteredItems = await allUsers.filter((item) => item.email === email && item.password === password);
+    e.preventDefault();
+    if (filteredItems.length === 1) {
       const userLoggedIn = JSON.stringify(filteredItems[0], null, 2);
 
-      console.log("Helt objekt:" + userLoggedIn);
-
-      // Parse the JSON string back into an object
       const userObject = JSON.parse(userLoggedIn);
 
-      console.log("Email fra user:" + userObject.email);
-      console.log(userObject.email); // This should work correctly
-
       await setUser(userObject);
-      console.log("Dette er user state:", userObject);
+
+      toggleLogin();
     } else {
-      console.log("Invalid credentials or user not found");
+      setUserStatus("Email or password is incorrect.");
+      console.log("Email or password is incorrect.");
+    }
+  }
+
+  async function createLogin(e) {
+    e.preventDefault();
+    const filteredItems = await allUsers.filter((item) => item.email === email);
+    if (filteredItems.length === 0) {
+      PostLogin();
+    } else {
+      setUserStatus("Email already taken.");
+      console.log("Email or password is incorrect.");
     }
   }
 
@@ -190,14 +230,9 @@ function Account({ loginInfo, schedule, bands }) {
       <section>
         {showLogin && (
           <section className="login-container">
-            <form
-              className="login-account"
-              onSubmit={() => {
-                toggleLogin();
-                login();
-              }}
-            >
-              <h2>Login</h2>
+            <form className="login-account" onSubmit={login}>
+              <h2 className="login-heading">Login</h2>
+              {userStatus && <p className="user-status">{userStatus}</p>}
               <div>
                 <label htmlFor="email">Email</label>
                 <input type="text" name="email" required onChange={handleEmailChange} />
@@ -220,14 +255,7 @@ function Account({ loginInfo, schedule, bands }) {
 
         {showCreateLogin && !showLogin && (
           <section className="login-container">
-            <form
-              className="create-account"
-              onSubmit={() => {
-                PostLogin();
-                login();
-                toggleCreateLogin();
-              }}
-            >
+            <form className="create-account" onSubmit={createLogin}>
               <h2>Create an Account</h2>
               <div>
                 <label htmlFor="first-name">First Name</label>
@@ -237,6 +265,7 @@ function Account({ loginInfo, schedule, bands }) {
                 <label htmlFor="last-name">Last Name</label>
                 <input type="text" name="last-name" required onChange={handleLastNameChange} />
               </div>
+              {userStatus && <p className="user-status">{userStatus}</p>}
               <div>
                 <label htmlFor="email">Email</label>
                 <input type="text" name="email" required onChange={handleEmailChange} />
@@ -272,7 +301,7 @@ function Account({ loginInfo, schedule, bands }) {
       <section className="logged-in-container">
         {!showCreateLogin && !showLogin && (
           <>
-            <article className="your-welcome">
+            <seection className="your-welcome">
               <h2>Welcome {user.firstName}</h2>
               <div>
                 <p>
@@ -285,37 +314,62 @@ function Account({ loginInfo, schedule, bands }) {
                 </p>
               </div>
               <p>On this page you can see your tickets and your personal program.</p>
-              <button onClick={toggleLogin}>Log ud</button>
-            </article>
-            <article className="your-program">
+              <button
+                onClick={() => {
+                  toggleLogin();
+                  setUser("");
+                }}
+              >
+                Log out
+              </button>
+            </seection>
+
+            <section className="your-program">
               <h2>Your personal program</h2>
-              <Calender schedule={schedule} bands={bands}></Calender>
-            </article>
-            <article className="your-program">
+              <div className="program-flex">
+                {user.likedArtist ? (
+                  <Calender schedule={schedule} bands={bands}></Calender>
+                ) : (
+                  <article className="no-tickets">
+                    <p>No liked artist - yet!</p>
+                    <button>Find artists</button>
+                  </article>
+                )}
+              </div>
+            </section>
+
+            <section className="your-tickets">
               <h2>Your tickets</h2>
               <div className="ticket-flex">
-                {user.tickets?.map((ticket) => (
-                  <article className="ticket" key={ticket.id}>
-                    <div>
-                      <h3>Name</h3>
-                      <p>{ticket.name}</p>
-                    </div>
-                    <div>
-                      <h3>Phone</h3>
-                      <p>{ticket.phone}</p>
-                    </div>
-                    <div>
-                      <h3>Email</h3>
-                      <p>{ticket.email}</p>
-                    </div>
-                    <div>
-                      <h3>Area</h3>
-                      <p>{ticket.area}</p>
-                    </div>
+                {user.tickets ? (
+                  user.tickets.map((ticket) => (
+                    <article className="ticket" key={ticket.id}>
+                      <div>
+                        <h3>Name</h3>
+                        <p>{ticket.name}</p>
+                      </div>
+                      <div>
+                        <h3>Phone</h3>
+                        <p>{ticket.phone}</p>
+                      </div>
+                      <div>
+                        <h3>Email</h3>
+                        <p>{ticket.email}</p>
+                      </div>
+                      <div>
+                        <h3>Area</h3>
+                        <p>{ticket.area}</p>
+                      </div>
+                    </article>
+                  ))
+                ) : (
+                  <article className="no-tickets">
+                    <p>No tickets - yet!</p>
+                    <button>Get tickets</button>
                   </article>
-                ))}
+                )}
               </div>
-            </article>
+            </section>
           </>
         )}
       </section>
