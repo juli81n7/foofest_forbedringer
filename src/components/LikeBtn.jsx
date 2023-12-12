@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 function LikeBtn(props) {
 
     let lists = []
+    
     const [like, setLike] = useState(false) 
   
     useEffect(() => {
