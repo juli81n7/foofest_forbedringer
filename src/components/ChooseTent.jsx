@@ -3,6 +3,7 @@ import { ValueContext, StateContext } from "./MyContext";
 function ChooseTent({ onePers, updateOneTent, twoPers, updateTwoTent, threePers, updateThreeTent, showErrorTent }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
+  const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
   function reduceOne() {
     dispatch((old) => {
       const copy = { ...old };
