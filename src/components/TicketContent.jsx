@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+
 import ChooseTicket from "@/components/ChooseTicket";
 import ChooseTent from "@/components/ChooseTent";
 import ChooseCamp from "@/components/ChooseCamp";
@@ -6,7 +8,35 @@ import CheckoutOptions from "@/components/CheckoutOptions";
 
 import "@/styles/TicketFlow.css";
 
-function TicketContent({ setToggleCheckout, handleAreaSelect, updateTickets, tickets, showError, setShowError, showErrorTent, setShowErrorTent, onePers, twoPers, threePers, setOnePers, setTwoPers, setThreePers, totalTentSpots, spots, setSpots, selectedArea, setSelectedArea }) {
+function TicketContent({
+  setToggleCheckout,
+  handleAreaSelect,
+  updateTickets,
+  tickets,
+  showError,
+  setShowError,
+  showErrorTent,
+  setShowErrorTent,
+  onePers,
+  twoPers,
+  threePers,
+  setOnePers,
+  setTwoPers,
+  setThreePers,
+  totalTentSpots,
+  spots,
+  setSpots,
+  selectedArea,
+  setSelectedArea,
+}) {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleSelectionChange = (areaName) => {
+    setSelectedOption(areaName);
+  };
+
+  // reserveSpot("Svartheim", 13);
+
   function updateOneTent(action) {
     setOnePers((old) => {
       if (action === "remove") {
@@ -59,7 +89,10 @@ function TicketContent({ setToggleCheckout, handleAreaSelect, updateTickets, tic
 
           <ChooseTent onePers={onePers} updateOneTent={updateOneTent} twoPers={twoPers} updateTwoTent={updateTwoTent} threePers={threePers} updateThreeTent={updateThreeTent} showErrorTent={showErrorTent} />
           <ChooseCamp handleAreaSelect={handleAreaSelect} totalTentSpots={totalTentSpots} spots={spots} setSpots={setSpots} selectedArea={selectedArea} setSelectedArea={setSelectedArea} />
-          <CheckoutOptions setToggleCheckout={setToggleCheckout} />
+          <CheckoutOptions
+            // reserveSpot={reserveSpot}
+            setToggleCheckout={setToggleCheckout}
+          />
         </div>
       </section>
     </main>

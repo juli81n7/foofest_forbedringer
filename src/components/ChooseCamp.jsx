@@ -1,8 +1,6 @@
-import "../styles/ChooseCamp.css";
-import CampArea from "./CampArea";
 import { useEffect, useState } from "react";
-
-// const { spots } = lazy(() => import("@/app/data"));
+import CampArea from "./CampArea";
+import "../styles/ChooseCamp.css";
 
 function ChooseCamp({ totalTentSpots, spots, setSpots }) {
   useEffect(() => {
@@ -21,7 +19,13 @@ function ChooseCamp({ totalTentSpots, spots, setSpots }) {
       <h2>CHOOSE YOUR AREA</h2>
       <div className="camp-box">
         {spots.map((spot, index) => (
-          <CampArea key={index} totalTentSpots={totalTentSpots} status={spot.available} areaName={spot.area} />
+          <CampArea
+            key={index}
+            totalTentSpots={totalTentSpots}
+            status={spot.available}
+            areaName={spot.area}
+            // onSelectionChange={handleSelectionChange}
+          />
         ))}
       </div>
     </div>
