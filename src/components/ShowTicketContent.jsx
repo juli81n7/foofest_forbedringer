@@ -2,8 +2,12 @@
 import ParticipantComp from "./ParticipantComp";
 import TicketContent from "./TicketContent";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { ValueContext, StateContext } from "./MyContext";
 
 export default function ShowTicketContent() {
+  const state = useContext(ValueContext);
+  const dispatch = useContext(StateContext);
   const [tickets, setTickets] = useState(0);
   const [showError, setShowError] = useState(false);
   const [showErrorTent, setShowErrorTent] = useState(false);
@@ -15,7 +19,7 @@ export default function ShowTicketContent() {
   const totalTentSpots = onePers + twoPers * 2 + threePers * 3;
 
   function updateTickets(action) {
-    setTickets((old) => {
+    dispatch((old) => {
       if (action === "add") {
         setShowError(false);
         setShowErrorTent(false);

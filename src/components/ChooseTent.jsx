@@ -1,13 +1,36 @@
+import { useContext } from "react";
+import { ValueContext, StateContext } from "./MyContext";
 function ChooseTent({ onePers, updateOneTent, twoPers, updateTwoTent, threePers, updateThreeTent, showErrorTent }) {
+  const state = useContext(ValueContext);
+  const dispatch = useContext(StateContext);
+  function reduceOne() {
+    dispatch((old) => {
+      const copy = { ...old };
+      if (copy.tents.one === 0) {
+        return copy;
+      } else {
+        copy.tents.one -= 1;
+        return copy;
+      }
+    });
+  }
+  function increaseOne() {
+    dispatch((old) => {
+      const copy = { ...old };
+      copy.tents.one += 1;
+      return copy;
+    });
+  }
+
   return (
     <div className={`choose-wrapper ten ${showErrorTent ? "showError" : ""}`}>
       <h2>CHOOSE YOUR TENTS</h2>
       <div className="counter-line">
         <h3>1 PERS TENT</h3>
         <div className="counter">
-          <button onClick={() => updateOneTent("remove")}>-</button>
-          <p>{onePers}</p>
-          <button onClick={() => updateOneTent("add")}>+</button>
+          <button onClick={reduceOne}>-</button>
+          <p>{state.tents.one}</p>
+          <button onClick={increaseOne}>+</button>
         </div>
       </div>
       <div className="counter-line">
