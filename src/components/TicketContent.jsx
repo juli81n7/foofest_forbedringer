@@ -21,9 +21,9 @@ function TicketContent({ setToggleCheckout, handleAreaSelect, showError, setShow
       <section className="sec">
         <div className="ticket-area"></div>
         <div className="flow-area">
-          <ChooseTicket showError={showError} />
-          <ChooseTent showErrorTent={showErrorTent} showError={showError} setShowError={setShowError} />
-          <ChooseCamp handleAreaSelect={handleAreaSelect} spots={spots} setSpots={setSpots} selectedArea={selectedArea} setSelectedArea={setSelectedArea} />
+          <ChooseTicket showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} />
+          <ChooseTent showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} />
+          <ChooseCamp spots={spots} setSpots={setSpots} />
           <CheckoutOptions setShowError={setShowError} setShowErrorTent={setShowErrorTent} setToggleCheckout={setToggleCheckout} />
         </div>
       </section>
