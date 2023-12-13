@@ -139,9 +139,8 @@
   flex-direction: column;
   background-color: #151515;
   color: white;
-  border: solid 2px white;
+  border: solid 1px white;
   text-transform: uppercase;
-  transition: ease 0.5s;
 }
 
 .ticket-top,
@@ -163,15 +162,11 @@
 #ticket-logo {
   fill: white;
   width: 125px;
-  transition: ease 0.5s;
+  transition: ease 2.5s;
 }
 
 .ticket:hover #ticket-logo {
   fill: var(--accent-orange);
-}
-
-.ticket:hover {
-  border-color: var(--accent-orange);
 }
 
 .ticket-middle {
