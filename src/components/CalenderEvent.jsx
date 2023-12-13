@@ -35,7 +35,12 @@ else{
 
 }
 
-
+ useEffect(() => {
+    // Load liked events from localStorage on mount
+    const likedEvents = JSON.parse(localStorage.getItem("liked")) || [];
+    const likedEvent = likedEvents.find((obj) => obj.eventName === props.name);
+    setLike(likedEvent !== undefined);
+  }, [props.name]);
 
 function toggleLike(){
   setLike((old) => !old);
