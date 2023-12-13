@@ -289,20 +289,16 @@ function Navbar() {
                 <path class="cls-1" d="M56.88,88.09c-3.82,1.06-7.86,1.63-12.02,1.63C20.09,89.72,0,69.64,0,44.86S20.09,0,44.86,0c4.16,0,8.2.57,12.02,1.63C37.93,6.88,24.03,24.24,24.03,44.86s13.9,37.98,32.85,43.23Z" />
               </g>
             </svg>
-            {ticketState.pushed === true ? (
-              <div className="basketContainer">
-                <Link href={"/Basket"}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" className="bi bi-cart-fill" viewBox="0 0 16 16">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                  </svg>
-                </Link>
-                <div className={ticketState.tickets > 0 ? "diplayBasketNumber" : ""}>
-                  <p>{ticketState.tickets > 0 ? ticketState.tickets : ""}</p>
-                </div>
+            <div className="basketContainer">
+              <Link href={"/Basket"}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" className="bi bi-cart-fill" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+              </Link>
+              <div className={ticketState.tickets > 0 && ticketState.pushed === true ? "diplayBasketNumber" : ""}>
+                <p>{ticketState.tickets > 0 && ticketState.pushed === true ? ticketState.tickets : ""}</p>
               </div>
-            ) : (
-              ""
-            )}
+            </div>
             <div className={"hamburger " + (active ? "active" : "")} onClick={handleBurgerClick}>
               <span className="bar1"></span>
               <span className="bar2"></span>

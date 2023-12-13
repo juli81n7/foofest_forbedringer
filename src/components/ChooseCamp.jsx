@@ -6,6 +6,7 @@ import { StateContext, ValueContext } from "./MyContext";
 function ChooseCamp({ spots, setSpots }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
+
   useEffect(() => {
     async function getSpots() {
       const res3 = await fetch(process.env.NEXT_PUBLIC_HOST + "/available-spots", {
@@ -17,12 +18,21 @@ function ChooseCamp({ spots, setSpots }) {
     getSpots();
   }, [setSpots]);
 
+  const onAreaSelect = (area) => {
+    console.log(area); // Log the current area
+    dispatch((old) => {
+      const copy = JSON.parse(JSON.stringify(old));
+      copy.campingArea = area;
+      return copy;
+    });
+  };
+
   return (
     <div className="choose-wrapper">
       <h2>CHOOSE YOUR AREA</h2>
       <div className="camp-box">
         {spots.map((spot, index) => (
-          <CampArea key={index} status={spot.available} areaName={spot.area} />
+          <CampArea key={index} status={spot.available} areaName={spot.area} onAreaSelect={onAreaSelect} />
         ))}
       </div>
     </div>

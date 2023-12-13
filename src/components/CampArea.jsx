@@ -1,36 +1,32 @@
 import { useContext, useEffect, useState } from "react";
-import "../styles/CampArea.css";
-import { set } from "react-hook-form";
 import { ValueContext } from "./MyContext";
 
-function CampArea({ areaName, status }) {
+import "../styles/CampArea.css";
+
+function CampArea({ areaName, status, selectedArea, onAreaSelect }) {
   const state = useContext(ValueContext);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [isChecked, setIsChecked] = useState(null);
-  const [selected, setSelected] = useState(null);
+
   const totalTentspots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
   useEffect(() => {
     // holder øje med tentspots og status
     if (totalTentspots > status || status === 0) {
       setIsDisabled(true);
-      setIsChecked(false);
+      // setIsChecked(false);
     } else {
       setIsDisabled(false);
     }
   }, [totalTentspots, status]);
 
+  const handleChange = () => {
+    onAreaSelect(areaName);
+    // console.log(areaName);
+  };
+
   return (
     <label htmlFor={areaName} className="radio-label">
-      <input
-        type="radio"
-        id={areaName}
-        name="radio-group"
-        className="custom-radio"
-        disabled={isDisabled}
-        // checked={isChecked}
-        // onChange={handleSelectionChange}
-      />
+      <input type="radio" id={areaName} name="radio-group" className="custom-radio" disabled={isDisabled} checked={state.campingArea === areaName} onChange={handleChange} />
       <p className="spots-left">{status} tent spots</p>
       {totalTentspots > status && <p className="area-too-small">Not enough spots</p>}
       <p className="area-name">{areaName}</p>
