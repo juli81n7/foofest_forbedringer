@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
+import { UserContext, SetUserContext } from "./MyContext";
 import "@/styles/Account.css";
 import Calender from "./Calender";
 
@@ -16,6 +16,9 @@ function Account({ schedule, bands }) {
   const [allUsers, setAllUsers] = useState([]);
   const [user, setUser] = useState({});
   const [userStatus, setUserStatus] = useState("");
+
+  const state = useContext(UserContext);
+  const dispatch = useContext(SetUserContext);
 
   useEffect(() => {
     async function fetchAllUsers() {
@@ -130,6 +133,7 @@ function Account({ schedule, bands }) {
       const userObject = JSON.parse(userLoggedIn);
 
       await setUser(userObject);
+      await dispatch(userObject);
 
       toggleLogin();
     } else {
