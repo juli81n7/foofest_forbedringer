@@ -35,7 +35,7 @@ main > * > * {
   --accent-green: #59ff3f;
   --accent-blue: #5a3fff;
   --accent-red: #ff3f3f;
-  --accent-orange: #e68f0c;
+  --accent-orange: #ff6600;
   --accent-teal: #2da9dc;
 
   /* grids
@@ -55,8 +55,8 @@ main > * > * {
   --font-clr: #0f0a0a;
   --stroke-clr: #0f0a0a;
   --white: #0f0a0a;
-  --text-color: var(--font-clr, #0f0a0a);
-  --border-color: var(--stroke-clr, #0f0a0a);
+  --text-color: #0f0a0a;
+  --border-color: #0f0a0a;
 }
 /* Reset herunder */
 /* Box sizing rules */

@@ -52,10 +52,20 @@
 
 .artisth2 {
   font-size: 3rem;
-  color: var(--accent-green);
+
   padding-top: 1rem;
 }
 
+.Vanaheim {
+  color: var(--accent-red);
+}
+.Jotunheim {
+  color: var(--accent-orange);
+}
+
+.Midgard {
+  color: var(--accent-blue);
+}
 .myLikeBtnContainer {
   width: 40px;
   height: 40px;
