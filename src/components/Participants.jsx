@@ -24,9 +24,17 @@ export default function Participants({ ticketAmount }) {
       <div className="right">
         <h2 className="ticketformh2">Info on participants</h2>
 
-        {[...Array(state.tickets)].map((_, index) => (
+        {[...Array(state.regular)].map((_, index) => (
           <div key={index}>
             <h3 className="participanth3">Participant {index + 1}</h3>
+            <form>
+              <ParticipantInfo register={register} prefix={`participant${index + 1}`} />
+            </form>
+          </div>
+        ))}
+        {[...Array(state.vip)].map((_, index) => (
+          <div key={index}>
+            <h3 className="participanth3">VIP Participant {index + 1}</h3>
             <form>
               <ParticipantInfo register={register} prefix={`participant${index + 1}`} />
             </form>

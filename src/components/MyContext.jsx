@@ -12,7 +12,8 @@ export const setThemeContext = createContext();
 
 export const NumberProvider = ({ children }) => {
   const [myValue, setMyValue] = useState({
-    tickets: 0,
+    regular: 0,
+    vip: 0,
     tents: {
       one: 0,
       two: 0,

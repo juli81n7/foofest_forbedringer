@@ -9,12 +9,20 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
         <h2 className="ticketformh2">Your tickets</h2>
         <div>
           <div className="ticketamount">
-            <p>{state.tickets}</p>
-            <p>All week tickets</p>
+            <p>{state.regular}</p>
+            <p>Regular tickets</p>
           </div>
           <div className="ticketpay">
-            <p>{state.tickets} X 1200</p>
-            <p>{state.tickets * 1200} DKK</p>
+            <p>{state.regular} X 799</p>
+            <p>{state.regular * 799} DKK</p>
+          </div>
+          <div className="ticketamount">
+            <p>{state.regular}</p>
+            <p>VIP tickets</p>
+          </div>
+          <div className="ticketpay">
+            <p>{state.vip} X 1299</p>
+            <p>{state.vip * 1299} DKK</p>
           </div>
         </div>
         <div className="perstent1">
@@ -44,7 +52,7 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
         </div>
         <div className="totalprice">
           <p>Total price</p>
-          <p>{state.tickets * 1200} DKK</p>
+          <p>{state.regular * 799 + state.vip * 1299} DKK</p>
         </div>
       </div>
     </div>
