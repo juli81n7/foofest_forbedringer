@@ -6,7 +6,7 @@ function ChooseTent({ showErrorTent }) {
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
   function updateOneTent(action) {
     dispatch((old) => {
-      const copy = { ...old };
+      const copy = JSON.parse(JSON.stringify(old));
       console.log(copy.tents.one);
       if (action === "increase") {
         if (totalTentSpots < copy.tickets) {
@@ -25,7 +25,7 @@ function ChooseTent({ showErrorTent }) {
   }
   function updateTwoTent(action) {
     dispatch((old) => {
-      const copy = { ...old };
+      const copy = JSON.parse(JSON.stringify(old));
       console.log(copy.tents.two);
       if (action === "increase") {
         if (totalTentSpots < copy.tickets) {
@@ -45,7 +45,7 @@ function ChooseTent({ showErrorTent }) {
   }
   function updateThreeTent(action) {
     dispatch((old) => {
-      const copy = { ...old };
+      const copy = JSON.parse(JSON.stringify(old));
       console.log(copy.tents.three);
       if (action === "increase") {
         if (totalTentSpots < copy.tickets) {
