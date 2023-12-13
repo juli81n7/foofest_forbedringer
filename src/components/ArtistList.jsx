@@ -14,7 +14,7 @@ function ArtistList(props) {
     <article className="artist-list">
       <div className="stage-details">
         <h2 className={"artisth2 " + props.stageName}>{props.stageName}</h2>
-        <p>{props.stageName} is on of the coolest stages in all of FooFest. It is among the top three most visited stages and features some of the festivals biggest names.</p>
+        <p>{props.stageName} is one of the coolest stages in all of FooFest. It is among the top three most visited stages and features some of the festivals biggest names.</p>
         <p>Todays program on {props.stageName}:</p>
       </div>
       <div className="artist-details">
