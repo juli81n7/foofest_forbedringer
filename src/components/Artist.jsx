@@ -15,7 +15,7 @@ function Artist(props) {
   return (
     <div className="item">
       <div className="myLikeBtnContainer">
-        <LikeBtn name={props.artistName}></LikeBtn>
+        <LikeBtn name={props.artistName} color="orange"></LikeBtn>
       </div>
       <Link href={`ArtistSingleView/${slug}`} className="artist-container">
         <div className="artist">

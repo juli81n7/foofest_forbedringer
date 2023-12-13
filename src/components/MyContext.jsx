@@ -35,17 +35,18 @@ export const NumberProvider = ({ children }) => {
 
   const [darkMode, setDarkmode] = useState(false);
 
+
   return (
+    <SetUserContext.Provider value={setMyUser}>
+    <UserContext.Provider value={myUser}>
+    <StateContext.Provider value={setMyValue}>
     <setThemeContext.Provider value={setDarkmode}>
-      <ThemeContext.Provider value={darkMode}>
-        <SetUserContext.Provider value={setMyUser}>
-          <UserContext.Provider value={myUser}>
-            <StateContext.Provider value={setMyValue}>
-              <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
+    <ThemeContext.Provider value={darkMode}>
+            <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
+            </ThemeContext.Provider>
+          </setThemeContext.Provider>
             </StateContext.Provider>
           </UserContext.Provider>
         </SetUserContext.Provider>
-      </ThemeContext.Provider>
-    </setThemeContext.Provider>
   );
 };

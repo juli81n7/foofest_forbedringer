@@ -153,23 +153,6 @@ if(props.personalProgram){
 
 
 
-  Object.keys([Jotunheim]).map((day) => {
-    console.log(day)
-    
-
-//     day.map((act)=>{
-
-//       props.personalProgram.map((band) => {
-
-// band.name===act.act?console.log(act):null        
-        
-//         })
-
-//     })
-    
-  
-
-  })
     
     
 

@@ -44,9 +44,6 @@ if(props.personalProgram){
       })
     })
 
-console.log("JOTUNHEIM", Jotunheim)
-console.log("MIDGARD", Midgard)
-console.log("VANA", Vanaheim)
 
 
 }
