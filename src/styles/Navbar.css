@@ -213,10 +213,9 @@
 }
 
 ul h1,
-li {
+.nav-item {
   position: relative;
   left: 0rem;
-
   opacity: 0%;
   transition: 0.8s;
 }
