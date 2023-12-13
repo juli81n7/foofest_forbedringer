@@ -1,36 +1,21 @@
 "use client";
 import ParticipantComp from "./ParticipantComp";
 import TicketContent from "./TicketContent";
-import { useState, useEffect, useContext } from "react";
-import { ValueContext, StateContext } from "./MyContext";
+import { useState } from "react";
 
 export default function ShowTicketContent() {
-  const state = useContext(ValueContext);
-  const dispatch = useContext(StateContext);
-  const [tickets, setTickets] = useState(0);
   const [showError, setShowError] = useState(false);
   const [showErrorTent, setShowErrorTent] = useState(false);
   const [spots, setSpots] = useState([]);
-  const [onePers, setOnePers] = useState(0);
-  const [twoPers, setTwoPers] = useState(0);
-  const [threePers, setThreePers] = useState(0);
   const [toggleCheckout, setToggleCheckout] = useState(false);
-  const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
-  function updateTickets(action) {
-    dispatch((old) => {
-      if (action === "add") {
-        setShowError(false);
-        setShowErrorTent(false);
-        return old + 1;
-      } else if (totalTentSpots >= state.tickets) {
-        setShowError(true);
-        return old;
-      } else {
-        setShowError(false);
-        return Math.max(totalTentSpots, old - 1);
-      }
-    });
-  }
-  return <div>{toggleCheckout === false ? <TicketContent setToggleCheckout={setToggleCheckout} spots={spots} setSpots={setSpots} setShowError={setShowError} totalTentSpots={totalTentSpots} updateTickets={updateTickets} tickets={tickets} showError={showError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers} onePers={onePers} twoPers={twoPers} threePers={threePers} /> : <ParticipantComp ticketAmount={tickets} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></ParticipantComp>}</div>;
+  return (
+    <div>
+      {toggleCheckout === false ? (
+        <TicketContent setToggleCheckout={setToggleCheckout} spots={spots} setSpots={setSpots} showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} />
+      ) : (
+        <ParticipantComp></ParticipantComp>
+      )}
+    </div>
+  );
 }

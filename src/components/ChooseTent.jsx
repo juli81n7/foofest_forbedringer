@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { ValueContext, StateContext } from "./MyContext";
-function ChooseTent({ showErrorTent }) {
+
+function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
+
   function updateOneTent(action) {
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
