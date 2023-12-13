@@ -1,24 +1,28 @@
 import { useContext } from "react";
 import { ValueContext, StateContext } from "./MyContext";
-function ChooseTent({ showErrorTent }) {
+
+function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
+
   function updateOneTent(action) {
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
-      console.log(copy.tents.one);
       if (action === "increase") {
         if (totalTentSpots < copy.tickets) {
           copy.tents.one += 1;
+          return copy;
         }
-        console.log(copy.tents.one);
+        setShowErrorTent(true);
         return copy;
       } else if (action === "reduce") {
         if (copy.tents.one > 0) {
           copy.tents.one -= 1;
+          setShowError(false);
+          setShowErrorTent(false);
+          return copy;
         }
-        console.log(copy.tents.one);
         return copy;
       }
     });
@@ -26,19 +30,22 @@ function ChooseTent({ showErrorTent }) {
   function updateTwoTent(action) {
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
-      console.log(copy.tents.two);
-      if (action === "increase") {
-        if (totalTentSpots < copy.tickets) {
-          copy.tents.two += 1;
-        }
-        console.log(copy.tents.two);
 
+      if (action === "increase") {
+        if (totalTentSpots + 1 < copy.tickets) {
+          copy.tents.two += 1;
+          return copy;
+        }
+        setShowErrorTent(true);
         return copy;
       } else if (action === "reduce") {
         if (copy.tents.two > 0) {
           copy.tents.two -= 1;
+          setShowError(false);
+          setShowErrorTent(false);
+          return copy;
         }
-        console.log(copy.tents.two);
+
         return copy;
       }
     });
@@ -46,19 +53,22 @@ function ChooseTent({ showErrorTent }) {
   function updateThreeTent(action) {
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
-      console.log(copy.tents.three);
-      if (action === "increase") {
-        if (totalTentSpots < copy.tickets) {
-          copy.tents.three += 1;
-        }
-        console.log(copy.tents.three);
 
+      if (action === "increase") {
+        if (totalTentSpots + 2 < copy.tickets) {
+          copy.tents.three += 1;
+          return copy;
+        }
+        setShowErrorTent(true);
         return copy;
       } else if (action === "reduce") {
         if (copy.tents.three > 0) {
           copy.tents.three -= 1;
+          setShowError(false);
+          setShowErrorTent(false);
+          return copy;
         }
-        console.log(copy.tents.three);
+
         return copy;
       }
     });

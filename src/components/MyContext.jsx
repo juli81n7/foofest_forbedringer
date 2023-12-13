@@ -19,6 +19,7 @@ export const NumberProvider = ({ children }) => {
       three: 0,
     },
     campingArea: null,
+    pushed: false,
   });
 
   const [myUser, setMyUser] = useState();
@@ -32,20 +33,19 @@ export const NumberProvider = ({ children }) => {
     tickets: [],
     likedArtist: [], */
 
-
   const [darkMode, setDarkmode] = useState(false);
 
   return (
     <setThemeContext.Provider value={setDarkmode}>
-<ThemeContext.Provider value={darkMode}>
-    <SetUserContext.Provider value={setMyUser}>
-      <UserContext.Provider value={myUser}>
-        <StateContext.Provider value={setMyValue}>
-          <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
-        </StateContext.Provider>
-      </UserContext.Provider>
-    </SetUserContext.Provider>
-</ThemeContext.Provider>
+      <ThemeContext.Provider value={darkMode}>
+        <SetUserContext.Provider value={setMyUser}>
+          <UserContext.Provider value={myUser}>
+            <StateContext.Provider value={setMyValue}>
+              <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
+            </StateContext.Provider>
+          </UserContext.Provider>
+        </SetUserContext.Provider>
+      </ThemeContext.Provider>
     </setThemeContext.Provider>
   );
 };
