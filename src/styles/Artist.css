@@ -5,6 +5,30 @@
   padding-right: 1rem;
   padding-left: 1rem;
   align-items: center;
+  @media (width< 400px) {
+    padding-block: 0.7rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+    :nth-child(1) {
+      grid-column: 2;
+    }
+    & .artist h3 {
+      grid-area: 1/1/2/2;
+    }
+    & .artist h5 {
+      margin-block: 0;
+    }
+    .myLikeBtnContainer,
+    .secbtn {
+      justify-self: end;
+    }
+  }
+}
+.item:first-child {
+  @media (width<400px) {
+    border-top: 1px solid var(--white);
+  }
 }
 
 .artist-container {
@@ -12,12 +36,18 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  @media (width< 400px) {
+    display: contents;
+  }
 }
 
 .artist {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  @media (width< 400px) {
+    display: contents;
+  }
 }
 
 .artisth2 {
