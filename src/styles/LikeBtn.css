@@ -34,10 +34,10 @@ button {
     }
 
     .orange & {
-      stroke: var(--accent-color);
+      stroke: var(--accent-red);
 
       &.active {
-        fill: var(--accent-color);
+        fill: var(--accent-red);
       }
     }
   }

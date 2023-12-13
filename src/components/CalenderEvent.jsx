@@ -3,6 +3,7 @@ import "../styles/Calender.css";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import LikeBtn from "./LikeBtn";
 function CalenderEvent(props) {
   
   
@@ -110,11 +111,12 @@ function handleLike(e){
     <div className="img_container">
               <img src={myImage} alt="" /></div>
               </Link>
-              <svg onClick={handleLike} className={like ? "active":null}  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90.05 73.54">
-    <g id="Layer_1-2" data-name="Layer 1">
-      <polyline class="cls-1" points="45.02 73.18 16.86 45.02 .55 28.71 6.22 5.95 28.71 .55 45.02 16.86 61.33 .55 83.82 5.95 89.49 28.71 73.18 45.02 45.03 73.18"/>
-    </g>
-  </svg>
+           
+              <div className="myLikeBtnContainer">
+              <LikeBtn name={props.name} color="orange"></LikeBtn>
+            </div>
+           
+
   <Link className="text" href={`ArtistSingleView/${props.slug}`} >
               
               <p>{props.start + "-" + props.end}</p>

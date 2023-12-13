@@ -7,7 +7,6 @@ function ChooseTicket({ showError, setShowError, showErrorTent, setShowErrorTent
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
   function reduceTickets() {
-    console.log(totalTentSpots);
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
       if (copy.regular === 0) {

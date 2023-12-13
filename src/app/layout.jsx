@@ -3,25 +3,28 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Body from "@/components/Body";
 
 import { NumberProvider } from "@/components/MyContext";
-import { useContext } from "react";
-import { ThemeContext } from "@/components/MyContext";
+import { useContext, useEffect } from "react";
+import { ThemeContext, setThemeContext } from "@/components/MyContext";
 
 
 export default function RootLayout({ children }) {
+  const state = useContext(ThemeContext);
+  const dispatch = useContext(setThemeContext);
 
-  const state = useContext(ThemeContext)
+  console.log("Theme State in RootLayout:", state);
 
   return (
-    <html  lang="en">
     <NumberProvider>
-      <body data-theme={state?"light":"dark"}>
-          <Navbar />
+    <html  lang="en">
+      <Body>
+          <Navbar dispatch={dispatch} />
           {children}
           <Footer/>
-          </body>
-        </NumberProvider>
-    </html>
+          </Body>
+          </html>
+          </NumberProvider>
   );
 }

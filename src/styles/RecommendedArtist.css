@@ -1,8 +1,8 @@
 .recommended-artist-container {
   height: 100%;
-
+  border: 1px solid var(--stroke-clr);
   overflow: hidden;
-  background-color: white;
+
   display: grid;
   grid-template-rows: 200px auto;
 
@@ -10,6 +10,7 @@
     height: 200px;
     width: 100%;
     object-fit: cover;
+    border-bottom: 1px solid var(--stroke-clr);
   }
 }
 
@@ -18,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  color: black;
+
+  color: var(--text-color);
   padding: 0.5rem;
 }
