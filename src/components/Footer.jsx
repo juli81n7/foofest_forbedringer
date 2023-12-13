@@ -4,7 +4,7 @@ import Link from "next/link";
 function Footer() {
   return (
     <footer className="footer">
-      <div>
+      <div className="footer-container">
         <Link className="footer-logo-container" href="/">
           <svg id="footer-logo" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
             <g data-name="Layer 1">
@@ -241,7 +241,6 @@ function Footer() {
               </g>
             </g>
           </svg>
-          FOOFEST
         </Link>
         <div className="footer-links">
           <ul className="footer-socials">
