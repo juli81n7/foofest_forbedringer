@@ -19,6 +19,8 @@ export default function RootLayout({ children }) {
       <body data-theme={state?"light":"dark"}>
           <Navbar />
           {children}
+          <Footer/>
+          </body>
         </NumberProvider>
     </html>
   );
