@@ -248,7 +248,7 @@ function Account({ schedule, bands }) {
 
             <div className="or-create">
               <p>No account? </p>
-              <button className="create-button" onClick={toggleBothLogins}>
+              <button className="secondary-button" onClick={toggleBothLogins}>
                 Create an Account
               </button>
             </div>
@@ -292,7 +292,7 @@ function Account({ schedule, bands }) {
             </form>
             <div className="or-create">
               <p>Already have an account? </p>
-              <button className="create-button" onClick={toggleBothLogins}>
+              <button className="secondary-button" onClick={toggleBothLogins}>
                 Login
               </button>
             </div>
@@ -317,6 +317,7 @@ function Account({ schedule, bands }) {
               </div>
               <p>On this page you can see your tickets and your personal program.</p>
               <button
+                className="primary-button"
                 onClick={() => {
                   setUser("");
                   userDispatch("");
@@ -334,7 +335,7 @@ function Account({ schedule, bands }) {
                 ) : (
                   <article className="no-tickets">
                     <p>No liked artist - yet!</p>
-                    <button>Find artists</button>
+                    <button className="secondary-button">Find artists</button>
                   </article>
                 )}
               </div>
@@ -367,7 +368,7 @@ function Account({ schedule, bands }) {
                 ) : (
                   <article className="no-tickets">
                     <p>No tickets - yet!</p>
-                    <button>Get tickets</button>
+                    <button className="secondary-button">Get tickets</button>
                   </article>
                 )}
               </div>
