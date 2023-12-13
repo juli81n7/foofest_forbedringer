@@ -1,5 +1,5 @@
 "use client"
-import {  useContext } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "./MyContext";
 
 function Content({ children }) {
