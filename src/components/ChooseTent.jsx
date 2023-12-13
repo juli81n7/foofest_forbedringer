@@ -6,14 +6,13 @@ function ChooseTent({ showErrorTent }) {
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
   function updateOneTent(action) {
     dispatch((old) => {
-      const copy = { ...old };
+      const copy = JSON.parse(JSON.stringify(old));
       console.log(copy.tents.one);
       if (action === "increase") {
-        if (total < copy.tickets) {
+        if (totalTentSpots < copy.tickets) {
           copy.tents.one += 1;
         }
         console.log(copy.tents.one);
-        console.log(state.tents.one);
         return copy;
       } else if (action === "reduce") {
         if (copy.tents.one > 0) {
@@ -26,14 +25,19 @@ function ChooseTent({ showErrorTent }) {
   }
   function updateTwoTent(action) {
     dispatch((old) => {
-      const copy = { ...old };
-      console.log(copy.tents.one);
+      const copy = JSON.parse(JSON.stringify(old));
+      console.log(copy.tents.two);
       if (action === "increase") {
-        copy.tents.two += 1;
+        if (totalTentSpots < copy.tickets) {
+          copy.tents.two += 1;
+        }
         console.log(copy.tents.two);
+
         return copy;
       } else if (action === "reduce") {
-        copy.tents.two -= 1;
+        if (copy.tents.two > 0) {
+          copy.tents.two -= 1;
+        }
         console.log(copy.tents.two);
         return copy;
       }
@@ -41,20 +45,24 @@ function ChooseTent({ showErrorTent }) {
   }
   function updateThreeTent(action) {
     dispatch((old) => {
-      const copy = { ...old };
+      const copy = JSON.parse(JSON.stringify(old));
       console.log(copy.tents.three);
       if (action === "increase") {
-        copy.tents.three += 1;
+        if (totalTentSpots < copy.tickets) {
+          copy.tents.three += 1;
+        }
         console.log(copy.tents.three);
+
         return copy;
       } else if (action === "reduce") {
-        copy.tents.three -= 1;
+        if (copy.tents.three > 0) {
+          copy.tents.three -= 1;
+        }
         console.log(copy.tents.three);
         return copy;
       }
     });
   }
-  const total = state.tents.one * 1 + state.tents.two * 2 + state.tents.three * 3;
 
   return (
     <div className={`choose-wrapper ten ${showErrorTent ? "showError" : ""}`}>

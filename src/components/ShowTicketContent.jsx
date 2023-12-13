@@ -2,7 +2,6 @@
 import ParticipantComp from "./ParticipantComp";
 import TicketContent from "./TicketContent";
 import { useState, useEffect, useContext } from "react";
-import { NumberProvider } from "./MyContext";
 import { ValueContext, StateContext } from "./MyContext";
 
 export default function ShowTicketContent() {
@@ -33,9 +32,5 @@ export default function ShowTicketContent() {
       }
     });
   }
-  return (
-    <div>
-      <NumberProvider>{toggleCheckout === false ? <TicketContent setToggleCheckout={setToggleCheckout} spots={spots} setSpots={setSpots} setShowError={setShowError} totalTentSpots={totalTentSpots} updateTickets={updateTickets} tickets={tickets} showError={showError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers} onePers={onePers} twoPers={twoPers} threePers={threePers} /> : <ParticipantComp ticketAmount={tickets} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></ParticipantComp>}</NumberProvider>
-    </div>
-  );
+  return <div>{toggleCheckout === false ? <TicketContent setToggleCheckout={setToggleCheckout} spots={spots} setSpots={setSpots} setShowError={setShowError} totalTentSpots={totalTentSpots} updateTickets={updateTickets} tickets={tickets} showError={showError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers} onePers={onePers} twoPers={twoPers} threePers={threePers} /> : <ParticipantComp ticketAmount={tickets} onePers={onePers} twoPers={twoPers} threePers={threePers} setOnePers={setOnePers} setTwoPers={setTwoPers} setThreePers={setThreePers}></ParticipantComp>}</div>;
 }

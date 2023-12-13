@@ -1,30 +1,34 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../styles/Navbar.css";
+import { ThemeContext, setThemeContext } from "./MyContext";
 
 function Navbar() {
+ const state = useContext(ThemeContext)
+ const dispatch = useContext(setThemeContext)
 const [active, setactive]=useState(false);
-const [lightMode, setLightMode]=useState(false);
+const [lightMode, setLightMode]=useState(state);
 
 
 function handleBurgerClick(){
   setactive(old=>!old)
 }
 function handleDarkMode(){
-  setLightMode(old=>!old)
+ dispatch(old=>!old)
+ setLightMode(state)
 }
 
   return (
 
 <>
-<div className="nav_container">
+<div data-theme={state?"light":"dark"} className="nav_container">
 
     <nav className="navbar">
 
     <Link className="nav-branding" href="/">
-    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
+    <svg  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
   <g data-name="Layer 1">
     <g>
       <g>

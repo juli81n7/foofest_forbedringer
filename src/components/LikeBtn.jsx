@@ -1,12 +1,18 @@
 "use client"
-
+import { myUser} from "./MyContext";
 import "../styles/LikeBtn.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 function LikeBtn(props) {
+  // const SupabaseLiked = useContext(myUser);
+  let lists = []
 
-    let lists = []
-    
+    // if(SupabaseLiked){
+    // lists=SupabaseLiked.likedArtists  
+    // }
+  
+  
+
     const [like, setLike] = useState(false) 
   
     useEffect(() => {

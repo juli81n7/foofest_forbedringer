@@ -1,5 +1,11 @@
+"use client"
+import {  useContext } from "react";
+import { ThemeContext } from "./MyContext";
+
 function Content({ children }) {
-  return <main>{children}</main>;
+  const state = useContext(ThemeContext)
+
+  return <main data-theme={state?"dark":"light"} >{children}</main>;
 }
 
 export default Content;

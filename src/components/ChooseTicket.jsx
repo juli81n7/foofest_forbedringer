@@ -4,6 +4,7 @@ import { ValueContext, StateContext } from "./MyContext";
 function ChooseTicket({ updateTickets, tickets, showError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
+  const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
   function reduceTickets() {
     dispatch((old) => {
