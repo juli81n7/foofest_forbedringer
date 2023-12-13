@@ -301,7 +301,7 @@ function Account({ schedule, bands }) {
       <section className="logged-in-container">
         {!showCreateLogin && !showLogin && (
           <>
-            <seection className="your-welcome">
+            <section className="your-welcome">
               <h2>Welcome {user.firstName}</h2>
               <div>
                 <p>
@@ -322,7 +322,7 @@ function Account({ schedule, bands }) {
               >
                 Log out
               </button>
-            </seection>
+            </section>
 
             <section className="your-program">
               <h2>Your personal program</h2>
