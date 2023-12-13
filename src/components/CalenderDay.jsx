@@ -8,7 +8,49 @@ import FilterBtn from "@/components/FilterBtn";
 
 function CalenderDay(props) {
 
+let Jotunheim = props.Jotunheim;
+let Midgard = props.Midgard;
+let Vanaheim = props.Vanaheim;
+
+
+if(props.personalProgram){
   
+  Jotunheim=[]
+  Midgard=[]
+  Vanaheim=[]
+  
+    props.Jotunheim.map((thing) => {
+      props.personalProgram.map((item)=>{
+    
+        thing.act===item.name?
+        Jotunheim.push(thing):null
+      
+      })
+    })
+    props.Midgard.map((thing) => {
+      props.personalProgram.map((item)=>{
+    
+        thing.act===item.name?
+        Midgard.push(thing):null
+      
+      })
+    })
+    props.Vanaheim.map((thing) => {
+      props.personalProgram.map((item)=>{
+    
+        thing.act===item.name?
+        Vanaheim.push(thing):null
+      
+      })
+    })
+
+console.log("JOTUNHEIM", Jotunheim)
+console.log("MIDGARD", Midgard)
+console.log("VANA", Vanaheim)
+
+
+}
+
 
 
 
@@ -86,20 +128,24 @@ function CalenderDay(props) {
      
      
      {
-         props.Jotunheim.map((thing) => (
-             thing.act !== "break" ? (
-               <CalenderEvent
-               scene="jotunheim"
-                 img2={props.bands.find(band => band.name === thing.act).logo}
-                 slug={props.bands.find(band => band.name === thing.act).slug}
-                 key={props.bands.find(band => band.name === thing.act).id}
-                 name={thing.act}
-                 start={thing.start}
-                 end={thing.end}
-                 
 
-               />
-             ) : null
+   Jotunheim.map((thing) => (
+    
+      thing.act !== "break" ? (
+        <CalenderEvent
+        scene="jotunheim"
+          img2={props.bands.find(band => band.name === thing.act).logo}
+          slug={props.bands.find(band => band.name === thing.act).slug}
+          key={props.bands.find(band => band.name === thing.act).id}
+          name={thing.act}
+          start={thing.start}
+          end={thing.end}
+          
+
+        />
+      ) : null
+
+      
            ))
            
      
@@ -134,7 +180,7 @@ function CalenderDay(props) {
     
     
      {
-      props.Midgard.map((thing) => (
+      Midgard.map((thing) => (
           thing.act !== "break" ? (
             <CalenderEvent
 
@@ -183,7 +229,7 @@ function CalenderDay(props) {
      <div className="calenderhour"></div>
     
      {
-      props.Vanaheim.map((thing) => (
+      Vanaheim.map((thing) => (
           thing.act !== "break" ? (
             <CalenderEvent
             scene="vanaheim"

@@ -87,7 +87,7 @@
   fill: var(--accent-orange);
   transform: rotate(20.05deg);
   z-index: -2;
-  opacity: 60%;
+  opacity: 20%;
 }
 #Layer_right {
   position: fixed;
@@ -97,7 +97,7 @@
   fill: var(--accent-orange);
   transform: rotate(137.12deg);
   z-index: -2;
-  opacity: 60%;
+  opacity: 20%;
 }
 
 /** Logged into account **/
@@ -130,7 +130,7 @@
   padding: 2rem;
   flex-wrap: wrap;
   width: 100%;
-  background-color: #232222;
+
   min-height: 300px;
 }
 

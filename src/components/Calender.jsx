@@ -25,6 +25,7 @@ const weekdaystate = weekdayss[weekdayToday];
 
 
 function Calender(props) {
+
     const [day, setDay] = useState("weekdaystate");
     const [BtnName, setBtnName] = useState(weekdayText);
     
@@ -147,7 +148,37 @@ let Midgard = props.schedule.Midgard;
 
 const Vanaheim = props.schedule.Vanaheim;
 
+if(props.personalProgram){
 
+
+
+
+  Object.keys([Jotunheim]).map((day) => {
+    console.log(day)
+    
+
+//     day.map((act)=>{
+
+//       props.personalProgram.map((band) => {
+
+// band.name===act.act?console.log(act):null        
+        
+//         })
+
+//     })
+    
+  
+
+  })
+    
+    
+
+
+
+
+
+
+}
 
 
     return (
@@ -192,13 +223,13 @@ const Vanaheim = props.schedule.Vanaheim;
 
 
 
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="mon" bands={props.bands} Jotunheim={Jotunheim.mon} Vanaheim={Vanaheim.mon} Midgard={Midgard.mon}/>
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="tue" bands={props.bands} Jotunheim={Jotunheim.tue} Vanaheim={Vanaheim.tue} Midgard={Midgard.tue}/>
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="wed" bands={props.bands} Jotunheim={Jotunheim.wed} Vanaheim={Vanaheim.wed} Midgard={Midgard.wed}/>
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="thu" bands={props.bands} Jotunheim={Jotunheim.thu} Vanaheim={Vanaheim.thu} Midgard={Midgard.thu}/>
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="fri" bands={props.bands} Jotunheim={Jotunheim.fri} Vanaheim={Vanaheim.fri} Midgard={Midgard.fri}/>
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="sat" bands={props.bands} Jotunheim={Jotunheim.sat} Vanaheim={Vanaheim.sat} Midgard={Midgard.sat}/>
-      <CalenderDay percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="sun" bands={props.bands} Jotunheim={Jotunheim.sun} Vanaheim={Vanaheim.sun} Midgard={Midgard.sun}/>
+      <CalenderDay personalProgram={props.personalProgram?props.personalProgram:null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="mon" bands={props.bands} Jotunheim={Jotunheim.mon} Vanaheim={Vanaheim.mon} Midgard={Midgard.mon}/>
+      <CalenderDay personalProgram={props.personalProgram?props.personalProgram:null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="tue" bands={props.bands} Jotunheim={Jotunheim.tue} Vanaheim={Vanaheim.tue} Midgard={Midgard.tue}/>
+      <CalenderDay personalProgram={props.personalProgram?props.personalProgram:null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="wed" bands={props.bands} Jotunheim={Jotunheim.wed} Vanaheim={Vanaheim.wed} Midgard={Midgard.wed}/>
+      <CalenderDay personalProgram={props.personalProgram?props.personalProgram:null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="thu" bands={props.bands} Jotunheim={Jotunheim.thu} Vanaheim={Vanaheim.thu} Midgard={Midgard.thu}/>
+      <CalenderDay personalProgram={props.personalProgram?props.personalProgram:null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="fri" bands={props.bands} Jotunheim={Jotunheim.fri} Vanaheim={Vanaheim.fri} Midgard={Midgard.fri}/>
+      <CalenderDay personalProgram={props.personalProgram?props.personalProgram:null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="sat" bands={props.bands} Jotunheim={Jotunheim.sat} Vanaheim={Vanaheim.sat} Midgard={Midgard.sat}/>
+      <CalenderDay personalProgram={props.personalProgram?props.personalProgram:null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="sun" bands={props.bands} Jotunheim={Jotunheim.sun} Vanaheim={Vanaheim.sun} Midgard={Midgard.sun}/>
   
 
       

@@ -171,36 +171,9 @@
     }
   }
 }
+
 .event {
   position: relative;
-  & svg {
-    padding: 0.5rem;
-    position: absolute;
-    width: 40px;
-    transform-origin: right;
-    top: 0rem;
-    right: 0rem;
-    fill: none;
-    stroke: var(--accent-blue);
-    stroke-width: 5px;
-    overflow: visible;
-    z-index: 3;
-    cursor: pointer;
-    &.active {
-      fill: var(--accent-blue);
-    }
-
-    &.jotunheim {
-      stroke: var(--accent-orange);
-    }
-    &.vanaheim {
-      stroke: var(--accent-blue);
-    }
-    &.midgard {
-      stroke: var(--accent-red);
-    }
-  }
-
   background-color: rgb(255, 254, 254);
 
   z-index: 2;
@@ -304,7 +277,13 @@
       min-width: 100%;
     }
   }
-
+  & .myLikeBtnContainer {
+    position: absolute;
+    width: 40px;
+    transform-origin: right;
+    right: 0;
+    top: 0;
+  }
   & .text {
     height: 100%;
     margin-left: 0.5rem;
