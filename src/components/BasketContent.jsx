@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useContext } from "react";
 import { ValueContext } from "./MyContext";
 import ParticipantComp from "./ParticipantComp";
