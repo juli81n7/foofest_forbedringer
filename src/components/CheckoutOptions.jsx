@@ -1,13 +1,16 @@
+"use client";
 import Button from "./Button";
-
+import { useContext } from "react";
 import "../styles/CheckoutOptions.css";
+import { StateContext, ValueContext } from "./MyContext";
 
 function CheckoutOptions({ setToggleCheckout }) {
+  const state = useContext(ValueContext);
+  const dispatch = useContext(StateContext);
   return (
     <div className="flow-btns">
-      <Button btntext="ADD TO BASKET" href={"#"}></Button>
-      <Button btntext="BUY NOW" href={"#"}></Button>
-      <button onClick={() => setToggleCheckout((old) => !old)}>GO TO CHECKOUT</button>
+      <button>ADD TO BASKET</button>
+      <button onClick={() => setToggleCheckout((old) => !old)}>BUY NOW</button>
     </div>
   );
 }
