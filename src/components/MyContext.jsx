@@ -21,8 +21,8 @@ export const NumberProvider = ({ children }) => {
     campingArea: null,
   });
 
-  const [myUser, setMyUser] = useState({
-    firstName: "",
+  const [myUser, setMyUser] = useState();
+  /*    firstName: "",
     lastName: "",
     email: "",
     password: "",
@@ -30,8 +30,7 @@ export const NumberProvider = ({ children }) => {
     zip: "",
     phone: "",
     tickets: [],
-    likedArtist: [],
-  });
+    likedArtist: [], */
 
 
   const [darkMode, setDarkmode] = useState(false);

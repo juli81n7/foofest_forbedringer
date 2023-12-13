@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import ParticipantInfo from "./ParticipantInfo";
 import "@/styles/Participants.css";
+import { ValueContext } from "./MyContext";
 export default function Participants({ ticketAmount }) {
   const [submitData, setSubmitData] = useState([]);
   const { register, handleSubmit } = useForm();
-
+  const state = useContext(ValueContext);
   const onSubmit = (data) => {
     console.log(data);
     setSubmitData((prevData) => [
@@ -23,7 +24,7 @@ export default function Participants({ ticketAmount }) {
       <div className="right">
         <h2 className="ticketformh2">Info on participants</h2>
 
-        {[...Array(ticketAmount)].map((_, index) => (
+        {[...Array(state.tickets)].map((_, index) => (
           <div key={index}>
             <h3 className="participanth3">Participant {index + 1}</h3>
             <form>

@@ -2,12 +2,8 @@
 
 import "../styles/ArtistList.css";
 import Artist from "./Artist";
-import { useContext } from "react";
-import { UserContext } from "./MyContext";
 
 function ArtistList(props) {
-  const userState = useContext(UserContext);
-
   const stage = props.stageName;
   const dateToday = new Date();
   const weekdayToday = dateToday.getDay();
