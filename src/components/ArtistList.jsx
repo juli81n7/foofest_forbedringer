@@ -2,6 +2,8 @@
 
 import "../styles/ArtistList.css";
 import Artist from "./Artist";
+import { useContext } from "react";
+import { UserContext } from "./MyContext";
 
 function ArtistList(props) {
   const stage = props.stageName;

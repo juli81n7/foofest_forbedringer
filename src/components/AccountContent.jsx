@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
+import { UserContext, SetUserContext } from "./MyContext";
 import "@/styles/Account.css";
 import Calender from "./Calender";
 
@@ -16,6 +16,9 @@ function Account({ schedule, bands }) {
   const [allUsers, setAllUsers] = useState([]);
   const [user, setUser] = useState({});
   const [userStatus, setUserStatus] = useState("");
+
+  const userState = useContext(UserContext);
+  const userDispatch = useContext(SetUserContext);
 
   useEffect(() => {
     async function fetchAllUsers() {
@@ -130,8 +133,7 @@ function Account({ schedule, bands }) {
       const userObject = JSON.parse(userLoggedIn);
 
       await setUser(userObject);
-
-      toggleLogin();
+      await userDispatch(userObject);
     } else {
       setUserStatus("Email or password is incorrect.");
       console.log("Email or password is incorrect.");
@@ -228,7 +230,7 @@ function Account({ schedule, bands }) {
         </g>
       </svg>
       <section>
-        {showLogin && (
+        {!userState && showLogin && (
           <section className="login-container">
             <form className="login-account" onSubmit={login}>
               <h2 className="login-heading">Login</h2>
@@ -253,7 +255,7 @@ function Account({ schedule, bands }) {
           </section>
         )}
 
-        {showCreateLogin && !showLogin && (
+        {!userState && showCreateLogin && !showLogin && (
           <section className="login-container">
             <form className="create-account" onSubmit={createLogin}>
               <h2>Create an Account</h2>
@@ -299,25 +301,25 @@ function Account({ schedule, bands }) {
       </section>
 
       <section className="logged-in-container">
-        {!showCreateLogin && !showLogin && (
+        {userState && (
           <>
             <section className="your-welcome">
-              <h2>Welcome {user.firstName}</h2>
+              <h2>Welcome {userState.firstName}</h2>
               <div>
                 <p>
-                  {user.firstName} {user.lastName}
+                  {userState.firstName} {userState.lastName}
                 </p>
-                <p>{user.email}</p>
-                <p>{user.phone}</p>
+                <p>{userState.email}</p>
+                <p>{userState.phone}</p>
                 <p>
-                  {user.address}, {user.zip}
+                  {userState.address}, {userState.zip}
                 </p>
               </div>
               <p>On this page you can see your tickets and your personal program.</p>
               <button
                 onClick={() => {
-                  toggleLogin();
                   setUser("");
+                  userDispatch("");
                 }}
               >
                 Log out
@@ -327,7 +329,7 @@ function Account({ schedule, bands }) {
             <section className="your-program">
               <h2>Your personal program</h2>
               <div className="program-flex">
-                {user.likedArtist ? (
+                {userState.likedArtist ? (
                   <Calender schedule={schedule} bands={bands}></Calender>
                 ) : (
                   <article className="no-tickets">
@@ -341,8 +343,8 @@ function Account({ schedule, bands }) {
             <section className="your-tickets">
               <h2>Your tickets</h2>
               <div className="ticket-flex">
-                {user.tickets ? (
-                  user.tickets.map((ticket) => (
+                {userState.tickets ? (
+                  userState.tickets.map((ticket) => (
                     <article className="ticket" key={ticket.id}>
                       <div>
                         <h3>Name</h3>
