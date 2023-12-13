@@ -14,6 +14,7 @@ export const NumberProvider = ({ children }) => {
     },
     campingArea: null,
   });
+
   return (
     <StateContext.Provider value={setMyValue}>
       <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
