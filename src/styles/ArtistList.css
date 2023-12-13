@@ -10,6 +10,9 @@
       border-right: 0;
     }
   }
+  @media (width<400px) {
+    border-top: none;
+  }
 }
 
 .stage-details {
@@ -22,6 +25,9 @@
   & p {
     max-width: 25ch;
   }
+  @media (width<400px) {
+    padding-bottom: 1rem;
+  }
 }
 
 .artist-details {
@@ -29,6 +35,9 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 0 0 8rem 0;
+  @media (width<400px) {
+    padding-bottom: 4rem;
+  }
 }
 
 @media (width > 600px) {
