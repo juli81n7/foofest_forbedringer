@@ -344,7 +344,7 @@ function Account({ schedule, bands }) {
             <section className="your-program">
               <h2>Your program</h2>
               <div className="program-flex">
-                {userState.likedArtists[0] ? (
+                {userState.likedArtists.length>0 ? (
                   <Calender personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
                 ) : (
                   <article className="no-tickets">
