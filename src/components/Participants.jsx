@@ -17,6 +17,25 @@ export default function Participants({ setToggleCheckout }) {
         data,
       },
     ]);
+
+
+    [...Array(state.tickets)].map((_,ticketIndex)=>{
+      Object.keys(submitData).map((datapunkt, index) => {
+
+
+        if(index===3+(ticketIndex*6)){
+          const value = submitData[datapunkt];
+          console.log("EMAIL",value)     
+        }
+
+
+      })
+      
+      
+      
+      
+      })
+
     console.log("her er data i state", submitData);
   };
   return (

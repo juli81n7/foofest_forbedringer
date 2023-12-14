@@ -25,6 +25,9 @@ export default function page({ params }) {
   const foundObjects = [];
   const genreBands = bands.filter((band) => band.genre === selectedBand.genre);
 
+
+
+
   Object.keys(schedule).map((stage) => {
     Object.keys(schedule[stage]).map((day) => {
       const bandFromSchedule = schedule[stage][day].find((act) => act.act === selectedBand.name);

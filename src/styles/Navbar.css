@@ -282,3 +282,44 @@ ul h1,
     opacity: 100%;
   }
 }
+.sun {
+  width: 20px;
+  height: 20px;
+  fill: var(--stroke-clr) !important;
+}
+.newMoon {
+  width: 20px;
+  height: 20px;
+  fill: var(--stroke-clr) !important;
+}
+
+.flexshelf {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.slider {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  right: 0%;
+  transition: 0.2s ease;
+}
+
+.lightModeSwitch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+
+  &.active {
+    & .slider {
+      right: -150%;
+      transition: 0.2s ease;
+    }
+  }
+}
