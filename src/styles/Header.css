@@ -50,7 +50,7 @@ header {
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  padding-left: 1rem;
+  padding-left: 2rem;
   flex-wrap: wrap;
   @media (width<400px) {
     padding: 0;

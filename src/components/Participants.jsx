@@ -38,7 +38,6 @@ export default function Participants({ setToggleCheckout }) {
     <div>
       <div className="right">
         <h2 className="ticketformh2">Info on participants</h2>
-
         {[...Array(state.regular)].map((_, index) => (
           <div key={index}>
             <h3 className="participanth3">Participant {index + 1}</h3>
@@ -55,9 +54,7 @@ export default function Participants({ setToggleCheckout }) {
             </form>
           </div>
         ))}
-        <div className="btngrid">
-          <input className="submitBtn" value="Submit" type="submit" onClick={handleSubmit(onSubmit)} />
-        </div>
+        <input className="submitBtn" value="Submit" type="submit" onClick={handleSubmit(onSubmit)} />
       </div>
     </div>
   );
