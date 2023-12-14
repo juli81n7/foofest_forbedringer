@@ -282,11 +282,34 @@ function Navbar() {
             </li>
           </ul>
 
+          
+      <div className="flexshelf">
+      
+<div className="lightModeSwitch">
+<div className="slider">
+<svg className="sun"  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<g  data-name="Layer 1">
+  <path class="cls-1" d="M10,3V0h2v3h-2ZM10,22v-3h2v3h-2ZM19,12v-2h3v2h-3ZM0,12v-2h3v2H0ZM17.7,5.7l-1.4-1.4,1.75-1.8,1.45,1.45-1.8,1.75ZM3.95,19.5l-1.45-1.45,1.8-1.75,1.4,1.4-1.75,1.8ZM18.05,19.5l-1.75-1.8,1.4-1.4,1.8,1.75-1.45,1.45ZM4.3,5.7l-1.8-1.75,1.45-1.45,1.75,1.8-1.4,1.4ZM11,17c-1.67,0-3.08-.58-4.25-1.75s-1.75-2.58-1.75-4.25.58-3.08,1.75-4.25,2.58-1.75,4.25-1.75,3.08.58,4.25,1.75,1.75,2.58,1.75,4.25-.58,3.08-1.75,4.25-2.58,1.75-4.25,1.75ZM11,15c1.12,0,2.06-.39,2.84-1.16s1.16-1.72,1.16-2.84-.39-2.06-1.16-2.84-1.72-1.16-2.84-1.16-2.06.39-2.84,1.16-1.16,1.72-1.16,2.84.39,2.06,1.16,2.84,1.72,1.16,2.84,1.16Z"/>
+</g>
+</svg>
+<svg className="newMoon" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+
+  <g  data-name="Layer 1">
+    <path class="cls-1" d="M9,18c-2.5,0-4.63-.88-6.38-2.63S0,11.5,0,9,.88,4.38,2.63,2.63,6.5,0,9,0c.23,0,.46,0,.69.03s.45.04.66.08c-.68.48-1.23,1.11-1.64,1.89s-.61,1.61-.61,2.51c0,1.5.53,2.78,1.58,3.83s2.33,1.58,3.83,1.58c.92,0,1.76-.2,2.53-.61s1.39-.95,1.88-1.64c.03.22.06.44.08.66s.03.45.03.69c0,2.5-.88,4.63-2.63,6.38s-3.88,2.63-6.38,2.63ZM9,16c1.47,0,2.78-.4,3.95-1.21,1.17-.81,2.02-1.86,2.55-3.16-.33.08-.67.15-1,.2s-.67.08-1,.08c-2.05,0-3.8-.72-5.24-2.16s-2.16-3.19-2.16-5.24c0-.33.03-.67.08-1s.12-.67.2-1c-1.3.53-2.35,1.38-3.16,2.55-.81,1.17-1.21,2.48-1.21,3.95,0,1.93.68,3.58,2.05,4.95,1.37,1.37,3.02,2.05,4.95,2.05Z"/>
+  </g>
+</svg>
+</div>
+</div>
+
+          
+          
+
+       
           <div className="toggler">
             <svg onClick={handleDarkMode} className={lightMode ? "active" : ""} data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.73 89.72">
               <g data-name="Layer 1">
-                <path class="cls-1" d="M89.73,44.86c0,20.62-13.9,37.98-32.85,43.23-18.95-5.25-32.85-22.61-32.85-43.23S37.93,6.88,56.88,1.63c18.95,5.25,32.85,22.61,32.85,43.23Z" />
-                <path class="cls-1" d="M56.88,88.09c-3.82,1.06-7.86,1.63-12.02,1.63C20.09,89.72,0,69.64,0,44.86S20.09,0,44.86,0c4.16,0,8.2.57,12.02,1.63C37.93,6.88,24.03,24.24,24.03,44.86s13.9,37.98,32.85,43.23Z" />
+                <path className="cls-1" d="M89.73,44.86c0,20.62-13.9,37.98-32.85,43.23-18.95-5.25-32.85-22.61-32.85-43.23S37.93,6.88,56.88,1.63c18.95,5.25,32.85,22.61,32.85,43.23Z" />
+                <path className="cls-1" d="M56.88,88.09c-3.82,1.06-7.86,1.63-12.02,1.63C20.09,89.72,0,69.64,0,44.86S20.09,0,44.86,0c4.16,0,8.2.57,12.02,1.63C37.93,6.88,24.03,24.24,24.03,44.86s13.9,37.98,32.85,43.23Z" />
               </g>
             </svg>
             <div className="basketContainer">
@@ -294,16 +317,17 @@ function Navbar() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" className="bi bi-cart-fill" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                 </svg>
+                <div className={ticketState.regular > 0 && ticketState.pushed === true ? "diplayBasketNumber" : ""}>
+                  <p>{ticketState.regular > 0 && ticketState.pushed === true ? ticketState.regular + ticketState.vip : ""}</p>
+                </div>
               </Link>
-              <div className={ticketState.tickets > 0 && ticketState.pushed === true ? "diplayBasketNumber" : ""}>
-                <p>{ticketState.tickets > 0 && ticketState.pushed === true ? ticketState.tickets : ""}</p>
-              </div>
             </div>
             <div className={"hamburger " + (active ? "active" : "")} onClick={handleBurgerClick}>
               <span className="bar1"></span>
               <span className="bar2"></span>
               <span className="bar3"></span>
-            </div>
+
+          </div>
           </div>
         </nav>
       </div>

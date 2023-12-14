@@ -96,6 +96,7 @@
 .nav_container .hamburger {
   display: none;
   cursor: pointer;
+  padding-inline: 0.5rem;
   z-index: 999999;
   transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
 
@@ -107,8 +108,8 @@
 .toggler {
   display: flex;
   gap: 0.5rem;
-
   align-items: center;
+
   & svg:not(.bi-cart-fill) {
     fill: var(--white);
     width: 20px;
@@ -152,11 +153,17 @@
 .basketContainer {
   position: relative;
 }
-
+.basketContainer a {
+  display: grid;
+}
+.basketContainer svg {
+  fill: var(--white);
+  align-self: end;
+}
 .nav_container .bar1 {
   display: block;
   width: 25px;
-  height: 1px;
+  height: 1.5px;
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -165,7 +172,7 @@
 .nav_container .bar2 {
   display: block;
   width: 25px;
-  height: 1px;
+  height: 1.5px;
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -174,7 +181,7 @@
 .nav_container .bar3 {
   display: block;
   width: 25px;
-  height: 1px;
+  height: 1.5px;
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -273,5 +280,46 @@ ul h1,
     left: 0rem;
     top: 0;
     opacity: 100%;
+  }
+}
+.sun {
+  width: 20px;
+  height: 20px;
+  fill: var(--stroke-clr) !important;
+}
+.newMoon {
+  width: 20px;
+  height: 20px;
+  fill: var(--stroke-clr) !important;
+}
+
+.flexshelf {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.slider {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  right: 0%;
+  transition: 0.2s ease;
+}
+
+.lightModeSwitch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+
+  &.active {
+    & .slider {
+      right: -150%;
+      transition: 0.2s ease;
+    }
   }
 }
