@@ -1,4 +1,5 @@
 "use client";
+import FinalCheckout from "./FinalCheckout";
 import ParticipantComp from "./ParticipantComp";
 import TicketContent from "./TicketContent";
 import { useState } from "react";
@@ -8,14 +9,7 @@ export default function ShowTicketContent() {
   const [showErrorTent, setShowErrorTent] = useState(false);
   const [spots, setSpots] = useState([]);
   const [toggleCheckout, setToggleCheckout] = useState(false);
+  const [toggleParticipant, setToggleParticipant] = useState(false);
 
-  return (
-    <div>
-      {toggleCheckout === false ? (
-        <TicketContent setToggleCheckout={setToggleCheckout} spots={spots} setSpots={setSpots} showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} />
-      ) : (
-        <ParticipantComp></ParticipantComp>
-      )}
-    </div>
-  );
+  return <div>{toggleParticipant === false ? <TicketContent setToggleParticipant={setToggleParticipant} spots={spots} setSpots={setSpots} showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} /> : toggleCheckout === false ? <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp> : <FinalCheckout></FinalCheckout>}</div>;
 }

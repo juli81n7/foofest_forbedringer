@@ -1,3 +1,7 @@
+main {
+  scroll-behavior: smooth;
+}
+
 .calendar-container {
   margin-top: 0.5rem;
   display: grid;
@@ -59,7 +63,7 @@
 
   & .calenderbar {
     grid-column: 1/-1;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--border-color);
 
     display: grid;
     grid-template-columns: repeat(24, 200px);
@@ -69,7 +73,7 @@
     & .calenderhour {
       width: 200px;
       height: 100%;
-      border-right: 1px solid white;
+      border-right: 1px solid var(--border-color);
       grid-row: 1;
       box-sizing: border-box;
 
@@ -171,36 +175,9 @@
     }
   }
 }
+
 .event {
   position: relative;
-  & svg {
-    padding: 0.5rem;
-    position: absolute;
-    width: 40px;
-    transform-origin: right;
-    top: 0rem;
-    right: 0rem;
-    fill: none;
-    stroke: var(--accent-blue);
-    stroke-width: 5px;
-    overflow: visible;
-    z-index: 3;
-    cursor: pointer;
-    &.active {
-      fill: var(--accent-blue);
-    }
-
-    &.jotunheim {
-      stroke: var(--accent-orange);
-    }
-    &.vanaheim {
-      stroke: var(--accent-blue);
-    }
-    &.midgard {
-      stroke: var(--accent-red);
-    }
-  }
-
   background-color: rgb(255, 254, 254);
 
   z-index: 2;
@@ -304,7 +281,13 @@
       min-width: 100%;
     }
   }
-
+  & .myLikeBtnContainer {
+    position: absolute;
+    width: 40px;
+    transform-origin: right;
+    right: 0;
+    top: 0;
+  }
   & .text {
     height: 100%;
     margin-left: 0.5rem;
@@ -316,11 +299,11 @@
   }
 
   & h4 {
-    color: var(--bg-color);
+    color: var(--text);
     text-transform: uppercase;
   }
   & p {
-    color: var(--bg-color);
+    color: var(--text);
     font-size: 0.8rem;
   }
 }
@@ -338,6 +321,15 @@
 }
 
 .day {
+  & {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+  }
+
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
   grid-column: 2;
   grid-row: 1/-1;
   overflow-x: scroll;

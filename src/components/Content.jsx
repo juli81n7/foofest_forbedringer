@@ -4,7 +4,7 @@ import { ThemeContext } from "./MyContext";
 
 function Content({ children }) {
   const state = useContext(ThemeContext);
-  return <main data-theme={state ? "dark" : "light"}>{children}</main>;
+  return <main>{children}</main>;
 }
 
 export default Content;

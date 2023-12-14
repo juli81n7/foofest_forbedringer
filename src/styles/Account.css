@@ -3,6 +3,10 @@
 .account-container {
   position: relative;
   width: 100%;
+  @media (width<400px) {
+    width: 90%;
+    margin-inline: auto;
+  }
 }
 
 .login-container {
@@ -14,6 +18,11 @@
   margin: auto;
   max-width: 400px;
   min-height: 100dvh;
+  @media (width< 400px) {
+    justify-content: start;
+    padding-top: 4rem;
+    min-height: 70dvh;
+  }
 }
 
 .login-container form input {
@@ -87,7 +96,7 @@
   fill: var(--accent-orange);
   transform: rotate(20.05deg);
   z-index: -2;
-  opacity: 60%;
+  opacity: 20%;
 }
 #Layer_right {
   position: fixed;
@@ -97,7 +106,7 @@
   fill: var(--accent-orange);
   transform: rotate(137.12deg);
   z-index: -2;
-  opacity: 60%;
+  opacity: 20%;
 }
 
 /** Logged into account **/
@@ -130,7 +139,7 @@
   padding: 2rem;
   flex-wrap: wrap;
   width: 100%;
-  background-color: #232222;
+
   min-height: 300px;
 }
 

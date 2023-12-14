@@ -23,6 +23,7 @@ function ChooseCamp({ spots, setSpots }) {
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
       copy.campingArea = area;
+      console.log(copy.campingArea);
       return copy;
     });
   };
