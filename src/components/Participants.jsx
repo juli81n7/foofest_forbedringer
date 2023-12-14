@@ -56,7 +56,7 @@ export default function Participants({ setToggleCheckout }) {
           </div>
         ))}
         <div className="btngrid">
-          <input className="submitBtn" type="submit" onClick={handleSubmit(onSubmit)} />
+          <input className="submitBtn" value="Submit" type="submit" onClick={handleSubmit(onSubmit)} />
         </div>
       </div>
     </div>
