@@ -3,15 +3,17 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 2rem;
+
+  padding: 2rem;
 }
 
 .ticketamount {
   display: flex;
-  font-size: 1.5rem;
-
   gap: 3rem;
   position: relative;
+  @media (width > 800px) {
+    font-size: 1.5rem;
+  }
 }
 
 .ticketpay {
@@ -21,7 +23,10 @@
 }
 
 .ticketformh2 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 6rem);
+  @media (width > 800px) {
+    font-size: 3rem;
+  }
 }
 
 .perstent1 {
