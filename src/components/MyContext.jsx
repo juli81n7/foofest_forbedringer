@@ -10,6 +10,9 @@ export const SetUserContext = createContext();
 export const ThemeContext = createContext();
 export const setThemeContext = createContext();
 
+export const TimerContext = createContext();
+export const SetTimerContext = createContext();
+
 export const NumberProvider = ({ children }) => {
   const [myValue, setMyValue] = useState({
     regular: 0,
@@ -25,17 +28,12 @@ export const NumberProvider = ({ children }) => {
   });
 
   const [myUser, setMyUser] = useState();
-  /*    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    address: "",
-    zip: "",
-    phone: "",
-    tickets: [],
-    likedArtist: [], */
 
   const [darkMode, setDarkmode] = useState(false);
+  const [myTimer, setMyTimer] = useState({
+    time: 0,
+    timeRunning: false,
+  });
 
   return (
     <SetUserContext.Provider value={setMyUser}>

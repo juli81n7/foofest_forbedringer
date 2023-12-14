@@ -1,0 +1,22 @@
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.timer-container * {
+  color: white;
+}
+
+.time-left {
+  display: flex;
+
+  width: 50px;
+}
+
+.timer-buttons {
+  position: absolute;
+  top: 50px;
+}
