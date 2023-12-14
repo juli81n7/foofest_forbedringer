@@ -1,12 +1,5 @@
 @import url("https://use.typekit.net/naq1gyi.css");
 
-body {
-  min-height: 100dvh;
-  background-color: var(--bg-color);
-  color: var(--white);
-  font-family: "alfabet", sans-serif;
-}
-
 /* custom properties */
 :root {
   --bg-color: var(--background-clr, #0f0a0a);
@@ -19,6 +12,7 @@ body {
   --accent-red: #ff3f3f;
   --accent-orange: #ff6600;
   --accent-teal: #2da9dc;
+  --accent-color: #ff6600;
 }
 
 [data-theme="dark"] {
@@ -37,6 +31,18 @@ body {
   --text-color: #0f0a0a;
   --border-color: #0f0a0a;
 }
+
+body {
+  min-height: 100dvh;
+  background-color: var(--bg-color);
+  color: var(--white);
+
+  font-family: "alfabet", sans-serif;
+  ::selection {
+    background-color: var(--accent-color);
+  }
+}
+
 /* Reset herunder */
 /* Box sizing rules */
 *,

@@ -57,14 +57,14 @@
 }
 
 .Vanaheim {
-  color: var(--accent-red);
+  color: var(--accent-blue);
 }
 .Jotunheim {
   color: var(--accent-orange);
 }
 
 .Midgard {
-  color: var(--accent-blue);
+  color: var(--accent-red);
 }
 .myLikeBtnContainer {
   width: 40px;

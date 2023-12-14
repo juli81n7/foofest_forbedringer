@@ -288,7 +288,7 @@ function Navbar() {
           </ul>
 
           <div className="flexshelf">
-            <div onClick={handleDarkMode} className={"lightModeSwitch " + (lightMode ? "active" : "")}>
+            <div onClick={handleDarkMode} className={"lightModeSwitch " + (!state ? "active" : "")}>
               <div className="slider">
                 <svg className="sun" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <g data-name="Layer 1">

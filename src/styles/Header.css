@@ -1,5 +1,21 @@
 /* header {
+
+
   } */
+
+header {
+  overflow: hidden;
+  position: relative;
+  & .wave {
+    position: absolute;
+    fill: var(--accent-orange);
+    transform-origin: bottom right;
+    scale: 0.5;
+    right: -20rem;
+    bottom: -1rem;
+    transform: rotate(-5deg);
+  }
+}
 
 .header_container {
 }
@@ -27,6 +43,7 @@
 }
 
 .flex {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   padding-left: 1rem;
