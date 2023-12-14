@@ -6,6 +6,7 @@ import "@/styles/ParticipantInfo.css";
 export default function FinalCheckout({}) {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState({});
+  const [submitData, setSubmitData] = useState([]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -13,11 +14,6 @@ export default function FinalCheckout({}) {
       ...prevData,
       [name]: value,
     }));
-  };
-  const validateDate = (value) => {
-    const selected = new Date(value).getFullYear();
-    const now = new Date().getFullYear();
-    return now - selected >= 18;
   };
 
   const onSubmit = (data) => {
@@ -38,30 +34,30 @@ export default function FinalCheckout({}) {
             <label htmlFor="lastname">Last name</label>
             <input {...register("lastName", { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="lastname" />
           </div>
-          <div className="inputlayout">
-            <label htmlFor="birth">Date of birth</label>
-            <input
-              {...register("dob", {
-                required: true,
-                validate: validateDate,
-              })}
-              type="date"
-              min="1899-01-01"
-              max="2100-12-12"
-              id="birth"
-            />
-          </div>
-          <div className="inputlayout">
-            <label htmlFor="address">Address</label>
-            <input {...register("address", { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="address" />
-          </div>
+
           <div className="inputlayout">
             <label htmlFor="cardnr.">Card nr.</label>
-            <input {...register("cardnr.", { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="cardnr." />
+            <input {...register("cardnr.", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnr." />
           </div>
           <div className="inputlayout">
             <label htmlFor="Regnr.">Reg nr.</label>
-            <input {...register("Regnr.", { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="Regnr." />
+            <input {...register("Regnr.", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="Regnr." />
+          </div>
+          <div className="inputlayout">
+            <label htmlFor="expireDate">Date of card expiration</label>
+            <input
+              {...register("expireDate", {
+                required: true,
+              })}
+              type="date"
+              min="2000-01-01"
+              max="2100-12-12"
+              id="expireDate"
+            />
+          </div>
+          <div className="inputlayout">
+            <label htmlFor="cvc">CVC</label>
+            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} type="text" id="cvc" />
           </div>
         </div>
         <div className="btngrid">
