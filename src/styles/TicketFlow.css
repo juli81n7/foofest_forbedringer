@@ -2,6 +2,11 @@
 .area-name {
   padding: 2px 5px;
 }
+
+.ticket-area {
+  padding: 2rem;
+}
+
 .flow-area {
   grid-column: 2/-1;
   padding: 2rem;
