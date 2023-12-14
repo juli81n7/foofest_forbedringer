@@ -135,6 +135,7 @@ function Account({ schedule, bands }) {
 
       await setUser(userObject);
       await userDispatch(userObject);
+      
     } else {
       setUserStatus("Email or password is incorrect.");
       console.log("Email or password is incorrect.");
@@ -247,7 +248,7 @@ function Account({ schedule, bands }) {
               <input className="primary-button" type="submit" value="Login" />
             </form>
 
-            <div className="or-create">
+            <div className="flip-login">
               <p>No account? </p>
               <button className="secondary-button" onClick={toggleBothLogins}>
                 Create an Account
@@ -291,7 +292,7 @@ function Account({ schedule, bands }) {
               </div>
               <input className="primary-button" type="submit" value="Create Account" />
             </form>
-            <div className="or-create">
+            <div className="flip-login">
               <p>Already have an account? </p>
               <button className="secondary-button" onClick={toggleBothLogins}>
                 Login
@@ -331,7 +332,7 @@ function Account({ schedule, bands }) {
             <section className="your-program">
               <h2>Your personal program</h2>
               <div className="program-flex">
-                {userState.likedArtists[0]? (
+                {userState.likedArtists[0] ? (
                   <Calender personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
                 ) : (
                   <article className="no-tickets">
