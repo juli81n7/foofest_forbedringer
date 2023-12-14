@@ -31,7 +31,7 @@ export default function FinalCheckout({}) {
         submitDataParticipant[each].date = "All year";
         console.log(each);
       });
-      setUserContext((old) => (old.tickets = submitDataParticipant));
+      setUserContext((old) => (old.tickets += submitDataParticipant));
       console.log(userContext);
     }
   };

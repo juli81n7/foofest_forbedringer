@@ -10,6 +10,7 @@
 }
 
 .flow-area {
+  z-index: 1;
   grid-column: 2/-1;
   padding: 2rem;
   display: grid;
@@ -83,7 +84,19 @@
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
-
+.wave2 {
+  position: absolute;
+  fill: var(--accent-orange);
+  transform-origin: bottom left;
+  scale: 0.5;
+  left: 1rem;
+  bottom: 3rem;
+  transform: rotate(-5deg);
+  display: none;
+  @media (width>800px) {
+    display: block;
+  }
+}
 @media only screen and (min-width: 800px) {
   .sec {
     /* min-height: 100vh; */
