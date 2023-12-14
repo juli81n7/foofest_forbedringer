@@ -1,7 +1,7 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ValueContext, StateContext } from "./MyContext";
-function ChooseTicket({ showError, setShowError, showErrorTent, setShowErrorTent }) {
+function ChooseTicket({ showError, setShowError, setShowErrorTent }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;

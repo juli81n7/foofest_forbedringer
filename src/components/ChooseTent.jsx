@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ValueContext, StateContext } from "./MyContext";
 
-function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError, setButtonError }) {
+function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
