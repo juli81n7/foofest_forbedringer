@@ -7,24 +7,6 @@ body {
   font-family: "alfabet", sans-serif;
 }
 
-/* main {
-  display: grid;
-}
-main > * {
-  margin-inline: 1rem;
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: var(--web-grid);
-  gap: 1rem;
-
-  @media (width < 380px) {
-    grid-template-columns: var(--mobile-grid);
-  }
-}
-main > * > * {
-  grid-column: 1/-1;
-} */
-
 /* custom properties */
 :root {
   --bg-color: var(--background-clr, #0f0a0a);
@@ -37,11 +19,6 @@ main > * > * {
   --accent-red: #ff3f3f;
   --accent-orange: #ff6600;
   --accent-teal: #2da9dc;
-
-  /* grids
-  --web-grid: repeat(12, 1fr);
-  --tablet-grid: ;
-  --mobile-grid: repeat(4, 1fr); */
 }
 
 [data-theme="dark"] {

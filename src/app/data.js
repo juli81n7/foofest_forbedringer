@@ -1,5 +1,10 @@
-// glitch server end-point: "https://flash-metal-egg.glitch.me/ENDPOINT"
+// export async function schedule() {
+//   const res = await fetch(process.env.NEXT_PUBLIC_HOST + "/schedule", {
+//     headers: {},
+//   });
 
+//     return await res.json();
+// }
 const res = await fetch(process.env.NEXT_PUBLIC_HOST + "/schedule", {
   headers: {},
 });
@@ -20,59 +25,10 @@ const res4 = await fetch(process.env.NEXT_PUBLIC_HOST + "/events", {
 });
 export const events = await res4.json();
 
-// Tentbooking
-async function putReq(chosenArea, chosenAmount) {
-  let headersList = {
-    "Content-Type": "application/json",
-  };
-  let bodyContent = JSON.stringify({
-    area: chosenArea,
-    amount: chosenAmount,
-  });
-
-  let response = await fetch(process.env.NEXT_PUBLIC_HOST + "/reserve-spot", {
-    method: "PUT",
-    body: bodyContent,
-    headers: headersList,
-  });
-
-  let data = await response.json();
-  console.log(data);
-}
-export function reserveSpot(area, spots) {
-  putReq(area, spots);
-}
-//   reserveSpot("Muspelheim", 3);
-
-// fulfill reservation
-async function postReq(id) {
-  let headersList = {
-    "Content-Type": "application/json",
-  };
-
-  let bodyContent = JSON.stringify({
-    id: id,
-  });
-
-  let response = await fetch(process.env.NEXT_PUBLIC_HOST + "/fullfill-reservation", {
-    method: "POST",
-    body: bodyContent,
-    headers: headersList,
-  });
-
-  let data = await response.json();
-  console.log(data);
-}
-export function fulfillReservation(id) {
-  postReq(id);
-}
-//   fulfillReservation("18h4h4a5slpmiyl9g");
-
 // loginstuff
 let headersList = {
   Accept: "*/*",
-  apikey:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+  apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
   Prefer: "return=representation",
 };
 
@@ -87,8 +43,7 @@ console.log("Virker det her?" + loginInfo);
 export async function PostLogin(props) {
   let headersList = {
     Accept: "*/*",
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
     "Content-Type": "application/json",
     Prefer: "return=representation",
   };
