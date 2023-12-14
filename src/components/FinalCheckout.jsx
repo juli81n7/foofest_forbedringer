@@ -62,6 +62,7 @@ export default function FinalCheckout({}) {
       });
       Patch(userContext.id, userContext.tickets)
       console.log(userContext);
+      
     }
     
   };
