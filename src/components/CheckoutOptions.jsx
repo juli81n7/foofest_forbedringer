@@ -12,7 +12,6 @@ function CheckoutOptions({ setToggleParticipant }) {
   const reserveState = useContext(ReserveContext);
   const reserveDispatch = useContext(SetReserveContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three;
-  const [resID, setResID] = useState("");
 
   function handleAddToBasket() {
     dispatch((old) => ({
