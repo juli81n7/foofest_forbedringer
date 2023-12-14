@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ValueContext, StateContext } from "./MyContext";
 function ChooseTicket({ showError, setShowError, showErrorTent, setShowErrorTent }) {
   const state = useContext(ValueContext);
@@ -36,7 +36,7 @@ function ChooseTicket({ showError, setShowError, showErrorTent, setShowErrorTent
       const copy = JSON.parse(JSON.stringify(old));
       if (copy.vip + copy.regular === 0) {
         return copy;
-      } else if (copy.vip <= totalTentSpots) {
+      } else if (copy.vip + copy.regular <= totalTentSpots) {
         console.log(totalTentSpots);
         setShowError(true);
         return copy;
