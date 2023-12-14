@@ -20,41 +20,6 @@ export default function Tickets() {
           <Button href="/TicketFlow" btntext="Buy now" />
         </div>
       </section>
-
-      <section className="areaSection">
-        <h2>Camping areas</h2>
-        <p>dksjflsdkjflkdsjflksdjflkjsdlkdsfksdf</p>
-        <div className="areas">
-          <div className="areacard">
-            <div className="img_container">
-              <img src="https://source.unsplash.com/random" alt="" />
-            </div>
-
-            <h4>Alfheim</h4>
-          </div>
-          <div className="areacard">
-            <div className="img_container">
-              <img src="https://source.unsplash.com/random" alt="" />
-            </div>
-
-            <h4>Alfheim</h4>
-          </div>
-          <div className="areacard">
-            <div className="img_container">
-              <img src="https://source.unsplash.com/random" alt="" />
-            </div>
-
-            <h4>Alfheim</h4>
-          </div>
-          <div className="areacard">
-            <div className="img_container">
-              <img src="https://source.unsplash.com/random" alt="" />
-            </div>
-
-            <h4>Alfheim</h4>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
