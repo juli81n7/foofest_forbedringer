@@ -1,11 +1,15 @@
 "use client";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { ReserveContext } from "./MyContext";
+import { ReserveContext, SetUserContext, SubmitData, UserContext, ValueContext } from "./MyContext";
 import "@/styles/ParticipantInfo.css";
 import { fulfillReservation } from "@/app/ticketData";
 export default function FinalCheckout({}) {
   const reserveContext = useContext(ReserveContext);
+  const setUserContext = useContext(SetUserContext);
+  const userContext = useContext(UserContext);
+  const state = useContext(ValueContext);
+  const submitDataParticipant = useContext(SubmitData);
   const { register, handleSubmit } = useForm();
   const [submitData, setSubmitData] = useState([]);
 
@@ -15,6 +19,21 @@ export default function FinalCheckout({}) {
     console.log("her er data i state", submitData);
     const fulfill = fulfillReservation(reserveContext.id);
     console.log(fulfill);
+
+    if (userContext) {
+      Object.keys(submitDataParticipant).map((each) => {
+        if (each.startsWith("VIP")) {
+          submitDataParticipant[each].type = "VIP";
+        } else {
+          submitDataParticipant[each].type = "Regular";
+        }
+        submitDataParticipant[each].area = state.campingArea;
+        submitDataParticipant[each].date = "All year";
+        console.log(each);
+      });
+      setUserContext((old) => (old.tickets = submitDataParticipant));
+      console.log(userContext);
+    }
   };
 
   return (
