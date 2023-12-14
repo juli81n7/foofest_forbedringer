@@ -1,28 +1,14 @@
 "use client";
-import { useState } from "react";
+
 import "@/styles/ParticipantInfo.css";
 
 export default function ParticipantInfo({ register, prefix }) {
-  const [data, setData] = useState({});
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
   const validateDate = (value) => {
     const selected = new Date(value).getFullYear();
     const now = new Date().getFullYear();
     return now - selected >= 18;
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-    setSubmitData((prevData) => [...prevData, data]);
-    console.log("her er data i state", submitData);
-  };
   return (
     <div className="formcontainer">
       <div className="formline">
