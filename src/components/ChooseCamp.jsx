@@ -3,7 +3,7 @@ import CampArea from "./CampArea";
 import "../styles/ChooseCamp.css";
 import { StateContext, ValueContext } from "./MyContext";
 
-function ChooseCamp({ spots, setSpots }) {
+function ChooseCamp({ spots, setSpots, setButtonError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
 
@@ -23,6 +23,7 @@ function ChooseCamp({ spots, setSpots }) {
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
       copy.campingArea = area;
+      setButtonError(false);
       console.log(copy.campingArea);
       return copy;
     });
