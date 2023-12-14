@@ -18,23 +18,18 @@ function CheckoutOptions({ setToggleParticipant }) {
       ...old,
       pushed: true,
     }));
+
+    startTimer();
   }
 
   function startTimer() {
     dispatchTimer((old) => ({
       ...old,
-      time: 600,
+      time: 320,
       timeRunning: true,
     }));
   }
 
-  function startTimer() {
-    dispatchTimer((old) => ({
-      ...old,
-      time: 600,
-      timeRunning: true,
-    }));
-  }
   async function reserve() {
     const reserveResponse = await ReserveSpot(state.campingArea, totalTentSpots);
     reserveDispatch(reserveResponse);
@@ -47,7 +42,8 @@ function CheckoutOptions({ setToggleParticipant }) {
         onClick={() => {
           handleAddToBasket();
           reserve();
-        }}>
+        }}
+      >
         ADD TO BASKET
       </button>
 
@@ -56,7 +52,8 @@ function CheckoutOptions({ setToggleParticipant }) {
           setToggleParticipant();
           handleAddToBasket();
           reserve();
-        }}>
+        }}
+      >
         BUY NOW
       </button>
     </div>
