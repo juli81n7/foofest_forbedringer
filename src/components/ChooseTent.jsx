@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ValueContext, StateContext } from "./MyContext";
 
-function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }) {
+function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError, setButtonError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
@@ -12,6 +12,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }
       if (action === "increase") {
         if (totalTentSpots < copy.regular + copy.vip) {
           copy.tents.one += 1;
+          setButtonError(false);
           return copy;
         }
         setShowErrorTent(true);
@@ -34,6 +35,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }
       if (action === "increase") {
         if (totalTentSpots + 1 < copy.regular + copy.vip) {
           copy.tents.two += 1;
+          setButtonError(false);
           return copy;
         }
         setShowErrorTent(true);
@@ -57,6 +59,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }
       if (action === "increase") {
         if (totalTentSpots + 2 < copy.regular + copy.vip) {
           copy.tents.three += 1;
+          setButtonError(false);
           return copy;
         }
         setShowErrorTent(true);
