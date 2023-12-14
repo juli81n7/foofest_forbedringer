@@ -13,13 +13,9 @@ export default function Participants({ setToggleCheckout }) {
 
   const onSubmit = async (data) => {
     // Hent den aktuelle submitData fra konteksten
-
+    console.log(data);
     // Opdater submitData i konteksten
-    setSubmitDataContext([
-      {
-        data,
-      },
-    ]);
+    setSubmitDataContext(data);
 
     // Log den opdaterede submitData
     console.log("her er data i state", data);
@@ -55,7 +51,7 @@ export default function Participants({ setToggleCheckout }) {
           <div key={index}>
             <h3 className="participanth3">VIP Participant {index + 1}</h3>
             <form>
-              <ParticipantInfo register={register} prefix={`participant${index + 1}`} />
+              <ParticipantInfo register={register} prefix={`VIPparticipant${index + 1}`} />
             </form>
           </div>
         ))}

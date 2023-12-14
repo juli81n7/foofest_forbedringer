@@ -15,24 +15,24 @@ export default function ParticipantInfo({ register, prefix }) {
         <div className="formgrid">
           <div className="inputlayout">
             <label htmlFor="firstName">First name</label>
-            <input {...register(`${prefix}-firstName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="firstname" />
+            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname">Last name</label>
-            <input {...register(`${prefix}-lastName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="lastname" />
+            <input {...register(`${prefix}.lastName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="lastname" />
           </div>
           <div className="inputlayout">
             <label htmlFor="email">Email</label>
-            <input {...register(`${prefix}-email`, { required: true, pattern: /\S+@\S+\.\S+/ })} type="email" id="email" />
+            <input {...register(`${prefix}.email`, { required: true, pattern: /\S+@\S+\.\S+/ })} type="email" id="email" />
           </div>
           <div className="inputlayout">
             <label htmlFor="phone">phone number</label>
-            <input {...register(`${prefix}-phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} type="tel" id="phone" />
+            <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} type="tel" id="phone" />
           </div>
           <div className="inputlayout">
             <label htmlFor="birth">Date of birth</label>
             <input
-              {...register(`${prefix}-dob`, {
+              {...register(`${prefix}.dob`, {
                 required: true,
                 validate: validateDate,
               })}
@@ -44,7 +44,7 @@ export default function ParticipantInfo({ register, prefix }) {
           </div>
           <div className="inputlayout">
             <label htmlFor="address">Address</label>
-            <input {...register(`${prefix}-address`, { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="address" />
+            <input {...register(`${prefix}.address`, { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="address" />
           </div>
         </div>
       </div>
