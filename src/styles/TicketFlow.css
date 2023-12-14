@@ -14,10 +14,11 @@
   grid-column: 2/-1;
   padding: 2rem;
   display: grid;
-  place-content: center;
   row-gap: 2.5rem;
   border-left: solid 1px var(--white);
+  place-content: center;
 }
+
 .counter-line :is(h3, p, button) {
   font-weight: 400;
   align-self: center;

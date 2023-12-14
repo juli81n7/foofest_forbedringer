@@ -3,13 +3,27 @@
   justify-content: center;
   justify-items: center;
   align-content: center;
+  padding: 2rem;
   gap: 2rem;
   min-height: 100dvh;
   & h2 {
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    @media (width > 800px) {
+      font-size: 3rem;
+    }
   }
   & h1 {
-    font-size: 4rem;
+    text-align: center;
+    font-size: 1.75rem;
+    @media (width > 800px) {
+      font-size: 4rem;
+    }
   }
+}
+
+.thankscontainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
