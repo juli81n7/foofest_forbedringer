@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <NumberProvider>
       <html lang="en">
         <Body>
-          <Navbar dispatch={dispatch} />
+          <Navbar />
           {children}
           <Footer />
         </Body>
