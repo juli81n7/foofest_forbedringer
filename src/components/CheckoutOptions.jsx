@@ -4,7 +4,7 @@ import { useContext } from "react";
 import "../styles/CheckoutOptions.css";
 import { StateContext, ValueContext } from "./MyContext";
 
-function CheckoutOptions({ setToggleCheckout }) {
+function CheckoutOptions({ setToggleParticipant }) {
   function handleAddToBasket() {
     dispatch((old) => ({
       ...old,
@@ -18,7 +18,14 @@ function CheckoutOptions({ setToggleCheckout }) {
     <div className="flow-btns">
       <button onClick={handleAddToBasket}>ADD TO BASKET</button>
 
-      <button>BUY NOW</button>
+      <button
+        onClick={() => {
+          setToggleParticipant();
+          handleAddToBasket();
+        }}
+      >
+        BUY NOW
+      </button>
     </div>
   );
 }

@@ -10,7 +10,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
       if (action === "increase") {
-        if (totalTentSpots < copy.regular) {
+        if (totalTentSpots < copy.regular + copy.vip) {
           copy.tents.one += 1;
           return copy;
         }
@@ -32,7 +32,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }
       const copy = JSON.parse(JSON.stringify(old));
 
       if (action === "increase") {
-        if (totalTentSpots + 1 < copy.regular) {
+        if (totalTentSpots + 1 < copy.regular + copy.vip) {
           copy.tents.two += 1;
           return copy;
         }
@@ -55,7 +55,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, showError, setShowError }
       const copy = JSON.parse(JSON.stringify(old));
 
       if (action === "increase") {
-        if (totalTentSpots + 2 < copy.regular) {
+        if (totalTentSpots + 2 < copy.regular + copy.vip) {
           copy.tents.three += 1;
           return copy;
         }

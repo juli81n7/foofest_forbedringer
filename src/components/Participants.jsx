@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import ParticipantInfo from "./ParticipantInfo";
 import "@/styles/Participants.css";
 import { ValueContext } from "./MyContext";
-export default function Participants({ ticketAmount }) {
+export default function Participants({ setToggleCheckout }) {
   const [submitData, setSubmitData] = useState([]);
   const { register, handleSubmit } = useForm();
   const state = useContext(ValueContext);
@@ -41,7 +41,14 @@ export default function Participants({ ticketAmount }) {
           </div>
         ))}
         <div className="btngrid">
-          <input className="submitBtn" type="submit" onClick={handleSubmit(onSubmit)} />
+          <input
+            className="submitBtn"
+            type="submit"
+            onClick={() => {
+              handleSubmit(onSubmit);
+              setToggleCheckout();
+            }}
+          />
         </div>
       </div>
     </div>

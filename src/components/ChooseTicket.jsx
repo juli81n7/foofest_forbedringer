@@ -11,7 +11,7 @@ function ChooseTicket({ showError, setShowError, showErrorTent, setShowErrorTent
       const copy = JSON.parse(JSON.stringify(old));
       if (copy.regular === 0) {
         return copy;
-      } else if (copy.regular <= totalTentSpots) {
+      } else if (copy.regular + copy.vip <= totalTentSpots) {
         console.log(totalTentSpots);
         setShowError(true);
         return copy;
@@ -34,7 +34,7 @@ function ChooseTicket({ showError, setShowError, showErrorTent, setShowErrorTent
     console.log(totalTentSpots);
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
-      if (copy.vip === 0) {
+      if (copy.vip + copy.regular === 0) {
         return copy;
       } else if (copy.vip <= totalTentSpots) {
         console.log(totalTentSpots);
