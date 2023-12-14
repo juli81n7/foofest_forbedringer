@@ -16,6 +16,11 @@ export default function MyTimer({ expiryTimestamp }) {
   const dispatchTimer = useContext(SetTimerContext);
 
   useEffect(() => {
+    if (!timerState.timeRunning) {
+      pause();
+    }
+  }, [timerState.timeRunning]);
+  useEffect(() => {
     if (timerState.timeRunning) {
       start();
     }

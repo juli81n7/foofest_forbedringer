@@ -1,17 +1,22 @@
 "use client";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { ReserveContext, SetUserContext, SubmitData, UserContext, ValueContext } from "./MyContext";
+import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext } from "./MyContext";
 import "@/styles/ParticipantInfo.css";
 import { fulfillReservation } from "@/app/ticketData";
 export default function FinalCheckout({}) {
   const reserveContext = useContext(ReserveContext);
+  const basket = useContext(StateContext)
   const setUserContext = useContext(SetUserContext);
   const userContext = useContext(UserContext);
   const state = useContext(ValueContext);
   const submitDataParticipant = useContext(SubmitData);
   const { register, handleSubmit } = useForm();
   const [submitData, setSubmitData] = useState([]);
+  const timer = useContext(SetTimerContext)
+
+
+
 
   const onSubmit = (data) => {
     console.log(data);
@@ -19,6 +24,8 @@ export default function FinalCheckout({}) {
     console.log("her er data i state", submitData);
     const fulfill = fulfillReservation(reserveContext.id);
     console.log(fulfill);
+
+
 
 
     async function Patch(id, body) {
@@ -62,7 +69,22 @@ export default function FinalCheckout({}) {
       });
       Patch(userContext.id, userContext.tickets)
       console.log(userContext);
-      
+      timer.timeRunning=false
+basket(
+  {
+    regular: 0,
+    vip: 0,
+    tents: {
+      one: 0,
+      two: 0,
+      three: 0,
+    },
+    campingArea: null,
+    pushed: false,
+    checkoutPush: false,
+  }
+)
+
     }
     
   };
