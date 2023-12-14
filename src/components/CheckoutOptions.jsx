@@ -49,10 +49,13 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
       return;
     } else if (state.regular + state.vip) {
       handleAddToBasket();
-    } else if (state.regular + state.vip && state.campingArea && totalTentSpots) {
+if(state.campingArea && totalTentSpots){
+  console.log("KJSDHFKJHSDKJHFSD")
       handleAddToBasket();
       reserve();
-    }
+}
+
+    } 
   }
 
   function buy() {
@@ -63,10 +66,13 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
     } else if (state.regular + state.vip) {
       setToggleParticipant();
       handleAddToBasket();
-    } else if (state.regular + state.vip && state.campingArea && totalTentSpots) {
-      setToggleParticipant();
-      handleAddToBasket();
-      reserve();
+      if(state.campingArea && totalTentSpots){
+        console.log("KJSDHFKJHSDKJHFSD")
+            handleAddToBasket();
+            reserve();
+      
+
+    } 
     }
   }
 
