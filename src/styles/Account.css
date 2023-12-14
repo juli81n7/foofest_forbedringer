@@ -165,6 +165,10 @@ h2 {
     overflow-x: hidden;
     overflow-x: scroll;
     flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-right: 10rem;
   }
 }
 
@@ -175,6 +179,11 @@ h2 {
   color: white;
   border: solid 1px white;
   text-transform: uppercase;
+
+  @media (max-width: 800px) {
+    scroll-snap-align: start;
+    scroll-margin-left: 2rem;
+  }
 }
 
 .ticket-top,
@@ -237,5 +246,19 @@ h2 {
 }
 
 .your-tickets {
+  margin-left: 1rem;
+
+  & h2 {
+    margin-left: 0rem;
+  }
+}
+
+.filters {
+  margin-left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.programh1 {
   margin-left: 1rem;
 }
