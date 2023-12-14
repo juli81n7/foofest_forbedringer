@@ -315,6 +315,7 @@ ul h1,
   width: 24px;
   height: 24px;
   overflow: hidden;
+  cursor: pointer;
 
   &.active {
     & .slider {
