@@ -1,5 +1,9 @@
 .landing {
-  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-block: 5rem;
 }
 .btn_container {
   margin-top: 2rem;
@@ -8,9 +12,8 @@
 }
 
 .ticketh1 {
-  margin-bottom: 2rem;
-  text-align: center;
-  font-size: 5rem;
+  font-size: clamp(2rem, 7.9vw, 6rem);
+  line-height: clamp(2.81rem, 8.34vw, 6rem);
 }
 
 .areaSection {

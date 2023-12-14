@@ -36,7 +36,8 @@ body {
   min-height: 100dvh;
   background-color: var(--bg-color);
   color: var(--white);
-
+  display: flex;
+  flex-direction: column;
   font-family: "alfabet", sans-serif;
   ::selection {
     background-color: var(--accent-color);
