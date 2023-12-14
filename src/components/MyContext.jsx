@@ -10,6 +10,9 @@ export const SetUserContext = createContext();
 export const ThemeContext = createContext();
 export const setThemeContext = createContext();
 
+export const TimerContext = createContext();
+export const SetTimerContext = createContext();
+
 export const NumberProvider = ({ children }) => {
   const [myValue, setMyValue] = useState({
     tickets: 0,
@@ -23,29 +26,29 @@ export const NumberProvider = ({ children }) => {
   });
 
   const [myUser, setMyUser] = useState();
-  /*    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    address: "",
-    zip: "",
-    phone: "",
-    tickets: [],
-    likedArtist: [], */
 
   const [darkMode, setDarkmode] = useState(false);
 
+  const [myTimer, setMyTimer] = useState({
+    time: 0,
+    timeRunning: false,
+  });
+
   return (
-    <setThemeContext.Provider value={setDarkmode}>
-      <ThemeContext.Provider value={darkMode}>
-        <SetUserContext.Provider value={setMyUser}>
-          <UserContext.Provider value={myUser}>
-            <StateContext.Provider value={setMyValue}>
-              <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
-            </StateContext.Provider>
-          </UserContext.Provider>
-        </SetUserContext.Provider>
-      </ThemeContext.Provider>
-    </setThemeContext.Provider>
+    <SetTimerContext.Provider value={setMyTimer}>
+      <TimerContext.Provider value={myTimer}>
+        <setThemeContext.Provider value={setDarkmode}>
+          <ThemeContext.Provider value={darkMode}>
+            <SetUserContext.Provider value={setMyUser}>
+              <UserContext.Provider value={myUser}>
+                <StateContext.Provider value={setMyValue}>
+                  <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
+                </StateContext.Provider>
+              </UserContext.Provider>
+            </SetUserContext.Provider>
+          </ThemeContext.Provider>
+        </setThemeContext.Provider>
+      </TimerContext.Provider>
+    </SetTimerContext.Provider>
   );
 };

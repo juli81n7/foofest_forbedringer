@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useContext } from "react";
 import "../styles/Navbar.css";
 import { ThemeContext, ValueContext, setThemeContext } from "./MyContext";
+import MyTimer from "./MyTimer";
 
 function Navbar() {
   const state = useContext(ThemeContext);
@@ -11,6 +12,10 @@ function Navbar() {
   const [active, setactive] = useState(false);
   const [lightMode, setLightMode] = useState(state);
   const ticketState = useContext(ValueContext);
+
+  const seconds = 600;
+  const timeStamp = new Date(Date.now() + seconds * 1000);
+
   function handleBurgerClick() {
     setactive((old) => !old);
   }
@@ -289,6 +294,7 @@ function Navbar() {
                 <path class="cls-1" d="M56.88,88.09c-3.82,1.06-7.86,1.63-12.02,1.63C20.09,89.72,0,69.64,0,44.86S20.09,0,44.86,0c4.16,0,8.2.57,12.02,1.63C37.93,6.88,24.03,24.24,24.03,44.86s13.9,37.98,32.85,43.23Z" />
               </g>
             </svg>
+            <MyTimer timeStamp={timeStamp} />
             <div className="basketContainer">
               <Link href={"/Basket"}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" className="bi bi-cart-fill" viewBox="0 0 16 16">
