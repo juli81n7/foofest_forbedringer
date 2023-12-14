@@ -1,0 +1,15 @@
+.thankscontainer {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  gap: 2rem;
+  min-height: 100dvh;
+  & h2 {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+  & h1 {
+    font-size: 4rem;
+  }
+}

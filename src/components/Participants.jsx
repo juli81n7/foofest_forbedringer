@@ -1,50 +1,43 @@
-"use client";
-import { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import ParticipantInfo from "./ParticipantInfo";
 import "@/styles/Participants.css";
-import { StateContext, ValueContext } from "./MyContext";
+import { StateContext, ValueContext, SetSubmitData, SubmitData } from "./MyContext";
+
 export default function Participants({ setToggleCheckout }) {
-  const [submitData, setSubmitData] = useState([]);
   const { register, handleSubmit } = useForm();
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
-  const onSubmit = (data) => {
-    console.log(data);
-    setSubmitData((prevData) => [
-      ...prevData,
+  const setSubmitDataContext = useContext(SetSubmitData);
+  const submitDataContext = useContext(SubmitData);
+
+  const onSubmit = async (data) => {
+    // Hent den aktuelle submitData fra konteksten
+
+    // Opdater submitData i konteksten
+    setSubmitDataContext([
       {
-        participant: prevData.length + 1,
         data,
       },
     ]);
 
+    // Log den opdaterede submitData
+    console.log("her er data i state", data);
 
-    [...Array(state.tickets)].map((_,ticketIndex)=>{
-      Object.keys(submitData).map((datapunkt, index) => {
+    // Ekstra logik eller opdatering af state kan tilføjes her
 
-
-        if(index===3+(ticketIndex*6)){
-          const value = submitData[datapunkt];
-          console.log("EMAIL",value)     
-        }
-
-
-      })
-      
-      
-      
-      
-      })
-
-    console.log("her er data i state", submitData);
+    // Kald din checkout-flow funktion
+    handleCheckoutFlow();
+    setToggleCheckout();
   };
-  function handleCheckoutFlow() {
+
+  const handleCheckoutFlow = () => {
     dispatch((old) => ({
       ...old,
       checkoutPush: true,
     }));
-  }
+  };
+
   return (
     <div>
       <div className="right">
@@ -67,15 +60,7 @@ export default function Participants({ setToggleCheckout }) {
           </div>
         ))}
         <div className="btngrid">
-          <input
-            className="submitBtn"
-            type="submit"
-            onClick={() => {
-              handleSubmit(onSubmit);
-              handleCheckoutFlow();
-              setToggleCheckout();
-            }}
-          />
+          <input className="submitBtn" type="submit" onClick={handleSubmit(onSubmit)} />
         </div>
       </div>
     </div>

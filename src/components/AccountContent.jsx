@@ -135,6 +135,7 @@ function Account({ schedule, bands }) {
 
       await setUser(userObject);
       await userDispatch(userObject);
+      sessionStorage.setItem("userlogin",JSON.stringify(userObject));
     } else {
       setUserStatus("Email or password is incorrect.");
       console.log("Email or password is incorrect.");

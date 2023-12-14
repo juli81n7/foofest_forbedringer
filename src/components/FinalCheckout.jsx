@@ -1,25 +1,20 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { ReserveContext } from "./MyContext";
 import "@/styles/ParticipantInfo.css";
-
+import { fulfillReservation } from "@/app/ticketData";
 export default function FinalCheckout({}) {
+  const reserveContext = useContext(ReserveContext);
   const { register, handleSubmit } = useForm();
-  const [data, setData] = useState({});
   const [submitData, setSubmitData] = useState([]);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
 
   const onSubmit = (data) => {
     console.log(data);
     setSubmitData((prevData) => [...prevData, data]);
     console.log("her er data i state", submitData);
+    const fulfill = fulfillReservation(reserveContext.id);
+    console.log(fulfill);
   };
 
   return (

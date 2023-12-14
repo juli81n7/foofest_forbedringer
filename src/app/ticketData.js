@@ -15,7 +15,7 @@ export async function ReserveSpot(chosenArea, chosenAmount) {
   });
 
   let data = await response.json();
-  //   console.log(data);
+  console.log(data);
   return data;
 }
 
@@ -38,7 +38,8 @@ export async function fulfillReservation(id) {
   });
 
   let data = await response.json();
-  console.log(data);
+
+  return data;
 }
 
 //   fulfillReservation("18h4h4a5slpmiyl9g");
