@@ -55,7 +55,7 @@
 /* rightside */
 .flow-area {
   grid-column: 2/-1;
-  padding: 2rem;
+  padding: 1rem 1.5rem 1.5rem;
   display: grid;
   place-content: center;
   row-gap: 1.5rem;
