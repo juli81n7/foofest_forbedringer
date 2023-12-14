@@ -21,6 +21,7 @@ export const NumberProvider = ({ children }) => {
     },
     campingArea: null,
     pushed: false,
+    checkoutPush: false,
   });
 
   const [myUser, setMyUser] = useState();
@@ -36,18 +37,17 @@ export const NumberProvider = ({ children }) => {
 
   const [darkMode, setDarkmode] = useState(false);
 
-
   return (
     <SetUserContext.Provider value={setMyUser}>
-    <UserContext.Provider value={myUser}>
-    <StateContext.Provider value={setMyValue}>
-    <setThemeContext.Provider value={setDarkmode}>
-    <ThemeContext.Provider value={darkMode}>
-            <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
+      <UserContext.Provider value={myUser}>
+        <StateContext.Provider value={setMyValue}>
+          <setThemeContext.Provider value={setDarkmode}>
+            <ThemeContext.Provider value={darkMode}>
+              <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
             </ThemeContext.Provider>
           </setThemeContext.Provider>
-            </StateContext.Provider>
-          </UserContext.Provider>
-        </SetUserContext.Provider>
+        </StateContext.Provider>
+      </UserContext.Provider>
+    </SetUserContext.Provider>
   );
 };

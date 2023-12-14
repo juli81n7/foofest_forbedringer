@@ -3,11 +3,12 @@ import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import ParticipantInfo from "./ParticipantInfo";
 import "@/styles/Participants.css";
-import { ValueContext } from "./MyContext";
+import { StateContext, ValueContext } from "./MyContext";
 export default function Participants({ setToggleCheckout }) {
   const [submitData, setSubmitData] = useState([]);
   const { register, handleSubmit } = useForm();
   const state = useContext(ValueContext);
+  const dispatch = useContext(StateContext);
   const onSubmit = (data) => {
     console.log(data);
     setSubmitData((prevData) => [
@@ -19,6 +20,12 @@ export default function Participants({ setToggleCheckout }) {
     ]);
     console.log("her er data i state", submitData);
   };
+  function handleCheckoutFlow() {
+    dispatch((old) => ({
+      ...old,
+      checkoutPush: true,
+    }));
+  }
   return (
     <div>
       <div className="right">
@@ -46,6 +53,7 @@ export default function Participants({ setToggleCheckout }) {
             type="submit"
             onClick={() => {
               handleSubmit(onSubmit);
+              handleCheckoutFlow();
               setToggleCheckout();
             }}
           />
