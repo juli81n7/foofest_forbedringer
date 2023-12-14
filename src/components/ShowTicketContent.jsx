@@ -10,6 +10,27 @@ export default function ShowTicketContent() {
   const [spots, setSpots] = useState([]);
   const [toggleCheckout, setToggleCheckout] = useState(false);
   const [toggleParticipant, setToggleParticipant] = useState(false);
+  const [buttonError, setButtonError] = useState(false);
 
-  return <div>{toggleParticipant === false ? <TicketContent setToggleParticipant={setToggleParticipant} spots={spots} setSpots={setSpots} showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} /> : toggleCheckout === false ? <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp> : <FinalCheckout></FinalCheckout>}</div>;
+  return (
+    <div>
+      {toggleParticipant === false ? (
+        <TicketContent
+          setToggleParticipant={setToggleParticipant}
+          spots={spots}
+          setSpots={setSpots}
+          showError={showError}
+          setShowError={setShowError}
+          showErrorTent={showErrorTent}
+          setShowErrorTent={setShowErrorTent}
+          buttonError={buttonError}
+          setButtonError={setButtonError}
+        />
+      ) : toggleCheckout === false ? (
+        <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp>
+      ) : (
+        <FinalCheckout></FinalCheckout>
+      )}
+    </div>
+  );
 }

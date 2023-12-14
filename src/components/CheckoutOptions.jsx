@@ -4,14 +4,14 @@ import { StateContext, ValueContext, TimerContext, SetTimerContext, ReserveConte
 import { ReserveSpot } from "@/app/ticketData";
 import "../styles/CheckoutOptions.css";
 
-function CheckoutOptions({ setToggleParticipant }) {
+function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
   const timerState = useContext(TimerContext);
   const dispatchTimer = useContext(SetTimerContext);
   const reserveState = useContext(ReserveContext);
   const reserveDispatch = useContext(SetReserveContext);
-  const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three;
+  const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
   function handleAddToBasket() {
     dispatch((old) => ({
@@ -42,28 +42,47 @@ function CheckoutOptions({ setToggleParticipant }) {
     }
   }
 
-  return (
-    <div className="flow-btns">
-      <button
-        className="add-button"
-        onClick={() => {
-          handleAddToBasket();
-          reserve();
-        }}
-      >
-        ADD TO BASKET
-      </button>
+  function basket() {
+    if ((!state.campingArea && totalTentSpots) || (!totalTentSpots && state.campingArea)) {
+      console.log("error!!!");
+      setButtonError(true);
+      return;
+    } else if (state.regular + state.vip) {
+      handleAddToBasket();
+    } else if (state.regular + state.vip && state.campingArea && totalTentSpots) {
+      handleAddToBasket();
+      reserve();
+    }
+  }
 
-      <button
-        className="buy-button"
-        onClick={() => {
-          setToggleParticipant();
-          handleAddToBasket();
-          reserve();
-        }}
-      >
-        BUY NOW
-      </button>
+  function buy() {
+    if ((!state.campingArea && totalTentSpots) || (!totalTentSpots && state.campingArea)) {
+      console.log("error!!!");
+      setButtonError(true);
+      return;
+    } else if (state.regular + state.vip) {
+      setToggleParticipant();
+      handleAddToBasket();
+    } else if (state.regular + state.vip && state.campingArea && totalTentSpots) {
+      setToggleParticipant();
+      handleAddToBasket();
+      reserve();
+    }
+  }
+
+  return (
+    <div>
+      {" "}
+      {buttonError && <p className="buttonError">Add both Tents and an Area.</p>}
+      <div className="flow-btns">
+        <button className="add-button" onClick={basket}>
+          ADD TO BASKET
+        </button>
+
+        <button className="buy-button" onClick={buy}>
+          BUY NOW
+        </button>
+      </div>
     </div>
   );
 }

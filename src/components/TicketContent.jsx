@@ -7,7 +7,7 @@ import CheckoutOptions from "@/components/CheckoutOptions";
 
 import "@/styles/TicketFlow.css";
 
-function TicketContent({ setToggleParticipant, handleAreaSelect, showError, setShowError, showErrorTent, setShowErrorTent, spots, setSpots, selectedArea, setSelectedArea }) {
+function TicketContent({ setToggleParticipant, handleAreaSelect, showError, setShowError, showErrorTent, setShowErrorTent, spots, setSpots, buttonError, setButtonError }) {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleSelectionChange = (areaName) => {
@@ -22,9 +22,9 @@ function TicketContent({ setToggleParticipant, handleAreaSelect, showError, setS
         <div className="ticket-area"></div>
         <div className="flow-area">
           <ChooseTicket showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} />
-          <ChooseTent showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} />
-          <ChooseCamp spots={spots} setSpots={setSpots} />
-          <CheckoutOptions setShowError={setShowError} setShowErrorTent={setShowErrorTent} setToggleParticipant={setToggleParticipant} />
+          <ChooseTent showError={showError} setShowError={setShowError} showErrorTent={showErrorTent} setShowErrorTent={setShowErrorTent} setButtonError={setButtonError} />
+          <ChooseCamp spots={spots} setSpots={setSpots} setButtonError={setButtonError} />
+          <CheckoutOptions setToggleParticipant={setToggleParticipant} buttonError={buttonError} setButtonError={setButtonError} />
         </div>
       </section>
     </main>
