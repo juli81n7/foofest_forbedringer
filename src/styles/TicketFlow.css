@@ -4,7 +4,9 @@
 }
 
 .ticket-area {
-  padding: 2rem;
+  @media (width > 800px) {
+    padding: 2rem;
+  }
 }
 
 .flow-area {

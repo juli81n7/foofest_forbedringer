@@ -135,7 +135,7 @@ function Account({ schedule, bands }) {
 
       await setUser(userObject);
       await userDispatch(userObject);
-      sessionStorage.setItem("userlogin",JSON.stringify(userObject));
+      sessionStorage.setItem("userlogin", JSON.stringify(userObject));
     } else {
       setUserStatus("Email or password is incorrect.");
       console.log("Email or password is incorrect.");
@@ -307,19 +307,31 @@ function Account({ schedule, bands }) {
           <>
             <section className="your-welcome">
               <h2>Welcome {userState.firstName}</h2>
-              <div>
-                <p>
-                  {userState.firstName} {userState.lastName}
-                </p>
-                <p>{userState.email}</p>
-                <p>{userState.phone}</p>
-                <p>
-                  {userState.address}, {userState.zip}
-                </p>
+              <div className="your-welcome-flex">
+                <div>
+                  <h3>Name</h3>
+                  <p>
+                    {userState.firstName} {userState.lastName}
+                  </p>
+                </div>
+                <div>
+                  <h3>Email</h3>
+                  <p>{userState.email}</p>
+                </div>
+                <div>
+                  <h3>Phone</h3>
+                  <p>{userState.phone}</p>
+                </div>
+                <div>
+                  <h3>Address</h3>
+                  <p>
+                    {userState.address}, {userState.zip}
+                  </p>
+                </div>
               </div>
-              <p>On this page you can see your tickets and your personal program.</p>
+              <p>On this page you can stay updated with your personal program and view your tickets. Have a good one!</p>
               <button
-                className="primary-button"
+                className="primary-button logout"
                 onClick={() => {
                   setUser("");
                   userDispatch("");
@@ -330,7 +342,7 @@ function Account({ schedule, bands }) {
             </section>
 
             <section className="your-program">
-              <h2>Your personal program</h2>
+              <h2>Your program</h2>
               <div className="program-flex">
                 {userState.likedArtists[0] ? (
                   <Calender personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
@@ -596,7 +608,7 @@ function Account({ schedule, bands }) {
                           </p>
                         </div>
                         <div>
-                          <h3>Festival Type</h3>
+                          <h3>Ticket Type</h3>
                           <p>{ticket.type}</p>
                         </div>
                         <div>

@@ -9,17 +9,26 @@
   border: solid 1px var(--white);
   color: var(--white);
   height: 2rem;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
 }
 
 .inputlayout label {
   text-transform: uppercase;
+  color: var(--white);
+  font-weight: bold;
 }
 
 .formgrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  margin-bottom: 3rem;
+
+  @media (width > 800px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 3rem;
+  }
 }
 
 .formline {
