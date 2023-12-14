@@ -12,7 +12,6 @@ function CheckoutOptions({ setToggleParticipant }) {
   const reserveState = useContext(ReserveContext);
   const reserveDispatch = useContext(SetReserveContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three;
-  const [resID, setResID] = useState("");
 
   function handleAddToBasket() {
     dispatch((old) => ({
@@ -24,22 +23,23 @@ function CheckoutOptions({ setToggleParticipant }) {
   function startTimer() {
     dispatchTimer((old) => ({
       ...old,
-      time: 600,
+      time: 300,
       timeRunning: true,
     }));
   }
 
-  function startTimer() {
-    dispatchTimer((old) => ({
-      ...old,
-      time: 600,
-      timeRunning: true,
-    }));
-  }
   async function reserve() {
     const reserveResponse = await ReserveSpot(state.campingArea, totalTentSpots);
     reserveDispatch(reserveResponse);
+    console.log(reserveResponse);
     console.log("halløj", reserveState);
+
+    if (reserveResponse.error) {
+      console.log("You must choose at least one ticket and a campin area.");
+      return;
+    } else {
+      startTimer();
+    }
   }
 
   return (
@@ -48,7 +48,8 @@ function CheckoutOptions({ setToggleParticipant }) {
         onClick={() => {
           handleAddToBasket();
           reserve();
-        }}>
+        }}
+      >
         ADD TO BASKET
       </button>
 
@@ -57,7 +58,8 @@ function CheckoutOptions({ setToggleParticipant }) {
           setToggleParticipant();
           handleAddToBasket();
           reserve();
-        }}>
+        }}
+      >
         BUY NOW
       </button>
     </div>
