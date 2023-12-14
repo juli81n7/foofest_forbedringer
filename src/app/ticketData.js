@@ -38,7 +38,8 @@ export async function fulfillReservation(id) {
   });
 
   let data = await response.json();
-  console.log(data);
+
+  return data;
 }
 
 //   fulfillReservation("18h4h4a5slpmiyl9g");

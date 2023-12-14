@@ -7,22 +7,14 @@ import { fulfillReservation } from "@/app/ticketData";
 export default function FinalCheckout({}) {
   const reserveContext = useContext(ReserveContext);
   const { register, handleSubmit } = useForm();
-  const [data, setData] = useState({});
   const [submitData, setSubmitData] = useState([]);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
 
   const onSubmit = (data) => {
     console.log(data);
     setSubmitData((prevData) => [...prevData, data]);
     console.log("her er data i state", submitData);
-    fulfillReservation(reserveContext.id);
+    const fulfill = fulfillReservation(reserveContext.id);
+    console.log(fulfill);
   };
 
   return (
