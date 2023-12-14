@@ -15,7 +15,7 @@ function Navbar() {
 
   const timerState = useContext(TimerContext);
 
-  const seconds = 600;
+  const seconds = 300;
   const expiryTimestamp = new Date(Date.now() + seconds * 1000);
 
   function handleBurgerClick() {

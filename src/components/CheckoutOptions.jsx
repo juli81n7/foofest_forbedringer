@@ -18,14 +18,12 @@ function CheckoutOptions({ setToggleParticipant }) {
       ...old,
       pushed: true,
     }));
-
-    startTimer();
   }
 
   function startTimer() {
     dispatchTimer((old) => ({
       ...old,
-      time: 320,
+      time: 300,
       timeRunning: true,
     }));
   }
@@ -33,7 +31,15 @@ function CheckoutOptions({ setToggleParticipant }) {
   async function reserve() {
     const reserveResponse = await ReserveSpot(state.campingArea, totalTentSpots);
     reserveDispatch(reserveResponse);
+    console.log(reserveResponse);
     console.log("halløj", reserveState);
+
+    if (reserveResponse.error) {
+      console.log("You must choose at least one ticket and a campin area.");
+      return;
+    } else {
+      startTimer();
+    }
   }
 
   return (
