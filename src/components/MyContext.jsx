@@ -13,6 +13,9 @@ export const setThemeContext = createContext();
 export const TimerContext = createContext();
 export const SetTimerContext = createContext();
 
+export const ReserveContext = createContext();
+export const SetReserveContext = createContext();
+
 export const NumberProvider = ({ children }) => {
   const [myValue, setMyValue] = useState({
     regular: 0,
@@ -34,22 +37,27 @@ export const NumberProvider = ({ children }) => {
     time: 0,
     timeRunning: false,
   });
+  const [reserveID, setReserveID] = useState();
 
   return (
-    <SetTimerContext.Provider value={setMyTimer}>
-      <TimerContext.Provider value={myTimer}>
-        <SetUserContext.Provider value={setMyUser}>
-          <UserContext.Provider value={myUser}>
-            <StateContext.Provider value={setMyValue}>
-              <setThemeContext.Provider value={setDarkmode}>
-                <ThemeContext.Provider value={darkMode}>
-                  <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
-                </ThemeContext.Provider>
-              </setThemeContext.Provider>
-            </StateContext.Provider>
-          </UserContext.Provider>
-        </SetUserContext.Provider>
-      </TimerContext.Provider>
-    </SetTimerContext.Provider>
+    <SetReserveContext.Provider value={setReserveID}>
+      <ReserveContext.Provider value={reserveID}>
+        <SetTimerContext.Provider value={setMyTimer}>
+          <TimerContext.Provider value={myTimer}>
+            <SetUserContext.Provider value={setMyUser}>
+              <UserContext.Provider value={myUser}>
+                <StateContext.Provider value={setMyValue}>
+                  <setThemeContext.Provider value={setDarkmode}>
+                    <ThemeContext.Provider value={darkMode}>
+                      <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
+                    </ThemeContext.Provider>
+                  </setThemeContext.Provider>
+                </StateContext.Provider>
+              </UserContext.Provider>
+            </SetUserContext.Provider>
+          </TimerContext.Provider>
+        </SetTimerContext.Provider>
+      </ReserveContext.Provider>
+    </SetReserveContext.Provider>
   );
 };

@@ -1,14 +1,16 @@
 "use client";
-import Button from "./Button";
 import { useContext, useState } from "react";
+import { StateContext, ValueContext, TimerContext, SetTimerContext, ReserveContext, SetReserveContext } from "./MyContext";
+import { ReserveSpot } from "@/app/ticketData";
 import "../styles/CheckoutOptions.css";
-import { StateContext, ValueContext, TimerContext, SetTimerContext } from "./MyContext";
 
 function CheckoutOptions({ setToggleParticipant }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
   const timerState = useContext(TimerContext);
   const dispatchTimer = useContext(SetTimerContext);
+  const reserveState = useContext(ReserveContext);
+  const reserveDispatch = useContext(SetReserveContext);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three;
   const [resID, setResID] = useState("");
 
@@ -35,15 +37,20 @@ function CheckoutOptions({ setToggleParticipant }) {
     }));
   }
   async function reserve() {
-    const a = await ReserveSpot(state.campingArea, totalTentSpots);
-    console.log(a);
-    setResID(a.id);
-    console.log("halløj", resID);
+    const reserveResponse = await ReserveSpot(state.campingArea, totalTentSpots);
+    reserveDispatch(reserveResponse);
+    console.log("halløj", reserveState);
   }
 
   return (
     <div className="flow-btns">
-      <button onClick={handleAddToBasket}>ADD TO BASKET</button>
+      <button
+        onClick={() => {
+          handleAddToBasket();
+          reserve();
+        }}>
+        ADD TO BASKET
+      </button>
 
       <button
         onClick={() => {
