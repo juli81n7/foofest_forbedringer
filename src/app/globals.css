@@ -25,6 +25,7 @@ body {
   --bg-color: #0f0a0a;
   --font-clr: #fafaf0;
   --stroke-clr: #fafaf0;
+  --black: #0f0a0a;
 }
 
 [data-theme="light"] {
@@ -32,6 +33,7 @@ body {
   --font-clr: #0f0a0a;
   --stroke-clr: #0f0a0a;
   --white: #0f0a0a;
+  --black: #0f0a0a;
   --text-color: #0f0a0a;
   --border-color: #0f0a0a;
 }
