@@ -69,14 +69,22 @@ h2 {
   font-size: 1.25rem;
 }
 
-.or-create * {
+.primary-button:hover {
+  background-color: var(--white);
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
+.flip-login * {
   color: white;
 }
 
-.or-create {
+.flip-login {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 1rem;
+  gap: 0.5rem;
 }
 
 .secondary-button {

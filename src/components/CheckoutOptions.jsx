@@ -45,6 +45,7 @@ function CheckoutOptions({ setToggleParticipant }) {
   return (
     <div className="flow-btns">
       <button
+        className="add-button"
         onClick={() => {
           handleAddToBasket();
           reserve();
@@ -54,6 +55,7 @@ function CheckoutOptions({ setToggleParticipant }) {
       </button>
 
       <button
+        className="buy-button"
         onClick={() => {
           setToggleParticipant();
           handleAddToBasket();
