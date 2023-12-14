@@ -1,6 +1,6 @@
 .programh1 {
-  font-size: 5rem;
-  display: block;
+  font-size: clamp(4rem, 7.9vw, 6rem);
+  line-height: clamp(2.81rem, 8.34vw, 6rem);
   margin-left: 1rem;
 }
 
@@ -8,6 +8,11 @@
   display: flex;
   gap: 0.5rem;
   margin-left: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  @media (width <800px) {
+    gap: 0.3rem;
+  }
 }
 
 main {

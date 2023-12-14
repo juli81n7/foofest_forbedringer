@@ -76,6 +76,10 @@ main {
     display: grid;
     grid-template-columns: repeat(24, 200px);
     grid-template-rows: 30px 1fr 1fr 1fr;
+
+    @media (width <800px) {
+      grid-template-columns: repeat(24, 100px);
+    }
   }
 
   & .calenderbar {
@@ -86,13 +90,18 @@ main {
     grid-template-columns: repeat(24, 200px);
     grid-template-rows: 1fr;
     z-index: 1;
-
+    @media (width <800px) {
+      grid-template-columns: repeat(24, 100px);
+    }
     & .calenderhour {
       width: 200px;
       height: 100%;
       border-right: 1px solid var(--border-color);
       grid-row: 1;
       box-sizing: border-box;
+      @media (width <800px) {
+        width: 100px;
+      }
 
       &:nth-child(1) {
         grid-column: 1 / span 1;
@@ -286,11 +295,19 @@ main {
     grid-column-end: 23;
   }
 
+  @media (width <800px) {
+    grid-template-columns: 80px auto;
+  }
+
   & .img_container {
     width: 150px;
     height: 150px;
     overflow: hidden;
     background-color: var(--accent-orange);
+    @media (width <800px) {
+      width: 80px;
+      height: 150px;
+    }
 
     & img {
       object-fit: cover;
