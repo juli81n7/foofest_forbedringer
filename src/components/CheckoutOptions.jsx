@@ -1,7 +1,7 @@
 "use client";
-import Button from "./Button";
 import { useContext, useState } from "react";
 import "../styles/CheckoutOptions.css";
+import { ReserveSpot } from "@/app/ticketData";
 import { StateContext, ValueContext, TimerContext, SetTimerContext } from "./MyContext";
 
 function CheckoutOptions({ setToggleParticipant }) {
@@ -17,23 +17,18 @@ function CheckoutOptions({ setToggleParticipant }) {
       ...old,
       pushed: true,
     }));
+
+    startTimer();
   }
 
   function startTimer() {
     dispatchTimer((old) => ({
       ...old,
-      time: 600,
+      time: 320,
       timeRunning: true,
     }));
   }
 
-  function startTimer() {
-    dispatchTimer((old) => ({
-      ...old,
-      time: 600,
-      timeRunning: true,
-    }));
-  }
   async function reserve() {
     const a = await ReserveSpot(state.campingArea, totalTentSpots);
     console.log(a);
@@ -50,7 +45,8 @@ function CheckoutOptions({ setToggleParticipant }) {
           setToggleParticipant();
           handleAddToBasket();
           reserve();
-        }}>
+        }}
+      >
         BUY NOW
       </button>
     </div>
