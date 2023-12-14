@@ -3,13 +3,30 @@ main {
 }
 
 .calendar-container {
+  margin-bottom: 3rem;
   margin-top: 0.5rem;
   display: grid;
   grid-template-columns: 150px auto;
   min-height: 100px;
   gap: 0;
-  grid-template-rows: 30px auto;
+  grid-template-rows: 29px auto;
   margin-left: 1rem;
+
+  @media (width <800px) {
+    grid-template-columns: 35px auto;
+
+    & .scene {
+      width: 100%;
+      position: relative;
+      & h4 {
+        position: absolute;
+        top: 7rem;
+        transform-origin: 0 0;
+        transform: rotate(-90deg);
+        text-align: center;
+      }
+    }
+  }
 }
 
 .scenes {
@@ -299,11 +316,11 @@ main {
   }
 
   & h4 {
-    color: var(--text);
+    color: var(--black);
     text-transform: uppercase;
   }
   & p {
-    color: var(--text);
+    color: var(--black);
     font-size: 0.8rem;
   }
 }
