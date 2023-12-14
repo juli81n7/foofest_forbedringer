@@ -20,6 +20,29 @@ export default function FinalCheckout({}) {
     const fulfill = fulfillReservation(reserveContext.id);
     console.log(fulfill);
 
+
+    async function Patch(id, body) {
+      console.log("Det her prøver jeg at gøre", body);
+      let headersList = {
+        Accept: "*/*",
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+        "Content-Type": "application/json",
+      };
+  
+      let objectForPatch = { tickets: body };
+  
+      let bodyContent = JSON.stringify(objectForPatch);
+  
+      let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
+        method: "PATCH",
+        body: bodyContent,
+        headers: headersList,
+      });
+  
+      let data = await response.text();
+      console.log("MIN RESPONS", data);
+    }
+
     if (userContext) {
       Object.keys(submitDataParticipant).map((each) => {
         if (each.startsWith("VIP")) {
@@ -30,10 +53,17 @@ export default function FinalCheckout({}) {
         submitDataParticipant[each].area = state.campingArea;
         submitDataParticipant[each].date = "All year";
         console.log(each);
+        setUserContext((old) => {
+
+          old.tickets.push(submitDataParticipant[each])
+  return old
+        });
+        
       });
-      setUserContext((old) => (old.tickets = submitDataParticipant));
+      Patch(userContext.id, userContext.tickets)
       console.log(userContext);
     }
+    
   };
 
   return (
