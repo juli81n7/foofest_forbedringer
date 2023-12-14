@@ -16,6 +16,8 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
             <p>{state.regular} X 799</p>
             <p>{state.regular * 799} DKK</p>
           </div>
+        </div>
+        <div>
           <div className="ticketamount">
             <p>{state.regular}</p>
             <p>VIP tickets</p>
