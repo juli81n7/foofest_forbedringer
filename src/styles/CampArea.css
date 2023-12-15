@@ -7,6 +7,7 @@
   height: 7rem;
   display: grid;
   position: relative;
+  border: 1.5px solid var(--white);
   background-color: var(--bg-color);
 }
 /* Remove default radio button styling */
@@ -14,34 +15,53 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 2px solid var(--white);
   outline: none;
   cursor: pointer;
   margin: 0;
   inset: 0;
 }
 
-.radio-label:not([disabled], :has(.custom-radio:checked)):hover {
+.custom-radio:checked {
+  border: 1.5px solid var(--accent-orange);
+  box-shadow: 0 0 10px var(--accent-orange);
+}
+
+.radio-label:has(.custom-radio:checked) {
+  border: 2px solid var(--accent-orange);
+  box-shadow: 0 0 10px var(--accent-orange);
+}
+.radio-label:has(.custom-radio[disabled]) > *:not(.area-too-small) {
+  opacity: 30%;
+}
+.radio-label:has(.custom-radio[disabled]) {
+  border: 2px solid var(--stroke-clr-op);
+}
+:has(.area-too-small) {
+  opacity: 100%;
+}
+.radio-label:has(.custom-radio[disabled]):hover {
+  transform: none;
+}
+.radio-label:not([disabled]:has(.custom-radio:checked)):hover {
   box-shadow: inset 0 0 0 #3a3a7b, 0 0 100px -20px #32325d, 0 0 60px -30px #3a3a7b;
   transform: scale(1.01);
   transition: all 0.5s both;
 }
 
-.custom-radio:checked {
-  border: 2px solid var(--accent-orange);
-  box-shadow: 0 0 10px var(--accent-orange);
+/* without :has */
+/* .custom-radio[disabled] ~ *,
+.custom-radio[disabled] {
+  opacity: 30%;
+} */
+/* @supports selector(:has(*)) {
+   .radio-label {
+    border: 2px solid var(--white);
+  }
+  .custom-radio {
+  border: none;
 }
-/* .radio-label:has(.custom-radio:checked) {
-  border: 2px solid var(--accent-orange);
-  box-shadow: 0 0 10px var(--accent-orange);
 } */
 
-.radio-label:has(.custom-radio[disabled]) > *:not(.area-too-small) {
-  opacity: 30%;
-}
-.radio-label:has(.custom-radio[disabled]):hover {
-  transform: none;
-}
 .radio-label > * {
   grid-area: 1/1/2/2;
 }

@@ -25,9 +25,6 @@ export default function page({ params }) {
   const foundObjects = [];
   const genreBands = bands.filter((band) => band.genre === selectedBand.genre);
 
-
-
-
   Object.keys(schedule).map((stage) => {
     Object.keys(schedule[stage]).map((day) => {
       const bandFromSchedule = schedule[stage][day].find((act) => act.act === selectedBand.name);
@@ -157,7 +154,7 @@ export default function page({ params }) {
                 <LikeBtn name={myband.band.name} color="orange" />
               </div>
               <Link href={myband.band.slug}>
-                <img src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></img>
+                <Image width={720} height={480} src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></Image>
               </Link>
               <Link href={myband.band.slug}>
                 <div className="recommended-artist">
@@ -177,7 +174,7 @@ export default function page({ params }) {
                 <LikeBtn name={myband.band.name} color="orange" />
               </div>
               <Link href={myband.band.slug}>
-                <img src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></img>
+                <Image width={720} height={480} src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></Image>
               </Link>
               <Link href={myband.band.slug}>
                 <div className="recommended-artist">

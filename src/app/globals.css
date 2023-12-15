@@ -19,6 +19,7 @@
   --bg-color: #0f0a0a;
   --font-clr: #fafaf0;
   --stroke-clr: #fafaf0;
+  --stroke-clr-op: hsla(60, 50%, 96%, 0.3);
   --black: #0f0a0a;
 }
 
@@ -26,6 +27,7 @@
   --bg-color: #faf8f0;
   --font-clr: #0f0a0a;
   --stroke-clr: #0f0a0a;
+  --stroke-clr-op: hsla(0, 20%, 5%, 0.3);
   --white: #0f0a0a;
   --black: #0f0a0a;
   --text-color: #0f0a0a;
