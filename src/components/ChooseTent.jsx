@@ -84,7 +84,13 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
       return copy;
     });
   }
-  function crew() {}
+  function crew() {
+    dispatch((old) => {
+      const copy = JSON.parse(JSON.stringify(old));
+      copy.crewSetup = !copy.crewSetup;
+      return copy;
+    });
+  }
 
   return (
     <div className={`choose-wrapper ten ${showErrorTent ? "showError" : ""}`}>
