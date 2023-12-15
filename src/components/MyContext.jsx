@@ -10,6 +10,9 @@ export const SetUserContext = createContext();
 export const ThemeContext = createContext();
 export const setThemeContext = createContext();
 
+export const ContinueContext = createContext();
+export const setContinueContext = createContext();
+
 export const TimerContext = createContext();
 export const SetTimerContext = createContext();
 
@@ -41,8 +44,14 @@ export const NumberProvider = ({ children }) => {
     timeRunning: false,
   });
   const [reserveID, setReserveID] = useState();
+const [myContinue, setContinue]= useState();
 
   return (
+
+
+
+    <setContinueContext.Provider value={setContinue}>
+      <ContinueContext.Provider value={myContinue}>
     <SetSubmitData.Provider value={setSubmitData}>
       <SubmitData.Provider value={submitData}>
         <SetReserveContext.Provider value={setReserveID}>
@@ -66,5 +75,7 @@ export const NumberProvider = ({ children }) => {
         </SetReserveContext.Provider>
       </SubmitData.Provider>
     </SetSubmitData.Provider>
+      </ContinueContext.Provider>
+    </setContinueContext.Provider>
   );
 };
