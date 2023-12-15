@@ -25,6 +25,7 @@ export default function Participants({ setToggleCheckout }) {
     // Kald din checkout-flow funktion
     handleCheckoutFlow();
     setToggleCheckout();
+    setError("firstName", { type: "focus" }, { shouldFocus: true }, { message: "Hej" });
   };
 
   const handleCheckoutFlow = () => {
@@ -42,7 +43,7 @@ export default function Participants({ setToggleCheckout }) {
           <div key={index}>
             <h3 className="participanth3">Participant {index + 1}</h3>
             <form>
-              <ParticipantInfo register={register} prefix={`participant${index + 1}`} />
+              <ParticipantInfo setErrors={setErrors} errors={errors} register={register} prefix={`participant${index + 1}`} />
             </form>
           </div>
         ))}
@@ -50,7 +51,7 @@ export default function Participants({ setToggleCheckout }) {
           <div key={index}>
             <h3 className="participanth3">VIP Participant {index + 1}</h3>
             <form>
-              <ParticipantInfo register={register} prefix={`VIPparticipant${index + 1}`} />
+              <ParticipantInfo setErrors={setErrors} errors={errors} register={register} prefix={`VIPparticipant${index + 1}`} />
             </form>
           </div>
         ))}
