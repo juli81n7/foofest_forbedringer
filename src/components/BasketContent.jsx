@@ -1,14 +1,20 @@
 "use client";
 import { useContext, useState } from "react";
-import { ValueContext } from "./MyContext";
+import { ValueContext, OrderStatus, ContinueContext, UserContext } from "./MyContext";
 import ParticipantComp from "./ParticipantComp";
 import FinalCheckout from "./FinalCheckout";
+import Login from "./Login";
+
 import Button from "@/components/Button";
 import Thanks from "./Thanks";
 import "../styles/BasketContent.css";
 export default function BasketContent() {
   const [toggleCheckout, setToggleCheckout] = useState(false);
   const state = useContext(ValueContext);
+  const usercontext = useContext(UserContext);
+const continueState = useContext(ContinueContext);
+const isordered = useContext(OrderStatus);
+
   return (
     <>
       {!state.regular && !state.vip ? (
@@ -20,12 +26,29 @@ export default function BasketContent() {
             <Button href="/TicketFlow" btntext="Get Tickets" />
           </div>{" "}
         </div>
-      ) : state.checkoutPush === false ? (
+      ) : 
+      
+      !usercontext && !continueState? (
+     <Login/>
+    )
+      
+      : state.checkoutPush === false ? (
         <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp>
-      ) : (
-        <FinalCheckout></FinalCheckout>
-      )}
-      <Thanks></Thanks>
+      ) :!isordered?
+      
+      (
+       <FinalCheckout></FinalCheckout>
+     )
+     
+     :
+     (
+     <Thanks/>
+    )
+    
+    
+    
+    }
+
     </>
   );
 }

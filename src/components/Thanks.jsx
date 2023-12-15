@@ -9,16 +9,17 @@ import "@/styles/Thanks.css";
 export default function Thanks() {
   const userState = useContext(UserContext);
   const reserveID = useContext(ReserveContext);
+  console.log("Dette er mit reserveID", reserveID)
   const orderState = useContext(OrderStatus);
   console.log(userState);
   return (
     <>
-      {orderState && (
+
         <div className="thankscontainer">
           <div>
             <h1>Congratulations</h1>
             <p>You have succesfully purchased tickets to one of the greatest festivals on the planet. Excellent choice.</p>
-            <p>An email with your order details have been sent to {userState.email ? userState.email : "your email"}.</p>
+            <p>An email with your order details have been sent to {userState ? userState.email : "your email"}.</p>
           </div>
 
           <p className="cheers">
@@ -26,11 +27,11 @@ export default function Thanks() {
           </p>
           <div>
             <h2>Your order number</h2>
-            <p>{reserveID ? reserveID : "69420"}</p>
+            <p>{reserveID ? reserveID.id : "69420"}</p>
           </div>
           <Button href={"/Account"} btntext={"View tickets"}></Button>
         </div>
-      )}
+
     </>
   );
 }
