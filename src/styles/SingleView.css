@@ -146,6 +146,7 @@
 
 .myslugimage {
   object-fit: cover;
+  align-self: stretch;
 }
 .credits {
   position: absolute;
