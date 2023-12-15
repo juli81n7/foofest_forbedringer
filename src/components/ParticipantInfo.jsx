@@ -15,7 +15,7 @@ export default function ParticipantInfo({ register, prefix }) {
         <div className="formgrid">
           <div className="inputlayout">
             <label htmlFor="firstName">First name</label>
-            <input {...register(`${prefix}.firstName`, "singleErrorInput", { required: "This is required", pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="firstname" />
+            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i, message: "firstname is required" })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname">Last name</label>
