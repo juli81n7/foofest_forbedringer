@@ -30,6 +30,7 @@ export const NumberProvider = ({ children }) => {
     },
     campingArea: null,
     greenCamping: false,
+    crewSetup: false,
     pushed: false,
     checkoutPush: false,
   });

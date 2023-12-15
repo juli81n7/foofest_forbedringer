@@ -117,16 +117,16 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
         <h3>
           GREEN CAMPING <span>(249,- per tent)</span>
         </h3>
-        <label htmlFor="green" className="visually-hidden" aria-label="Green Camping Checkbox">
-          <input onClick={green} className="visually-shown" type="checkbox" name="green camping" id="green" />
+        <label htmlFor="green" className="checkbox-label" aria-label="Green Camping Checkbox">
+          <input onClick={green} className="check-box" type="checkbox" name="green camping" id="green" />
         </label>
       </div>
       <div className="checkboxes crew-option">
         <h3>
-          Crew set up your tents <span></span>
+          Have the crew set up your tents <span></span>
         </h3>
-        <label htmlFor="crew" className="visually-hidden" aria-label="Crew setup tent">
-          <input onClick={crew} className="visually-shown" type="checkbox" name="crew camping" id="crew" />
+        <label htmlFor="crew" className="checkbox-label" aria-label="Crew setup tent">
+          <input onClick={crew} className="check-box" type="checkbox" name="crew camping" id="crew" />
         </label>
       </div>
     </div>
