@@ -121,7 +121,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
       </div>
       <div className="checkboxes green-option">
         <h3>
-          GREEN CAMPING <span>(249,- per tent)</span>
+          GREEN CAMPING <span>({(state.tents.one + state.tents.two + state.tents.three) * 249},- total)</span>
         </h3>
         <label htmlFor="green" className="checkbox-label" aria-label="Green Camping Checkbox">
           <input onClick={green} className="check-box" type="checkbox" name="green camping" id="green" />
@@ -129,7 +129,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
       </div>
       <div className="checkboxes crew-option">
         <h3>
-          Have the crew set up your tents <span></span>
+          Tent setup <span>({state.tents.one * 199 + state.tents.two * 299 + state.tents.three * 399},- total)</span>
         </h3>
         <label htmlFor="crew" className="checkbox-label" aria-label="Crew setup tent">
           <input onClick={crew} className="check-box" type="checkbox" name="crew camping" id="crew" />

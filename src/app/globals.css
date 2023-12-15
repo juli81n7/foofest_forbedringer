@@ -56,6 +56,13 @@ a {
   color: var(--white);
 }
 
+a,
+button,
+input[type="checkbox"],
+input[radio="radio"] {
+  cursor: pointer;
+}
+
 /* Prevent font size inflation */
 html {
   -moz-text-size-adjust: none;
