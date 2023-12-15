@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext, SetOrderStatus, OrderStatus } from "./MyContext";
 import "@/styles/ParticipantInfo.css";
+import "@/styles/FinalCheckout.css";
 import { fulfillReservation } from "@/app/ticketData";
 export default function FinalCheckout({}) {
   const reserveContext = useContext(ReserveContext);
@@ -105,7 +106,8 @@ export default function FinalCheckout({}) {
   };
 
   return (
-    <div className="formcontainer">
+    <div className="formcontainerCheckout">
+      <h1>Payment</h1>
       <div className="formline">
         <div className="formgrid">
           <div className="inputlayout">

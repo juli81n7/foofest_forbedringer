@@ -1,0 +1,17 @@
+.formcontainerCheckout {
+  padding: 10rem;
+  & h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .formcontainerCheckout input.submitBtn {
+    margin-top: 2rem;
+    grid-column: 1/-1;
+  }
+  .formcontainerCheckout .btngrid {
+    justify-content: stretch;
+  }
+}
