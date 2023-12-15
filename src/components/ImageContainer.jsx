@@ -7,7 +7,8 @@ function ImageContainer(props) {
   const mySchedule = props.schedule;
 
   let myImage = props.selectedBand.logo;
-
+  console.log("hahahahahaha", myImage);
+  let billedeSti;
   const myrand = Math.random();
   function randomIntFromInterval(min, max) {
     // min and max included
@@ -15,9 +16,10 @@ function ImageContainer(props) {
   }
 
   if (myImage.startsWith("https")) {
-    myImage = "https://source.unsplash.com/random/2000×1000/?bands?random=" + randomIntFromInterval(1, 500);
+    billedeSti = "https://source.unsplash.com/random/2000×1000/?bands?random=" + randomIntFromInterval(1, 500);
   } else {
-    myImage = process.env.NEXT_PUBLIC_HOST + "/logos/" + myImage;
+    billedeSti = process.env.NEXT_PUBLIC_HOST + "/logos/" + myImage;
+    console.log("noget some er ***********", billedeSti);
   }
   return (
     <div className="imagecontainer">
@@ -29,7 +31,7 @@ function ImageContainer(props) {
         </p>
       ) : null}
 
-      <Image className="myslugimage" src={myImage} quality={100} width={1728} height={632} alt="Picture of the very well known hiphop artist group, unknown artist"></Image>
+      <Image className="myslugimage" src={billedeSti} quality={100} width={1728} height={632} alt="Picture of the very well known hiphop artist group, unknown artist"></Image>
 
       <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
         <g id="Layer_1-2" data-name="Layer 1">
