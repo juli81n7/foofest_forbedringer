@@ -98,6 +98,43 @@
     display: block;
   }
 }
+.checkboxes {
+  display: flex;
+  justify-content: space-between;
+  & h3 {
+    font-size: 16px;
+    font-weight: 400;
+    align-self: end;
+    & span {
+      font-size: 0.75rem;
+    }
+  }
+}
+.green-option {
+  padding-top: 1rem;
+}
+.crew-option {
+  border-bottom: 1px solid white;
+  padding-bottom: 1rem;
+}
+
+/* checkbox */
+.checkbox-label {
+  display: grid;
+  place-content: end;
+  width: 110px;
+}
+
+.green-option .check-box {
+  accent-color: #0aa815;
+  width: 1rem;
+  height: 1rem;
+}
+.crew-option .check-box {
+  accent-color: #dc5f0c;
+  width: 1rem;
+  height: 1rem;
+}
 @media only screen and (min-width: 800px) {
   .sec {
     /* min-height: 100vh; */

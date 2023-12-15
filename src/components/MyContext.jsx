@@ -32,6 +32,8 @@ export const NumberProvider = ({ children }) => {
       three: 0,
     },
     campingArea: null,
+    greenCamping: false,
+    crewSetup: false,
     pushed: false,
     checkoutPush: false,
   });
