@@ -1,7 +1,7 @@
 .inputlayout {
   display: flex;
   flex-direction: column;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .inputlayout input {
