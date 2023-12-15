@@ -3,7 +3,6 @@
   gap: 1rem;
   flex-wrap: wrap;
   @media (width > 800px) {
-    justify-content: space-between;
   }
 }
 .choose-camp-wrapper h2 {

@@ -9,9 +9,6 @@
   display: flex;
   gap: 3rem;
   position: relative;
-  @media (width > 800px) {
-    font-size: 1.5rem;
-  }
 }
 
 .ticketpay {
@@ -43,7 +40,6 @@
 .totalprice {
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
 }
 
 .camparea h3 {

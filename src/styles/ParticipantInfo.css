@@ -29,10 +29,14 @@
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 3rem;
   }
-}
 
-.formline {
-  border-bottom: solid 1px var(--white);
+  & input {
+    padding-block: 1rem;
+    padding-left: 0.5rem;
+  }
+  & label {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .formline h3 {
