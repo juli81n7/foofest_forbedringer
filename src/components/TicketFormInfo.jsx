@@ -10,26 +10,30 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
     <div>
       <div className="ticketinfo">
         <h2 className="ticketformh2">Your tickets</h2>
-        <div>
-          <div className="ticketamount">
-            <p>{state.regular}</p>
-            <p>Regular tickets</p>
+        {state.regular ? (
+          <div>
+            <div className="ticketamount">
+              <p>{state.regular}</p>
+              <p>Regular tickets</p>
+            </div>
+            <div className="ticketpay">
+              <p>{state.regular} X 799 DKK</p>
+              <p>{state.regular * 799} DKK</p>
+            </div>
           </div>
-          <div className="ticketpay">
-            <p>{state.regular} X 799 DKK</p>
-            <p>{state.regular * 799} DKK</p>
+        ) : null}
+        {state.vip ? (
+          <div>
+            <div className="ticketamount">
+              <p>{state.vip}</p>
+              <p>VIP tickets</p>
+            </div>
+            <div className="ticketpay">
+              <p>{state.vip} X 1299 DKK</p>
+              <p>{state.vip * 1299} DKK</p>
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="ticketamount">
-            <p>{state.vip}</p>
-            <p>VIP tickets</p>
-          </div>
-          <div className="ticketpay">
-            <p>{state.vip} X 1299 DKK</p>
-            <p>{state.vip * 1299} DKK</p>
-          </div>
-        </div>
+        ) : null}
 
         {state.tents.one ? (
           <div>
