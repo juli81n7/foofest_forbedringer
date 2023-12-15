@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext, SetOrderStatus } from "./MyContext";
+import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext, SetOrderStatus, OrderStatus } from "./MyContext";
 import "@/styles/ParticipantInfo.css";
 import { fulfillReservation } from "@/app/ticketData";
 export default function FinalCheckout({}) {
@@ -15,37 +15,62 @@ export default function FinalCheckout({}) {
   const [submitData, setSubmitData] = useState([]);
   const timer = useContext(SetTimerContext);
   const dispatchOrder = useContext(SetOrderStatus);
+  const isordered = useContext(OrderStatus)
 
   const onSubmit = (data) => {
     console.log(data);
     setSubmitData((prevData) => [...prevData, data]);
-    console.log("her er data i state", submitData);
+
     const fulfill = fulfillReservation(reserveContext.id);
+    
     console.log(fulfill);
+    console.log("MIN USER CONTEXT",userContext);
 
-    async function Patch(id, body) {
-      console.log("Det her prøver jeg at gøre", body);
-      let headersList = {
-        Accept: "*/*",
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
-        "Content-Type": "application/json",
-      };
 
-      let objectForPatch = { tickets: body };
-
-      let bodyContent = JSON.stringify(objectForPatch);
-
-      let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
-        method: "PATCH",
-        body: bodyContent,
-        headers: headersList,
+    if(!userContext){
+      timer((old) => ({
+        ...old,
+        time: 300,
+        timeRunning: true,
+      }));
+      
+      basket({
+        regular: 0,
+        vip: 0,
+        tents: {
+          one: 0,
+          two: 0,
+          three: 0,
+        },
+        campingArea: null,
+        pushed: false,
+        checkoutPush: false,
       });
-
-      let data = await response.text();
-      console.log("MIN RESPONS", data);
+      dispatchOrder(true);
     }
 
-    if (userContext) {
+    else if (userContext) {
+      async function Patch(id, body) {
+        console.log("Det her prøver jeg at gøre", body);
+        let headersList = {
+          Accept: "*/*",
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+          "Content-Type": "application/json",
+        };
+  
+        let objectForPatch = { tickets: body };
+  
+        let bodyContent = JSON.stringify(objectForPatch);
+  
+        let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
+          method: "PATCH",
+          body: bodyContent,
+          headers: headersList,
+        });
+  
+        let data = await response.text();
+        console.log("MIN RESPONS", data);
+      }
       Object.keys(submitDataParticipant).map((each) => {
         if (each.startsWith("VIP")) {
           submitDataParticipant[each].type = "VIP";
@@ -63,7 +88,7 @@ export default function FinalCheckout({}) {
       Patch(userContext.id, userContext.tickets);
       console.log(userContext);
       timer.timeRunning = false;
-      dispatchOrder(true);
+      
       basket({
         regular: 0,
         vip: 0,
@@ -76,7 +101,10 @@ export default function FinalCheckout({}) {
         pushed: false,
         checkoutPush: false,
       });
+      dispatchOrder(true);
     }
+    
+    console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD",isordered)
   };
 
   return (
