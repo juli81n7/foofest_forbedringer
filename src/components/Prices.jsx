@@ -180,7 +180,7 @@ function Prices() {
               <h3 className="green">Green Camping</h3>
               <p>249 DKK per tent</p>
             </div>
-            <p>For people who wish to positively affect their carbon footprint.</p>
+            <p>For people who wish to reduce their carbon footprint.</p>
             <ul className="ticket-includes">
               <li>
                 <div className="heart-container">
