@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ValueContext, StateContext } from "./MyContext";
 
 function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
+
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
   function updateOneTent(action) {
@@ -76,6 +77,13 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
       }
     });
   }
+  function green() {
+    dispatch((old) => {
+      const copy = JSON.parse(JSON.stringify(old));
+      copy.greenCamping = !copy.greenCamping;
+      return copy;
+    });
+  }
 
   return (
     <div className={`choose-wrapper ten ${showErrorTent ? "showError" : ""}`}>
@@ -103,6 +111,14 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
           <p>{state.tents.three}</p>
           <button onClick={() => updateThreeTent("increase")}>+</button>
         </div>
+      </div>
+      <div className="green-option">
+        <h3>
+          GREEN CAMPING <span>(249,- per tent)</span>
+        </h3>
+        <label htmlFor="green" className="visually-hidden" aria-label="Green Camping Checkbox">
+          <input onClick={green} className="visually-shown" type="checkbox" name="green camping" id="green" />
+        </label>
       </div>
     </div>
   );
