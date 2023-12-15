@@ -15,7 +15,7 @@ export default function BasketContent() {
         <div className="whoopsies">
           {" "}
           <h2 className="whoopsies-heading">Whoopsies</h2>
-          <p>You have not reserved any tickets yet. What are you waiting for?</p>
+          <p>You have not reserved any tickets yet. What are you waiting for? </p>
           <div className="btn_container">
             <Button href="/TicketFlow" btntext="Get Tickets" />
           </div>{" "}
