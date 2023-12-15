@@ -17,7 +17,7 @@ export default function Thanks() {
         <div className="thankscontainer">
           <div>
             <h1>Congratulations</h1>
-            <p>You've succesfully purchased tickets to one of the greatest festivals on the planet. Excellent choice.</p>
+            <p>You have succesfully purchased tickets to one of the greatest festivals on the planet. Excellent choice.</p>
             <p>An email with your order details have been sent to {userState.email ? userState.email : "your email"}.</p>
           </div>
 
