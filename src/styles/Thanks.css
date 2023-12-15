@@ -7,10 +7,11 @@
   gap: 2rem;
   min-height: 100dvh;
   & h2 {
-    font-weight: 400;
-    font-size: 1.5rem;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 1.25rem;
     @media (width > 800px) {
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
   & h1 {
@@ -20,10 +21,28 @@
       font-size: 4rem;
     }
   }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  & p {
+    @media (width > 800px) {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 .thankscontainer div {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.cheers {
+  margin-bottom: 1rem;
+  text-align: center;
 }

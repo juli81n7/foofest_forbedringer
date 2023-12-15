@@ -19,6 +19,9 @@ export const SetReserveContext = createContext();
 export const SubmitData = createContext();
 export const SetSubmitData = createContext();
 
+export const OrderStatus = createContext();
+export const SetOrderStatus = createContext();
+
 export const NumberProvider = ({ children }) => {
   const [myValue, setMyValue] = useState({
     regular: 0,
@@ -43,30 +46,35 @@ export const NumberProvider = ({ children }) => {
     timeRunning: false,
   });
   const [reserveID, setReserveID] = useState();
+  const [orderStatus, setOrderStatus] = useState(false);
 
   return (
-    <SetSubmitData.Provider value={setSubmitData}>
-      <SubmitData.Provider value={submitData}>
-        <SetReserveContext.Provider value={setReserveID}>
-          <ReserveContext.Provider value={reserveID}>
-            <SetTimerContext.Provider value={setMyTimer}>
-              <TimerContext.Provider value={myTimer}>
-                <SetUserContext.Provider value={setMyUser}>
-                  <UserContext.Provider value={myUser}>
-                    <StateContext.Provider value={setMyValue}>
-                      <setThemeContext.Provider value={setDarkmode}>
-                        <ThemeContext.Provider value={darkMode}>
-                          <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
-                        </ThemeContext.Provider>
-                      </setThemeContext.Provider>
-                    </StateContext.Provider>
-                  </UserContext.Provider>
-                </SetUserContext.Provider>
-              </TimerContext.Provider>
-            </SetTimerContext.Provider>
-          </ReserveContext.Provider>
-        </SetReserveContext.Provider>
-      </SubmitData.Provider>
-    </SetSubmitData.Provider>
+    <SetOrderStatus.Provider value={setOrderStatus}>
+      <OrderStatus.Provider value={orderStatus}>
+        <SetSubmitData.Provider value={setSubmitData}>
+          <SubmitData.Provider value={submitData}>
+            <SetReserveContext.Provider value={setReserveID}>
+              <ReserveContext.Provider value={reserveID}>
+                <SetTimerContext.Provider value={setMyTimer}>
+                  <TimerContext.Provider value={myTimer}>
+                    <SetUserContext.Provider value={setMyUser}>
+                      <UserContext.Provider value={myUser}>
+                        <StateContext.Provider value={setMyValue}>
+                          <setThemeContext.Provider value={setDarkmode}>
+                            <ThemeContext.Provider value={darkMode}>
+                              <ValueContext.Provider value={myValue}>{children}</ValueContext.Provider>
+                            </ThemeContext.Provider>
+                          </setThemeContext.Provider>
+                        </StateContext.Provider>
+                      </UserContext.Provider>
+                    </SetUserContext.Provider>
+                  </TimerContext.Provider>
+                </SetTimerContext.Provider>
+              </ReserveContext.Provider>
+            </SetReserveContext.Provider>
+          </SubmitData.Provider>
+        </SetSubmitData.Provider>
+      </OrderStatus.Provider>
+    </SetOrderStatus.Provider>
   );
 };
