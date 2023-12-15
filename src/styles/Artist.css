@@ -5,7 +5,7 @@
   padding-right: 1rem;
   padding-left: 1rem;
   align-items: center;
-  @media (width< 800px) {
+  @media (width< 900px) {
     padding-block: 0.7rem;
     display: grid;
     grid-template-columns: auto auto;
@@ -52,8 +52,7 @@
 
 .artisth2 {
   font-size: 3rem;
-
-  padding-top: 1rem;
+  line-height: 2.5rem;
 }
 
 .Vanaheim {
