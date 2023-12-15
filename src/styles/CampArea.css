@@ -5,7 +5,6 @@
   cursor: pointer;
   aspect-ratio: 1;
   height: 7rem;
-  border: 2px solid var(--white);
   display: grid;
   position: relative;
 }
@@ -14,6 +13,7 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  border: 2px solid var(--white);
   outline: none;
   cursor: pointer;
   margin: 0;
@@ -22,15 +22,20 @@
 }
 
 .radio-label:not([disabled], :has(.custom-radio:checked)):hover {
-  box-shadow: inset 0 0 0 #32325d, 0 0 100px -20px #32325d, 0 0 60px -30px #32325d;
+  box-shadow: inset 0 0 0 #3a3a7b, 0 0 100px -20px #32325d, 0 0 60px -30px #3a3a7b;
   transform: scale(1.01);
   transition: all 0.5s both;
 }
 
-.radio-label:has(.custom-radio:checked) {
+.custom-radio:checked {
   border: 2px solid var(--accent-orange);
   box-shadow: 0 0 10px var(--accent-orange);
 }
+/* .radio-label:has(.custom-radio:checked) {
+  border: 2px solid var(--accent-orange);
+  box-shadow: 0 0 10px var(--accent-orange);
+} */
+
 .radio-label:has(.custom-radio[disabled]) {
   opacity: 30%;
 }
@@ -48,10 +53,8 @@
   background: var(--accent-orange);
   padding: 3px 4px 0px;
   font-size: 12px;
-  /* position: absolute; */
-  /* top: 20%; */
-  justify-self: start;
-  align-self: center;
+  position: absolute;
+  top: 35%;
 }
 .area-out {
   background: var(--accent-red);
@@ -64,6 +67,7 @@
   padding: 3px 4px 0px;
   font-size: 12px;
   position: absolute;
+  z-index: 1;
   top: 35%;
 }
 /* .radio-label:has(.area-out) {
@@ -76,8 +80,8 @@
 .spots-left {
   padding: 3px 4px 0px;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1.5px;
+  right: 2px;
   font-size: 12px;
   background: #666;
 }

@@ -84,6 +84,7 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
       return copy;
     });
   }
+  function crew() {}
 
   return (
     <div className={`choose-wrapper ten ${showErrorTent ? "showError" : ""}`}>
@@ -112,12 +113,20 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
           <button onClick={() => updateThreeTent("increase")}>+</button>
         </div>
       </div>
-      <div className="green-option">
+      <div className="checkboxes green-option">
         <h3>
           GREEN CAMPING <span>(249,- per tent)</span>
         </h3>
         <label htmlFor="green" className="visually-hidden" aria-label="Green Camping Checkbox">
           <input onClick={green} className="visually-shown" type="checkbox" name="green camping" id="green" />
+        </label>
+      </div>
+      <div className="checkboxes crew-option">
+        <h3>
+          Crew set up your tents <span></span>
+        </h3>
+        <label htmlFor="crew" className="visually-hidden" aria-label="Crew setup tent">
+          <input onClick={crew} className="visually-shown" type="checkbox" name="crew camping" id="crew" />
         </label>
       </div>
     </div>
