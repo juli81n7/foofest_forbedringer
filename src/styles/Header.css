@@ -14,9 +14,10 @@ header {
     right: -20rem;
     bottom: -1rem;
     transform: rotate(-5deg);
-    display: none;
-    @media (width>800) {
-      display: block;
+    display: block;
+
+    @media (max-width: 800px) {
+      scale: 0.7;
     }
   }
 }
@@ -37,11 +38,12 @@ header {
   gap: 1.3rem;
   max-width: 20rem;
   color: var(--text-color);
+  padding-bottom: 1rem;
 
   :last-child {
     align-self: start;
   }
-  @media (width<400px) {
+  @media (width<800px) {
     padding: 0 0 1rem 1rem;
   }
 }
@@ -52,12 +54,11 @@ header {
   justify-content: space-between;
   padding-left: 2rem;
   flex-wrap: wrap;
-  @media (width<400px) {
+  @media (width<800px) {
     padding: 0;
   }
 }
 
 .hero-img {
-  grid-column: 8/-1;
   object-fit: cover;
 }
