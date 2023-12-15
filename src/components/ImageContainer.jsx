@@ -1,11 +1,7 @@
 "use client";
-
-import Link from "next/link";
 import Image from "next/image";
 
 import "@/styles/SingleView.css";
-
-import SecondaryBtn from "./SecondaryBtn";
 
 function ImageContainer(props) {
   const mySchedule = props.schedule;
@@ -21,7 +17,7 @@ function ImageContainer(props) {
   if (myImage.startsWith("https")) {
     myImage = "https://source.unsplash.com/random/1300×500/?experimental?random=" + randomIntFromInterval(1, 500);
   } else {
-    myImage = process.env.NEXT_PUBLIC_HOST + "/logos/" + myImage;
+    myImage = `${process.env.NEXT_PUBLIC_HOST}/logos/${myImage}`;
   }
 
   return (
