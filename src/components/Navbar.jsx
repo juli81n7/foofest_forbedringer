@@ -322,7 +322,7 @@ function Navbar() {
         </nav>
       </div>
 
-      <div className={"blur " + (active ? "active" : "")}></div>
+      <div onClick={handleBurgerClick} className={"blur " + (active ? "active" : "")}></div>
     </>
   );
 }
