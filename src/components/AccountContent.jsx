@@ -5,6 +5,7 @@ import { UserContext, SetUserContext } from "./MyContext";
 import "@/styles/Account.css";
 import TicketCard from "./TicketCard";
 import Calender from "./Calender";
+import Link from "next/link";
 
 function Account({ schedule, bands }) {
   const [firstName, setFirstName] = useState("");
@@ -338,7 +339,6 @@ function Account({ schedule, bands }) {
                   setUser("");
                   userDispatch("");
                   sessionStorage.clear();
-
                 }}
               >
                 Log out
@@ -353,7 +353,9 @@ function Account({ schedule, bands }) {
                 ) : (
                   <article className="no-tickets">
                     <p>No liked artist - yet!</p>
-                    <button className="secondary-button">Find artists</button>
+                    <Link className="secondary-button" href="/Program#now">
+                      Find Artists
+                    </Link>
                   </article>
                 )}
               </div>
@@ -620,13 +622,12 @@ function Account({ schedule, bands }) {
                           <p>{ticket.date}</p>
                         </div>
 
-                        {ticket.area?
-                        
+                        {ticket.area ? (
                           <div>
                             <h3>Area</h3>
                             <p>{ticket.area}</p>
-                          </div>: null
-                        }
+                          </div>
+                        ) : null}
                       </div>
                       <svg className="ticket-bottom" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 645.53 95.2">
                         <g id="Layer_1-2" data-name="Layer 1">
@@ -678,7 +679,9 @@ function Account({ schedule, bands }) {
                 ) : (
                   <article className="no-tickets">
                     <p>No tickets - yet!</p>
-                    <button className="secondary-button">Get tickets</button>
+                    <Link className="secondary-button" href="/Tickets">
+                      Get Tickets
+                    </Link>
                   </article>
                 )}
               </div>
