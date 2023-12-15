@@ -107,7 +107,7 @@ export default function page({ params }) {
     if (obj.band.logo.startsWith("https")) {
       obj.band.logo = obj.band.logo;
     } else {
-      obj.band.logo = process.envNEXT_PUBLIC_HOST + "/logos/" + obj.band.logo;
+      obj.band.logo = process.env.NEXT_PUBLIC_HOST + "/logos/" + obj.band.logo;
       // console.log("YOOOOOOOOO", obj.band.logo);
     }
   });
