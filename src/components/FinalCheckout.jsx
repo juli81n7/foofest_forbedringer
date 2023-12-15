@@ -15,25 +15,24 @@ export default function FinalCheckout({}) {
   const [submitData, setSubmitData] = useState([]);
   const timer = useContext(SetTimerContext);
   const dispatchOrder = useContext(SetOrderStatus);
-  const isordered = useContext(OrderStatus)
+  const isordered = useContext(OrderStatus);
 
   const onSubmit = (data) => {
     console.log(data);
     setSubmitData((prevData) => [...prevData, data]);
 
     const fulfill = fulfillReservation(reserveContext.id);
-    
+
     console.log(fulfill);
-    console.log("MIN USER CONTEXT",userContext);
+    console.log("MIN USER CONTEXT", userContext);
 
-
-    if(!userContext){
+    if (!userContext) {
       timer((old) => ({
         ...old,
         time: 300,
         timeRunning: true,
       }));
-      
+
       basket({
         regular: 0,
         vip: 0,
@@ -47,9 +46,7 @@ export default function FinalCheckout({}) {
         checkoutPush: false,
       });
       dispatchOrder(true);
-    }
-
-    else if (userContext) {
+    } else if (userContext) {
       async function Patch(id, body) {
         console.log("Det her prøver jeg at gøre", body);
         let headersList = {
@@ -57,17 +54,17 @@ export default function FinalCheckout({}) {
           apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
           "Content-Type": "application/json",
         };
-  
+
         let objectForPatch = { tickets: body };
-  
+
         let bodyContent = JSON.stringify(objectForPatch);
-  
+
         let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
           method: "PATCH",
           body: bodyContent,
           headers: headersList,
         });
-  
+
         let data = await response.text();
         console.log("MIN RESPONS", data);
       }
@@ -88,7 +85,7 @@ export default function FinalCheckout({}) {
       Patch(userContext.id, userContext.tickets);
       console.log(userContext);
       timer.timeRunning = false;
-      
+
       basket({
         regular: 0,
         vip: 0,
@@ -103,8 +100,8 @@ export default function FinalCheckout({}) {
       });
       dispatchOrder(true);
     }
-    
-    console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD",isordered)
+
+    console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD", isordered);
   };
 
   return (
@@ -142,7 +139,7 @@ export default function FinalCheckout({}) {
           </div>
           <div className="inputlayout">
             <label htmlFor="cvc">CVC</label>
-            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} type="text" id="cvc" />
+            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" />
           </div>
         </div>
         <div className="btngrid">

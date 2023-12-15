@@ -27,7 +27,7 @@ export default function ParticipantInfo({ register, prefix }) {
           </div>
           <div className="inputlayout">
             <label htmlFor="phone">phone number</label>
-            <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} type="tel" id="phone" />
+            <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} type="tel" id="phone" />
           </div>
           <div className="inputlayout">
             <label htmlFor="birth">Date of birth</label>
