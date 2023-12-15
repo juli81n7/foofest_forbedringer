@@ -16,7 +16,7 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
             <p>Regular tickets</p>
           </div>
           <div className="ticketpay">
-            <p>{state.regular} X 799</p>
+            <p>{state.regular} X 799 DKK</p>
             <p>{state.regular * 799} DKK</p>
           </div>
         </div>
@@ -26,7 +26,7 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
             <p>VIP tickets</p>
           </div>
           <div className="ticketpay">
-            <p>{state.vip} X 1299</p>
+            <p>{state.vip} X 1299 DKK</p>
             <p>{state.vip * 1299} DKK</p>
           </div>
         </div>
@@ -75,9 +75,9 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
             </div>
             <div className="ticketpay">
               <div>
-                {state.tents.one ? <p>{state.tents.one} X 199</p> : null}
-                {state.tents.two ? <p>{state.tents.two} X 299</p> : null}
-                {state.tents.three ? <p>{state.tents.three} X 399</p> : null}
+                {state.tents.one ? <p>{state.tents.one} X 199 DKK</p> : null}
+                {state.tents.two ? <p>{state.tents.two} X 299 DKK</p> : null}
+                {state.tents.three ? <p>{state.tents.three} X 399 DKK</p> : null}
               </div>
               <p>{totalTentsCrewPrice} DKK</p>
             </div>
@@ -90,7 +90,7 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
               <p>Green Camping fee </p>
             </div>
             <div className="ticketpay">
-              <p>{totalTents} X 249 </p>
+              <p>{totalTents} X 249 DKK </p>
               <p>{totalGreenCamping} DKK</p>
             </div>
           </div>
