@@ -4,6 +4,10 @@
 }
 
 .ticket-area {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+
   @media (width > 800px) {
     padding: 2rem;
   }
@@ -17,6 +21,14 @@
   row-gap: 2.5rem;
   border-left: solid 1px var(--white);
   place-content: center;
+
+  @media (width < 800px) {
+    border: none;
+    padding: 2rem;
+    padding-top: 2rem;
+    border-top: solid 1px var(--white);
+    display: block;
+  }
 }
 
 .counter-line :is(h3, p, button) {
@@ -72,6 +84,11 @@
   position: relative;
   display: grid;
   gap: 0.5rem;
+
+  @media (width<800px) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 .choose-wrapper h2 {
   font-size: clamp(1.5rem, 5vw, 6rem);
@@ -88,11 +105,10 @@
 .wave2 {
   position: absolute;
   fill: var(--accent-orange);
-  transform-origin: bottom left;
-  scale: 0.5;
-  left: 1rem;
-  bottom: 3rem;
-  transform: rotate(-5deg);
+  scale: 1.5;
+  right: 0;
+  bottom: 2rem;
+  transform: rotate(10deg);
   display: none;
   @media (width>800px) {
     display: block;
@@ -122,7 +138,7 @@
   padding-top: 1rem;
 }
 .crew-option {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--stroke-clr);
   padding-bottom: 1rem;
 }
 
