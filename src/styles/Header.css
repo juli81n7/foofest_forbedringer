@@ -15,6 +15,10 @@ header {
     bottom: -1rem;
     transform: rotate(-5deg);
     display: block;
+
+    @media (max-width: 800px) {
+      scale: 0.7;
+    }
   }
 }
 
