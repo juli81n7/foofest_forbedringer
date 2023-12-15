@@ -194,8 +194,10 @@
   flex-direction: column;
   background-color: #151515;
   color: white;
+  justify-content: space-between;
   border: solid 1px white;
   text-transform: uppercase;
+  height: 500px;
 
   @media (max-width: 800px) {
     scroll-snap-align: start;

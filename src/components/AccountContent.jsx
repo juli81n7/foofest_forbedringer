@@ -335,6 +335,8 @@ function Account({ schedule, bands }) {
                 onClick={() => {
                   setUser("");
                   userDispatch("");
+                  sessionStorage.clear();
+
                 }}
               >
                 Log out
@@ -615,10 +617,14 @@ function Account({ schedule, bands }) {
                           <h3>Date</h3>
                           <p>{ticket.date}</p>
                         </div>
-                        <div>
-                          <h3>Area</h3>
-                          <p>{ticket.area}</p>
-                        </div>
+
+                        {ticket.area?
+                        
+                          <div>
+                            <h3>Area</h3>
+                            <p>{ticket.area}</p>
+                          </div>: null
+                        }
                       </div>
                       <svg className="ticket-bottom" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 645.53 95.2">
                         <g id="Layer_1-2" data-name="Layer 1">
