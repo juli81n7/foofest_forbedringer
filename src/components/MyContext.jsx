@@ -49,7 +49,8 @@ export const NumberProvider = ({ children }) => {
     timeRunning: false,
   });
   const [reserveID, setReserveID] = useState();
-  const [orderStatus, setOrderStatus] = useState(false);
+  const [orderStatus, setOrderStatus] = useState();
+  
   const [myContinue, setContinue] = useState();
 
   return (

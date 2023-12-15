@@ -3,8 +3,9 @@ import FinalCheckout from "./FinalCheckout";
 import ParticipantComp from "./ParticipantComp";
 import TicketContent from "./TicketContent";
 import { useContext, useState } from "react";
-import { UserContext, ContinueContext } from "./MyContext";
+import { UserContext, ContinueContext, OrderStatus } from "./MyContext";
 import Login from "./Login";
+import Thanks from "./Thanks";
 
 export default function ShowTicketContent() {
   const [showError, setShowError] = useState(false);
@@ -15,6 +16,7 @@ export default function ShowTicketContent() {
   const [buttonError, setButtonError] = useState(false);
 const usercontext = useContext(UserContext)
 const continueState = useContext(ContinueContext)
+const isordered = useContext(OrderStatus)
 
 console.log("FRA TICKET",continueState)
   return (
@@ -41,11 +43,19 @@ console.log("FRA TICKET",continueState)
 
         
         <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp>
-      ): 
+      ): !isordered?
       
        (
         <FinalCheckout></FinalCheckout>
-      )}
+      )
+      
+      :
+      (
+      <Thanks/>
+     )
+    
+      
+      }
     </div>
   );
 }

@@ -25,8 +25,8 @@ export default function Login() {
   const setContinueState = useContext(setContinueContext);
 
 function go (){
-  userDispatch(true)
-console.log(continueState)
+  setContinueState(true)
+
 }
 
   useEffect(() => {
