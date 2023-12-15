@@ -2,7 +2,9 @@
 import FinalCheckout from "./FinalCheckout";
 import ParticipantComp from "./ParticipantComp";
 import TicketContent from "./TicketContent";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext, ContinueContext } from "./MyContext";
+import Login from "./Login";
 
 export default function ShowTicketContent() {
   const [showError, setShowError] = useState(false);
@@ -11,7 +13,10 @@ export default function ShowTicketContent() {
   const [toggleCheckout, setToggleCheckout] = useState(false);
   const [toggleParticipant, setToggleParticipant] = useState(false);
   const [buttonError, setButtonError] = useState(false);
+const usercontext = useContext(UserContext)
+const continueState = useContext(ContinueContext)
 
+console.log("FRA TICKET",continueState)
   return (
     <div>
       {toggleParticipant === false ? (
@@ -26,9 +31,19 @@ export default function ShowTicketContent() {
           buttonError={buttonError}
           setButtonError={setButtonError}
         />
+
+        ): 
+      
+        !usercontext && !continueState? (
+       <Login/>
       ) : toggleCheckout === false ? (
+
+
+        
         <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp>
-      ) : (
+      ): 
+      
+       (
         <FinalCheckout></FinalCheckout>
       )}
     </div>

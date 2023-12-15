@@ -1,22 +1,20 @@
 "use client";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext } from "./MyContext";
+import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext, SetOrderStatus } from "./MyContext";
 import "@/styles/ParticipantInfo.css";
 import { fulfillReservation } from "@/app/ticketData";
 export default function FinalCheckout({}) {
   const reserveContext = useContext(ReserveContext);
-  const basket = useContext(StateContext)
+  const basket = useContext(StateContext);
   const setUserContext = useContext(SetUserContext);
   const userContext = useContext(UserContext);
   const state = useContext(ValueContext);
   const submitDataParticipant = useContext(SubmitData);
   const { register, handleSubmit } = useForm();
   const [submitData, setSubmitData] = useState([]);
-  const timer = useContext(SetTimerContext)
-
-
-
+  const timer = useContext(SetTimerContext);
+  const dispatchOrder = useContext(SetOrderStatus);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -25,9 +23,6 @@ export default function FinalCheckout({}) {
     const fulfill = fulfillReservation(reserveContext.id);
     console.log(fulfill);
 
-
-
-
     async function Patch(id, body) {
       console.log("Det her prøver jeg at gøre", body);
       let headersList = {
@@ -35,17 +30,17 @@ export default function FinalCheckout({}) {
         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
         "Content-Type": "application/json",
       };
-  
+
       let objectForPatch = { tickets: body };
-  
+
       let bodyContent = JSON.stringify(objectForPatch);
-  
+
       let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
         method: "PATCH",
         body: bodyContent,
         headers: headersList,
       });
-  
+
       let data = await response.text();
       console.log("MIN RESPONS", data);
     }
@@ -61,32 +56,27 @@ export default function FinalCheckout({}) {
         submitDataParticipant[each].date = "All year";
         console.log(each);
         setUserContext((old) => {
-
-          old.tickets.push(submitDataParticipant[each])
-  return old
+          old.tickets.push(submitDataParticipant[each]);
+          return old;
         });
-        
       });
-      Patch(userContext.id, userContext.tickets)
+      Patch(userContext.id, userContext.tickets);
       console.log(userContext);
-      timer.timeRunning=false
-basket(
-  {
-    regular: 0,
-    vip: 0,
-    tents: {
-      one: 0,
-      two: 0,
-      three: 0,
-    },
-    campingArea: null,
-    pushed: false,
-    checkoutPush: false,
-  }
-)
-
+      timer.timeRunning = false;
+      dispatchOrder(true);
+      basket({
+        regular: 0,
+        vip: 0,
+        tents: {
+          one: 0,
+          two: 0,
+          three: 0,
+        },
+        campingArea: null,
+        pushed: false,
+        checkoutPush: false,
+      });
     }
-    
   };
 
   return (
