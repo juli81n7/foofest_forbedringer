@@ -9,7 +9,7 @@ export default function BasketContent() {
   const state = useContext(ValueContext);
   return (
     <>
-      {state.regular === 0 ? <p>Beklager din nar, læg noget i kurven!</p> : state.checkoutPush === false ? <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp> : <FinalCheckout></FinalCheckout>}
+      {state.regular && state.vip === 0 ? <p>You haven't reserved any tickets yet. What are you waiting for?</p> : state.checkoutPush === false ? <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp> : <FinalCheckout></FinalCheckout>}
       <Thanks></Thanks>
     </>
   );
