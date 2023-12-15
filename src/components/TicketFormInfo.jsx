@@ -30,37 +30,69 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
             <p>{state.vip * 1299} DKK</p>
           </div>
         </div>
-        <div className="perstent1">
-          <div className="ticketamount">
-            <p>{state.tents.one}</p>
-            <p>1 pers tent</p>
+
+        {state.tents.one ? (
+          <div>
+            <div className="ticketamount">
+              <p>{state.tents.one}</p>
+              <p>1 pers tent</p>
+            </div>
+            <div className="ticketpay">
+              <p>FREE </p>
+              <p>0 DKK</p>
+            </div>
           </div>
-          <p>included</p>
-        </div>
-        <div className="perstent2">
-          <div className="ticketamount">
-            <p>{state.tents.two}</p>
-            <p>2 pers tent</p>
+        ) : null}
+        {state.tents.two ? (
+          <div>
+            <div className="ticketamount">
+              <p>{state.tents.two}</p>
+              <p>2 pers tent</p>
+            </div>
+            <div className="ticketpay">
+              <p>FREE </p>
+              <p>0 DKK</p>
+            </div>
           </div>
-          <p>included</p>
-        </div>
-        <div className="perstent3">
-          <div className="ticketamount">
-            <p>{state.tents.three}</p>
-            <p>3 pers tent</p>
+        ) : null}
+        {state.tents.three ? (
+          <div>
+            <div className="ticketamount">
+              <p>{state.tents.three}</p>
+              <p>3 pers tent</p>
+            </div>
+            <div className="ticketpay">
+              <p>FREE </p>
+              <p>0 DKK</p>
+            </div>
           </div>
-          <p>included</p>
-        </div>
+        ) : null}
         {state.crewSetup ? (
-          <div className="totalprice">
-            <p>Crew tent setup X {totalTents}</p>
-            <p>{totalTentsCrewPrice} DKK</p>
+          <div>
+            <div className="ticketamount">
+              <p>{totalTents}</p>
+              <p>Crew tent setup </p>
+            </div>
+            <div className="ticketpay">
+              <div>
+                {state.tents.one ? <p>{state.tents.one} X 199</p> : null}
+                {state.tents.two ? <p>{state.tents.two} X 299</p> : null}
+                {state.tents.three ? <p>{state.tents.three} X 399</p> : null}
+              </div>
+              <p>{totalTentsCrewPrice} DKK</p>
+            </div>
           </div>
         ) : null}
         {state.greenCamping ? (
-          <div className="totalprice">
-            <p>Green Camping fee X {totalTents}</p>
-            <p>{totalGreenCamping} DKK</p>
+          <div>
+            <div className="ticketamount">
+              <p>{totalTents}</p>
+              <p>Green Camping fee </p>
+            </div>
+            <div className="ticketpay">
+              <p>{totalTents} X 249 </p>
+              <p>{totalGreenCamping} DKK</p>
+            </div>
           </div>
         ) : null}
         <div className="camparea">
