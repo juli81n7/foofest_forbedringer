@@ -7,6 +7,9 @@
 }
 
 @media (max-width: 800px) {
+  .formcontainerCheckout {
+    padding: 1rem;
+  }
   .formcontainerCheckout input.submitBtn {
     margin-top: 2rem;
     grid-column: 1/-1;
