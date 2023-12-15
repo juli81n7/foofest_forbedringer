@@ -113,11 +113,11 @@ export default function FinalCheckout({}) {
         <div className="formgrid">
           <div className="inputlayout">
             <label htmlFor="firstName">First name</label>
-            <input {...register("firstName", { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="firstname" />
+            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname">Last name</label>
-            <input {...register("lastName", { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="lastname" />
+            <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" />
           </div>
 
           <div className="inputlayout">
@@ -135,7 +135,7 @@ export default function FinalCheckout({}) {
                 required: true,
               })}
               type="date"
-              min="2000-01-01"
+              min="2023-01-01"
               max="2100-12-12"
               id="expireDate"
             />
