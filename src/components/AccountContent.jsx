@@ -40,7 +40,7 @@ function Account({ schedule, bands }) {
     }
 
     fetchAllUsers();
-  }, [user]);
+  }, [userState]);
 
   async function PostLogin() {
     let headersList = {
@@ -73,7 +73,9 @@ function Account({ schedule, bands }) {
       setUserStatus("Email already taken.");
     } else {
       toggleCreateLogin();
-      setUser(data[0]);
+      userDispatch(data[0]);
+      console.log("User:", userState);
+      console.log("Det samme:", data[0]);
       return data;
     }
   }
@@ -344,7 +346,7 @@ function Account({ schedule, bands }) {
             <section className="your-program">
               <h2>Your program</h2>
               <div className="program-flex">
-                {userState.likedArtists.length>0 ? (
+                {userState.likedArtists.length > 0 ? (
                   <Calender personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
                 ) : (
                   <article className="no-tickets">
