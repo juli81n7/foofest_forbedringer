@@ -99,13 +99,23 @@ export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePe
             </div>
           </div>
         ) : null}
+        <div>
+          <div className="ticketamount">
+            <p>1</p>
+            <p>Booking fee</p>
+          </div>
+          <div className="ticketpay">
+            <p>99 DKK</p>
+            <p>99 DKK</p>
+          </div>
+        </div>
         <div className="camparea">
           <p>Camping area</p>
           <h3>{state.campingArea}</h3>
         </div>
         <div className="totalprice">
           <p>Total price</p>
-          <p>{state.regular * 799 + state.vip * 1299 + (state.crewSetup ? totalTentsCrewPrice : null) + (state.greenCamping ? totalGreenCamping : null)} DKK</p>
+          <p>{state.regular * 799 + state.vip * 1299 + (state.crewSetup ? totalTentsCrewPrice : null) + (state.greenCamping ? totalGreenCamping : null) + 99} DKK</p>
         </div>
       </div>
     </div>
