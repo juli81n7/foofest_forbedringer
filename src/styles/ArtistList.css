@@ -25,6 +25,9 @@
   & p {
     max-width: 25ch;
   }
+  & h3 {
+    margin-bottom: 0.5rem;
+  }
 
   @media (width<800px) {
     padding-bottom: 1rem;
