@@ -29,6 +29,8 @@ setBuyFlow("ændret")
 
     async function Patch(id, body) {
 
+
+
       let headersList = {
         Accept: "*/*",
         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
@@ -82,8 +84,7 @@ setBuyFlow("ændret")
       });
 
 
-
-      console.log("MINE DATA",submitDataParticipant)
+      console.log("MINE tickets",userContext.tickets)
       Patch(userContext.id, userContext.tickets);
       console.log("DER ER PATCHET NU")
       timer.timeRunning = false;
