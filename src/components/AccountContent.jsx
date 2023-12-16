@@ -23,6 +23,86 @@ function Account({ schedule, bands }) {
   const userDispatch = useContext(SetUserContext);
 
   useEffect(() => {
+    if(userState){
+  
+        
+      
+      
+      async function fetchAllUsers() {
+        let headersList = {
+          Accept: "*/*",
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+          Prefer: "return=representation",
+        };
+    
+        let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+          method: "GET",
+          headers: headersList,
+        });
+    
+    
+    
+        const allUsersInfo = await response.json();
+        console.log("allusers",allUsersInfo)
+        console.log(userState.id)
+        const myUser = allUsersInfo.find((account) => account.id === userState.id)
+        console.log("MYUSERINFO",myUser)
+    userDispatch(myUser);
+        return allUsersInfo;
+      }
+      
+      
+     
+    fetchAllUsers()
+    
+    
+          }
+      
+      else if(sessionStorage.getItem("userlogin")){
+  
+        
+      
+      
+        async function fetchAllUsers() {
+          let headersList = {
+            Accept: "*/*",
+            apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+            Prefer: "return=representation",
+          };
+      
+          let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+            method: "GET",
+            headers: headersList,
+          });
+      
+      
+      
+          const allUsersInfo = await response.json();
+          console.log("allusers",allUsersInfo)
+          const userasjson =JSON.parse(sessionStorage.getItem("userlogin"));
+          console.log(userasjson.id)
+          const myUser = allUsersInfo.find((account) => account.id === userasjson.id)
+          console.log("MYUSERINFO",myUser)
+      setAllUsers(myUser);
+      userDispatch(myUser);
+          return allUsersInfo;
+        }
+        
+        
+       
+      fetchAllUsers()
+      
+      
+      
+      
+        
+      
+          }
+        },[])
+  
+  
+  
+  useEffect(() => {
     async function fetchAllUsers() {
       let headersList = {
         Accept: "*/*",
