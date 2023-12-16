@@ -28,11 +28,7 @@ export default function FinalCheckout({}) {
     console.log("MIN USER CONTEXT", userContext);
 
     if (!userContext) {
-      timer((old) => ({
-        ...old,
-        time: 300,
-        timeRunning: true,
-      }));
+
 
       basket({
         regular: 0,
@@ -104,6 +100,10 @@ export default function FinalCheckout({}) {
 
     console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD", isordered);
   };
+
+
+
+  
 
   return (
     <div className="formcontainerCheckout">

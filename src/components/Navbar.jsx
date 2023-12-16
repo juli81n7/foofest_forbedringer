@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useContext } from "react";
 import "../styles/Navbar.css";
-import { ThemeContext, ValueContext, setThemeContext, TimerContext, SetTimerContext } from "./MyContext";
+import { ThemeContext, ValueContext, setThemeContext, TimerContext, SetTimerContext, OrderStatus } from "./MyContext";
 import MyTimer from "./MyTimer";
 
 function Navbar() {
@@ -12,7 +12,7 @@ function Navbar() {
   const [active, setactive] = useState(false);
   const [lightMode, setLightMode] = useState(state);
   const ticketState = useContext(ValueContext);
-
+const isOrdered = useContext(OrderStatus)
   const timerState = useContext(TimerContext);
 
   const seconds = 300;
@@ -301,8 +301,8 @@ function Navbar() {
                 </svg>
               </div>
             </div>
-
-            <MyTimer expiryTimestamp={expiryTimestamp} />
+{!isOrdered?      <MyTimer expiryTimestamp={expiryTimestamp} /> : null}
+       
             <div className="basketContainer">
               <Link href={"/Basket"}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" className="bi bi-cart-fill" viewBox="0 0 16 16">
