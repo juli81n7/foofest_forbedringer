@@ -15,25 +15,24 @@ export default function FinalCheckout({}) {
   const [submitData, setSubmitData] = useState([]);
   const timer = useContext(SetTimerContext);
   const dispatchOrder = useContext(SetOrderStatus);
-  const isordered = useContext(OrderStatus)
+  const isordered = useContext(OrderStatus);
 
   const onSubmit = (data) => {
     console.log(data);
     setSubmitData((prevData) => [...prevData, data]);
 
     const fulfill = fulfillReservation(reserveContext.id);
-    
+
     console.log(fulfill);
-    console.log("MIN USER CONTEXT",userContext);
+    console.log("MIN USER CONTEXT", userContext);
 
-
-    if(!userContext){
+    if (!userContext) {
       timer((old) => ({
         ...old,
         time: 300,
         timeRunning: true,
       }));
-      
+
       basket({
         regular: 0,
         vip: 0,
@@ -47,9 +46,7 @@ export default function FinalCheckout({}) {
         checkoutPush: false,
       });
       dispatchOrder(true);
-    }
-
-    else if (userContext) {
+    } else if (userContext) {
       async function Patch(id, body) {
         console.log("Det her prøver jeg at gøre", body);
         let headersList = {
@@ -57,17 +54,17 @@ export default function FinalCheckout({}) {
           apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
           "Content-Type": "application/json",
         };
-  
+
         let objectForPatch = { tickets: body };
-  
+
         let bodyContent = JSON.stringify(objectForPatch);
-  
+
         let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
           method: "PATCH",
           body: bodyContent,
           headers: headersList,
         });
-  
+
         let data = await response.text();
         console.log("MIN RESPONS", data);
       }
@@ -88,7 +85,7 @@ export default function FinalCheckout({}) {
       Patch(userContext.id, userContext.tickets);
       console.log(userContext);
       timer.timeRunning = false;
-      
+
       basket({
         regular: 0,
         vip: 0,
@@ -103,8 +100,8 @@ export default function FinalCheckout({}) {
       });
       dispatchOrder(true);
     }
-    
-    console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD",isordered)
+
+    console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD", isordered);
   };
 
   return (
@@ -112,24 +109,34 @@ export default function FinalCheckout({}) {
       <div className="formline">
         <div className="formgrid">
           <div className="inputlayout">
-            <label htmlFor="firstName">First name</label>
+            <label htmlFor="firstName" className="error">
+              First name
+            </label>
             <input {...register("firstName", { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="lastname">Last name</label>
+            <label htmlFor="lastname" className="error">
+              Last name
+            </label>
             <input {...register("lastName", { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="lastname" />
           </div>
 
           <div className="inputlayout">
-            <label htmlFor="cardnr.">Card nr.</label>
+            <label htmlFor="cardnr." className="error">
+              Card nr.
+            </label>
             <input {...register("cardnr.", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnr." />
           </div>
           <div className="inputlayout">
-            <label htmlFor="Regnr.">Reg nr.</label>
+            <label htmlFor="Regnr." className="error">
+              Reg nr.
+            </label>
             <input {...register("Regnr.", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="Regnr." />
           </div>
           <div className="inputlayout">
-            <label htmlFor="expireDate">Date of card expiration</label>
+            <label htmlFor="expireDate" className="error">
+              Date of card expiration
+            </label>
             <input
               {...register("expireDate", {
                 required: true,
@@ -141,7 +148,9 @@ export default function FinalCheckout({}) {
             />
           </div>
           <div className="inputlayout">
-            <label htmlFor="cvc">CVC</label>
+            <label htmlFor="cvc" className="error">
+              CVC
+            </label>
             <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} type="text" id="cvc" />
           </div>
         </div>

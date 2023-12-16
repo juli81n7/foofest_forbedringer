@@ -20,8 +20,8 @@ export default function ParticipantInfo({ register, prefix }) {
           <div className="inputlayout">
             <label htmlFor="firstName" className="error">
               First name
-              <input onBlur={fejl} {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="firstname" />
             </label>
+            <input onBlur={fejl} {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-z]+$/i })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error">
