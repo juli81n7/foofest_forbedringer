@@ -20,17 +20,12 @@ export default function FinalCheckout({}) {
   const isordered = useContext(OrderStatus);
 
   const onSubmit = (data) => {
-
     setSubmitData((prevData) => [...prevData, data]);
 
     const fulfill = fulfillReservation(reserveContext.id);
-setBuyFlow("ændret")
-
+    setBuyFlow("ændret");
 
     async function Patch(id, body) {
-
-
-
       let headersList = {
         Accept: "*/*",
         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
@@ -48,7 +43,6 @@ setBuyFlow("ændret")
       });
 
       let data = await response.text();
-
     }
     if (!userContext) {
       basket({
@@ -65,7 +59,6 @@ setBuyFlow("ændret")
       });
       dispatchOrder(true);
     } else if (userContext) {
-     
       Object.keys(submitDataParticipant).map((each) => {
         if (each.startsWith("VIP")) {
           submitDataParticipant[each].type = "VIP";
@@ -74,16 +67,13 @@ setBuyFlow("ændret")
         }
         submitDataParticipant[each].area = state.campingArea;
         submitDataParticipant[each].date = "All year";
-        
+
         setUserContext((old) => {
-        
           old.tickets.push(submitDataParticipant[each]);
-        
+
           return old;
         });
       });
-
-
 
       Patch(userContext.id, userContext.tickets);
 
@@ -102,15 +92,35 @@ setBuyFlow("ændret")
         checkoutPush: false,
       });
       dispatchOrder(true);
-      
     }
-    
-    
   };
+  const handleKeyDown = (event) => {
+    // Tillad kun bogstaver, mellemrum, komma og punktum
+    const allowedChars = /^[A-Za-zæøåÆØÅ\s.,]+$/i;
+    const allowedNumbers = /^[0-9]+$/i;
 
+    if (!allowedChars.test(event.key)) {
+      event.preventDefault();
+    }
+  };
+  const handleKeyDownNumber = (event) => {
+    // Tillad kun bogstaver, mellemrum, komma, punktum, sletning, tab og Ctrl+R
+    const allowedNumbers = /^[0-9]+$/i;
 
-
-  
+    // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46)
+    // Tillad tab (9) og Ctrl+R (82)
+    if (
+      !(
+        (
+          allowedNumbers.test(event.key) ||
+          [8, 46, 9].includes(event.keyCode) || // Backspace, Delete, Tab
+          (event.ctrlKey && event.keyCode === 82)
+        ) // Ctrl+R
+      )
+    ) {
+      event.preventDefault();
+    }
+  };
 
   return (
     <div className="formcontainerCheckout">
@@ -121,26 +131,26 @@ setBuyFlow("ændret")
             <label htmlFor="firstName" className="error">
               First name
             </label>
-            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="firstname" />
+            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i })} type="text" id="firstname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error">
               Last name
             </label>
-            <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" />
+            <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" onKeyDown={handleKeyDown} />
           </div>
 
           <div className="inputlayout">
             <label htmlFor="cardnr." className="error">
               Card nr.
             </label>
-            <input {...register("cardnr.", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnr." />
+            <input {...register("cardnr.", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnr." onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
             <label htmlFor="Regnr." className="error">
               Reg nr.
             </label>
-            <input {...register("Regnr.", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="Regnr." />
+            <input {...register("Regnr.", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="Regnr." onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
             <label htmlFor="expireDate" className="error">
@@ -149,10 +159,21 @@ setBuyFlow("ændret")
             <input
               {...register("expireDate", {
                 required: true,
+                validate: (value) => {
+                  const selectedDate = new Date(value);
+                  const minDate = new Date("2023-01-01");
+                  const maxDate = new Date("2028-12-12");
+
+                  if (selectedDate < minDate || selectedDate > maxDate) {
+                    return "Udløbsdatoen skal være mellem 2023-01-01 og 2028-12-12";
+                  }
+
+                  return true;
+                },
               })}
               type="date"
               min="2023-01-01"
-              max="2100-12-12"
+              max="2028-12-12"
               id="expireDate"
             />
           </div>
@@ -160,7 +181,7 @@ setBuyFlow("ændret")
             <label htmlFor="cvc" className="error">
               CVC
             </label>
-            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" />
+            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" onKeyDown={handleKeyDownNumber} />
           </div>
         </div>
         <div className="btngrid">
