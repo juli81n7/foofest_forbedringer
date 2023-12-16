@@ -28,8 +28,6 @@ export default function FinalCheckout({}) {
     console.log("MIN USER CONTEXT", userContext);
 
     if (!userContext) {
-
-
       basket({
         regular: 0,
         vip: 0,
@@ -101,10 +99,6 @@ export default function FinalCheckout({}) {
     console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD", isordered);
   };
 
-
-
-  
-
   return (
     <div className="formcontainerCheckout">
       <h1>Payment</h1>
@@ -120,15 +114,21 @@ export default function FinalCheckout({}) {
           </div>
 
           <div className="inputlayout">
-            <label htmlFor="cardnr.">Card nr.</label>
+            <label htmlFor="cardnr." className="error">
+              Card nr.
+            </label>
             <input {...register("cardnr.", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnr." />
           </div>
           <div className="inputlayout">
-            <label htmlFor="Regnr.">Reg nr.</label>
+            <label htmlFor="Regnr." className="error">
+              Reg nr.
+            </label>
             <input {...register("Regnr.", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="Regnr." />
           </div>
           <div className="inputlayout">
-            <label htmlFor="expireDate">Date of card expiration</label>
+            <label htmlFor="expireDate" className="error">
+              Date of card expiration
+            </label>
             <input
               {...register("expireDate", {
                 required: true,
