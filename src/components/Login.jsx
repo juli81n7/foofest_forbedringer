@@ -77,7 +77,7 @@ function go (){
     let data = await response.json();
 
     if (data.code === "23505") {
-      console.log("Email already taken.");
+
       setUserStatus("Email already taken.");
     } else {
       toggleCreateLogin();
@@ -146,7 +146,7 @@ function go (){
       sessionStorage.setItem("userlogin", JSON.stringify(userObject));
     } else {
       setUserStatus("Email or password is incorrect.");
-      console.log("Email or password is incorrect.");
+
     }
   }
 
@@ -157,7 +157,7 @@ function go (){
       PostLogin();
     } else {
       setUserStatus("Email already taken.");
-      console.log("Email or password is incorrect.");
+
     }
   }
 

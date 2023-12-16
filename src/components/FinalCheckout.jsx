@@ -74,19 +74,19 @@ setBuyFlow("ændret")
         }
         submitDataParticipant[each].area = state.campingArea;
         submitDataParticipant[each].date = "All year";
-        console.log("HVER ENKELT TICKET",  submitDataParticipant[each]);
+        
         setUserContext((old) => {
-          console.log("min ticket som bliver pushed",submitDataParticipant[each])
+        
           old.tickets.push(submitDataParticipant[each]);
-          console.log("DETTE ER DET JEG PUTTER I StateContext",old)
+        
           return old;
         });
       });
 
 
-      console.log("MINE tickets",userContext.tickets)
+
       Patch(userContext.id, userContext.tickets);
-      console.log("DER ER PATCHET NU")
+
       timer.timeRunning = false;
 
       basket({

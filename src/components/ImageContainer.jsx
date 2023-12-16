@@ -7,7 +7,7 @@ function ImageContainer(props) {
   const mySchedule = props.schedule;
 
   let myImage = props.selectedBand.logo;
-  console.log("hahahahahaha", myImage);
+
   let billedeSti;
   const myrand = Math.random();
   function randomIntFromInterval(min, max) {

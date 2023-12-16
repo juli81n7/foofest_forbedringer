@@ -13,12 +13,12 @@ export default function Participants({ setToggleCheckout }) {
 
   const onSubmit = async (data) => {
     // Hent den aktuelle submitData fra konteksten
-    console.log(data);
+
     // Opdater submitData i konteksten
     setSubmitDataContext(data);
 
     // Log den opdaterede submitData
-    console.log("her er data i state", data);
+
 
     // Ekstra logik eller opdatering af state kan tilføjes her
 

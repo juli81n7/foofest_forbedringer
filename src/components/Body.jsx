@@ -18,7 +18,7 @@ null
     }
 
 else if(sessionStorage.getItem("userlogin")){
-    console.log("DER FINDES EN USER I sessionStorage")
+
   
 
 
@@ -37,11 +37,11 @@ else if(sessionStorage.getItem("userlogin")){
 
 
     const allUsersInfo = await response.json();
-    console.log("allusers",allUsersInfo)
+
     const userasjson =JSON.parse(sessionStorage.getItem("userlogin"));
-    console.log(userasjson.id)
+    
     const myUser = allUsersInfo.find((account) => account.id === userasjson.id)
-    console.log("MYUSERINFO",myUser)
+    
 setAllUsers(myUser);
 dispatchUser(myUser);
     return allUsersInfo;
@@ -64,7 +64,7 @@ fetchAllUsers()
     const state = useContext(ThemeContext);
 const dispatch = useContext(setThemeContext);
   
-console.log("Theme State in RootLayout:", state);
+
 
   return (
     <body data-theme={state?"light":"dark"}>

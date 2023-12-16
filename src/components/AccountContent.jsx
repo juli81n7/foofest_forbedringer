@@ -43,10 +43,10 @@ function Account({ schedule, bands }) {
     
     
         const allUsersInfo = await response.json();
-        console.log("allusers",allUsersInfo)
-        console.log(userState.id)
+
+
         const myUser = allUsersInfo.find((account) => account.id === userState.id)
-        console.log("MYUSERINFO",myUser)
+
     userDispatch(myUser);
         return allUsersInfo;
       }
@@ -78,11 +78,11 @@ function Account({ schedule, bands }) {
       
       
           const allUsersInfo = await response.json();
-          console.log("allusers",allUsersInfo)
+
           const userasjson =JSON.parse(sessionStorage.getItem("userlogin"));
-          console.log(userasjson.id)
+
           const myUser = allUsersInfo.find((account) => account.id === userasjson.id)
-          console.log("MYUSERINFO",myUser)
+
       setAllUsers(myUser);
       userDispatch(myUser);
           return allUsersInfo;
@@ -151,13 +151,13 @@ function Account({ schedule, bands }) {
     let data = await response.json();
 
     if (data.code === "23505") {
-      console.log("Email already taken.");
+
       setUserStatus("Email already taken.");
     } else {
       toggleCreateLogin();
       userDispatch(data[0]);
-      console.log("User:", userState);
-      console.log("Det samme:", data[0]);
+
+
       return data;
     }
   }
@@ -223,7 +223,7 @@ function Account({ schedule, bands }) {
       sessionStorage.setItem("userlogin", JSON.stringify(userObject));
     } else {
       setUserStatus("Email or password is incorrect.");
-      console.log("Email or password is incorrect.");
+
     }
   }
 
@@ -234,7 +234,7 @@ function Account({ schedule, bands }) {
       PostLogin();
     } else {
       setUserStatus("Email already taken.");
-      console.log("Email or password is incorrect.");
+
     }
   }
 

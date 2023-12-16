@@ -14,11 +14,11 @@ function LikeBtn(props) {
 
   useEffect(() => {
     if (SupabaseAccount) {
-      console.log("SUPABASE", SupabaseAccount);
+
       lists = SupabaseAccount.likedArtists;
-      console.log("mylist", lists);
+
       const likedEvent = lists.find((item) => item.name === props.name);
-      console.log("Likked", likedEvent);
+
 
       setLike(likedEvent ? true : false);
     } else {
@@ -30,7 +30,7 @@ function LikeBtn(props) {
   }, [props.name]);
 
   async function Patch(id, body) {
-    console.log("Det her prøver jeg at gøre", body);
+
     let headersList = {
       Accept: "*/*",
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
@@ -48,7 +48,7 @@ function LikeBtn(props) {
     });
 
     let data = await response.text();
-    console.log("MIN RESPONS", data);
+
   }
 
   function toggleLike() {
@@ -68,7 +68,7 @@ function LikeBtn(props) {
         Patch(SupabaseAccount.id, lists);
         SupabaseAccount.likedArtists = lists;
         userDispatch(SupabaseAccount);
-        console.log(SupabaseAccount);
+
       } else {
         lists.push({ name: props.name });
         // patch til supabase
@@ -76,7 +76,7 @@ function LikeBtn(props) {
         Patch(SupabaseAccount.id, lists);
         SupabaseAccount.likedArtists = lists;
         userDispatch(SupabaseAccount);
-        console.log(SupabaseAccount);
+
       }
     } else if (localStorage.getItem("liked")) {
       lists = JSON.parse(localStorage.getItem("liked"));

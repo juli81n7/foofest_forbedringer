@@ -33,11 +33,11 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
   async function reserve() {
     const reserveResponse = await ReserveSpot(state.campingArea, totalTentSpots);
     reserveDispatch(reserveResponse);
-    console.log(reserveResponse);
-    console.log("halløj", reserveState);
+
+
 
     if (reserveResponse.error) {
-      console.log("You must choose at least one ticket and a campin area.");
+      
       return;
     } else {
       startTimer();
@@ -46,16 +46,16 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
 
   function basket() {
     if ((!state.campingArea && totalTentSpots) || (!totalTentSpots && state.campingArea)) {
-      console.log("error!!!");
+
       setButtonError(true);
       return;
     } else if (state.regular + state.vip) {
       
       dispatchOrderStatus(false)
-console.log("MY ORDER STATUS",orderStatusState)
+
       handleAddToBasket();
 if(state.campingArea && totalTentSpots){
-  console.log("KJSDHFKJHSDKJHFSD")
+
       handleAddToBasket();
       reserve();
 }
@@ -65,16 +65,16 @@ if(state.campingArea && totalTentSpots){
 
   function buy() {
     if ((!state.campingArea && totalTentSpots) || (!totalTentSpots && state.campingArea)) {
-      console.log("error!!!");
+
       setButtonError(true);
       return;
     } else if (state.regular + state.vip) {
       dispatchOrderStatus(false)
-console.log("MY ORDER STATUS",orderStatusState)
+
       setToggleParticipant();
       handleAddToBasket();
       if(state.campingArea && totalTentSpots){
-        console.log("KJSDHFKJHSDKJHFSD")
+
             handleAddToBasket();
             reserve();
       

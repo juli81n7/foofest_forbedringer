@@ -18,7 +18,7 @@ const usercontext = useContext(UserContext)
 const continueState = useContext(ContinueContext)
 const isordered = useContext(OrderStatus)
 
-console.log("FRA TICKET",continueState)
+
   return (
     <div>
       {toggleParticipant === false ? (

@@ -12,7 +12,7 @@ function ChooseTicket({ showError, setShowError, setShowErrorTent }) {
       if (copy.regular === 0) {
         return copy;
       } else if (copy.regular + copy.vip <= totalTentSpots) {
-        console.log(totalTentSpots);
+
         setShowError(true);
         return copy;
       } else {
@@ -31,13 +31,13 @@ function ChooseTicket({ showError, setShowError, setShowErrorTent }) {
     });
   }
   function reduceVipTickets() {
-    console.log(totalTentSpots);
+
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
       if (copy.vip + copy.regular === 0) {
         return copy;
       } else if (copy.vip + copy.regular <= totalTentSpots) {
-        console.log(totalTentSpots);
+
         setShowError(true);
         return copy;
       } else {

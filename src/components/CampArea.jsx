@@ -27,7 +27,7 @@ function CampArea({ areaName, status, selectedArea, onAreaSelect }) {
 
   const handleChange = () => {
     onAreaSelect(areaName);
-    // console.log(areaName);
+
   };
 
   return (

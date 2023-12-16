@@ -15,7 +15,7 @@ export async function ReserveSpot(chosenArea, chosenAmount) {
   });
 
   let data = await response.json();
-  console.log(data);
+
   return data;
 }
 

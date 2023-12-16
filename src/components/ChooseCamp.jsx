@@ -19,12 +19,12 @@ function ChooseCamp({ spots, setSpots, setButtonError }) {
   }, [setSpots]);
 
   const onAreaSelect = (area) => {
-    console.log(area); // Log the current area
+
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
       copy.campingArea = area;
       setButtonError(false);
-      console.log(copy.campingArea);
+
       return copy;
     });
   };

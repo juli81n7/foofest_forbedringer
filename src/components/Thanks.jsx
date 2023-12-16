@@ -9,9 +9,9 @@ import "@/styles/Thanks.css";
 export default function Thanks() {
   const userState = useContext(UserContext);
   const reserveID = useContext(ReserveContext);
-  console.log("Dette er mit reserveID", reserveID)
+
   const orderState = useContext(OrderStatus);
-  console.log(userState);
+
   return (
     <>
 
