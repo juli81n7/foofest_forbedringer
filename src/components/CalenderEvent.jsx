@@ -23,12 +23,6 @@ function CalenderEvent(props) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  if (myImage.startsWith("https")) {
-    //  myImage = "https://source.unsplash.com/random/1300×500/?experimental?random="+randomIntFromInterval(1, 500)
-    myImage = myImage;
-  } else {
-    myImage = "http://localhost:8080/logos/" + myImage;
-  }
 
   useEffect(() => {
     // Load liked events from localStorage on mount

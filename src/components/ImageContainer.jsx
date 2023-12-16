@@ -15,12 +15,6 @@ function ImageContainer(props) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  if (myImage.startsWith("https")) {
-    billedeSti = "https://source.unsplash.com/random/2000×1000/?bands?random=" + randomIntFromInterval(1, 500);
-  } else {
-    billedeSti = process.env.NEXT_PUBLIC_HOST + "/logos/" + myImage;
-    console.log("noget some er ***********", billedeSti);
-  }
   return (
     <div className="imagecontainer">
       {props.credits ? (

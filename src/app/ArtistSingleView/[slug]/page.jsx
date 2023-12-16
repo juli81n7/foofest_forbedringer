@@ -95,24 +95,6 @@ export default function page({ params }) {
     });
   });
 
-  foundObjectsForGenre.map((obj) => {
-    if (obj.band.logo.startsWith("https")) {
-      obj.band.logo = obj.band.logo;
-    } else {
-      obj.band.logo = process.env.NEXT_PUBLIC_HOST + "/logos/" + obj.band.logo;
-    }
-  });
-
-  // sameDayBands.map((obj) => {
-  //   if (obj.band.logo.startsWith("https")) {
-  //     obj.band.logo = obj.band.logo;
-  //   } else {
-  //     console.log("YOOOOOOOOO", obj.band.logo);
-  //     obj.band.logo = process.env.NEXT_PUBLIC_HOST + "/logos/" + obj.band.logo;
-  //     console.log("hejsa", obj.band.logo);
-  //   }
-  // });
-
   return (
     <div className={foundObjects.stage.toLowerCase()}>
       <div className="likeBtnContainer">
