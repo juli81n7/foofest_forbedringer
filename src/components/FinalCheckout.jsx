@@ -105,11 +105,15 @@ export default function FinalCheckout({}) {
       <div className="formline">
         <div className="formgrid">
           <div className="inputlayout">
-            <label htmlFor="firstName">First name</label>
+            <label htmlFor="firstName" className="error">
+              First name
+            </label>
             <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="lastname">Last name</label>
+            <label htmlFor="lastname" className="error">
+              Last name
+            </label>
             <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" />
           </div>
 
@@ -140,7 +144,9 @@ export default function FinalCheckout({}) {
             />
           </div>
           <div className="inputlayout">
-            <label htmlFor="cvc">CVC</label>
+            <label htmlFor="cvc" className="error">
+              CVC
+            </label>
             <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" />
           </div>
         </div>
