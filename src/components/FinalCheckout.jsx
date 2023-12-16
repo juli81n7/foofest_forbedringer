@@ -49,8 +49,6 @@ setBuyFlow("ændret")
 
     }
     if (!userContext) {
-
-
       basket({
         regular: 0,
         vip: 0,
@@ -108,9 +106,9 @@ setBuyFlow("ændret")
     
     
   };
-  
-  
- 
+
+
+
   
 
   return (
@@ -119,24 +117,34 @@ setBuyFlow("ændret")
       <div className="formline">
         <div className="formgrid">
           <div className="inputlayout">
-            <label htmlFor="firstName">First name</label>
+            <label htmlFor="firstName" className="error">
+              First name
+            </label>
             <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="lastname">Last name</label>
+            <label htmlFor="lastname" className="error">
+              Last name
+            </label>
             <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" />
           </div>
 
           <div className="inputlayout">
-            <label htmlFor="cardnr.">Card nr.</label>
+            <label htmlFor="cardnr." className="error">
+              Card nr.
+            </label>
             <input {...register("cardnr.", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnr." />
           </div>
           <div className="inputlayout">
-            <label htmlFor="Regnr.">Reg nr.</label>
+            <label htmlFor="Regnr." className="error">
+              Reg nr.
+            </label>
             <input {...register("Regnr.", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="Regnr." />
           </div>
           <div className="inputlayout">
-            <label htmlFor="expireDate">Date of card expiration</label>
+            <label htmlFor="expireDate" className="error">
+              Date of card expiration
+            </label>
             <input
               {...register("expireDate", {
                 required: true,
@@ -148,7 +156,9 @@ setBuyFlow("ændret")
             />
           </div>
           <div className="inputlayout">
-            <label htmlFor="cvc">CVC</label>
+            <label htmlFor="cvc" className="error">
+              CVC
+            </label>
             <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" />
           </div>
         </div>

@@ -9,28 +9,42 @@ export default function ParticipantInfo({ register, prefix }) {
     return now - selected >= 18;
   };
 
+  function fejl() {
+    setNoget(true);
+  }
+
   return (
     <div className="formcontainer">
       <div className="formline">
         <div className="formgrid">
           <div className="inputlayout">
-            <label htmlFor="firstName">First name</label>
+            <label htmlFor="firstName" className="error">
+              First name
+            </label>
             <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i, message: "firstname is required" })} type="text" id="firstname" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="lastname">Last name</label>
+            <label htmlFor="lastname" className="error">
+              Last name
+            </label>
             <input {...register(`${prefix}.lastName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="error">
+              Email
+            </label>
             <input {...register(`${prefix}.email`, { required: true, pattern: /\S+@\S+\.\S+/ })} type="email" id="email" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="phone">phone number</label>
+            <label htmlFor="phone" className="error">
+              phone number
+            </label>
             <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} type="tel" id="phone" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="birth">Date of birth</label>
+            <label htmlFor="birth" className="error">
+              Date of birth
+            </label>
             <input
               {...register(`${prefix}.dob`, {
                 required: true,
@@ -43,7 +57,9 @@ export default function ParticipantInfo({ register, prefix }) {
             />
           </div>
           <div className="inputlayout">
-            <label htmlFor="address">Address</label>
+            <label htmlFor="address" className="error">
+              Address
+            </label>
             <input {...register(`${prefix}.address`, { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="address" />
           </div>
         </div>
