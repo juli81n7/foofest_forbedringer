@@ -156,7 +156,7 @@ export default function page({ params }) {
                 <LikeBtn name={myband.band.name} color="orange" />
               </div>
               <Link href={myband.band.slug}>
-                <Image width={720} height={480} src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></Image>
+                <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name}></Image>
               </Link>
               <Link href={myband.band.slug}>
                 <div className="recommended-artist">
@@ -176,7 +176,7 @@ export default function page({ params }) {
                 <LikeBtn name={myband.band.name} color="orange" />
               </div>
               <Link href={myband.band.slug}>
-                <Image width={720} height={480} src={myband.band.logo} alt="Picture of the very well known hiphop artist group, unknown artist"></Image>
+                <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name}></Image>
               </Link>
               <Link href={myband.band.slug}>
                 <div className="recommended-artist">

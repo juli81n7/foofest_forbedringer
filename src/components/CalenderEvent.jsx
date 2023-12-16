@@ -66,7 +66,7 @@ function CalenderEvent(props) {
     <div className={`event start${start} end${end}`}>
       <Link href={`ArtistSingleView/${props.slug}`}>
         <div className="img_container">
-          <Image width={720} height={480} src={myImage} alt="" />
+          <Image width={720} height={480} src={myImage} alt={props.name} />
         </div>
       </Link>
 
