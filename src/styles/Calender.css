@@ -206,7 +206,7 @@ main {
   position: relative;
   background-color: white;
   z-index: 2;
-  opacity: 101%;
+  opacity: 100%;
   display: grid;
   grid-template-columns: 150px auto;
   box-sizing: border-box;
