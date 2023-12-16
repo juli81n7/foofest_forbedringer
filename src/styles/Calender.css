@@ -205,9 +205,8 @@ main {
 .event {
   position: relative;
   background-color: white;
-
   z-index: 2;
-  opacity: 100%;
+  opacity: 101%;
   display: grid;
   grid-template-columns: 150px auto;
   box-sizing: border-box;
