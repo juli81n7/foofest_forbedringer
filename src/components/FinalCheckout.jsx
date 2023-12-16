@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext, SetOrderStatus, OrderStatus } from "./MyContext";
 import "@/styles/ParticipantInfo.css";
@@ -14,19 +14,40 @@ export default function FinalCheckout({}) {
   const submitDataParticipant = useContext(SubmitData);
   const { register, handleSubmit } = useForm();
   const [submitData, setSubmitData] = useState([]);
+  const [buyFlow, setBuyFlow] = useState(false);
   const timer = useContext(SetTimerContext);
   const dispatchOrder = useContext(SetOrderStatus);
   const isordered = useContext(OrderStatus);
 
   const onSubmit = (data) => {
-    console.log(data);
+
     setSubmitData((prevData) => [...prevData, data]);
 
     const fulfill = fulfillReservation(reserveContext.id);
+setBuyFlow("ændret")
 
-    console.log(fulfill);
-    console.log("MIN USER CONTEXT", userContext);
 
+    async function Patch(id, body) {
+
+      let headersList = {
+        Accept: "*/*",
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+        "Content-Type": "application/json",
+      };
+
+      let objectForPatch = { tickets: body };
+
+      let bodyContent = JSON.stringify(objectForPatch);
+
+      let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
+        method: "PATCH",
+        body: bodyContent,
+        headers: headersList,
+      });
+
+      let data = await response.text();
+
+    }
     if (!userContext) {
 
 
@@ -44,27 +65,7 @@ export default function FinalCheckout({}) {
       });
       dispatchOrder(true);
     } else if (userContext) {
-      async function Patch(id, body) {
-        console.log("Det her prøver jeg at gøre", body);
-        let headersList = {
-          Accept: "*/*",
-          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
-          "Content-Type": "application/json",
-        };
-
-        let objectForPatch = { tickets: body };
-
-        let bodyContent = JSON.stringify(objectForPatch);
-
-        let response = await fetch(`https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info?id=eq.${id}`, {
-          method: "PATCH",
-          body: bodyContent,
-          headers: headersList,
-        });
-
-        let data = await response.text();
-        console.log("MIN RESPONS", data);
-      }
+     
       Object.keys(submitDataParticipant).map((each) => {
         if (each.startsWith("VIP")) {
           submitDataParticipant[each].type = "VIP";
@@ -73,14 +74,20 @@ export default function FinalCheckout({}) {
         }
         submitDataParticipant[each].area = state.campingArea;
         submitDataParticipant[each].date = "All year";
-        console.log(each);
+        console.log("HVER ENKELT TICKET",  submitDataParticipant[each]);
         setUserContext((old) => {
+          console.log("min ticket som bliver pushed",submitDataParticipant[each])
           old.tickets.push(submitDataParticipant[each]);
+          console.log("DETTE ER DET JEG PUTTER I StateContext",old)
           return old;
         });
       });
+
+
+
+      console.log("MINE DATA",submitDataParticipant)
       Patch(userContext.id, userContext.tickets);
-      console.log(userContext);
+      console.log("DER ER PATCHET NU")
       timer.timeRunning = false;
 
       basket({
@@ -96,13 +103,14 @@ export default function FinalCheckout({}) {
         checkoutPush: false,
       });
       dispatchOrder(true);
+      
     }
-
-    console.log("SKJDFHKJSDHFJKSDHFKJHSDFJKHSDJKFHSDKJFHJKDSFHKJFSHDJFHSDJKHFSD", isordered);
+    
+    
   };
-
-
-
+  
+  
+ 
   
 
   return (

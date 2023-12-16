@@ -1,6 +1,6 @@
 "use client";
 import { useContext, useState } from "react";
-import { StateContext, ValueContext, TimerContext, SetTimerContext, ReserveContext, SetReserveContext } from "./MyContext";
+import { StateContext, ValueContext, TimerContext, SetTimerContext, ReserveContext, SetReserveContext, SetOrderStatus, OrderStatus } from "./MyContext";
 import { ReserveSpot } from "@/app/ticketData";
 import "../styles/CheckoutOptions.css";
 
@@ -11,6 +11,8 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
   const dispatchTimer = useContext(SetTimerContext);
   const reserveState = useContext(ReserveContext);
   const reserveDispatch = useContext(SetReserveContext);
+  const dispatchOrderStatus = useContext(SetOrderStatus)
+  const orderStatusState = useContext(OrderStatus)
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
   function handleAddToBasket() {
@@ -48,6 +50,9 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
       setButtonError(true);
       return;
     } else if (state.regular + state.vip) {
+      
+      dispatchOrderStatus(false)
+console.log("MY ORDER STATUS",orderStatusState)
       handleAddToBasket();
 if(state.campingArea && totalTentSpots){
   console.log("KJSDHFKJHSDKJHFSD")
@@ -64,6 +69,8 @@ if(state.campingArea && totalTentSpots){
       setButtonError(true);
       return;
     } else if (state.regular + state.vip) {
+      dispatchOrderStatus(false)
+console.log("MY ORDER STATUS",orderStatusState)
       setToggleParticipant();
       handleAddToBasket();
       if(state.campingArea && totalTentSpots){

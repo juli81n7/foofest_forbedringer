@@ -43,6 +43,7 @@ function Account({ schedule, bands }) {
     fetchAllUsers();
   }, [userState]);
 
+
   async function PostLogin() {
     let headersList = {
       Accept: "*/*",
@@ -127,6 +128,7 @@ function Account({ schedule, bands }) {
     setShowLogin((prevShowLogin) => !prevShowLogin);
     setUserStatus("");
   };
+
 
   async function login(e) {
     const filteredItems = await allUsers.filter((item) => item.email === email && item.password === password);
