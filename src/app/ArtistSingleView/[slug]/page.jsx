@@ -130,26 +130,27 @@ export default function page({ params }) {
           </section>
         </section>
       </section>
-      <RecommendedList heading={"View more " + selectedBand.genre}>
-        {foundObjectsForGenre.map((myband) => (
-          <div key={myband.band.slug}>
-            <div className="recommended-artist-container" key={myband.band.slug}>
-              <div className="likeBtnContainer">
-                <LikeBtn name={myband.band.name} color="orange" />
-              </div>
-              <Link href={myband.band.slug}>
-                <Image width={720} height={480} src={myband.band.logo.startsWith("http") ? myband.band.logo : process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.band.logo} alt={myband.band.name}></Image>
-              </Link>
-              <Link href={myband.band.slug}>
-                <div className="recommended-artist">
-                  <h3>{myband.band.name}</h3>
-                  <p>{myband.bandSchedule.start}</p>
-                </div>
-              </Link>
+      {foundObjectsForGenre.length>0?   <RecommendedList heading={"View more " + selectedBand.genre}>
+      {foundObjectsForGenre.map((myband) => (
+        <div key={myband.band.slug}>
+          <div className="recommended-artist-container" key={myband.band.slug}>
+            <div className="likeBtnContainer">
+              <LikeBtn name={myband.band.name} color="orange" />
             </div>
+            <Link href={myband.band.slug}>
+              <Image width={720} height={480} src={myband.band.logo.startsWith("http") ? myband.band.logo : process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.band.logo} alt={myband.band.name}></Image>
+            </Link>
+            <Link href={myband.band.slug}>
+              <div className="recommended-artist">
+                <h3>{myband.band.name}</h3>
+                <p>{myband.bandSchedule.start}</p>
+              </div>
+            </Link>
           </div>
-        ))}
-      </RecommendedList>
+        </div>
+      ))}
+    </RecommendedList>:null}
+    
       <RecommendedList heading={"What else plays " + foundObjects.writtenDay}>
         {sameDayBands.map((myband) => (
           <div key={myband.band.slug}>
