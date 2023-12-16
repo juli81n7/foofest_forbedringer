@@ -57,8 +57,8 @@ if(props.personalProgram){
 
  {props.day === props.currentDay ? (
   
-    <div  className="now_container" style={{left: `${props.percentageOfDay}%`}}       >
-      <p id="now">Now</p>
+    <div id="now"  className="now_container" style={{left: `${props.percentageOfDay}%`}}       >
+      <p >Now</p>
       <div className="now_line"></div>
   
   </div>

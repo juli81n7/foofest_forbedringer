@@ -275,7 +275,7 @@ const isOrdered = useContext(OrderStatus)
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="/Program#now" onClick={handleBurgerClick}>
+              <Link className="nav-link" href="/Program" onClick={handleBurgerClick}>
                 PROGRAM
               </Link>
             </li>

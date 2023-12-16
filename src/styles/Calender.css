@@ -204,7 +204,7 @@ main {
 
 .event {
   position: relative;
-  background-color: rgb(255, 254, 254);
+  background-color: white;
 
   z-index: 2;
   opacity: 100%;
@@ -369,7 +369,6 @@ main {
   overflow-x: scroll;
   display: flex;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 .now_container {
@@ -388,5 +387,9 @@ main {
     background-color: var(--accent-red);
     height: 100%;
     width: 2px;
+  }
+  & p {
+    padding: 0rem 1rem 0rem 1rem;
+    background-color: var(--bg-color);
   }
 }

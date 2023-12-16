@@ -6,6 +6,7 @@ import CalenderEvent from "./CalenderEvent";
 import FilterBtn from "@/components/FilterBtn";
 import CalenderDay from "./CalenderDay";
 
+
 const dateToday = new Date();
 const weekdayToday = dateToday.getDay();
 const weekdayst = ["Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday"];
@@ -15,14 +16,19 @@ const weekdaystate = weekdayss[weekdayToday];
 
 function Calender(props) {
   const [day, setDay] = useState("weekdaystate");
+
   const [BtnName, setBtnName] = useState(weekdayText);
 
   const [activeSection, setActiveSection] = useState(null);
 
   const [percentageOfDay, setPercentageOfDay] = useState(0);
+ 
+ 
+  
 
+  
   useEffect(() => {
-    // Calculate the percentage of time elapsed in a day
+    // Denne useEffect er skrevet med hjælp af Openais chatGPT of udregner nuværende tidspunkt på dagen en gang ved load i procent
     const currentDate = new Date();
     const totalMinutesInDay = 24 * 60;
     const elapsedMinutesInDay = currentDate.getHours() * 60 + currentDate.getMinutes();
@@ -62,6 +68,7 @@ function Calender(props) {
   }
 
   const handleScroll = () => {
+    // Denne handleScroll er skrevet med hjælp af Openais chatGPT og hjælper os med at registrere hvilken af dagene der er på vist på skærmen det bruger vi til at highlighte dagen i vores filtebtn's
     const container = document.getElementById("myScrollerContainer");
     const sections = document.querySelectorAll(".calenderarea");
 
@@ -70,35 +77,53 @@ function Calender(props) {
     sections.forEach((section) => {
       const sectionRect = section.getBoundingClientRect();
 
-      // Check if at least 50% of the section is visible
+
       if (sectionRect.left <= container.clientWidth / 2 && sectionRect.right >= container.clientWidth / 2) {
         newActiveSection = section.id;
       }
     });
 
-    // Check if the newActiveSection is different from the current activeSection
+
     if (newActiveSection !== activeSection) {
       setActiveSection(newActiveSection);
 
-      // Check if newActiveSection is not null before updating setDay
+
       if (newActiveSection !== null) {
         DaySetter(newActiveSection);
       }
     }
   };
 
-  // Attach the scroll event listener
+  // Denne useEffect er skrevet med hjælp af Openais chatGPT og hjælper os med at lytte på scrolling på myscrollercontainer
   useEffect(() => {
     const container = document.getElementById("myScrollerContainer");
     container.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener on component unmount
+
     return () => {
       container.removeEventListener("scroll", handleScroll);
     };
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
+  
+  
+  
+  useEffect(() => {
+    // Denne useeffect er skrevet med hjælp fra chatgpt og hjælper os med at scrolle vores container med #now id'et det gør den ved
+    // sette scrollSnapType'en på scrollercontaineren til at være x mandatory i og derefter ige at vores id now skal scrolle into view - efter 500 mm sekunder skifter den igen til ikke at have nogen scroll snap type 
+    const containerElement = document.getElementById('myScrollerContainer');
+    const targetElement = document.getElementById('now');
 
-  let myDay = day;
+    if (containerElement && targetElement) {
+      // Snap to the target element
+      containerElement.style.scrollSnapType = 'x mandatory';
+      targetElement.scrollIntoView({  behavior: 'smooth' });
+
+      // After a short delay, reset scroll-snap-type to allow free scrolling
+      setTimeout(() => {
+        containerElement.style.scrollSnapType = '';
+      }, 500); // Adjust the delay as needed
+    }
+  }, []);
 
   let Jotunheim = props.schedule.Jotunheim;
 
@@ -106,8 +131,7 @@ function Calender(props) {
 
   const Vanaheim = props.schedule.Vanaheim;
 
-  if (props.personalProgram) {
-  }
+  
 
   return (
     <main>
