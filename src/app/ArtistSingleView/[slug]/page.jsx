@@ -103,15 +103,15 @@ export default function page({ params }) {
     }
   });
 
-  sameDayBands.map((obj) => {
-    if (obj.band.logo.startsWith("https")) {
-      obj.band.logo = obj.band.logo;
-    } else {
-      console.log("YOOOOOOOOO", obj.band.logo);
-      obj.band.logo = process.env.NEXT_PUBLIC_HOST + "/logos/" + obj.band.logo;
-      console.log("hejsa", obj.band.logo);
-    }
-  });
+  // sameDayBands.map((obj) => {
+  //   if (obj.band.logo.startsWith("https")) {
+  //     obj.band.logo = obj.band.logo;
+  //   } else {
+  //     console.log("YOOOOOOOOO", obj.band.logo);
+  //     obj.band.logo = process.env.NEXT_PUBLIC_HOST + "/logos/" + obj.band.logo;
+  //     console.log("hejsa", obj.band.logo);
+  //   }
+  // });
 
   return (
     <div className={foundObjects.stage.toLowerCase()}>
@@ -156,7 +156,7 @@ export default function page({ params }) {
                 <LikeBtn name={myband.band.name} color="orange" />
               </div>
               <Link href={myband.band.slug}>
-                <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name}></Image>
+                <Image width={720} height={480} src={myband.band.logo.startsWith("http") ? myband.band.logo : process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.band.logo} alt={myband.band.name}></Image>
               </Link>
               <Link href={myband.band.slug}>
                 <div className="recommended-artist">
@@ -176,7 +176,7 @@ export default function page({ params }) {
                 <LikeBtn name={myband.band.name} color="orange" />
               </div>
               <Link href={myband.band.slug}>
-                <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name}></Image>
+                <Image width={720} height={480} src={myband.band.logo.startsWith("http") ? myband.band.logo : process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.band.logo} alt={myband.band.name}></Image>
               </Link>
               <Link href={myband.band.slug}>
                 <div className="recommended-artist">

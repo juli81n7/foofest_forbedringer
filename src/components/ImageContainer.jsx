@@ -31,7 +31,13 @@ function ImageContainer(props) {
         </p>
       ) : null}
 
-      <Image className="myslugimage" src={billedeSti} quality={100} width={1728} height={632} alt={props.selectedBand.name}></Image>
+      <Image
+        className="myslugimage"
+        src={props.selectedBand.logo.startsWith("http") ? props.selectedBand.logo : process.env.NEXT_PUBLIC_HOST + "/logos/" + props.selectedBand.logo}
+        quality={100}
+        width={1728}
+        height={632}
+        alt={props.selectedBand.name}></Image>
 
       <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
         <g id="Layer_1-2" data-name="Layer 1">

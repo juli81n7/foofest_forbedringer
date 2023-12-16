@@ -66,7 +66,7 @@ function CalenderEvent(props) {
     <div className={`event start${start} end${end}`}>
       <Link href={`ArtistSingleView/${props.slug}`}>
         <div className="img_container">
-          <Image width={200} height={200} src={myImage} alt={props.name} />
+          <Image width={200} height={200} src={props.img2.startsWith("http") ? props.img2 : process.env.NEXT_PUBLIC_HOST + "/logos/" + props.img2} alt={props.name} />
         </div>
       </Link>
 
