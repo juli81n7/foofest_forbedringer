@@ -44,6 +44,9 @@ export const NumberProvider = ({ children }) => {
   const [myUser, setMyUser] = useState();
 
   const [darkMode, setDarkmode] = useState(false);
+
+
+  
   const [myTimer, setMyTimer] = useState({
     time: 0,
     timeRunning: false,
