@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import CampArea from "./CampArea";
 import "../styles/ChooseCamp.css";
 import { StateContext, ValueContext } from "./MyContext";
@@ -19,7 +19,6 @@ function ChooseCamp({ spots, setSpots, setButtonError }) {
   }, [setSpots]);
 
   const onAreaSelect = (area) => {
-
     dispatch((old) => {
       const copy = JSON.parse(JSON.stringify(old));
       copy.campingArea = area;

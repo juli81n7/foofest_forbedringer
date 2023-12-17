@@ -3,7 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext, SetUserContext } from "./MyContext";
 import "@/styles/Account.css";
-import TicketCard from "./TicketCard";
+
 import Calender from "./Calender";
 import Link from "next/link";
 
@@ -23,85 +23,56 @@ function Account({ schedule, bands }) {
   const userDispatch = useContext(SetUserContext);
 
   useEffect(() => {
-    if(userState){
-  
-        
-      
-      
+    if (userState) {
       async function fetchAllUsers() {
         let headersList = {
           Accept: "*/*",
           apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
           Prefer: "return=representation",
         };
-    
+
         let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
           method: "GET",
           headers: headersList,
         });
-    
-    
-    
+
         const allUsersInfo = await response.json();
 
+        const myUser = allUsersInfo.find((account) => account.id === userState.id);
 
-        const myUser = allUsersInfo.find((account) => account.id === userState.id)
-
-    userDispatch(myUser);
+        userDispatch(myUser);
         return allUsersInfo;
       }
-      
-      
-     
-    fetchAllUsers()
-    
-    
-          }
-      
-      else if(sessionStorage.getItem("userlogin")){
-  
-        
-      
-      
-        async function fetchAllUsers() {
-          let headersList = {
-            Accept: "*/*",
-            apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
-            Prefer: "return=representation",
-          };
-      
-          let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
-            method: "GET",
-            headers: headersList,
-          });
-      
-      
-      
-          const allUsersInfo = await response.json();
 
-          const userasjson =JSON.parse(sessionStorage.getItem("userlogin"));
+      fetchAllUsers();
+    } else if (sessionStorage.getItem("userlogin")) {
+      async function fetchAllUsers() {
+        let headersList = {
+          Accept: "*/*",
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+          Prefer: "return=representation",
+        };
 
-          const myUser = allUsersInfo.find((account) => account.id === userasjson.id)
+        let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+          method: "GET",
+          headers: headersList,
+        });
 
-      setAllUsers(myUser);
-      userDispatch(myUser);
-          return allUsersInfo;
-        }
-        
-        
-       
-      fetchAllUsers()
-      
-      
-      
-      
-        
-      
-          }
-        },[])
-  
-  
-  
+        const allUsersInfo = await response.json();
+
+        const userasjson = JSON.parse(sessionStorage.getItem("userlogin"));
+
+        const myUser = allUsersInfo.find((account) => account.id === userasjson.id);
+
+        setAllUsers(myUser);
+        userDispatch(myUser);
+        return allUsersInfo;
+      }
+
+      fetchAllUsers();
+    }
+  }, []);
+
   useEffect(() => {
     async function fetchAllUsers() {
       let headersList = {
@@ -122,7 +93,6 @@ function Account({ schedule, bands }) {
 
     fetchAllUsers();
   }, [userState]);
-
 
   async function PostLogin() {
     let headersList = {
@@ -151,12 +121,10 @@ function Account({ schedule, bands }) {
     let data = await response.json();
 
     if (data.code === "23505") {
-
       setUserStatus("Email already taken.");
     } else {
       toggleCreateLogin();
       userDispatch(data[0]);
-
 
       return data;
     }
@@ -209,7 +177,6 @@ function Account({ schedule, bands }) {
     setUserStatus("");
   };
 
-
   async function login(e) {
     const filteredItems = await allUsers.filter((item) => item.email === email && item.password === password);
     e.preventDefault();
@@ -223,7 +190,6 @@ function Account({ schedule, bands }) {
       sessionStorage.setItem("userlogin", JSON.stringify(userObject));
     } else {
       setUserStatus("Email or password is incorrect.");
-
     }
   }
 
@@ -234,7 +200,6 @@ function Account({ schedule, bands }) {
       PostLogin();
     } else {
       setUserStatus("Email already taken.");
-
     }
   }
 

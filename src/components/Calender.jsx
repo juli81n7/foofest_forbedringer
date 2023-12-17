@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import "../styles/Calender.css";
-import CalenderEvent from "./CalenderEvent";
+
 import FilterBtn from "@/components/FilterBtn";
 import CalenderDay from "./CalenderDay";
-
 
 const dateToday = new Date();
 const weekdayToday = dateToday.getDay();
@@ -22,11 +21,7 @@ function Calender(props) {
   const [activeSection, setActiveSection] = useState(null);
 
   const [percentageOfDay, setPercentageOfDay] = useState(0);
- 
- 
-  
 
-  
   useEffect(() => {
     // Denne useEffect er skrevet med hjælp af Openais chatGPT of udregner nuværende tidspunkt på dagen en gang ved load i procent
     const currentDate = new Date();
@@ -77,16 +72,13 @@ function Calender(props) {
     sections.forEach((section) => {
       const sectionRect = section.getBoundingClientRect();
 
-
       if (sectionRect.left <= container.clientWidth / 2 && sectionRect.right >= container.clientWidth / 2) {
         newActiveSection = section.id;
       }
     });
 
-
     if (newActiveSection !== activeSection) {
       setActiveSection(newActiveSection);
-
 
       if (newActiveSection !== null) {
         DaySetter(newActiveSection);
@@ -99,28 +91,25 @@ function Calender(props) {
     const container = document.getElementById("myScrollerContainer");
     container.addEventListener("scroll", handleScroll);
 
-
     return () => {
       container.removeEventListener("scroll", handleScroll);
     };
-  }, []); 
-  
-  
-  
+  }, []);
+
   useEffect(() => {
     // Denne useeffect er skrevet med hjælp fra chatgpt og hjælper os med at scrolle vores container med #now id'et det gør den ved
-    // sette scrollSnapType'en på scrollercontaineren til at være x mandatory i og derefter ige at vores id now skal scrolle into view - efter 500 mm sekunder skifter den igen til ikke at have nogen scroll snap type 
-    const containerElement = document.getElementById('myScrollerContainer');
-    const targetElement = document.getElementById('now');
+    // sette scrollSnapType'en på scrollercontaineren til at være x mandatory i og derefter ige at vores id now skal scrolle into view - efter 500 mm sekunder skifter den igen til ikke at have nogen scroll snap type
+    const containerElement = document.getElementById("myScrollerContainer");
+    const targetElement = document.getElementById("now");
 
     if (containerElement && targetElement) {
       // Snap to the target element
-      containerElement.style.scrollSnapType = 'x mandatory';
-      targetElement.scrollIntoView({  behavior: 'smooth' });
+      containerElement.style.scrollSnapType = "x mandatory";
+      targetElement.scrollIntoView({ behavior: "smooth" });
 
       // After a short delay, reset scroll-snap-type to allow free scrolling
       setTimeout(() => {
-        containerElement.style.scrollSnapType = '';
+        containerElement.style.scrollSnapType = "";
       }, 500); // Adjust the delay as needed
     }
   }, []);
@@ -130,8 +119,6 @@ function Calender(props) {
   let Midgard = props.schedule.Midgard;
 
   const Vanaheim = props.schedule.Vanaheim;
-
-  
 
   return (
     <main>

@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { StateContext, ValueContext, TimerContext, SetTimerContext, ReserveContext, SetReserveContext, SetOrderStatus, OrderStatus } from "./MyContext";
 import { ReserveSpot } from "@/app/ticketData";
 import "../styles/CheckoutOptions.css";
@@ -11,8 +11,8 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
   const dispatchTimer = useContext(SetTimerContext);
   const reserveState = useContext(ReserveContext);
   const reserveDispatch = useContext(SetReserveContext);
-  const dispatchOrderStatus = useContext(SetOrderStatus)
-  const orderStatusState = useContext(OrderStatus)
+  const dispatchOrderStatus = useContext(SetOrderStatus);
+  const orderStatusState = useContext(OrderStatus);
   const totalTentSpots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
   function handleAddToBasket() {
@@ -34,10 +34,7 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
     const reserveResponse = await ReserveSpot(state.campingArea, totalTentSpots);
     reserveDispatch(reserveResponse);
 
-
-
     if (reserveResponse.error) {
-      
       return;
     } else {
       startTimer();
@@ -46,40 +43,32 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
 
   function basket() {
     if ((!state.campingArea && totalTentSpots) || (!totalTentSpots && state.campingArea)) {
-
       setButtonError(true);
       return;
     } else if (state.regular + state.vip) {
-      
-      dispatchOrderStatus(false)
+      dispatchOrderStatus(false);
 
       handleAddToBasket();
-if(state.campingArea && totalTentSpots){
-
-      handleAddToBasket();
-      reserve();
-}
-
-    } 
+      if (state.campingArea && totalTentSpots) {
+        handleAddToBasket();
+        reserve();
+      }
+    }
   }
 
   function buy() {
     if ((!state.campingArea && totalTentSpots) || (!totalTentSpots && state.campingArea)) {
-
       setButtonError(true);
       return;
     } else if (state.regular + state.vip) {
-      dispatchOrderStatus(false)
+      dispatchOrderStatus(false);
 
       setToggleParticipant();
       handleAddToBasket();
-      if(state.campingArea && totalTentSpots){
-
-            handleAddToBasket();
-            reserve();
-      
-
-    } 
+      if (state.campingArea && totalTentSpots) {
+        handleAddToBasket();
+        reserve();
+      }
     }
   }
 

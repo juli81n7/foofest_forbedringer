@@ -1,13 +1,12 @@
-"use client"
+"use client";
 
-import Link from "next/link";
 import "../styles/SecondaryBtn.css";
-import { UserContext, SetUserContext, ContinueContext, setContinueContext} from "./MyContext";
+import { UserContext, SetUserContext, ContinueContext, setContinueContext } from "./MyContext";
 import { useContext, useState, useEffect } from "react";
 import "@/styles/Account.css";
 
 export default function Login() {
-    const [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,14 +19,13 @@ export default function Login() {
 
   const userState = useContext(UserContext);
   const userDispatch = useContext(SetUserContext);
-  
+
   const continueState = useContext(ContinueContext);
   const setContinueState = useContext(setContinueContext);
 
-function go (){
-  setContinueState(true)
-
-}
+  function go() {
+    setContinueState(true);
+  }
 
   useEffect(() => {
     async function fetchAllUsers() {
@@ -77,7 +75,6 @@ function go (){
     let data = await response.json();
 
     if (data.code === "23505") {
-
       setUserStatus("Email already taken.");
     } else {
       toggleCreateLogin();
@@ -146,7 +143,6 @@ function go (){
       sessionStorage.setItem("userlogin", JSON.stringify(userObject));
     } else {
       setUserStatus("Email or password is incorrect.");
-
     }
   }
 
@@ -157,7 +153,6 @@ function go (){
       PostLogin();
     } else {
       setUserStatus("Email already taken.");
-
     }
   }
 
@@ -257,18 +252,17 @@ function go (){
             </form>
 
             <div className="flip-login-checkout">
-              
               <button className="secondary-button" onClick={toggleBothLogins}>
                 Create an Account
               </button>
-      
             </div>
             <div className="continue">
-            <h3>
-            or</h3>
-            <button onClick={go} className="primary-button checkout"> Continue without account</button>
+              <h3>or</h3>
+              <button onClick={go} className="primary-button checkout">
+                {" "}
+                Continue without account
+              </button>
             </div>
-            
           </section>
         )}
 
@@ -316,8 +310,6 @@ function go (){
           </section>
         )}
       </section>
-
-          </section>
-
-  )
+    </section>
+  );
 }

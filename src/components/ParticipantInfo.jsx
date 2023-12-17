@@ -18,11 +18,11 @@ export default function ParticipantInfo({ register, prefix }) {
     }
   };
   const handleKeyDownNumber = (event) => {
-    // Tillad kun bogstaver, mellemrum, komma, punktum, sletning, tab og Ctrl+R
+    // Tillad kun bogstaver, mellemrum, komma, punktum, sletning, tab og Ctrl+R - ChatGPT
     const allowedNumbers = /^[0-9]+$/i;
 
-    // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46)
-    // Tillad tab (9) og Ctrl+R (82)
+    // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46) - ChatGPT
+    // Tillad tab (9) og Ctrl+R (82) - ChatGPT
     if (
       !(
         (
@@ -35,6 +35,7 @@ export default function ParticipantInfo({ register, prefix }) {
       event.preventDefault();
     }
   };
+  //Har brugt ChatGPT til at give mig de korrekte patterns samt syntaks for `${prefix}.firstName` - Magnus
   return (
     <div className="formcontainer">
       <div className="formline">

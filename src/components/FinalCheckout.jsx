@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ReserveContext, SetTimerContext, SetUserContext, StateContext, SubmitData, UserContext, ValueContext, SetOrderStatus, OrderStatus } from "./MyContext";
 import "@/styles/ParticipantInfo.css";

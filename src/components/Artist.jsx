@@ -23,7 +23,7 @@ function Artist(props) {
           {/* <h5>{props.artistDay}</h5> */}
           <h5>{props.artistTime}</h5>
         </div>
-        <SecondaryBtn href={`/ArtistSingleView/${slug}`} secbtntext="View more"></SecondaryBtn>
+        <SecondaryBtn secbtntext="View more"></SecondaryBtn>
       </Link>
     </div>
   );
