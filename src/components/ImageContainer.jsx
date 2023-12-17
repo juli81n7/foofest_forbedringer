@@ -8,22 +8,20 @@ function ImageContainer(props) {
     const pathElements = document.querySelectorAll(".cls-ani");
 
     const animationEndHandler = (event) => {
-      // Add the 'fillani' class to the specific element when its animation is complete
       event.target.classList.add("fillani");
     };
 
-    // Add an event listener for the 'animationend' event for each path element
     pathElements.forEach((pathElement) => {
       pathElement.addEventListener("animationend", animationEndHandler);
     });
 
-    // Clean up the event listeners when the component is unmounted
     return () => {
       pathElements.forEach((pathElement) => {
         pathElement.removeEventListener("animationend", animationEndHandler);
       });
     };
   }, []);
+  //Jeg har brugt ChatGPT til at udregne den ovenstående useEffect for mig
   const mySchedule = props.schedule;
 
   let myImage = props.selectedBand.logo;
