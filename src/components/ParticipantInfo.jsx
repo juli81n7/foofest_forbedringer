@@ -41,31 +41,31 @@ export default function ParticipantInfo({ register, prefix }) {
       <div className="formline">
         <div className="formgrid">
           <div className="inputlayout">
-            <label htmlFor="firstName" className="error">
+            <label htmlFor="firstName" className="error name">
               First name
             </label>
             <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i, message: "firstname is required" })} type="text" id="firstname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
-            <label htmlFor="lastname" className="error">
+            <label htmlFor="lastname" className="error name">
               Last name
             </label>
             <input {...register(`${prefix}.lastName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i, message: "First name is required and should only contain letters" })} type="text" id="lastname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
-            <label htmlFor="email" className="error">
+            <label htmlFor="email" className="error email">
               Email
             </label>
             <input {...register(`${prefix}.email`, { required: true, pattern: /\S+@\S+\.\S+/ })} type="email" id="email" />
           </div>
           <div className="inputlayout">
-            <label htmlFor="phone" className="error">
+            <label htmlFor="phone" className="error phone">
               phone number
             </label>
             <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} type="tel" id="phone" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
-            <label htmlFor="birth" className="error">
+            <label htmlFor="birth" className="error date">
               Date of birth
             </label>
             <input
@@ -80,7 +80,7 @@ export default function ParticipantInfo({ register, prefix }) {
             />
           </div>
           <div className="inputlayout">
-            <label htmlFor="address" className="error">
+            <label htmlFor="address" className="error address">
               Address
             </label>
             <input {...register(`${prefix}.address`, { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="address" />
