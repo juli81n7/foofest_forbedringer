@@ -65,11 +65,11 @@ header {
 .cls-ani {
   fill: var(--accent-color);
   stroke-dasharray: 800;
-  animation: dash 4s linear;
+  animation: dash 2.2s linear;
   stroke: var(--accent-color);
 }
 .fillani {
-  animation: color 1s linear;
+  animation: color 0.5s linear;
 }
 @keyframes dash {
   from {
