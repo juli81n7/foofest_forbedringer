@@ -95,7 +95,6 @@ export default function FinalCheckout({}) {
     }
   };
   const handleKeyDown = (event) => {
-    // Tillad kun bogstaver, mellemrum, komma og punktum
     const allowedChars = /^[A-Za-zæøåÆØÅ\s.,]+$/i;
     const allowedNumbers = /^[0-9]+$/i;
 
@@ -104,20 +103,9 @@ export default function FinalCheckout({}) {
     }
   };
   const handleKeyDownNumber = (event) => {
-    // Tillad kun bogstaver, mellemrum, komma, punktum, sletning, tab og Ctrl+R
     const allowedNumbers = /^[0-9]+$/i;
 
-    // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46)
-    // Tillad tab (9) og Ctrl+R (82)
-    if (
-      !(
-        (
-          allowedNumbers.test(event.key) ||
-          [8, 46, 9].includes(event.keyCode) || // Backspace, Delete, Tab
-          (event.ctrlKey && event.keyCode === 82)
-        ) // Ctrl+R
-      )
-    ) {
+    if (!(allowedNumbers.test(event.key) || [8, 46, 9].includes(event.keyCode) || (event.ctrlKey && event.keyCode === 82))) {
       event.preventDefault();
     }
   };
