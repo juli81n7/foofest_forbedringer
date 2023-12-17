@@ -27,7 +27,6 @@ function CampArea({ areaName, status, selectedArea, onAreaSelect }) {
 
   const handleChange = () => {
     onAreaSelect(areaName);
-
   };
 
   return (
@@ -36,7 +35,7 @@ function CampArea({ areaName, status, selectedArea, onAreaSelect }) {
       <p className="spots-left">{status} tent spots</p>
       {totalTentspots > status && <p className="area-too-small">Not enough spots</p>}
       <p className="area-name">{areaName}</p>
-      {status < 10 && <p className="area-few">Few Left</p>}
+      {status < 10 && status > 0 && <p className="area-few">Few Left</p>}
       {status === 0 && <p className="area-out">Sold Out</p>}
     </label>
   );
