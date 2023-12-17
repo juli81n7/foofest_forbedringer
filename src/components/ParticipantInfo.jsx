@@ -8,11 +8,33 @@ export default function ParticipantInfo({ register, prefix }) {
     const now = new Date().getFullYear();
     return now - selected >= 18;
   };
+  const handleKeyDown = (event) => {
+    // Tillad kun bogstaver, mellemrum, komma og punktum
+    const allowedChars = /^[A-Za-zæøåÆØÅ\s.,]+$/i;
+    const allowedNumbers = /^[0-9]+$/i;
 
-  function fejl() {
-    setNoget(true);
-  }
+    if (!allowedChars.test(event.key)) {
+      event.preventDefault();
+    }
+  };
+  const handleKeyDownNumber = (event) => {
+    // Tillad kun bogstaver, mellemrum, komma, punktum, sletning, tab og Ctrl+R
+    const allowedNumbers = /^[0-9]+$/i;
 
+    // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46)
+    // Tillad tab (9) og Ctrl+R (82)
+    if (
+      !(
+        (
+          allowedNumbers.test(event.key) ||
+          [8, 46, 9].includes(event.keyCode) || // Backspace, Delete, Tab
+          (event.ctrlKey && event.keyCode === 82)
+        ) // Ctrl+R
+      )
+    ) {
+      event.preventDefault();
+    }
+  };
   return (
     <div className="formcontainer">
       <div className="formline">
@@ -21,13 +43,13 @@ export default function ParticipantInfo({ register, prefix }) {
             <label htmlFor="firstName" className="error">
               First name
             </label>
-            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i, message: "firstname is required" })} type="text" id="firstname" />
+            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i, message: "firstname is required" })} type="text" id="firstname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error">
               Last name
             </label>
-            <input {...register(`${prefix}.lastName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" />
+            <input {...register(`${prefix}.lastName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i, message: "First name is required and should only contain letters" })} type="text" id="lastname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="email" className="error">
@@ -39,7 +61,7 @@ export default function ParticipantInfo({ register, prefix }) {
             <label htmlFor="phone" className="error">
               phone number
             </label>
-            <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} type="tel" id="phone" />
+            <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} type="tel" id="phone" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
             <label htmlFor="birth" className="error">
