@@ -12,17 +12,7 @@ export default function Participants({ setToggleCheckout }) {
   const submitDataContext = useContext(SubmitData);
 
   const onSubmit = async (data) => {
-    // Hent den aktuelle submitData fra konteksten
-
-    // Opdater submitData i konteksten
     setSubmitDataContext(data);
-
-    // Log den opdaterede submitData
-
-
-    // Ekstra logik eller opdatering af state kan tilføjes her
-
-    // Kald din checkout-flow funktion
     handleCheckoutFlow();
     setToggleCheckout();
   };
@@ -33,7 +23,7 @@ export default function Participants({ setToggleCheckout }) {
       checkoutPush: true,
     }));
   };
-
+  //Har brugt ChatGPT til at finde ud af, hvordan man skaber et array ud fra variabler som man kan mappe igennem: [...Array(state.regular)] - Magnus
   return (
     <div>
       <div className="right">

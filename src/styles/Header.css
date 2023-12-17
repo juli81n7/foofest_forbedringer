@@ -62,3 +62,30 @@ header {
 .hero-img {
   object-fit: cover;
 }
+.cls-ani {
+  fill: var(--accent-color);
+  stroke-dasharray: 800;
+  animation: dash 2.2s linear;
+  stroke: var(--accent-color);
+}
+.fillani {
+  animation: color 0.5s linear;
+}
+@keyframes dash {
+  from {
+    fill: transparent;
+    stroke-dashoffset: 800;
+  }
+  to {
+    fill: transparent;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes color {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: var(--accent-color);
+  }
+}

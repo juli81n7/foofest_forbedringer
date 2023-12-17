@@ -1,6 +1,6 @@
 import "../styles/RecommendedArtist.css";
 import Image from "next/image";
-import LikeBtn from "./LikeBtn";
+
 // schedule={schedule} bands={bands} artistName={band.name} img={band.logo}
 function RecommendedArtist(props) {
   // let band = ""

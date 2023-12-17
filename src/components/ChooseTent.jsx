@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ValueContext, StateContext } from "./MyContext";
 
 function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonError }) {

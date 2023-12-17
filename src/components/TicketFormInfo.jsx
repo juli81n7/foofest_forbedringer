@@ -1,7 +1,7 @@
 import "@/styles/TicketFormInfo.css";
 import { useContext } from "react";
 import { ValueContext } from "./MyContext";
-export default function TicketFormInfo({ ticketAmount, onePers, twoPers, threePers, selectedArea }) {
+export default function TicketFormInfo() {
   const state = useContext(ValueContext);
   const totalTents = state.tents.one + state.tents.two + state.tents.three;
   const totalTentsCrewPrice = state.tents.one * 199 + state.tents.two * 299 + state.tents.three * 399;
