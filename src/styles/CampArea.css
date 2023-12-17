@@ -30,7 +30,7 @@
   border: 2px solid var(--accent-orange);
   box-shadow: 0 0 10px var(--accent-orange);
 }
-.radio-label:has(.custom-radio[disabled]) > *:not(.area-too-small) {
+.radio-label:has(.custom-radio[disabled]) > *:not(:is(.area-too-small, .area-out, .area-few)) {
   opacity: 30%;
 }
 .radio-label:has(.custom-radio[disabled]) {
