@@ -16,7 +16,7 @@
     & .artist h3 {
       grid-area: 1/1/2/2;
     }
-    & .artist h5 {
+    & .artist p {
       margin-block: 0;
     }
     .myLikeBtnContainer,
@@ -30,7 +30,12 @@
     border-top: 1px solid var(--white);
   }
 }
-
+.artist p {
+  font-weight: 200;
+  font-size: 0.83rem;
+  margin-block-start: 1.67rem;
+  margin-block-end: 1.67rem;
+}
 .artist-container {
   display: contents;
   @media (width> 900px) {
