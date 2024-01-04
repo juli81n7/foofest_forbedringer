@@ -5,11 +5,14 @@ import Link from "next/link";
 import "../../styles/Tickets.css";
 
 export const metadata = {
-  title: "Basket",
+  title: "Tickets",
   description: "Foofest is a 7 day festival with around the clock amazing music and events, delicious food and concious camping options.",
   type: "website",
   image: process.env.NEXT_PUBLIC_HOST + "/_next/image?url=%2Fpartypeople.png&w=1920&q=75",
   url: process.env.NEXT_PUBLIC_HOST + "/Tickets",
+  icons: {
+    icon: "/icon.svg", // /public path
+  },
 };
 
 export default function Tickets() {

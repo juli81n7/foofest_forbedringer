@@ -379,7 +379,8 @@ function Account({ schedule, bands }) {
                   </p>
                 </div>
               </div>
-              <p>On this page you can stay updated with your personal program and view your tickets. Have a good one!</p>
+              <p>Yay, your very own page! Here you can stay updated with your personal program and quickly access your tickets.</p>
+              {userState.tickets && <p>Speaking of tickets, you don't have any - yet! Why don't you</p>}
 
               <button
                 className="primary-button logout"

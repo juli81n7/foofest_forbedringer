@@ -16,6 +16,9 @@ export async function generateMetadata({ params }) {
   return {
     title: selectedBand.name,
     description: selectedBand.bio,
+    icons: {
+      icon: "/icon.svg", // /public path
+    },
   };
 }
 
