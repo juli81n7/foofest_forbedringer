@@ -22,7 +22,7 @@ export default function FinalCheckout({}) {
   const onSubmit = (data) => {
     setSubmitData((prevData) => [...prevData, data]);
 
-    const fulfill = fulfillReservation(reserveContext.id);
+    const fulfill = fulfillReservation(reserveContext.id ? reserveContext.id : "69420");
     setBuyFlow("ændret");
 
     async function Patch(id, body) {
