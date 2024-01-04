@@ -46,7 +46,7 @@ function SearchBar() {
         console.log('Selected item:', selectedBand);
         // Add your logic here for what you want to do on "Enter"
         // For example, navigate to the selected band's page
-        window.location.href = selectedBand.slug; // or use router.push() if available
+        window.location.href = "../ArtistSingleView/"+selectedBand.slug; // or use router.push() if available
       }
     }
   };
@@ -61,7 +61,7 @@ function SearchBar() {
   };
 
   useEffect(() => {
-    if (message.length > 3) {
+    if (message.length > 2) {
       const filteredBands = allBands.filter((band) =>
         band.name.includes(message)
       );
@@ -88,7 +88,7 @@ function SearchBar() {
             className={index === selectedItemIndex ? 'selected' : ''}
             onClick={() => handleLiClick(index)}
           >
-            <Link className="link" href={band.slug}>
+            <Link className="link" href={`../ArtistSingleView/${band.slug}`}>
               {band.name}
             </Link>
           </li>
