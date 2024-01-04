@@ -90,9 +90,11 @@ function expand(){
 
     <div className="search">
       <div className={"searchArea " + (search ? 'active' : null)}>
-      <label htmlFor="searchthing">
+      <label htmlFor="searchthing" aria-label="search for artist">
+      
       </label>
       <input
+      autocomplete="false"
         type="search"
         id="searchthing"
         name="searching"
