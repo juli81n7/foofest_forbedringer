@@ -45,15 +45,15 @@ export const NumberProvider = ({ children }) => {
 
   const [darkMode, setDarkmode] = useState(false);
 
-
-  
   const [myTimer, setMyTimer] = useState({
     time: 0,
     timeRunning: false,
   });
-  const [reserveID, setReserveID] = useState();
+  const [reserveID, setReserveID] = useState({
+    id: 69420,
+  });
   const [orderStatus, setOrderStatus] = useState();
-  
+
   const [myContinue, setContinue] = useState();
 
   return (
