@@ -276,7 +276,7 @@ function Navbar() {
 
             <li className="nav-item">
               <Link className="nav-link" href="/Tickets" onClick={handleBurgerClick}>
-                TICKETS
+                TICKETS & PRICES
               </Link>
             </li>
             <li className="nav-item">
@@ -292,7 +292,7 @@ function Navbar() {
           </ul>
 
           <div className="flexshelf">
-          <SearchBar/>
+            <SearchBar />
             <div onClick={handleDarkMode} className={"lightModeSwitch " + (!state ? "active" : "")}>
               <div className="slider">
                 <svg className="sun" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

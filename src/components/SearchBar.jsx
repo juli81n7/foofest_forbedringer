@@ -6,6 +6,7 @@ function SearchBar() {
   const [allBands, setBands] = useState([]);
   const [searchedBands, setSearchedBands] = useState([]);
   const [message, setMessage] = useState('');
+  const [search, setSearch] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
   useEffect(() => {
@@ -74,19 +75,41 @@ function SearchBar() {
     }
   }, [message, allBands]);
   
+function expand(){
+    setSearch(old=>
+        !old
+    )
+    if(search)
+    console.log("Nu søger jeg")
+    document.querySelector("#searchthing").focus();
+}
+
 
   return (
     <div className="expanderContainer">
 
     <div className="search">
+      <div className={"searchArea " + (search ? 'active' : null)}>
+      <label htmlFor="searchthing">
+      </label>
       <input
         type="search"
+        id="searchthing"
+        name="searching"
         placeholder="Search for bands"
         value={message}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-      />
-
+      >
+      </input>
+      
+      <svg onClick={expand}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+      <g >
+        <path class="cls-1" d="M16.6,18l-6.3-6.3c-.5.4-1.08.72-1.73.95s-1.34.35-2.08.35c-1.82,0-3.35-.63-4.61-1.89s-1.89-2.8-1.89-4.61S.63,3.15,1.89,1.89,4.68,0,6.5,0s3.35.63,4.61,1.89,1.89,2.8,1.89,4.61c0,.73-.12,1.43-.35,2.08s-.55,1.23-.95,1.73l6.3,6.3-1.4,1.4ZM6.5,11c1.25,0,2.31-.44,3.19-1.31s1.31-1.94,1.31-3.19-.44-2.31-1.31-3.19-1.94-1.31-3.19-1.31-2.31.44-3.19,1.31-1.31,1.94-1.31,3.19.44,2.31,1.31,3.19,1.94,1.31,3.19,1.31Z"/>
+      </g>
+    </svg>
+    
+      </div>
       <ul className="searchresults">
         {searchedBands.map((band, index) => (
           <li
