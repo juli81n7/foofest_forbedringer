@@ -3,6 +3,7 @@
 .account-container {
   position: relative;
   width: 100%;
+  margin-top: 2rem;
   @media (width<400px) {
     margin-inline: auto;
   }
