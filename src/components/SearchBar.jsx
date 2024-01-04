@@ -62,16 +62,22 @@ function SearchBar() {
 
   useEffect(() => {
     if (message.length > 2) {
+      const lowerCaseMessage = message.toLowerCase(); // Convert search term to lowercase
+  
       const filteredBands = allBands.filter((band) =>
-        band.name.includes(message)
+        band.name.toLowerCase().includes(lowerCaseMessage)
       );
+  
       setSearchedBands(filteredBands);
     } else {
       setSearchedBands([]);
     }
   }, [message, allBands]);
+  
 
   return (
+    <div className="expanderContainer">
+
     <div className="search">
       <input
         type="search"
@@ -94,6 +100,9 @@ function SearchBar() {
           </li>
         ))}
       </ul>
+    </div>
+   
+
     </div>
   );
 }
