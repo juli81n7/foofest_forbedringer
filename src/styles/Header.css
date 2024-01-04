@@ -21,13 +21,14 @@ header {
   font-size: clamp(1rem, calc(19vw), 40rem);
   margin-left: 1rem;
   color: var(--text-color);
-  margin-top: 3.5rem;
+
   position: relative;
   z-index: 1;
 }
 
 .date {
-  font-size: 2rem;
+  font-size: 1rem;
+  padding-inline: 4rem;
   font-weight: bold;
   @media (width<800px) {
     font-size: 1rem;
