@@ -184,3 +184,7 @@ h5 {
 p {
   font-weight: 400;
 }
+
+.cls-icon {
+  fill: var(--accent-orange);
+}
