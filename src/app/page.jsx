@@ -9,6 +9,9 @@ export const metadata = {
   // keywords: ["Foofest", "Music Festival", "Seven day festival"],
   image: process.env.NEXT_PUBLIC_HOST + "/_next/image?url=%2Fpartypeople.png&w=1920&q=75",
   url: process.env.NEXT_PUBLIC_HOST,
+  icons: {
+    icon: "/icon.svg", // /public path
+  },
 };
 
 import { schedule, bands, spots, events } from "./data";

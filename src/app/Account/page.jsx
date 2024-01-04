@@ -8,6 +8,9 @@ export const metadata = {
   type: "website",
   image: process.env.NEXT_PUBLIC_HOST + "/_next/image?url=%2Fpartypeople.png&w=1920&q=75",
   url: process.env.NEXT_PUBLIC_HOST + "/Account",
+  icons: {
+    icon: "/icon.svg", // /public path
+  },
 };
 
 function Account() {
