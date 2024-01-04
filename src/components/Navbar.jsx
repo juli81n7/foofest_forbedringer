@@ -30,7 +30,7 @@ function Navbar() {
     <>
       <div data-theme={state ? "light" : "dark"} className="nav_container">
         <nav className="navbar">
-          <Link className="nav-branding" href="/">
+          <Link className="nav-branding" href="/" onClick={handleBurgerClick}>
             <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
               <g data-name="Layer 1">
                 <g>
