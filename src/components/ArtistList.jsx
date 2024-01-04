@@ -14,7 +14,7 @@ function ArtistList(props) {
     <article className="artist-list">
       <div className="stage-details">
         <div>
-          <p>Todays program</p>
+          <h3>Todays program</h3>
           <h2 className={"artisth2 " + props.stageName}>{props.stageName}</h2>
         </div>
         <p>

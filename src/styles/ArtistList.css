@@ -25,11 +25,8 @@
   & p {
     max-width: 25ch;
   }
-  & :first-child {
+  & h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.17em;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
   }
 
   @media (width<800px) {
