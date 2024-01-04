@@ -309,3 +309,7 @@
 .email {
   text-transform: lowercase;
 }
+
+.welcome {
+  font-size: 3rem;
+}

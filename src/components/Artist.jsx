@@ -21,7 +21,7 @@ function Artist(props) {
         <div className="artist">
           <h3>{props.artistName}</h3>
           {/* <h5>{props.artistDay}</h5> */}
-          <h5>{props.artistTime}</h5>
+          <p>{props.artistTime}</p>
         </div>
         <SecondaryBtn secbtntext="View more"></SecondaryBtn>
       </Link>

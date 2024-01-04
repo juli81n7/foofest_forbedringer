@@ -44,7 +44,7 @@
     height: 100%;
     padding: 0.5rem;
 
-    & h4 {
+    &:is(h4, h3) {
       text-transform: uppercase;
       font-size: 0.5rem;
     }
