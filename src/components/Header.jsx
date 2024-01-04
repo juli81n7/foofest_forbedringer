@@ -1,4 +1,6 @@
 "use client";
+
+import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import Button from "./Button";
 import "../styles/Header.css";
@@ -365,13 +367,19 @@ function Header() {
           </g>
         </g>
       </svg>
+      <Marquee autoFill={true} pauseOnHover={true}>
+      <h2 className="date">
+      17.10.2024 - 24.10.2024</h2>
+      
+      
+    </Marquee>
       <div className="header_container">
         <h1 className="headline headerh1">FOOFEST</h1>
       </div>
 
       <div className="flex">
         <div className="teasers">
-          <h2 className="date">17.10.2024 - 24.10.2024</h2>
+          
           <p>High five! You have entered the home of FooFest; the perhaps greatest festival on planet earth.</p>
           <p>
             We have an offer you cannot refuse: an extremely wide range of established and up-coming underground artists, that are guaranteed to exceed your expectations. Actually, we are so confident that you will have a good time, that we willingly
