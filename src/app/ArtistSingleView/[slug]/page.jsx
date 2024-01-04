@@ -10,6 +10,15 @@ import ImageContainer from "@/components/ImageContainer";
 import Link from "next/link";
 import LikeBtn from "@/components/LikeBtn";
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const selectedBand = bands.find((band) => band.slug === slug);
+  return {
+    title: selectedBand.name,
+    description: selectedBand.bio,
+  };
+}
+
 export async function generateStaticParams() {
   const paths = bands.map((band) => {
     return { slug: band.slug };
