@@ -11,14 +11,12 @@ export default function ParticipantInfo({ register, prefix }) {
   const handleKeyDown = (event) => {
     // Tillad kun bogstaver, mellemrum, komma og punktum
     const allowedChars = /^[A-Za-zæøåÆØÅ\s.,]+$/i;
-    const allowedNumbers = /^[0-9]+$/i;
 
     if (!allowedChars.test(event.key)) {
       event.preventDefault();
     }
   };
   const handleKeyDownNumber = (event) => {
-    // Tillad kun bogstaver, mellemrum, komma, punktum, sletning, tab og Ctrl+R - ChatGPT
     const allowedNumbers = /^[0-9]+$/i;
 
     // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46) - ChatGPT
@@ -33,6 +31,11 @@ export default function ParticipantInfo({ register, prefix }) {
       )
     ) {
       event.preventDefault();
+    }
+
+    // Tjek om tasten er et tal, og om telefonnummeret har nået 8 cifre
+    if (allowedNumbers.test(event.key) && document.querySelector("#phone").value.length === document.querySelector("#phone").maxLength) {
+      document.querySelector("#birth").focus();
     }
   };
   //Har brugt ChatGPT til at give mig de korrekte patterns samt syntaks for `${prefix}.firstName` - Magnus
