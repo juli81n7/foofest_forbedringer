@@ -56,7 +56,7 @@ function SearchBar() {
     console.log('Selected item:', selectedBand);
     // Add your logic here for what you want to do on li click
     // For example, navigate to the selected band's page
-    window.location.href = selectedBand.slug; // or use router.push() if available
+    window.location.href = "../ArtistSingleView/"+selectedBand.slug; // or use router.push() if available
     setMessage(''); // Clear the input field
   };
 
