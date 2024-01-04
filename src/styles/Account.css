@@ -57,6 +57,13 @@
   color: var(--accent-red);
 }
 
+.primary-button-container {
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .primary-button {
   background-color: var(--accent-orange);
   border: none;
@@ -191,6 +198,13 @@
   }
 }
 
+.your-program,
+.your-tickets {
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+}
+
 .program-flex,
 .ticket-flex {
   position: relative;
@@ -198,10 +212,8 @@
   align-items: center;
   gap: 2rem;
   margin-block: 1rem;
-
   flex-wrap: wrap;
   width: 100%;
-
   min-height: 300px;
 }
 
@@ -213,7 +225,6 @@
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     gap: 1rem;
-    padding-right: 10rem;
   }
 }
 
@@ -312,4 +323,11 @@
 
 .welcome {
   font-size: 3rem;
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+}
+
+p {
+  max-width: 45ch;
 }
