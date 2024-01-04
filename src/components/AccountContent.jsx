@@ -289,7 +289,7 @@ function Account({ schedule, bands }) {
               {userStatus && <p className="user-status">{userStatus}</p>}
               <div>
                 <label htmlFor="email">Email</label>
-                <input type="text" name="email" required onChange={handleEmailChange} />
+                <input className="email" type="text" name="email" required onChange={handleEmailChange} />
               </div>
               <div>
                 <label htmlFor="password">Password</label>
@@ -322,7 +322,7 @@ function Account({ schedule, bands }) {
               {userStatus && <p className="user-status">{userStatus}</p>}
               <div>
                 <label htmlFor="email">Email</label>
-                <input type="text" name="email" required onChange={handleEmailChange} />
+                <input className="email" type="text" name="email" required onChange={handleEmailChange} />
               </div>
               <div>
                 <label htmlFor="password">Password</label>
