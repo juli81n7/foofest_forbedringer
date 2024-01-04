@@ -1,0 +1,42 @@
+input {
+  border-radius: 0;
+  border: none;
+
+  &:focus {
+    border-radius: 0;
+    outline: 1px solid orange;
+  }
+}
+
+.search {
+  position: relative;
+
+  & ul {
+    position: absolute;
+    width: 100%;
+    padding-left: 0rem;
+    margin-top: 0.5rem;
+
+    & li {
+      list-style: none;
+      width: 100%;
+      margin: 0;
+      border-bottom: 1px solid var(--bg-color);
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      width: 100%;
+      padding: 0.5rem;
+      & .link {
+        color: var(--bg-color);
+      }
+
+      &.selected,
+      &:hover {
+        background-color: var(--accent-orange);
+        & .link {
+          color: var(--text-color);
+        }
+      }
+    }
+  }
+}
