@@ -122,7 +122,7 @@ function Calender(props) {
 
   return (
     <main>
-      <h1 className="programh1">Program</h1>
+      <h1 className="programh1">{props.title}</h1>
       <div className="filters">
         <FilterBtn link="#mon" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Monday" />
         <FilterBtn link="#tue" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Tuesday" />

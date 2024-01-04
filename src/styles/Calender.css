@@ -202,12 +202,34 @@ main {
   }
 }
 
-.event {
+.eventlink {
   position: relative;
   background-color: white;
   z-index: 2;
   opacity: 100%;
   display: grid;
+  grid-template-columns: 150px auto;
+  box-sizing: border-box;
+  align-items: end;
+  grid-row: 1;
+  width: 100%;
+  @media (width <800px) {
+    grid-template-columns: 80px auto;
+  }
+  & .text {
+    & p {
+      font-size: 0.6rem;
+    }
+    font-size: 0.8rem;
+  }
+}
+
+.event {
+  position: relative;
+  background-color: white;
+  z-index: 2;
+  opacity: 100%;
+
   grid-template-columns: 150px auto;
   box-sizing: border-box;
   align-items: end;
@@ -292,10 +314,6 @@ main {
   }
   &.end22 {
     grid-column-end: 23;
-  }
-
-  @media (width <800px) {
-    grid-template-columns: 80px auto;
   }
 
   & .img_container {

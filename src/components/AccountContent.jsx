@@ -356,7 +356,7 @@ function Account({ schedule, bands }) {
         {userState && (
           <>
             <section className="your-welcome">
-              <h2>Welcome {userState.firstName}</h2>
+              <h2 className="welcome">Welcome {userState.firstName}!</h2>
               <div className="your-welcome-flex">
                 <div>
                   <h3>Name</h3>
@@ -379,7 +379,10 @@ function Account({ schedule, bands }) {
                   </p>
                 </div>
               </div>
-              <p>On this page you can stay updated with your personal program and view your tickets. Have a good one!</p>
+              <div>
+                <p>Yay, your very own page! Here you can stay updated with your personal program and quickly access your tickets.</p>
+                {userState.tickets.length === 0 && <p>Speaking of tickets, you don't have any - yet! What are you waiting for?</p>}
+              </div>
               <button
                 className="primary-button logout"
                 onClick={() => {
@@ -393,10 +396,9 @@ function Account({ schedule, bands }) {
             </section>
 
             <section className="your-program">
-              <h2>Your program</h2>
               <div className="program-flex">
                 {userState.likedArtists.length > 0 ? (
-                  <Calender personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
+                  <Calender title="Your Program" personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
                 ) : (
                   <article className="no-tickets">
                     <p>No liked artist - yet!</p>
@@ -411,7 +413,7 @@ function Account({ schedule, bands }) {
             <section className="your-tickets">
               <h2>Your tickets</h2>
               <div className="ticket-flex">
-                {userState.tickets ? (
+                {userState.tickets.length > 0 ? (
                   userState.tickets.map((ticket) => (
                     <article className="ticket" key={ticket.id}>
                       <div className="ticket-top">

@@ -58,7 +58,10 @@ function CalenderEvent(props) {
 
   return (
     <div className={`event start${start} end${end}`}>
-      <Link href={`ArtistSingleView/${props.slug}`}>
+    <div className="myLikeBtnContainer">
+        <LikeBtn name={props.name} color="orange"></LikeBtn>
+      </div>
+      <Link className="eventlink" href={`ArtistSingleView/${props.slug}`}>
         <div className="img_container">
 
         {
@@ -72,16 +75,16 @@ function CalenderEvent(props) {
 
 
         </div>
-      </Link>
+      
 
-      <div className="myLikeBtnContainer">
-        <LikeBtn name={props.name} color="orange"></LikeBtn>
-      </div>
+      
 
-      <Link className="text" href={`ArtistSingleView/${props.slug}`}>
+      <div className="text">
         <p>{props.start + "-" + props.end}</p>
         <h4>{props.name}</h4>
+        </div>
       </Link>
+      
     </div>
   );
 }

@@ -315,7 +315,7 @@ function Navbar() {
 
             <li className="nav-item">
               <Link className="nav-link" href="/Tickets" onClick={handleBurgerClick}>
-                TICKETS
+                TICKETS & PRICES
               </Link>
             </li>
             <li className="nav-item">
