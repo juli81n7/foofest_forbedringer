@@ -105,8 +105,29 @@ export default function FinalCheckout({}) {
   const handleKeyDownNumber = (event) => {
     const allowedNumbers = /^[0-9]+$/i;
 
-    if (!(allowedNumbers.test(event.key) || [8, 46, 9].includes(event.keyCode) || (event.ctrlKey && event.keyCode === 82))) {
+    // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46) - ChatGPT
+    // Tillad tab (9) og Ctrl+R (82) - ChatGPT
+    if (
+      !(
+        (
+          allowedNumbers.test(event.key) ||
+          [8, 46, 9].includes(event.keyCode) || // Backspace, Delete, Tab
+          (event.ctrlKey && event.keyCode === 82)
+        ) // Ctrl+R
+      )
+    ) {
       event.preventDefault();
+    }
+
+    // Tjek om tasten er et tal, og om telefonnummeret har nået 8 cifre
+    if (allowedNumbers.test(event.key) && document.querySelector("#cardnumber").value.length === document.querySelector("#cardnumber").maxLength) {
+      document.querySelector("#registrationnumber").focus();
+    }
+    if (allowedNumbers.test(event.key) && document.querySelector("#registrationnumber").value.length === document.querySelector("#registrationnumber").maxLength) {
+      document.querySelector("#cvc").focus();
+    }
+    if (allowedNumbers.test(event.key) && document.querySelector("#cvc").value.length === document.querySelector("#cvc").maxLength) {
+      document.querySelector("#expiredate").focus();
     }
   };
 
@@ -141,6 +162,12 @@ export default function FinalCheckout({}) {
             <input {...register("registrationnumber", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" name="registrationnumber" id="registrationnumber" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
+            <label htmlFor="cvc" className="error cvc">
+              CVC
+            </label>
+            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" name="cvc" id="cvc" onKeyDown={handleKeyDownNumber} />
+          </div>
+          <div className="inputlayout">
             <label htmlFor="expiredate" className="error expire">
               Date of card expiration
             </label>
@@ -165,12 +192,6 @@ export default function FinalCheckout({}) {
               name="expiredate"
               id="expiredate"
             />
-          </div>
-          <div className="inputlayout">
-            <label htmlFor="cvc" className="error cvc">
-              CVC
-            </label>
-            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" name="cvc" id="cvc" onKeyDown={handleKeyDownNumber} />
           </div>
         </form>
         <div className="btngrid">
