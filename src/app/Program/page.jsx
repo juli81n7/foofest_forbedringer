@@ -18,7 +18,7 @@ export const metadata = {
 export default function Program() {
   return (
     <Content schedule={schedule} spots={spots} events={events}>
-      <Calender schedule={schedule} bands={bands} />
+      <Calender schedule={schedule} bands={bands} title="Program"/>
     </Content>
   );
 }
