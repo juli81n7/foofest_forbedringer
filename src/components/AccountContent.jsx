@@ -380,6 +380,7 @@ function Account({ schedule, bands }) {
                 </div>
               </div>
               <p>On this page you can stay updated with your personal program and view your tickets. Have a good one!</p>
+
               <button
                 className="primary-button logout"
                 onClick={() => {

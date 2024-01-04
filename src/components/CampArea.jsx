@@ -6,7 +6,7 @@ import "../styles/CampArea.css";
 function CampArea({ areaName, status, selectedArea, onAreaSelect }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const totalTentspots = state.tents.one + state.tents.two * 2 + state.tents.three * 3;
 
@@ -20,6 +20,13 @@ function CampArea({ areaName, status, selectedArea, onAreaSelect }) {
           return copy;
         });
       }
+    } else if (totalTentspots === 0) {
+      setIsDisabled(true);
+      dispatch((old) => {
+        const copy = JSON.parse(JSON.stringify(old));
+        copy.campingArea = null;
+        return copy;
+      });
     } else {
       setIsDisabled(false);
     }
