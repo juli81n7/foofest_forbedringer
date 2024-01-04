@@ -22,7 +22,7 @@ export default function FinalCheckout({}) {
   const onSubmit = (data) => {
     setSubmitData((prevData) => [...prevData, data]);
 
-    const fulfill = fulfillReservation(reserveContext.id);
+    const fulfill = fulfillReservation(reserveContext.id ? reserveContext.id : "69420");
     setBuyFlow("ændret");
 
     async function Patch(id, body) {
@@ -114,38 +114,38 @@ export default function FinalCheckout({}) {
     <div className="formcontainerCheckout">
       <h1>Payment</h1>
       <div className="formline">
-        <div className="formgrid">
+        <form className="formgrid">
           <div className="inputlayout">
             <label htmlFor="firstName" className="error name">
               First name
             </label>
-            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i })} type="text" id="firstname" onKeyDown={handleKeyDown} />
+            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i })} type="text" name="firstname" id="firstname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error name">
               Last name
             </label>
-            <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" onKeyDown={handleKeyDown} />
+            <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" name="lastname" id="lastname" onKeyDown={handleKeyDown} />
           </div>
 
           <div className="inputlayout">
-            <label htmlFor="cardnr." className="error cardnr">
+            <label htmlFor="cardnumber" className="error cardnr">
               Card nr.
             </label>
-            <input {...register("cardnr.", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnr." onKeyDown={handleKeyDownNumber} />
+            <input {...register("cardnumber", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" name="cardnumber" id="cardnumber" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
-            <label htmlFor="Regnr." className="error reg">
+            <label htmlFor="registrationnumber" className="error reg">
               Reg nr.
             </label>
-            <input {...register("Regnr.", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="Regnr." onKeyDown={handleKeyDownNumber} />
+            <input {...register("registrationnumber", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" name="registrationnumber" id="registrationnumber" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
-            <label htmlFor="expireDate" className="error expire">
+            <label htmlFor="expiredate" className="error expire">
               Date of card expiration
             </label>
             <input
-              {...register("expireDate", {
+              {...register("expiredate", {
                 required: true,
                 validate: (value) => {
                   const selectedDate = new Date(value);
@@ -162,18 +162,19 @@ export default function FinalCheckout({}) {
               type="date"
               min="2023-01-01"
               max="2028-12-12"
-              id="expireDate"
+              name="expiredate"
+              id="expiredate"
             />
           </div>
           <div className="inputlayout">
             <label htmlFor="cvc" className="error cvc">
               CVC
             </label>
-            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" onKeyDown={handleKeyDownNumber} />
+            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" name="cvc" id="cvc" onKeyDown={handleKeyDownNumber} />
           </div>
-        </div>
+        </form>
         <div className="btngrid">
-          <input className="submitBtn" type="submit" onClick={handleSubmit(onSubmit)} />
+          <input className="submitBtn" name="submit" type="submit" onClick={handleSubmit(onSubmit)} />
         </div>
       </div>
     </div>

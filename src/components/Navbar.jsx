@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import "../styles/Navbar.css";
 import { ThemeContext, ValueContext, setThemeContext, TimerContext, SetTimerContext, OrderStatus } from "./MyContext";
 import MyTimer from "./MyTimer";
+import SearchBar from "./SearchBar";
 
 function Navbar() {
   const state = useContext(ThemeContext);
@@ -21,6 +22,10 @@ function Navbar() {
   function handleBurgerClick() {
     setactive((old) => !old);
   }
+  function closeBurger() {
+    setactive((old) => false);
+  }
+
   function handleDarkMode() {
     dispatch((old) => !old);
     setLightMode(state);
@@ -30,7 +35,7 @@ function Navbar() {
     <>
       <div data-theme={state ? "light" : "dark"} className="nav_container">
         <nav className="navbar">
-          <Link className="nav-branding" href="/">
+          <Link className="nav-branding" href="/" onClick={closeBurger}>
             <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
               <g data-name="Layer 1">
                 <g>
@@ -287,6 +292,7 @@ function Navbar() {
           </ul>
 
           <div className="flexshelf">
+          <SearchBar/>
             <div onClick={handleDarkMode} className={"lightModeSwitch " + (!state ? "active" : "")}>
               <div className="slider">
                 <svg className="sun" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

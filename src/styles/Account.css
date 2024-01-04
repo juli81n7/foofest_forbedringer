@@ -305,3 +305,7 @@
 .programh1 {
   margin-left: 1rem;
 }
+
+.email {
+  text-transform: lowercase;
+}
