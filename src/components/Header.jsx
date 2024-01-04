@@ -320,9 +320,9 @@ function Header() {
       <div className="flex">
         <div className="teasers">
           <p className="date">17.10.2024 - 24.10.2024</p>
-          <p>High five! You've entered the home of FooFest; the perhaps greatest festival on planet earth.</p>
-          <p>We have an offer you can't refuse: an extremely wide range of established and up-coming underground artists, that are guaranteed to exceed your expectations. Actually, we're so confident that you will have a good time, that we willingly offer you the best festival experience in the world, or your high five back.</p>
-          <p>Grab your best friends and snatch your tickets before your neighbor. This will be an experience you won't soon forget.</p>
+          <p>High five! You have entered the home of FooFest; the perhaps greatest festival on planet earth.</p>
+          <p>We have an offer you cannot refuse: an extremely wide range of established and up-coming underground artists, that are guaranteed to exceed your expectations. Actually, we are so confident that you will have a good time, that we willingly offer you the best festival experience in the world, or your high five back.</p>
+          <p>Grab your best friends and snatch your tickets before your neighbor. This will be an experience you will not soon forget.</p>
           {/* indsæt <Link/> her i stedet?? */}
           <Button href="/Tickets" btntext="get tickets"></Button>
         </div>
