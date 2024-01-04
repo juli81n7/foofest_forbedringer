@@ -357,6 +357,10 @@ function Account({ schedule, bands }) {
           <>
             <section className="your-welcome">
               <h2 className="welcome">Welcome {userState.firstName}!</h2>
+              <div className="">
+                <p>Yay, your very own page! Here you can stay updated with your personal program and quickly access your tickets.</p>
+                {userState.tickets.length === 0 && <p>Speaking of tickets, you do not have any - yet! What are you waiting for?</p>}
+              </div>
               <div className="your-welcome-flex">
                 <div>
                   <h3>Name</h3>
@@ -379,26 +383,25 @@ function Account({ schedule, bands }) {
                   </p>
                 </div>
               </div>
-              <div>
-                <p>Yay, your very own page! Here you can stay updated with your personal program and quickly access your tickets.</p>
-                {userState.tickets.length === 0 && <p>Speaking of tickets, you don't have any - yet! What are you waiting for?</p>}
+              <div className="primary-button-container">
+                <button
+                  className="primary-button logout"
+                  onClick={() => {
+                    setUser("");
+                    userDispatch("");
+                    sessionStorage.clear();
+                  }}
+                >
+                  Log out
+                </button>
               </div>
-              <button
-                className="primary-button logout"
-                onClick={() => {
-                  setUser("");
-                  userDispatch("");
-                  sessionStorage.clear();
-                }}
-              >
-                Log out
-              </button>
             </section>
 
             <section className="your-program">
+              <h2>Your Program</h2>
               <div className="program-flex">
                 {userState.likedArtists.length > 0 ? (
-                  <Calender title="Your Program" personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
+                  <Calender title="" personalProgram={userState.likedArtists} schedule={schedule} bands={bands}></Calender>
                 ) : (
                   <article className="no-tickets">
                     <p>No liked artist - yet!</p>
