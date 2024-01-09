@@ -10,6 +10,9 @@ import "../styles/AllBands.css"
 
 
 function AllBands(props) {
+    const [message, setMessage] = useState('');
+  const [search, setSearch] = useState(false);
+  const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
     const [bands, setbands] = useState([]);
     const [day, setDay] = useState("all");
     const [genre, setgenre] = useState("all");
@@ -17,16 +20,16 @@ function AllBands(props) {
     let filteredBands =[];
 let Allgenres=[];
 props.bands.map((band)=>{
-const newObj = {
-    name:band.genre
-}
 
-Allgenres.push(newObj)
+
+Allgenres.push(band.genre)
 }
 
 )
 
-
+Allgenres = Allgenres.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
 
   
 
@@ -51,6 +54,28 @@ Allgenres.push(newObj)
 
     });
 
+    console.log("ALLLLLL",AllBands)
+
+
+    const handleChange = (event) => {
+        setMessage(event.target.value);
+        setSelectedItemIndex(-1); // Reset selected index when the input changes
+      };
+
+      useEffect(() => {
+        if (message.length > 2) {
+          const lowerCaseMessage = message.toLowerCase(); // Convert search term to lowercase
+   
+          filteredBands=AllBands.filter((myband)=>myband.band.name.toLowerCase().includes(lowerCaseMessage))
+          setbands(filteredBands)
+          console.log("EFTER FILTER",filteredBands)  
+      
+          
+        } else {
+            setbands(AllBands)
+        }
+      }, [message]);
+
 
     useEffect(() => {
       
@@ -58,7 +83,7 @@ Allgenres.push(newObj)
       }, []);
       useEffect(() => {
           filteredBands = bands
-
+          console.log("FILTERED BANDS ER OPDATERET", filteredBands)
           
         }, [bands]);
     
@@ -83,9 +108,29 @@ if(e.target.value === "all"){
     
 }
 else{
-    filteredBands=AllBands.filter((myband)=>myband.band.genre === e.target.value)
-    setbands(filteredBands)
-    console.log("EFTER FILTER",filteredBands)
+
+    if(day==="all"){
+        filteredBands=AllBands.filter((myband)=>myband.band.genre === e.target.value)
+        setbands(filteredBands)
+        console.log("EFTER FILTER",filteredBands)  
+    }
+    else{
+
+        const filteredBandsWithGenre = AllBands.filter((myband)=>myband.band.genre === e.target.value)
+        const filteredBandsFromDayAndGenre=filteredBandsWithGenre.filter((myband)=>myband.day === day)
+
+        console.log("filteredBandsWithDayAndGenre", filteredBandsFromDayAndGenre)
+        setbands(filteredBandsFromDayAndGenre)
+        console.log("EFTER FILTER",filteredBandsFromDayAndGenre)
+
+
+
+
+
+    }
+
+
+   
 }
 
 }
@@ -129,6 +174,7 @@ else{
   return (
     <section className="all_bands">
 <h2>All bands</h2>
+<div className="filterbar">
 <div className="filterbtns">
 <label htmlFor="day">
 Day
@@ -148,14 +194,25 @@ Day
 Genre
 <select onChange={genreChange} name="genre" id="genre">
 <option value="all">All</option>
-<option value="Alternative Metal">Alternative Metal</option>
-{Allgenres.map((ting)=>{
-    <option key={ting} value="ting">{ting}</option>
-} )}
 
+{Allgenres.map((ting, index) => (
+    <option key={index} value={ting}>{ting}</option>    
+  ))}
 
 </select>
 </label>
+</div>
+<label className="search_label" htmlFor="search">
+Search
+<input value={message}
+onChange={handleChange} 
+id="search" name="search"
+className="mainsearch"
+placeholder="Find your farvorite band"
+type="search" />
+</label>
+
+
 </div>
 <Recommended>
 {bands.map((myband) => (
@@ -164,7 +221,7 @@ Genre
         <div className="likeBtnContainer">
           <LikeBtn name={myband.band.name} color="orange" />
         </div>
-        <Link href={`ArtistSingleView/${myband.band.slug}`}>{myband.band.logo.startsWith("http") ? <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name} /> : <img src={process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.logo} alt={myband.band.name} />}</Link>
+        <Link href={`ArtistSingleView/${myband.band.slug}`}>{myband.band.logo.startsWith("http") ? <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name} /> : <img src={process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.band.logo} alt={myband.band.name} />}</Link>
         <Link href={`ArtistSingleView/${myband.band.slug}`}>
           <div className="recommended-artist">
             <h3>{myband.band.name}</h3>

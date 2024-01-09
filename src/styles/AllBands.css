@@ -16,9 +16,64 @@ label {
   select {
     padding-inline: 0.5rem;
     padding-block: 0.3rem;
+    justify-content: end;
   }
 }
 
 .stageinfo {
   text-align: right;
+}
+
+.filterbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-right: 1rem;
+  flex-wrap: wrap;
+}
+
+.search_label {
+  width: 100%;
+  max-width: 500px;
+  min-width: 100px;
+
+  justify-content: flex-end;
+  gap: 0.2rem;
+}
+
+.mainsearch {
+  border-radius: 0;
+  border: none;
+
+  font-size: 1rem !important;
+  padding: 0;
+  position: relative;
+
+  padding: 0.5rem !important;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  width: 100% !important;
+  margin-right: 0 !important;
+  opacity: 40% !important;
+  transition: 0.3s ease-in-out;
+  border-bottom: 1px solid var(--text-color) !important;
+  padding-inline: 0.5rem !important;
+  padding-block: 0.5rem !important;
+  padding-left: 0rem !important;
+
+  font-size: 1rem !important;
+  height: auto !important;
+
+  &:focus {
+    border-radius: 0;
+    outline: none !important;
+    opacity: 100% !important;
+  }
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
 }
