@@ -11,12 +11,14 @@ export default function ParticipantInfo({ register, prefix }) {
   const handleKeyDown = (event) => {
     // Tillad kun bogstaver, mellemrum, komma og punktum
     const allowedChars = /^[A-Za-zæøåÆØÅ\s.,]+$/i;
+    const allowedNumbers = /^[0-9]+$/i;
 
     if (!allowedChars.test(event.key)) {
       event.preventDefault();
     }
   };
   const handleKeyDownNumber = (event) => {
+    // Tillad kun bogstaver, mellemrum, komma, punktum, sletning, tab og Ctrl+R - ChatGPT
     const allowedNumbers = /^[0-9]+$/i;
 
     // Tillad sletning ved at checke nøglekoder for Backspace (8) og Delete (46) - ChatGPT
@@ -32,11 +34,6 @@ export default function ParticipantInfo({ register, prefix }) {
     ) {
       event.preventDefault();
     }
-
-    // Tjek om tasten er et tal, og om telefonnummeret har nået 8 cifre
-    if (allowedNumbers.test(event.key) && document.querySelector("#phone").value.length === document.querySelector("#phone").maxLength) {
-      document.querySelector("#birth").focus();
-    }
   };
   //Har brugt ChatGPT til at give mig de korrekte patterns samt syntaks for `${prefix}.firstName` - Magnus
   return (
@@ -47,25 +44,25 @@ export default function ParticipantInfo({ register, prefix }) {
             <label htmlFor="firstName" className="error name">
               First name
             </label>
-            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i, message: "firstname is required" })} name="firstname" type="text" id="firstname" onKeyDown={handleKeyDown} />
+            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i, message: "firstname is required" })} type="text" id="firstname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error name">
               Last name
             </label>
-            <input {...register(`${prefix}.lastName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i, message: "First name is required and should only contain letters" })} name="lastname" type="text" id="lastname" onKeyDown={handleKeyDown} />
+            <input {...register(`${prefix}.lastName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i, message: "First name is required and should only contain letters" })} type="text" id="lastname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="email" className="error email">
               Email
             </label>
-            <input {...register(`${prefix}.email`, { required: true, pattern: /\S+@\S+\.\S+/ })} name="email" type="email" id="email" />
+            <input {...register(`${prefix}.email`, { required: true, pattern: /\S+@\S+\.\S+/ })} type="email" id="email" />
           </div>
           <div className="inputlayout">
             <label htmlFor="phone" className="error phone">
               phone number
             </label>
-            <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} name="phone" type="tel" id="phone" onKeyDown={handleKeyDownNumber} />
+            <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} type="tel" id="phone" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
             <label htmlFor="birth" className="error date">
@@ -80,14 +77,13 @@ export default function ParticipantInfo({ register, prefix }) {
               min="1899-01-01"
               max="2100-12-12"
               id="birth"
-              name="birth"
             />
           </div>
           <div className="inputlayout">
             <label htmlFor="address" className="error address">
               Address
             </label>
-            <input {...register(`${prefix}.address`, { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} name="address" type="text" id="address" />
+            <input {...register(`${prefix}.address`, { required: true, pattern: /^[A-Za-z0-9æøåÆØÅ\s.,]+$/i })} type="text" id="address" />
           </div>
         </div>
       </div>
