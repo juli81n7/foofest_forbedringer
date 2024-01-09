@@ -14,7 +14,7 @@ export default function Login() {
   const [address, setAddress] = useState("");
   const [zip, setZip] = useState("");
   const [allUsers, setAllUsers] = useState([]);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   const [userStatus, setUserStatus] = useState("");
 
   const userState = useContext(UserContext);
@@ -48,6 +48,24 @@ export default function Login() {
     fetchAllUsers();
   }, [user]);
 
+  async function fetchAllUsers2() {
+    let headersList = {
+      Accept: "*/*",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
+      Prefer: "return=representation",
+    };
+
+    let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/login_info", {
+      method: "GET",
+      headers: headersList,
+    });
+
+    const allUsersInfo = await response.json();
+    console.log("Nu er alle brugere:", allUsersInfo);
+    setAllUsers(allUsersInfo);
+    return allUsersInfo;
+  }
+
   async function PostLogin(e) {
     e.preventDefault();
     let headersList = {
@@ -79,7 +97,10 @@ export default function Login() {
       setUserStatus("Email already taken.");
     } else {
       toggleCreateLogin();
+
+      console.log("brugeren du lige har lavet", data[0]);
       setUser(data[0]);
+      userDispatch(data[0]);
       console.log("postLogin success");
       return data;
     }
@@ -134,9 +155,9 @@ export default function Login() {
   };
 
   async function loginNow(e) {
-    await setUser();
-    console.log("all users", allUsers);
-    const filteredItems = await allUsers.filter((item) => item.email === email && item.password === password);
+    await fetchAllUsers2();
+    console.log("XXXXXXXXXXXXXXXXXXXXall users", allUsers);
+    const filteredItems = allUsers.filter((item) => item.email === email && item.password === password);
     e.preventDefault();
     console.log("Hvad fanden");
     console.log(filteredItems);
@@ -168,7 +189,6 @@ export default function Login() {
       const filteredItems = allUsers.filter((item) => item.email === email);
 
       if (filteredItems.length === 0) {
-        loginNow(e);
         console.log("createLogin success");
       } else {
         setUserStatus("Email already taken.");
@@ -309,7 +329,7 @@ export default function Login() {
               </div>
               <div>
                 <label htmlFor="phone">Phone</label>
-                <input type="text" name="phone" required onChange={handlePhoneChange} />
+                <input type="tel" minlength="8" maxlength="8" name="phone" required onChange={handlePhoneChange} />
               </div>
               <div>
                 <label htmlFor="address">Address</label>
@@ -317,7 +337,7 @@ export default function Login() {
               </div>
               <div>
                 <label htmlFor="zip">Zip-code</label>
-                <input type="text" name="zip" required onChange={handleZipChange} />
+                <input type="text" minlength="4" maxlength="4" name="zip" required onChange={handleZipChange} />
               </div>
               <input className="primary-button" type="submit" value="Create Account" />
             </form>

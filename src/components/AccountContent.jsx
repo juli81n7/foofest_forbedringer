@@ -331,7 +331,7 @@ function Account({ schedule, bands }) {
               </div>
               <div>
                 <label htmlFor="phone">Phone</label>
-                <input type="text" name="phone" required onChange={handlePhoneChange} />
+                <input type="tel" minlength="8" maxlength="8" name="phone" required onChange={handlePhoneChange} />
               </div>
               <div>
                 <label htmlFor="address">Address</label>
@@ -339,7 +339,7 @@ function Account({ schedule, bands }) {
               </div>
               <div>
                 <label htmlFor="zip">Zip-code</label>
-                <input type="text" name="zip" required onChange={handleZipChange} />
+                <input type="text" minlength="4" maxlength="4" name="zip" required onChange={handleZipChange} />
               </div>
               <input className="primary-button" type="submit" value="Create Account" />
             </form>
