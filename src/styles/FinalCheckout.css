@@ -6,6 +6,20 @@
   }
 }
 
+.dateflex {
+  display: flex;
+  gap: 0.5rem;
+  & input:nth-child(1) {
+    width: 3rem;
+  }
+  & input:nth-child(3) {
+    width: 6rem;
+  }
+  & p {
+    font-size: 1.8rem;
+  }
+}
+
 @media (max-width: 800px) {
   .formcontainerCheckout {
     padding: 1rem;
