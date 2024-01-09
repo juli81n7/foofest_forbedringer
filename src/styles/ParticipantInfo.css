@@ -89,8 +89,8 @@
   content: "Please fill in your email";
   color: var(--accent-orange);
 }
-.error.date:has(+ input:focus)::after {
-  content: "Please fill your date of birth";
+.error.dateage:has(+ input:focus)::after {
+  content: "Please fill your age (18+)";
   color: var(--accent-orange);
   font-size: 11px;
 }
@@ -115,7 +115,11 @@
   content: "Please fill out your CVC";
   color: var(--accent-orange);
 }
-.error.expire:has(+ input:focus)::after {
-  content: "Please fill out your cards expiration date";
+.error.expire:has(+ .dateflex #expiredate:focus)::after {
+  content: "Please fill out card's expiration month";
+  color: var(--accent-orange);
+}
+.error.expire:has(+ .dateflex #expiredateyear:focus)::after {
+  content: "Please fill out card's expiration year";
   color: var(--accent-orange);
 }
