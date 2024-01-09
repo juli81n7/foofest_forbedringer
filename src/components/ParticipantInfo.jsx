@@ -68,7 +68,7 @@ export default function ParticipantInfo({ register, prefix }) {
             <input {...register(`${prefix}.phone`, { required: true, minLength: 8, maxLength: 8, pattern: /^[0-9]+$/i })} maxLength={8} type="tel" id="phone" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
-            <label htmlFor="birth" className="error date">
+            <label htmlFor="birth" className="error dateage">
               Date of birth
             </label>
             <input

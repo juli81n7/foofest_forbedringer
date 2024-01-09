@@ -25,7 +25,7 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
   function startTimer() {
     dispatchTimer((old) => ({
       ...old,
-      time: 300,
+      time: 900,
       timeRunning: true,
     }));
   }

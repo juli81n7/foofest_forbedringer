@@ -182,7 +182,7 @@ export default function FinalCheckout({}) {
           </div>
           <div className="inputlayout ">
             <label htmlFor="expiredate" className="error expire">
-              Date of card expiration
+              Card expiration
             </label>
             <div className="dateflex">
               <input
