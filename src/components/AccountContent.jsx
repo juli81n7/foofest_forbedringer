@@ -94,7 +94,8 @@ function Account({ schedule, bands }) {
     fetchAllUsers();
   }, [userState]);
 
-  async function PostLogin() {
+  async function PostLogin(e) {
+    e.preventDefault();
     let headersList = {
       Accept: "*/*",
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
@@ -197,7 +198,7 @@ function Account({ schedule, bands }) {
     e.preventDefault();
     const filteredItems = await allUsers.filter((item) => item.email === email);
     if (filteredItems.length === 0) {
-      PostLogin();
+      PostLogin(e);
     } else {
       setUserStatus("Email already taken.");
     }

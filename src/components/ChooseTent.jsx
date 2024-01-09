@@ -121,7 +121,15 @@ function ChooseTent({ showErrorTent, setShowErrorTent, setShowError, setButtonEr
       </div>
       <div className="checkboxes green-option">
         <h3>
-          GREEN CAMPING <span>({(state.tents.one + state.tents.two + state.tents.three) * 249},- total)</span>
+          GREEN CAMPING{" "}
+          <div className="heart-container">
+            <svg className="heart-icon green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90.05 73.54">
+              <g id="Layer_1-2" data-name="Layer 1">
+                <polyline className="cls-1" points="45.02 73.18 16.86 45.02 .55 28.71 6.22 5.95 28.71 .55 45.02 16.86 61.33 .55 83.82 5.95 89.49 28.71 73.18 45.02 45.03 73.18" />
+              </g>
+            </svg>
+          </div>
+          <span>({(state.tents.one + state.tents.two + state.tents.three) * 249},- total)</span>
         </h3>
         <label htmlFor="green" className="checkbox-label" aria-label="Green Camping Checkbox">
           <input onClick={green} className="check-box" type="checkbox" name="green camping" id="green" />

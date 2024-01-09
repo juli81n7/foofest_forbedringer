@@ -137,23 +137,47 @@
 .green-option {
   padding-top: 1rem;
 }
+h3:has(svg) {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.green-option h3 span {
+  align-self: end;
+}
 .crew-option {
   border-bottom: 1px solid var(--stroke-clr);
   padding-bottom: 1rem;
 }
+.heart-container {
+  display: flex;
+  align-items: center;
+}
 
+.heart-icon {
+  fill: var(--white);
+  width: 20px;
+}
+
+.vip {
+  color: var(--accent-red);
+  fill: var(--accent-red);
+}
+
+.green {
+  color: var(--accent-green);
+  fill: var(--accent-green);
+}
+.counter-line h3 span {
+  font-size: 1rem;
+}
 /* checkbox */
 .checkbox-label {
   display: grid;
   place-content: end;
 }
 
-.green-option .check-box {
-  accent-color: #0aa815;
-  width: 1rem;
-  height: 1rem;
-}
-.crew-option .check-box {
+.check-box {
   accent-color: #dc5f0c;
   width: 1rem;
   height: 1rem;
