@@ -48,7 +48,8 @@ export default function Login() {
     fetchAllUsers();
   }, [user]);
 
-  async function PostLogin() {
+  async function PostLogin(e) {
+    e.preventDefault();
     let headersList = {
       Accept: "*/*",
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
@@ -79,6 +80,7 @@ export default function Login() {
     } else {
       toggleCreateLogin();
       setUser(data[0]);
+      console.log("postLogin success");
       return data;
     }
   }
@@ -93,6 +95,7 @@ export default function Login() {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+    console.log("Email ændret");
   };
 
   const handlePasswordChange = (event) => {
@@ -131,8 +134,12 @@ export default function Login() {
   };
 
   async function loginNow(e) {
+    await setUser();
+    console.log("all users", allUsers);
     const filteredItems = await allUsers.filter((item) => item.email === email && item.password === password);
     e.preventDefault();
+    console.log("Hvad fanden");
+    console.log(filteredItems);
     if (filteredItems.length === 1) {
       const userLoggedIn = JSON.stringify(filteredItems[0], null, 2);
 
@@ -141,6 +148,7 @@ export default function Login() {
       await setUser(userObject);
       await userDispatch(userObject);
       sessionStorage.setItem("userlogin", JSON.stringify(userObject));
+      console.log("LoginNow success");
     } else {
       setUserStatus("Email or password is incorrect.");
     }
@@ -148,11 +156,23 @@ export default function Login() {
 
   async function createLogin(e) {
     e.preventDefault();
-    const filteredItems = await allUsers.filter((item) => item.email === email);
-    if (filteredItems.length === 0) {
-      PostLogin();
-    } else {
+
+    const emailExists = allUsers.some((item) => item.email === email);
+
+    if (emailExists) {
       setUserStatus("Email already taken.");
+    } else {
+      await PostLogin(e); // Wait for PostLogin to complete
+
+      // Now check if the email is still available after PostLogin
+      const filteredItems = allUsers.filter((item) => item.email === email);
+
+      if (filteredItems.length === 0) {
+        loginNow(e);
+        console.log("createLogin success");
+      } else {
+        setUserStatus("Email already taken.");
+      }
     }
   }
 
