@@ -96,7 +96,6 @@ export default function FinalCheckout({}) {
   };
   const handleKeyDown = (event) => {
     const allowedChars = /^[A-Za-zæøåÆØÅ\s.,]+$/i;
-    const allowedNumbers = /^[0-9]+$/i;
 
     if (!allowedChars.test(event.key)) {
       event.preventDefault();
@@ -129,6 +128,20 @@ export default function FinalCheckout({}) {
     if (allowedNumbers.test(event.key) && document.querySelector("#cvc").value.length === document.querySelector("#cvc").maxLength) {
       document.querySelector("#expiredate").focus();
     }
+    if (allowedNumbers.test(event.key) && document.querySelector("#expiredate").value.length === document.querySelector("#expiredate").maxLength) {
+      document.querySelector("#expiredateyear").focus();
+    }
+    const expiredateField = document.querySelector("#expiredate");
+
+    // Tjek om tasten er et tal, og om "expiredate" har nået 2 cifre
+    if (allowedNumbers.test(event.key) && expiredateField && expiredateField.value.length < expiredateField.maxLength) {
+      const inputValue = parseInt(expiredateField.value + event.key);
+      if (isNaN(inputValue) || inputValue < 0 || inputValue > 12) {
+        event.preventDefault();
+      }
+    }
+
+    // Ekstra betingelse for at tillade kun tal mellem 0 og 12
   };
 
   return (
@@ -167,30 +180,42 @@ export default function FinalCheckout({}) {
             </label>
             <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" onKeyDown={handleKeyDownNumber} />
           </div>
-          <div className="inputlayout">
+          <div className="inputlayout ">
             <label htmlFor="expiredate" className="error expire">
-              Date of card expiration
+              Card expiration
             </label>
-            <input
-              {...register("expiredate", {
-                required: true,
-                validate: (value) => {
-                  const selectedDate = new Date(value);
-                  const minDate = new Date("2023-01-01");
-                  const maxDate = new Date("2028-12-12");
-
-                  if (selectedDate < minDate || selectedDate > maxDate) {
-                    return "Udløbsdatoen skal være mellem 2023-01-01 og 2028-12-12";
-                  }
-
-                  return true;
-                },
-              })}
-              type="date"
-              min="2023-01-01"
-              max="2028-12-12"
-              id="expiredate"
-            />
+            <div className="dateflex">
+              <input
+                {...register("expiredate", {
+                  required: true,
+                })}
+                type="text"
+                maxLength={2}
+                minLength={1}
+                id="expiredate"
+                onKeyDown={handleKeyDownNumber}
+              />
+              <p>/</p>
+              <input
+                {...register("expiredateyear", {
+                  required: true,
+                  validate: (value) => {
+                    const year = parseInt(value, 10);
+                    if (year < "2024" || year > "2030") {
+                      return "Expiration year must be between 2024 and 2030";
+                    }
+                    return true;
+                  },
+                })}
+                type="text"
+                min={2024}
+                max={2030}
+                maxLength={4}
+                minLength={4}
+                id="expiredateyear"
+                onKeyDown={handleKeyDownNumber}
+              />
+            </div>
           </div>
         </form>
         <div className="btngrid">

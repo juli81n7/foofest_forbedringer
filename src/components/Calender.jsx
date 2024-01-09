@@ -5,6 +5,7 @@ import "../styles/Calender.css";
 
 import FilterBtn from "@/components/FilterBtn";
 import CalenderDay from "./CalenderDay";
+import AllBands from "./AllBands";
 
 const dateToday = new Date();
 const weekdayToday = dateToday.getDay();
@@ -157,7 +158,12 @@ function Calender(props) {
             <CalenderDay personalProgram={props.personalProgram ? props.personalProgram : null} percentageOfDay={percentageOfDay} currentDay={weekdaystate} day="sun" bands={props.bands} Jotunheim={Jotunheim.sun} Vanaheim={Vanaheim.sun} Midgard={Midgard.sun} />
           </div>
         </div>
+
+
+
+
       </section>
+      <AllBands bands={props.bands} schedule={props.schedule}/>
     </main>
   );
 }

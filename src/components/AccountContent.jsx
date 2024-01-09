@@ -94,7 +94,8 @@ function Account({ schedule, bands }) {
     fetchAllUsers();
   }, [userState]);
 
-  async function PostLogin() {
+  async function PostLogin(e) {
+    e.preventDefault();
     let headersList = {
       Accept: "*/*",
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Y3FzdWtyc2xmbnJ5d3Zra21sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE5NDE1MzYsImV4cCI6MTk5NzUxNzUzNn0.q1lX-ubiMOiGU0SMT99lf7QauZ0wgy7dyaNSLxTobUg",
@@ -197,7 +198,7 @@ function Account({ schedule, bands }) {
     e.preventDefault();
     const filteredItems = await allUsers.filter((item) => item.email === email);
     if (filteredItems.length === 0) {
-      PostLogin();
+      PostLogin(e);
     } else {
       setUserStatus("Email already taken.");
     }
@@ -330,7 +331,7 @@ function Account({ schedule, bands }) {
               </div>
               <div>
                 <label htmlFor="phone">Phone</label>
-                <input type="text" name="phone" required onChange={handlePhoneChange} />
+                <input type="tel" minlength="8" maxlength="8" name="phone" required onChange={handlePhoneChange} />
               </div>
               <div>
                 <label htmlFor="address">Address</label>
@@ -338,7 +339,7 @@ function Account({ schedule, bands }) {
               </div>
               <div>
                 <label htmlFor="zip">Zip-code</label>
-                <input type="text" name="zip" required onChange={handleZipChange} />
+                <input type="text" minlength="4" maxlength="4" name="zip" required onChange={handleZipChange} />
               </div>
               <input className="primary-button" type="submit" value="Create Account" />
             </form>
