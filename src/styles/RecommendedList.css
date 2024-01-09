@@ -17,7 +17,7 @@
 .recommended-artist-container {
   position: relative;
   height: 100%;
-
+  max-width: 600px;
   display: grid;
   grid-template-rows: 1fr 50px;
 
