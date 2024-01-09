@@ -140,32 +140,32 @@ export default function FinalCheckout({}) {
             <label htmlFor="firstName" className="error name">
               First name
             </label>
-            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i })} type="text" name="firstname" id="firstname" onKeyDown={handleKeyDown} />
+            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i })} type="text" id="firstname" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error name">
               Last name
             </label>
-            <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" name="lastname" id="lastname" onKeyDown={handleKeyDown} />
+            <input {...register("lastName", { required: true, pattern: /^[A-Za-zæøåÆØÅ]+$/i })} type="text" id="lastname" onKeyDown={handleKeyDown} />
           </div>
 
           <div className="inputlayout">
             <label htmlFor="cardnumber" className="error cardnr">
               Card nr.
             </label>
-            <input {...register("cardnumber", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" name="cardnumber" id="cardnumber" onKeyDown={handleKeyDownNumber} />
+            <input {...register("cardnumber", { required: true, pattern: /^[0-9]{16}$/ })} maxLength={16} type="text" id="cardnumber" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
             <label htmlFor="registrationnumber" className="error reg">
               Reg nr.
             </label>
-            <input {...register("registrationnumber", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" name="registrationnumber" id="registrationnumber" onKeyDown={handleKeyDownNumber} />
+            <input {...register("registrationnumber", { required: true, pattern: /^[0-9]{4}$/ })} maxLength={4} type="text" id="registrationnumber" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
             <label htmlFor="cvc" className="error cvc">
               CVC
             </label>
-            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" name="cvc" id="cvc" onKeyDown={handleKeyDownNumber} />
+            <input {...register("cvc", { required: true, pattern: /^[0-9]{3}$/i })} maxLength={3} type="text" id="cvc" onKeyDown={handleKeyDownNumber} />
           </div>
           <div className="inputlayout">
             <label htmlFor="expiredate" className="error expire">
@@ -189,7 +189,6 @@ export default function FinalCheckout({}) {
               type="date"
               min="2023-01-01"
               max="2028-12-12"
-              name="expiredate"
               id="expiredate"
             />
           </div>
