@@ -1,8 +1,8 @@
 .tryagaincontainer {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  justify-items: center;
-  align-content: center;
+  align-items: center;
   padding: 2rem;
   gap: 2rem;
   min-height: 100dvh;
@@ -27,6 +27,8 @@
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
   & p {
@@ -34,10 +36,4 @@
       font-size: 1.5rem;
     }
   }
-}
-
-.tryagain div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

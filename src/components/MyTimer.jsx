@@ -16,10 +16,25 @@ export default function MyTimer({ expiryTimestamp }) {
   const dispatchTimer = useContext(SetTimerContext);
 
   useEffect(() => {
+    console.log("Tiden ændrer sig");
+    /*  dispatchTimer((old) => ({
+      ...old,
+      time: seconds,
+    })); */
+    if (seconds == 0) {
+      dispatchTimer((old) => ({
+        ...old,
+        timeRunning: false,
+      }));
+    }
+  }, [seconds]);
+
+  useEffect(() => {
     if (!timerState.timeRunning) {
       pause();
     }
   }, [timerState.timeRunning]);
+
   useEffect(() => {
     if (timerState.timeRunning) {
       start();
