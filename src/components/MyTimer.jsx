@@ -7,7 +7,7 @@ import "../styles/MyTimer.css";
 import { TimerContext, SetTimerContext } from "./MyContext";
 
 export default function MyTimer({ expiryTimestamp }) {
-  const { seconds, minutes, hours, days, isRunning, start, pause, resume, restart } = useTimer({
+  const { seconds, minutes, totalSeconds, hours, days, isRunning, start, pause, resume, restart } = useTimer({
     expiryTimestamp,
     autoStart: false,
     onExpire: () => console.warn("onExpire called"),
@@ -16,18 +16,20 @@ export default function MyTimer({ expiryTimestamp }) {
   const dispatchTimer = useContext(SetTimerContext);
 
   useEffect(() => {
-    console.log("Tiden ændrer sig");
+    console.log("Tiden ændrer sig", totalSeconds);
+
     /*  dispatchTimer((old) => ({
       ...old,
       time: seconds,
     })); */
-    if (seconds == 0) {
+    if (totalSeconds == 0) {
+      console.log("Det sker i MyTimer");
       dispatchTimer((old) => ({
         ...old,
         timeRunning: false,
       }));
     }
-  }, [seconds]);
+  }, [totalSeconds]);
 
   useEffect(() => {
     if (!timerState.timeRunning) {
