@@ -17,11 +17,6 @@ export default function MyTimer({ expiryTimestamp }) {
 
   useEffect(() => {
     console.log("Tiden ændrer sig", totalSeconds);
-
-    /*  dispatchTimer((old) => ({
-      ...old,
-      time: seconds,
-    })); */
     if (totalSeconds == 0) {
       console.log("Det sker i MyTimer");
       dispatchTimer((old) => ({
