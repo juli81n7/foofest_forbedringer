@@ -27,10 +27,25 @@ header {
 }
 
 .festival-date {
+  font-size: 1rem;
   padding-inline: 4rem;
   font-weight: bold;
   @media (width<800px) {
     font-size: 1rem;
+  }
+}
+
+.cancelled-box {
+  display: flex;
+  align-items: center;
+}
+
+.cancelled-event {
+  font-size: 1rem;
+  color: var(--accent-red);
+  padding-inline: 4rem;
+  @media (width<800px) {
+    padding-inline: 2rem;
   }
 }
 

@@ -29,7 +29,7 @@ export default function Participants({ setToggleCheckout }) {
       <div className="right">
         <h2 className="ticketformh2">Info on participants</h2>
         {[...Array(state.regularCount)].map((_, index) => (
-          <div key={index}>
+          <div className="ticket-box ticket-box-padding" key={index}>
             <h3 className="participanth3">Participant {index + 1}</h3>
             <form>
               <ParticipantInfo register={register} prefix={`participant${index + 1}`} />
@@ -37,7 +37,7 @@ export default function Participants({ setToggleCheckout }) {
           </div>
         ))}
         {[...Array(state.vipCount)].map((_, index) => (
-          <div key={index}>
+          <div className="ticket-box ticket-box-padding" key={index}>
             <h3 className="participanth3">VIP Participant {index + 1}</h3>
             <form>
               <ParticipantInfo register={register} prefix={`VIPparticipant${index + 1}`} />

@@ -1,9 +1,10 @@
 .landing {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-block: 5rem;
+  padding-block: 3rem 5rem;
   border-bottom: solid 1px var(--white);
 }
 .btn_container {
@@ -75,4 +76,51 @@
       background-color: var(--accent-red);
     }
   }
+}
+.arrowScroll {
+  height: 4rem;
+  position: absolute;
+  right: 8rem;
+  bottom: 3rem;
+  transition: opacity 0.5s ease-in-out;
+}
+.arrow {
+  border: solid var(--font-clr);
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%) rotate(45deg);
+}
+.arrow:nth-child(2) {
+  animation: arrow1 1.5s ease-in-out infinite;
+}
+
+.arrow:nth-child(3) {
+  animation: arrow2 1.5s ease-in-out infinite;
+}
+@keyframes arrow1 {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 100%;
+  }
+}
+
+@keyframes arrow2 {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 50%;
+  }
+}
+.hide-arrows {
+  opacity: 0;
 }
