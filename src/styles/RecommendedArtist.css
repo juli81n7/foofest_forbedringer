@@ -3,11 +3,7 @@
   border: 1px solid var(--stroke-clr);
   overflow: hidden;
 
-  display: grid;
-  grid-template-rows: 200px auto;
-
   & img {
-    height: 200px;
     width: 100%;
     object-fit: cover;
     border-bottom: 1px solid var(--stroke-clr);

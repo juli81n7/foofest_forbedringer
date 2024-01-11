@@ -225,8 +225,9 @@ type="search" />
         <div className="likeBtnContainer">
           <LikeBtn name={myband.band.name} color="orange" />
         </div>
-        <Link href={`ArtistSingleView/${myband.band.slug}`}>{myband.band.logo.startsWith("http") ? <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name} /> : <img src={process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.band.logo} alt={myband.band.name} />}</Link>
-        <Link href={`ArtistSingleView/${myband.band.slug}`}>
+        <Link className="recommended-artist-link" href={`ArtistSingleView/${myband.band.slug}`}>
+        <div className="recommended-artist-grid">
+        {myband.band.logo.startsWith("http") ? <Image width={720} height={480} src={myband.band.logo} alt={myband.band.name} /> : <img src={process.env.NEXT_PUBLIC_HOST + "/logos/" + myband.band.logo} alt={myband.band.name} />}
           <div className="recommended-artist">
             <h3>{myband.band.name}</h3>
             <div className="stageinfo">
@@ -234,6 +235,7 @@ type="search" />
             <p>{myband.bandSchedule.start}</p>
             </div>
             
+          </div>
           </div>
         </Link>
       </div>

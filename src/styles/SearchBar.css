@@ -49,6 +49,7 @@ input[type="search"] {
 }
 .search {
   position: relative;
+  width: 100%;
 
   & ul {
     position: absolute;
