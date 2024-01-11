@@ -42,7 +42,7 @@ function Header() {
       let data = await response.json();
       console.log(data);
       setEventStatus(data);
-      console.log("VI HENTER EVENTS")
+      console.log("VI HENTER EVENTS");
     }
     
   
@@ -51,7 +51,7 @@ function Header() {
 
   setTimeout(() => {
     cancelledEvents();
-  }, 5000); 
+  }, 10000); 
 
 
 
