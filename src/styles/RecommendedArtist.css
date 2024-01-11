@@ -19,3 +19,16 @@
   color: var(--text-color);
   padding: 0.5rem;
 }
+
+.recommended-artist-container {
+  position: relative;
+
+  &:only-child {
+    max-width: 500px;
+  }
+
+  & img {
+    height: 100%;
+    object-fit: cover;
+  }
+}

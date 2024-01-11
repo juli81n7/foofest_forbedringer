@@ -3,8 +3,11 @@
   flex-direction: column;
   font-weight: 400;
 }
-label {
-  width: 100%;
+
+.participantinfoform {
+  & label {
+    width: 100%;
+  }
 }
 
 .inputlayout input {
