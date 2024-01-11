@@ -360,7 +360,7 @@ function Header() {
           <Button href="/Tickets" btntext="get tickets"></Button>
         </div>
 
-        <Image className="hero-img" src="/partypeople.png" width={720} height={480} alt="Picture of a nightime concert, full of festive people" />
+        <Image className="hero-img" src="/partypeople.webp" width={720} height={480} alt="Picture of a nightime concert, full of festive people" />
       </div>
     </header>
   );
