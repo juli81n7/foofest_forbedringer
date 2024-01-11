@@ -36,6 +36,7 @@ header {
 
 .cancelled-event {
   color: var(--accent-red);
+  padding-inline: 4rem;
 }
 
 .teasers {
