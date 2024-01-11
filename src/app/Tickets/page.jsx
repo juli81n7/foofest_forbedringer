@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import Prices from "@/components/Prices";
 import TicketVisual from "@/components/TicketVisual";
+import ScrollArrow from "@/components/ScrollArrow";
 import Link from "next/link";
 import "../../styles/Tickets.css";
 
@@ -27,6 +28,7 @@ export default function Tickets() {
         <div className="btn_container">
           <Button href="/TicketFlow" btntext="Buy now" />
         </div>
+        <ScrollArrow />
       </section>
       <Prices />
     </main>
