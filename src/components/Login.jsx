@@ -155,10 +155,10 @@ export default function Login() {
   };
 
   async function loginNow(e) {
+    e.preventDefault();
     await fetchAllUsers2();
     console.log("XXXXXXXXXXXXXXXXXXXXall users", allUsers);
     const filteredItems = allUsers.filter((item) => item.email === email && item.password === password);
-    e.preventDefault();
     console.log("Hvad fanden");
     console.log(filteredItems);
     if (filteredItems.length === 1) {
