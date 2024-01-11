@@ -153,7 +153,7 @@ export default function FinalCheckout({}) {
             <label htmlFor="firstName" className="error name">
               First name
             </label>
-            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i })} type="text" id="firstname" onKeyDown={handleKeyDown} />
+            <input {...register("firstName", { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i })} type="text" id="firstName" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error name">
@@ -196,6 +196,7 @@ export default function FinalCheckout({}) {
                 onKeyDown={handleKeyDownNumber}
               />
               <p>/</p>
+              <label aria-label="year" htmlFor="expiredateyear"></label>
               <input
                 {...register("expiredateyear", {
                   required: true,
@@ -219,7 +220,7 @@ export default function FinalCheckout({}) {
           </div>
         </form>
         <div className="btngrid">
-          <input className="submitBtn" name="submit" type="submit" onClick={handleSubmit(onSubmit)} />
+          <input className="submitBtn" name="submit" type="submit" value="submit" onClick={handleSubmit(onSubmit)} />
         </div>
       </div>
     </div>

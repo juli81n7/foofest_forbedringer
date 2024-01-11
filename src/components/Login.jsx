@@ -282,11 +282,11 @@ export default function Login() {
               {userStatus && <p className="user-status">{userStatus}</p>}
               <div>
                 <label htmlFor="email">Email</label>
-                <input type="text" name="email" required onChange={handleEmailChange} />
+                <input id="email" type="text" name="email" required onChange={handleEmailChange} />
               </div>
               <div>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" required onChange={handlePasswordChange} />
+                <input id="password" type="password" name="password" required onChange={handlePasswordChange} />
               </div>
               <input className="primary-button" type="submit" value="Login" />
             </form>

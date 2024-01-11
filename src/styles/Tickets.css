@@ -83,6 +83,9 @@
   right: 8rem;
   bottom: 3rem;
   transition: opacity 0.5s ease-in-out;
+  @media (width<400px) {
+    display: none;
+  }
 }
 .arrow {
   border: solid var(--font-clr);
