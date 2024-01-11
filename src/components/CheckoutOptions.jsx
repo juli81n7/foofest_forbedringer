@@ -19,6 +19,9 @@ function CheckoutOptions({ setToggleParticipant, buttonError, setButtonError }) 
     dispatch((old) => ({
       ...old,
       pushed: true,
+      basketCount: state.regular + state.vip,
+      regularCount: state.regular,
+      vipCount: state.vip,
     }));
   }
 
