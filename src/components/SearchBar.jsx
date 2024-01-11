@@ -78,7 +78,8 @@ function SearchBar() {
   return (
     <div className="expanderContainer">
       <div className="search">
-        <div className={"searchArea " + (search ? "active" : null)}>
+      
+        <div className={"searchArea " + (search ? "active" : "")}>
           <label htmlFor="searchthing" aria-label="search for artist"></label>
           <input autoComplete="false" type="search" id="searchthing" name="searching" placeholder="Search for bands" value={message} onChange={handleChange} onKeyDown={handleKeyDown}></input>
 

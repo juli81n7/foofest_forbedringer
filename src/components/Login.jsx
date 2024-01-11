@@ -155,10 +155,10 @@ export default function Login() {
   };
 
   async function loginNow(e) {
+    e.preventDefault();
     await fetchAllUsers2();
     console.log("XXXXXXXXXXXXXXXXXXXXall users", allUsers);
     const filteredItems = allUsers.filter((item) => item.email === email && item.password === password);
-    e.preventDefault();
     console.log("Hvad fanden");
     console.log(filteredItems);
     if (filteredItems.length === 1) {
@@ -282,11 +282,11 @@ export default function Login() {
               {userStatus && <p className="user-status">{userStatus}</p>}
               <div>
                 <label htmlFor="email">Email</label>
-                <input type="text" name="email" required onChange={handleEmailChange} />
+                <input id="email" type="text" name="email" required onChange={handleEmailChange} />
               </div>
               <div>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" required onChange={handlePasswordChange} />
+                <input id="password" type="password" name="password" required onChange={handlePasswordChange} />
               </div>
               <input className="primary-button" type="submit" value="Login" />
             </form>

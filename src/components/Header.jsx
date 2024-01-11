@@ -339,11 +339,11 @@ function Header() {
         </g>
       </svg>
       <Marquee autoFill={true} pauseOnHover={true}>
-        <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>
+        {eventStatus.length == 0 && <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>}
         {eventStatus.map((event) => (
           <div className="cancelled-box" key={event.act.act}>
-            <h2 className="cancelled-event">{event.act.act} CANCELLED</h2>
             <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>
+            <h2 className="cancelled-event">{event.act.act} CANCELLED</h2>
           </div>
         ))}
       </Marquee>
@@ -360,7 +360,7 @@ function Header() {
           <Button href="/Tickets" btntext="get tickets"></Button>
         </div>
 
-        <Image className="hero-img" src="/partypeople.png" width={720} height={480} alt="Picture of a nightime concert, full of festive people" />
+        <Image className="hero-img" src="/partypeople.webp" width={720} height={480} alt="Picture of a nightime concert, full of festive people" />
       </div>
     </header>
   );

@@ -14,8 +14,8 @@ function ArtistList(props) {
     <article className="artist-list">
       <div className="stage-details">
         <div>
-          <h3>Todays program</h3>
-          <h2 className={"artisth2 " + props.stageName}>{props.stageName}</h2>
+          <h2>Todays program</h2>
+          <h3 className={"artisth2 " + props.stageName}>{props.stageName}</h3>
         </div>
         <p>
           {props.stageName} is one of the coolest stages in all of FooFest. It is in the top 3 of our most visited stages and features some of the festivals most talented artists. Be sure to visit {props.stageName} during your stay!

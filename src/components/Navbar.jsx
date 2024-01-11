@@ -270,26 +270,26 @@ function Navbar() {
             </svg>
             FOOFEST
           </Link>
-
-          <ul className={"nav-menu " + (active ? "active" : "")}>
+          <article className={"nav-menu " + (active ? "active" : "")}>
             <h1>menu</h1>
-
-            <li className="nav-item">
-              <Link className="nav-link" href="/Tickets" onClick={handleBurgerClick}>
-                TICKETS & PRICES
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/Program" onClick={handleBurgerClick}>
-                PROGRAM & ARTISTS
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/Account" onClick={handleBurgerClick}>
-                MY ACCOUNT
-              </Link>
-            </li>
-          </ul>
+            <ul>
+              <li className="nav-item">
+                <Link className="nav-link" href="/Tickets" onClick={handleBurgerClick}>
+                  TICKETS & PRICES
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="/Program" onClick={handleBurgerClick}>
+                  PROGRAM & ARTISTS
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="/Account" onClick={handleBurgerClick}>
+                  MY ACCOUNT
+                </Link>
+              </li>
+            </ul>
+          </article>
 
           <div className="flexshelf">
             <SearchBar />
