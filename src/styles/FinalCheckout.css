@@ -12,8 +12,11 @@
   & input:nth-child(1) {
     width: 3rem;
   }
-  & input:nth-child(3) {
+  & input:nth-child(4) {
     width: 6rem;
+  }
+  & label:nth-child(3) {
+    order: 1;
   }
   & p {
     font-size: 1.8rem;
