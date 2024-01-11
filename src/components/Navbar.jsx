@@ -15,8 +15,19 @@ function Navbar() {
   const ticketState = useContext(ValueContext);
   const isOrdered = useContext(OrderStatus);
   const timerState = useContext(TimerContext);
+  const [timeStamp, setTimeStamp] = useState(900);
 
-  const seconds = timerState.time;
+  useEffect(() => {
+    const resetTimeStamp = async () => {
+      setTimeStamp(900);
+    };
+
+    if (isOrdered) {
+      resetTimeStamp();
+    }
+  }, [isOrdered]);
+
+  const seconds = 900;
   const expiryTimestamp = new Date(Date.now() + seconds * 1000);
 
   function handleBurgerClick() {
