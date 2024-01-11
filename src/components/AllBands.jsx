@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import Recommended from "./RecommendedList";
 import LikeBtn from "./LikeBtn";
