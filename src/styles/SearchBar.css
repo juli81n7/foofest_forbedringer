@@ -19,7 +19,9 @@ input[type="search"] {
 .searchArea {
   display: flex;
   justify-content: end;
-  position: relative;
+  @media (width>800px) {
+    position: relative;
+  }
   overflow: hidden;
   transition: 0.3s ease-in-out;
 
@@ -47,8 +49,16 @@ input[type="search"] {
     }
   }
 }
+
+.expanderContainer {
+  min-width: 30px;
+}
+
 .search {
-  position: relative;
+  @media (width>800px) {
+    position: relative;
+  }
+
   width: 100%;
 
   & ul {
@@ -77,6 +87,17 @@ input[type="search"] {
           color: var(--text-color);
         }
       }
+    }
+  }
+}
+
+.searchresults {
+  @media (width<800px) {
+    left: 0;
+    & li {
+      font-size: 1rem !important;
+      margin-inline: 0 !important;
+      padding: 1rem !important;
     }
   }
 }
