@@ -77,8 +77,10 @@ export default function FinalCheckout({}) {
 
       Patch(userContext.id, userContext.tickets);
 
-      timer.timeRunning = false;
-
+      timer({
+        timeRunning: false,
+        time: 0,
+      });
       basket({
         regular: 0,
         vip: 0,

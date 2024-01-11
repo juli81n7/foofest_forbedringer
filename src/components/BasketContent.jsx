@@ -12,12 +12,12 @@ export default function BasketContent() {
   const [toggleCheckout, setToggleCheckout] = useState(false);
   const state = useContext(ValueContext);
   const usercontext = useContext(UserContext);
-const continueState = useContext(ContinueContext);
-const isordered = useContext(OrderStatus);
+  const continueState = useContext(ContinueContext);
+  const isordered = useContext(OrderStatus);
 
   return (
     <>
-      {!state.regular && !state.vip ? (
+      {!state.basketCount && !isordered ? (
         <div className="whoopsies">
           {" "}
           <h2 className="whoopsies-heading">Whoopsies</h2>
@@ -26,29 +26,15 @@ const isordered = useContext(OrderStatus);
             <Button href="/TicketFlow" btntext="Get Tickets" />
           </div>{" "}
         </div>
-      ) : 
-      
-      !usercontext && !continueState? (
-     <Login/>
-    )
-      
-      : state.checkoutPush === false ? (
+      ) : !usercontext && !continueState ? (
+        <Login />
+      ) : state.checkoutPush === false && !isordered ? (
         <ParticipantComp setToggleCheckout={setToggleCheckout}></ParticipantComp>
-      ) :!isordered?
-      
-      (
-       <FinalCheckout></FinalCheckout>
-     )
-     
-     :
-     (
-     <Thanks/>
-    )
-    
-    
-    
-    }
-
+      ) : !isordered ? (
+        <FinalCheckout></FinalCheckout>
+      ) : isordered ? (
+        <Thanks />
+      ) : null}
     </>
   );
 }
