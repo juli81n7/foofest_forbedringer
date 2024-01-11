@@ -27,6 +27,7 @@ header {
 }
 
 .festival-date {
+  font-size: 1rem;
   padding-inline: 4rem;
   font-weight: bold;
   @media (width<800px) {
@@ -35,6 +36,7 @@ header {
 }
 
 .cancelled-event {
+  font-size: 1rem;
   color: var(--accent-red);
   padding-inline: 4rem;
 }
