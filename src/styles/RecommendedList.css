@@ -16,10 +16,6 @@
 
 .recommended-artist-container {
   position: relative;
-  height: 100%;
-
-  display: grid;
-  grid-template-rows: 1fr 50px;
 
   &:only-child {
     max-width: 500px;
@@ -29,6 +25,13 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+.recommended-artist-grid {
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-rows: 200px auto;
 }
 
 .recommended-artist {
