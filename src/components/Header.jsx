@@ -28,7 +28,7 @@ function Header() {
 
   const [eventStatus, setEventStatus] = useState([]);
 
-  useEffect(() => {
+
     async function cancelledEvents() {
       let headersList = {
         Accept: "*/*",
@@ -43,8 +43,17 @@ function Header() {
       console.log(data);
       setEventStatus(data);
     }
+    
+  
+
+
+
+  setTimeout(() => {
     cancelledEvents();
-  }, []);
+  }, 5000); 
+
+
+
 
   /*   {"scene":"Midgard","day":"mon","act":{"start":"00:00","end":"02:00","act":"Prohaska, Jast and O'Connell","cancelled":true}} */
 
