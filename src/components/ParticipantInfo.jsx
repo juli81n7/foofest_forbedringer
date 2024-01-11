@@ -40,7 +40,7 @@ export default function ParticipantInfo({ register, prefix }) {
   };
   //Har brugt ChatGPT til at give mig de korrekte patterns samt syntaks for `${prefix}.firstName` - Magnus
   return (
-    <div className="formcontainer">
+    <div className="formcontainer participantinfoform">
       <div className="formline">
         <div className="formgrid">
           <div className="inputlayout">
