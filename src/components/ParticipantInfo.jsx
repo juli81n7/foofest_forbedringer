@@ -33,10 +33,6 @@ export default function ParticipantInfo({ register, prefix }) {
     ) {
       event.preventDefault();
     }
-    // Tjek om tasten er et tal, og om telefonnummeret har nået 8 cifre
-    if (allowedNumbers.test(event.key) && document.querySelector("#phone").value.length === document.querySelector("#phone").maxLength) {
-      document.querySelector("#birth").focus();
-    }
   };
   //Har brugt ChatGPT til at give mig de korrekte patterns samt syntaks for `${prefix}.firstName` - Magnus
   return (
