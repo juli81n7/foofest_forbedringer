@@ -71,6 +71,9 @@ Allgenres = Allgenres.filter((value, index, self) => {
           console.log("EFTER FILTER",filteredBands)  
       
           
+          setDay("all")
+          setgenre("all")
+
         } else {
             setbands(AllBands)
         }
@@ -178,7 +181,7 @@ else{
 <div className="filterbtns">
 <label htmlFor="day">
 Day
-<select onChange={dayChange} name="day" id="day">
+<select value={day} onChange={dayChange} name="day" id="day">
 <option value="all">All</option>
 <option value="mon">Monday</option>
 <option value="tue">Tuesday</option>
@@ -192,7 +195,7 @@ Day
 </label>
 <label htmlFor="genre">
 Genre
-<select onChange={genreChange} name="genre" id="genre">
+<select value={genre} onChange={genreChange} name="genre" id="genre">
 <option value="all">All</option>
 
 {Allgenres.map((ting, index) => (
