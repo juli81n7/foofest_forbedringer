@@ -27,12 +27,15 @@ header {
 }
 
 .festival-date {
-  font-size: 1rem;
   padding-inline: 4rem;
   font-weight: bold;
   @media (width<800px) {
     font-size: 1rem;
   }
+}
+
+.cancelled-event {
+  color: var(--accent-red);
 }
 
 .teasers {

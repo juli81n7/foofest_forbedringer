@@ -6,6 +6,8 @@ import { StateContext, ValueContext } from "./MyContext";
 function ChooseCamp({ spots, setSpots, setButtonError }) {
   const state = useContext(ValueContext);
   const dispatch = useContext(StateContext);
+  
+
 
   useEffect(() => {
     async function getSpots() {
@@ -15,8 +17,10 @@ function ChooseCamp({ spots, setSpots, setButtonError }) {
       const spots = await res3.json();
       setSpots(spots);
     }
+
+
     getSpots();
-  }, [setSpots]);
+  }, [state.tents.one, state.tents.two, state.tents.three]);
 
   const onAreaSelect = (area) => {
     dispatch((old) => {

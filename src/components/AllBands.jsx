@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import Recommended from "./RecommendedList";
 import LikeBtn from "./LikeBtn";
@@ -176,7 +177,7 @@ else{
 
   return (
     <section className="all_bands">
-<h2>All bands</h2>
+<h2 className="allartist">All Artists</h2>
 <div className="filterbar">
 <div className="filterbtns">
 <label htmlFor="day">
@@ -219,8 +220,8 @@ type="search" />
 </div>
 <Recommended>
 {bands.map((myband) => (
-    <div key={myband.band.slug}>
-      <div className="recommended-artist-container" key={myband.band.slug}>
+    
+      <div  className="recommended-artist-container" key={myband.band.slug}>
         <div className="likeBtnContainer">
           <LikeBtn name={myband.band.name} color="orange" />
         </div>
@@ -236,7 +237,7 @@ type="search" />
           </div>
         </Link>
       </div>
-    </div>
+
   ))}
 </Recommended> 
     </section>

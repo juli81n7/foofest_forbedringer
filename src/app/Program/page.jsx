@@ -1,5 +1,6 @@
 import Content from "@/components/Content";
 import Calender from "@/components/Calender";
+import AllBands from "@/components/AllBands";
 import { schedule, spots, events, bands } from "../data";
 
 import "../../styles/Program.css";
@@ -17,8 +18,12 @@ export const metadata = {
 
 export default function Program() {
   return (
+<>
+    <h1 className="programh1">Program</h1>
     <Content schedule={schedule} spots={spots} events={events}>
-      <Calender schedule={schedule} bands={bands} title="Program"/>
+      <Calender schedule={schedule} bands={bands} title="Program"></Calender>
+      <AllBands bands={bands} schedule={schedule}/>
     </Content>
+    </>
   );
 }

@@ -41,6 +41,7 @@ function Account({ schedule, bands }) {
         const myUser = allUsersInfo.find((account) => account.id === userState.id);
 
         userDispatch(myUser);
+        console.log("NU GØR VI DET MED USERSTATE")
         return allUsersInfo;
       }
 
@@ -62,11 +63,11 @@ function Account({ schedule, bands }) {
 
         const userasjson = JSON.parse(sessionStorage.getItem("userlogin"));
 
+
         const myUser = allUsersInfo.find((account) => account.id === userasjson.id);
 
-        setAllUsers(myUser);
         userDispatch(myUser);
-        return allUsersInfo;
+
       }
 
       fetchAllUsers();
@@ -188,7 +189,10 @@ function Account({ schedule, bands }) {
 
       await setUser(userObject);
       await userDispatch(userObject);
-      sessionStorage.setItem("userlogin", JSON.stringify(userObject));
+
+const sessionObj = {id:userObject.id}
+
+      sessionStorage.setItem("userlogin", JSON.stringify(sessionObj));
     } else {
       setUserStatus("Email or password is incorrect.");
     }
@@ -418,8 +422,8 @@ function Account({ schedule, bands }) {
               <h2>Your tickets</h2>
               <div className="ticket-flex">
                 {userState.tickets.length > 0 ? (
-                  userState.tickets.map((ticket) => (
-                    <article className="ticket" key={ticket.id}>
+                  userState.tickets.map((ticket, index) => (
+                    <article className="ticket" key={index}>
                       <div className="ticket-top">
                         <p className="ticket-foofest">Foofest</p>
                         <svg id="ticket-logo" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.18 207.95">
