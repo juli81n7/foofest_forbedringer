@@ -339,11 +339,13 @@ function Header() {
         </g>
       </svg>
       <Marquee autoFill={true} pauseOnHover={true}>
-        <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>
         {eventStatus.map((event) => (
-          <h2 className="cancelled-event" key={event.act.act}>
-            {event.act.act} CANCELLED
-          </h2>
+          <>
+            <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>
+            <h2 className="cancelled-event" key={event.act.act}>
+              {event.act.act} CANCELLED
+            </h2>
+          </>
         ))}
       </Marquee>
       <div className="header_container">
