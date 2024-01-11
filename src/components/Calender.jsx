@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Children } from "react";
 import "../styles/Calender.css";
 
 import FilterBtn from "@/components/FilterBtn";
 import CalenderDay from "./CalenderDay";
-import AllBands from "./AllBands";
+
+
 
 const dateToday = new Date();
 const weekdayToday = dateToday.getDay();
@@ -122,8 +123,8 @@ function Calender(props) {
   const Vanaheim = props.schedule.Vanaheim;
 
   return (
-    <main>
-      <h1 className="programh1">{props.title}</h1>
+<>
+      
       <div className="filters">
         <FilterBtn link="#mon" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Monday" />
         <FilterBtn link="#tue" setBtnName={setBtnName} BtnName={BtnName} Day={day} DaySetter={DaySetter} btntext="Tuesday" />
@@ -163,8 +164,9 @@ function Calender(props) {
 
 
       </section>
-      <AllBands bands={props.bands} schedule={props.schedule}/>
-    </main>
+      
+      </>
+
   );
 }
 

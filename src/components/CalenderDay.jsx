@@ -167,7 +167,7 @@ function CalenderDay(props) {
           <div className="calenderhour"></div>
           <div className="calenderhour"></div>
 
-          {Midgard.map((thing) => (thing.act !== "break" ? <CalenderEvent scene="midgard" img2={props.bands.find((band) => band.name === thing.act).logo} slug={props.bands.find((band) => band.name === thing.act).slug} key={props.bands.find((band) => band.name === thing.act).id} name={thing.act} start={thing.start} end={thing.end} /> : null))}
+          {Midgard.map((thing, index) => (thing.act !== "break" ? <CalenderEvent scene="midgard" img2={props.bands.find((band) => band.name === thing.act).logo} slug={props.bands.find((band) => band.name === thing.act).slug} key={props.bands.find((band) => band.name === thing.act).id} name={thing.act} start={thing.start} end={thing.end} /> : null))}
         </div>
         <div className="calenderbar">
           <div className="calenderhour"></div>

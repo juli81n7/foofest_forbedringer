@@ -1,5 +1,6 @@
-h2 {
+h2.allartist {
   margin-left: 1rem;
+  font-size: 3rem;
 }
 .filterbtns {
   display: flex;
@@ -29,7 +30,23 @@ label {
   justify-content: space-between;
   gap: 2rem;
   padding-right: 1rem;
-  flex-wrap: wrap;
+
+  @media (max-width: 1000px) {
+    & .search_label {
+      width: 100%;
+      max-width: none;
+    }
+  }
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+
+    & .search_label {
+      width: 100%;
+      max-width: none;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
 }
 
 .search_label {

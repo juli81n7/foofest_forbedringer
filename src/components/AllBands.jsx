@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import Recommended from "./RecommendedList";
 import LikeBtn from "./LikeBtn";
@@ -71,6 +72,9 @@ Allgenres = Allgenres.filter((value, index, self) => {
           console.log("EFTER FILTER",filteredBands)  
       
           
+          setDay("all")
+          setgenre("all")
+
         } else {
             setbands(AllBands)
         }
@@ -173,12 +177,12 @@ else{
 
   return (
     <section className="all_bands">
-<h2>All bands</h2>
+<h2 className="allartist">All Artists</h2>
 <div className="filterbar">
 <div className="filterbtns">
 <label htmlFor="day">
 Day
-<select onChange={dayChange} name="day" id="day">
+<select value={day} onChange={dayChange} name="day" id="day">
 <option value="all">All</option>
 <option value="mon">Monday</option>
 <option value="tue">Tuesday</option>
@@ -192,7 +196,7 @@ Day
 </label>
 <label htmlFor="genre">
 Genre
-<select onChange={genreChange} name="genre" id="genre">
+<select value={genre} onChange={genreChange} name="genre" id="genre">
 <option value="all">All</option>
 
 {Allgenres.map((ting, index) => (
@@ -216,8 +220,8 @@ type="search" />
 </div>
 <Recommended>
 {bands.map((myband) => (
-    <div key={myband.band.slug}>
-      <div className="recommended-artist-container" key={myband.band.slug}>
+    
+      <div  className="recommended-artist-container" key={myband.band.slug}>
         <div className="likeBtnContainer">
           <LikeBtn name={myband.band.name} color="orange" />
         </div>
@@ -233,7 +237,7 @@ type="search" />
           </div>
         </Link>
       </div>
-    </div>
+
   ))}
 </Recommended> 
     </section>

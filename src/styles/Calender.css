@@ -398,7 +398,7 @@ main {
   align-items: center;
   color: var(--accent-red);
   text-align: center;
-  z-index: 999999;
+  z-index: 99999;
 
   & .now_line {
     background-color: var(--accent-red);
