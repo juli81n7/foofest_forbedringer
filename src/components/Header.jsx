@@ -42,6 +42,7 @@ function Header() {
       let data = await response.json();
       console.log(data);
       setEventStatus(data);
+      console.log("VI HENTER EVENTS")
     }
     
   
