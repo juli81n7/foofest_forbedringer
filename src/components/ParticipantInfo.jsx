@@ -47,7 +47,7 @@ export default function ParticipantInfo({ register, prefix }) {
             <label htmlFor="firstName" className="error name">
               First name
             </label>
-            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i, message: "firstname is required" })} type="text" id="firstname" onKeyDown={handleKeyDown} />
+            <input {...register(`${prefix}.firstName`, { required: true, pattern: /^[A-Za-zæøåÆØÅ\s.,]+$/i, message: "firstname is required" })} type="text" id="firstName" onKeyDown={handleKeyDown} />
           </div>
           <div className="inputlayout">
             <label htmlFor="lastname" className="error name">
