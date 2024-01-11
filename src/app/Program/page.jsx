@@ -22,7 +22,7 @@ export default function Program() {
     <h1 className="programh1">Program</h1>
     <Content schedule={schedule} spots={spots} events={events}>
       <Calender schedule={schedule} bands={bands} title="Program"></Calender>
-      <AllBands bands={bands} schedule={schedule}/>
+      
     </Content>
     </>
   );
