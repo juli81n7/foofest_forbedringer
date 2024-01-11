@@ -22,13 +22,17 @@ export default function MyTimer({ expiryTimestamp }) {
       dispatchTimer((old) => ({
         ...old,
         timeRunning: false,
+        time: 900,
       }));
     }
   }, [totalSeconds]);
 
+  const resetTime = 900;
+  const restartTime = new Date(Date.now() + resetTime * 1000);
+
   useEffect(() => {
     if (!timerState.timeRunning) {
-      pause();
+      restart(restartTime, false);
     }
   }, [timerState.timeRunning]);
 
