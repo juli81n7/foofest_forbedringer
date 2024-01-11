@@ -47,6 +47,11 @@ input[type="search"] {
     }
   }
 }
+
+.expanderContainer {
+  min-width: 30px;
+}
+
 .search {
   position: relative;
   width: 100%;
