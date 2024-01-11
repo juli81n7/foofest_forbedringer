@@ -34,6 +34,10 @@ header {
   }
 }
 
+.cancelled-event {
+  color: var(--accent-red);
+}
+
 .teasers {
   grid-column: 1/4;
   display: flex;

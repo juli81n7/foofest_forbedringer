@@ -34,3 +34,11 @@
 .participanth3 {
   margin-block: 2rem;
 }
+
+.ticket-box:not(:last-of-type) {
+  border-bottom: solid 1px var(--white);
+}
+
+.ticket-box-padding {
+  padding-top: 2rem;
+}

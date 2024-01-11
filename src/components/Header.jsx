@@ -341,7 +341,7 @@ function Header() {
       <Marquee autoFill={true} pauseOnHover={true}>
         <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>
         {eventStatus.map((event) => (
-          <h2 key={event.act.act}>
+          <h2 className="cancelled-event" key={event.act.act}>
             {event.act.act} {event.day} {event.act.start}-{event.act.end} CANCELLED :(
           </h2>
         ))}
