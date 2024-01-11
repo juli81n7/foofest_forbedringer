@@ -339,7 +339,7 @@ function Header() {
         </g>
       </svg>
       <Marquee autoFill={true} pauseOnHover={true}>
-        <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>
+        {eventStatus.length === 0 && <h2 className="festival-date">17.10.2024 - 24.10.2024</h2>}
         {eventStatus.map((event) => (
           <div className="cancelled-box" key={event.act.act}>
             <h2 className="cancelled-event">{event.act.act} CANCELLED</h2>
