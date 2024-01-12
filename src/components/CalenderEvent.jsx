@@ -58,33 +58,17 @@ function CalenderEvent(props) {
 
   return (
     <div className={`event start${start} end${end}`}>
-    <div className="myLikeBtnContainer">
+      <div className="myLikeBtnContainer">
         <LikeBtn name={props.name} color="orange"></LikeBtn>
       </div>
       <Link className="eventlink" href={`ArtistSingleView/${props.slug}`}>
-        <div className="img_container">
+        <div className="img_container">{props.img2.startsWith("http") ? <Image width={200} height={200} src={props.img2} alt="" /> : <img className="myslugimage" src={process.env.NEXT_PUBLIC_HOST + "/logos/" + props.img2} alt={props.name} />}</div>
 
-        {
-          props.img2.startsWith("http")?
-          <Image width={200} height={200} src={props.img2} alt={props.name} />
-  :
-   <img className="myslugimage" src= {process.env.NEXT_PUBLIC_HOST + "/logos/" + props.img2} alt={props.name} />
-        }
-  
-
-
-
-        </div>
-      
-
-      
-
-      <div className="text">
-        <p>{props.start + "-" + props.end}</p>
-        <h4>{props.name}</h4>
+        <div className="text">
+          <p>{props.start + "-" + props.end}</p>
+          <h4>{props.name}</h4>
         </div>
       </Link>
-      
     </div>
   );
 }
