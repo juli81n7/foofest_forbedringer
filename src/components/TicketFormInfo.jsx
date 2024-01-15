@@ -1,11 +1,38 @@
 import "@/styles/TicketFormInfo.css";
 import { useContext } from "react";
-import { ValueContext } from "./MyContext";
+import { ValueContext, StateContext, SetTimerContext } from "./MyContext";
 export default function TicketFormInfo() {
   const state = useContext(ValueContext);
+  const setState = useContext(StateContext);
+  const setTimer = useContext(SetTimerContext);
   const totalTents = state.tents.one + state.tents.two + state.tents.three;
   const totalTentsCrewPrice = state.tents.one * 199 + state.tents.two * 299 + state.tents.three * 399;
   const totalGreenCamping = totalTents * 249;
+
+  function resetBasket() {
+    setState({
+      regular: 0,
+      vip: 0,
+      tents: {
+        one: 0,
+        two: 0,
+        three: 0,
+      },
+      basketCount: 0,
+      regularCount: 0,
+      vipCount: 0,
+      campingArea: null,
+      greenCamping: false,
+      crewSetup: false,
+      pushed: false,
+      checkoutPush: false,
+    });
+    setTimer({
+      timeRunning: false,
+      time: 0,
+    });
+  }
+
   return (
     <div>
       <div className="ticketinfo">
@@ -117,6 +144,9 @@ export default function TicketFormInfo() {
           <p>Total price</p>
           <p>{state.regular * 799 + state.vip * 1299 + (state.crewSetup ? totalTentsCrewPrice : null) + (state.greenCamping ? totalGreenCamping : null) + 99} DKK</p>
         </div>
+      </div>
+      <div id="clear-basket-container" onClick={resetBasket}>
+        <button className="clear-basket">Clear basket</button>
       </div>
     </div>
   );

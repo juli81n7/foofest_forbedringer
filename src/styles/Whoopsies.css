@@ -1,0 +1,12 @@
+.whoopsies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  gap: 1rem;
+}
+
+.whoopsies-heading {
+  font-size: clamp(2rem, 7.9vw, 6rem);
+}

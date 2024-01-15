@@ -46,3 +46,23 @@
   font-size: 1.5rem;
   color: var(--accent-red);
 }
+
+#clear-basket-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.clear-basket {
+  display: block;
+  color: var(--stroke-clr-op);
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: fit-content;
+  height: auto;
+  &:hover {
+    color: var(--font-clr);
+  }
+}

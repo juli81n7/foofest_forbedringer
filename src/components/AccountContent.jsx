@@ -289,7 +289,10 @@ function Account({ schedule, bands }) {
               </div>
               <div>
                 <label htmlFor="password">Password</label>
-                <input id="email" type="password" name="password" required onChange={handlePasswordChange} />
+                <input id="password" type="password" name="password" required onChange={handlePasswordChange} />
+                <span class="toggle-password" onclick="togglePasswordVisibility()">
+                  Show Password
+                </span>
               </div>
               <input className="primary-button" type="submit" value="Login" />
             </form>
