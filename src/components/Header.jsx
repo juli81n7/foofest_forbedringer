@@ -28,7 +28,7 @@ function Header() {
 
   const [eventStatus, setEventStatus] = useState([]);
 
-
+  useEffect(() => {
     async function cancelledEvents() {
       let headersList = {
         Accept: "*/*",
@@ -40,19 +40,15 @@ function Header() {
       });
 
       let data = await response.json();
-      console.log(data);
+      console.log("Min data",data);
       setEventStatus(data);
-      console.log("VI HENTER EVENTS")
     }
-    
-  
-
-
-
-  setTimeout(() => {
     cancelledEvents();
-  }, 5000); 
+  }, []);
 
+
+
+  
 
 
 
