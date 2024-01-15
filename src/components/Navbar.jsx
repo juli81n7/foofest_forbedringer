@@ -318,7 +318,12 @@ function Navbar() {
                 </svg>
               </div>
             </div>
-            <MyTimer expiryTimestamp={expiryTimestamp} />
+
+            <Link className="account-icon" href={"/Account"} aria-label="To your Account">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              </svg>
+            </Link>
 
             <div className="basketContainer">
               <Link href={"/Basket"} aria-label="To your Basket">
@@ -330,6 +335,8 @@ function Navbar() {
                 </div>
               </Link>
             </div>
+
+            <MyTimer expiryTimestamp={expiryTimestamp} />
             <div className={"hamburger " + (active ? "active" : "")} onClick={handleBurgerClick}>
               <span className="bar1"></span>
               <span className="bar2"></span>

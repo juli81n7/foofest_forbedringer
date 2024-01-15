@@ -19,6 +19,10 @@
   & h1 {
     font-size: 6rem;
     line-height: 6rem;
+
+    @media (max-width: 800px) {
+      font-size: 5rem;
+    }
   }
 }
 .blur {
@@ -86,11 +90,13 @@
 
 .nav_container .nav-link {
   font-weight: 700;
-
   font-size: 2rem;
   padding-bottom: 0.5rem;
   &:hover {
     color: var(--accent-blue);
+  }
+  @media (max-width: 800px) {
+    font-size: 1.75rem;
   }
 }
 .flexshelf {
