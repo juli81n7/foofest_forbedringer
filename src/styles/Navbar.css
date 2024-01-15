@@ -140,6 +140,17 @@
 
   color: var(--secondary);
 }
+
+.account-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
 .diplayBasketNumber {
   position: absolute;
   background-color: var(--accent-orange);
