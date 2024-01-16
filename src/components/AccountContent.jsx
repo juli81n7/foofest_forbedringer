@@ -329,15 +329,15 @@ function Account({ schedule, bands }) {
               </div>
               <div>
                 <label htmlFor="phone">Phone</label>
-                <input id="phone" type="tel" minlength="8" maxlength="8" name="phone" required onChange={handlePhoneChange} />
+                <input id="phone" type="tel" pattern="[0-9]{8}" title="You phone must only contain numbers" minlength="8" maxlength="8" name="phone" required onChange={handlePhoneChange} />
               </div>
               <div>
                 <label htmlFor="address">Address</label>
                 <input id="address" type="text" name="address" required onChange={handleAddressChange} />
               </div>
               <div>
-                <label htmlFor="zip">Zip-code</label>
-                <input id="zip" type="text" minlength="4" maxlength="4" name="zip" required onChange={handleZipChange} />
+                <label htmlFor="zip">Zip-Code</label>
+                <input id="zip" type="text" pattern="[0-9]{4}" title="You zip-code must only contain numbers" minlength="4" maxlength="4" name="zip" required onChange={handleZipChange} />
               </div>
               <input className="primary-button" type="submit" value="Create Account" />
             </form>
